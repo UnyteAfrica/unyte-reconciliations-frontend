@@ -8,7 +8,7 @@ import Claims from "./Pages/Claims";
 function App() {
 
   return (
-    <div className="min-h-screen mx-auto max-w-6xl">
+    <div className="min-h-screen">
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route path="overview" element={<Overview />} />

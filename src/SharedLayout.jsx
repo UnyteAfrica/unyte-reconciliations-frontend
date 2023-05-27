@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-import NavBar from "../Components/NavBar";
+import NavBar from "./Components/NavBar";
 
 function SharedOutlet() {
     return (
