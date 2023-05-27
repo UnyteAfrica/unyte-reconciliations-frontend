@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-import SearchIcon from "../assets/icons/SearchIcon.svg";
+import SearchIcon from "../assets/Icons/SearchIcon.svg";
 function SearchBar({ handleSearch, placeholder }) {
     const [value, setValue] = useState("")
   return (
