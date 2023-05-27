@@ -11,7 +11,7 @@ function App() {
     <div className="min-h-screen">
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route path="overview" element={<Overview />} />
+        <Route path="/" element={<Overview />} />
         <Route path="policies" element={<Policies />} />
         <Route path="claims" element={<Claims />} />
       </Route>

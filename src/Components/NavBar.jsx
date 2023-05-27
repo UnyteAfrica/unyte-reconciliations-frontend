@@ -25,7 +25,7 @@ function NavBar() {
             to="/"
             className={`${
               location.pathname === "/"
-                ? "text-[#25D366] underline underline-offset-[34px] decoration-4"
+                ? "text-[#25D366] underline underline-offset-[30px] decoration-4"
                 : "text-[#333333]"
             } font-semibold text-lg duration-300`}
           >
@@ -35,7 +35,7 @@ function NavBar() {
             to="policies"
             className={`${
               location.pathname === "/policies"
-                ? "text-[#25D366] underline underline-offset-[34px] decoration-4"
+                ? "text-[#25D366] underline underline-offset-[30px] decoration-4"
                 : "text-[#333333]"
             } font-semibold text-lg duration-300`}
           >
@@ -45,7 +45,7 @@ function NavBar() {
             to="claims"
             className={`${
               location.pathname === "/claims"
-                ? "text-[#25D366] underline underline-offset-[34px] decoration-4"
+                ? "text-[#25D366] underline underline-offset-[30px] decoration-4"
                 : "text-[#333333]"
             } font-semibold text-lg duration-300`}
           >
@@ -59,7 +59,7 @@ function NavBar() {
               onClick={toggleDropdown}
             >
               <div className="space-x-2 flex flex-row items-center">
-                <div className="rounded-full p-2 bg-gray-200 text-[10px] flex items-center justify-center">
+                <div className="rounded-full h-7 w-7 p-2 bg-gray-200 text-[10px] flex items-center justify-center">
                   FA
                 </div>
                 <span className="text-lg font-semibold">Fortunate Anozie</span>{" "}
