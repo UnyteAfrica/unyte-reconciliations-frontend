@@ -22,9 +22,9 @@ function NavBar() {
         </div>
         <div id="pages" className="space-x-24">
           <NavLink
-            to="/"
+            to="/app"
             className={`${
-              location.pathname === "/"
+              location.pathname.includes("/app") && (!location.pathname.includes("/app/policies")) && (!location.pathname.includes("app/claims"))
                 ? "text-[#25D366] underline underline-offset-[30px] decoration-4"
                 : "text-[#333333]"
             } font-semibold text-lg duration-300`}
@@ -34,7 +34,7 @@ function NavBar() {
           <NavLink
             to="policies"
             className={`${
-              location.pathname === "/policies"
+              location.pathname.includes("/app/policies")
                 ? "text-[#25D366] underline underline-offset-[30px] decoration-4"
                 : "text-[#333333]"
             } font-semibold text-lg duration-300`}
@@ -44,7 +44,7 @@ function NavBar() {
           <NavLink
             to="claims"
             className={`${
-              location.pathname === "/claims"
+              location.pathname.includes("/app/claims")
                 ? "text-[#25D366] underline underline-offset-[30px] decoration-4"
                 : "text-[#333333]"
             } font-semibold text-lg duration-300`}
@@ -74,15 +74,15 @@ function NavBar() {
                   </div>
                   <span className="text-base font-medium">
                     Fortunate Anozie
-                  </span>{" "}
+                  </span>
                 </div>
                 <hr />
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-red-600 hover:bg-gray-200"
+                <NavLink
+                  to="/"
+                  className="block px-4 py-2 text-red-600 hover:bg-gray-200 font-medium"
                 >
                   Sign out
-                </a>
+                </NavLink>
               </div>
             )}
           </div>
