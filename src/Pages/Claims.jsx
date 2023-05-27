@@ -72,7 +72,8 @@ function Claims() {
           <NavLink
             to="/app/claims"
             className={`${
-                location.pathname.includes("/claims") && (!location.pathname.includes("claims/completed"))
+              location.pathname.includes("/claims") &&
+              !location.pathname.includes("claims/completed")
                 ? "text-[#25D366] underline underline-offset-[21px] decoration-4"
                 : "text-[#333333]"
             } font-semibold text-lg duration-300`}
@@ -104,7 +105,10 @@ function Claims() {
             <DownloadBtn />
           </div>
         </div>
-        {location.pathname === "claims/pending" ? <PendingClaims /> : <CompletedClaims />}
+        <Routes>
+          <Route path="/" element={<PendingClaims />} />
+          <Route path="completed" element={<CompletedClaims />} />
+        </Routes>
         <div className="mb-40">
           <Pagination
             itemsCount={count}
@@ -114,10 +118,6 @@ function Claims() {
           />
         </div>
       </div>
-      <Routes>
-          <Route path="/" element={<PendingClaims />} />
-          <Route path="completed" element={<CompletedClaims />} />
-        </Routes>
     </>
   );
 }
