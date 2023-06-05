@@ -1,13 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
+import { Navigate } from "react-router-dom";
 import Chart from "react-apexcharts";
+import axios from "axios";
+import { endpoint } from "../Endpoint/endpoint";
+
+import { DashboardContext } from "../Context/Context"
 
 function Overview() {
   const [isOpen, setIsOpen] = useState(false);
+  const { userData = { policies_sold: 0, partner: { name: '' } }, setUserData } = useContext(DashboardContext);
+
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios(`${endpoint}/partner/home`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          }
+        })
+        console.log(response.data.data)
+        setUserData(response.data.data)
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchData()
+  }, [setUserData])
 
   const chartData = {
     series: [
@@ -79,6 +105,10 @@ function Overview() {
     }
   };
 
+  if (!localStorage.getItem("token")) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <>
       <div className="mx-auto max-w-6xl mt-12 px-6 lg:px-0">
@@ -117,7 +147,7 @@ function Overview() {
               NUMBER OF POLICIES SOLD
             </p>
             <p className="text-xl text-[#333333] font-semibold">
-              20,000 policies
+              { userData?.policies_sold } policies
             </p>
           </div>
           <div className="rounded p-6 border w-[30rem]">

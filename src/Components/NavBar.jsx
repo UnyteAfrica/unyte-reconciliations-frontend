@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
+import { DashboardContext } from "../Context/Context";
 import UnyteLogo from "../assets/Icons/UnyteLogo.svg";
 
 function NavBar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+
+  const { userData = { policies_sold: 0, partner: { Name: '' } } } = useContext(DashboardContext);
+
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -62,7 +66,7 @@ function NavBar() {
                 <div className="rounded-full h-7 w-7 p-2 bg-gray-200 text-[10px] flex items-center justify-center">
                   FA
                 </div>
-                <span className="text-lg font-semibold">Fortunate Anozie</span>{" "}
+                <span className="text-lg font-semibold">{ userData.partner?.Name }</span>{" "}
                 {isOpen ? <BiChevronUp /> : <BiChevronDown />}{" "}
               </div>
             </button>
@@ -73,7 +77,7 @@ function NavBar() {
                     FA
                   </div>
                   <span className="text-base font-medium">
-                    Fortunate Anozie
+                    { userData.partner?.Name }
                   </span>
                 </div>
                 <hr />
