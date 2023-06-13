@@ -162,7 +162,8 @@ function Login() {
           </div>
           <div className="text-center mt-12">
             <button className="px-10 py-2 text-base bg-[#25D366] rounded text-white" disabled={
-              error.email || error.otp || !isEmailValid || !otp || !email
+              error.email || !isEmailValid || !email ||
+              (!isDisabled && (error.otp || !otp))
                 ? true
                 : false
             }>
