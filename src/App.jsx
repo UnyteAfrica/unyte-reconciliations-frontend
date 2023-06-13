@@ -6,7 +6,7 @@ import SharedLayout from "./SharedLayout";
 import Overview from "./Pages/Overview";
 import Policies from "./Pages/Policies";
 import Claims from "./Pages/Claims";
-import SignUp from "./Pages/SignUp";
+import Login from "./Pages/Login";
 import { DashboardProvider } from "./Context/Context";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <ToastContainer />
       <DashboardProvider>
         <Routes>
-          <Route path="/" element={<SignUp />} />
+          <Route path="/" element={<Login />} />
           <Route path="/app/*" element={<SharedLayout />}>
             <Route path="" element={<Overview />} />
             <Route path="policies" element={<Policies />} />

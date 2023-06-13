@@ -5,7 +5,7 @@ import { BiShow, BiHide } from "react-icons/bi";
 import axios from "axios";
 import { endpoint } from "../Endpoint/endpoint";
 
-function SignUp() {
+function Login() {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [type, setType] = useState("password");
@@ -111,7 +111,7 @@ function SignUp() {
     <div className="flex justify-center items-center bg-[#f5f5f5] min-h-screen">
       <div className="p-10 bg-white">
         <p className="text-center mb-6 font-semibold text-[#333333] text-2xl">
-          Sign up
+          Login
         </p>
         <p className="mb-4 text-lg text-[#333333]">
           Log in to your account by entering your Email
@@ -166,7 +166,7 @@ function SignUp() {
                 ? true
                 : false
             }>
-              Sign up
+              Login
             </button>
           </div>
         </form>
@@ -175,4 +175,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Login;
