@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import FilterBtn from "../Components/FilterBtn";
 import DownloadBtn from "../Components/DownloadBtn";
-import Pagination from "../Components/Pagination";
 
 import Table from "../Components/Table";
 import SearchBar from "../Components/SearchBar";
@@ -16,18 +15,11 @@ function Policies() {
     "Price",
   ];
   const [tableBody, setTableBody] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
 
   const handleSearch = () => {
     //
   }
 
-  const pageSize = 10;
-  const count = tableBody.length;
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  }
 
   useEffect(() => {
     setTableBody([
@@ -82,10 +74,10 @@ function Policies() {
           </div>
         </div>
         <div id="policies-table" className="mb-10">
-          <Table tableHead={tableHead} tableBody={tableBody} />
+          <Table tableHead={tableHead} tableBody={tableBody} tableType="policies" />
         </div>
         <div className="mb-40">
-            <Pagination itemsCount={count} pageSize={pageSize} onPageChange={handlePageChange} currentPage={currentPage}/>
+            {/*Pagination component */}
         </div>
       </div>
     </>

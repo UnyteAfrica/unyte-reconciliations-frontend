@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import { NavLink, useLocation, Routes, Route } from "react-router-dom";
 import FilterBtn from "../Components/FilterBtn";
 import DownloadBtn from "../Components/DownloadBtn";
-import Pagination from "../Components/Pagination";
 
 import SearchBar from "../Components/SearchBar";
 import CompletedClaims from "./CompletedClaims";
@@ -10,61 +8,12 @@ import PendingClaims from "./PendingClaims";
 //import { paginate } from "../utils/paginate";
 
 function Claims() {
-  const [tableBody, setTableBody] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-
   const location = useLocation();
 
   const handleSearch = () => {
     //
   };
 
-  const pageSize = 10;
-  const count = tableBody.length;
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
-
-  useEffect(() => {
-    setTableBody([
-      {
-        ref: "#WP62F3E8F93",
-        number: "123jkf5402",
-        insurer: "AXA mansard",
-        date: "May 7, 2023",
-        price: "₦40,000.00",
-      },
-      {
-        ref: "#WP62F3E8F93",
-        number: "123jkf5402",
-        insurer: "AXA mansard",
-        date: "May 7, 2023",
-        price: "₦40,000.00",
-      },
-      {
-        ref: "#WP62F3E8F93",
-        number: "123jkf5402",
-        insurer: "AXA mansard",
-        date: "May 7, 2023",
-        price: "₦40,000.00",
-      },
-      {
-        ref: "#WP62F3E8F93",
-        number: "123jkf5402",
-        insurer: "AXA mansard",
-        date: "May 7, 2023",
-        price: "₦40,000.00",
-      },
-      {
-        ref: "#WP62F3E8F93",
-        number: "123jkf5402",
-        insurer: "AXA mansard",
-        date: "May 7, 2023",
-        price: "₦40,000.00",
-      },
-    ]);
-  }, []);
   return (
     <>
       <div className="mx-auto max-w-6xl mt-12 px-6 lg:px-0">
@@ -110,12 +59,7 @@ function Claims() {
           <Route path="completed" element={<CompletedClaims />} />
         </Routes>
         <div className="mb-40">
-          <Pagination
-            itemsCount={count}
-            pageSize={pageSize}
-            onPageChange={handlePageChange}
-            currentPage={currentPage}
-          />
+          {/*Pagination component */}
         </div>
       </div>
     </>

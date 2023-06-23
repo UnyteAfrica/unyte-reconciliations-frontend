@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { BiShow, BiHide } from "react-icons/bi";
 import axios from "axios";
 import { endpoint } from "../Endpoint/endpoint";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
-  const [type, setType] = useState("password");
   const [isDisabled, setIsDisabled] = useState(true);
   const [error, setError] = useState({});
   const [isEmailValid, setIsEmailValid] = useState(true);
@@ -74,7 +72,7 @@ function Login() {
     validateOtp(otp);
     validateEmail(email);
 
-    if (error.name || error.email || !isEmailValid) {
+    if (error.otp || error.email || !isEmailValid) {
       return;
     }
 
@@ -130,13 +128,13 @@ function Login() {
                 error.email ? "" : "hidden"
               } text-red-600 text-sm mt-2 font-medium block`}
             >
-              {error.name}
+              {error.email}
             </span>
           </div>
           <div className={`form-group relative ${isDisabled ? "hidden" : ""}`}>
             <p className="mb-1 text-xl text-[#333333]">Enter OTP</p>
             <input
-              type={type}
+              type="text"
               value={otp}
               onChange={handleOtpChange}
               className="py-5 px-4 w-full border rounded bg-transparent"
@@ -146,19 +144,8 @@ function Login() {
                 error.otp ? "" : "hidden"
               } text-red-600 text-sm mt-2 font-medium block`}
             >
-              {error.name}
+              {error.otp}
             </span>
-            {type === "password" ? (
-              <BiShow
-                onClick={() => setType("text")}
-                className="absolute top-[3.6rem] right-4 cursor-pointer"
-              />
-            ) : (
-              <BiHide
-                onClick={() => setType("password")}
-                className="absolute top-[3.6rem] right-4 cursor-pointer"
-              />
-            )}
           </div>
           <div className="text-center mt-12">
             <button className="px-10 py-2 text-base bg-[#25D366] rounded text-white" disabled={

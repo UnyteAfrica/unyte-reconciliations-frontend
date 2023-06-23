@@ -18,46 +18,51 @@ function PendingClaims() {
   useEffect(() => {
     setTableBody([
       {
-        ref: "#WP62F3E8F93",
         number: "123jkf5402",
-        insurer: "AXA mansard",
+        email: "samloco@gmail.com",
         date: "May 7, 2023",
-        price: "₦40,000.00",
+        insurer: "AXA mansard",
+        status: "processing",
+        estimate: "₦40,000.00",
       },
       {
-        ref: "#WP62F3E8F93",
         number: "123jkf5402",
-        insurer: "AXA mansard",
+        email: "samloco@gmail.com",
         date: "May 7, 2023",
-        price: "₦40,000.00",
+        insurer: "AXA mansard",
+        status: "submitted",
+        estimate: "₦40,000.00",
       },
       {
-        ref: "#WP62F3E8F93",
         number: "123jkf5402",
-        insurer: "AXA mansard",
+        email: "samloco@gmail.com",
         date: "May 7, 2023",
-        price: "₦40,000.00",
+        insurer: "AXA mansard",
+        status: "processing",
+        estimate: "₦40,000.00",
+      },
+      { 
+        number: "123jkf5402",
+        email: "samloco@gmail.com",
+        date: "May 7, 2023",
+        insurer: "AXA mansard",
+        status: "processing",
+        estimate: "₦40,000.00",
       },
       {
-        ref: "#WP62F3E8F93",
         number: "123jkf5402",
-        insurer: "AXA mansard",
+        email: "samloco@gmail.com",
         date: "May 7, 2023",
-        price: "₦40,000.00",
-      },
-      {
-        ref: "#WP62F3E8F93",
-        number: "123jkf5402",
         insurer: "AXA mansard",
-        date: "May 7, 2023",
-        price: "₦40,000.00",
+        status: "submitted",
+        estimate: "₦40,000.00",
       },
     ]);
   }, []);
   return (
     <>
         <div id="policies-table" className="mb-10">
-          <Table tableHead={tableHead} tableBody={tableBody} />
+          <Table tableHead={tableHead} tableBody={tableBody} tableType="claims" />
         </div>
     </>
   );
