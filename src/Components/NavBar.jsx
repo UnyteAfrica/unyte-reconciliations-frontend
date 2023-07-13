@@ -46,7 +46,7 @@ function NavBar() {
             Policies
           </NavLink>
           <NavLink
-            to="claims"
+            to="claims/pending"
             className={`${
               location.pathname.includes("/app/claims")
                 ? "text-[#25D366] underline underline-offset-[30px] decoration-4"

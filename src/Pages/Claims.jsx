@@ -19,10 +19,9 @@ function Claims() {
       <div className="mx-auto max-w-6xl mt-12 px-6 lg:px-0">
         <div className="flex flex-row space-x-8 p-4">
           <NavLink
-            to="/app/claims"
+            to="/app/claims/pending"
             className={`${
-              location.pathname.includes("/claims") &&
-              !location.pathname.includes("claims/completed")
+              location.pathname.includes("/claims/pending")
                 ? "text-[#25D366] underline underline-offset-[21px] decoration-4"
                 : "text-[#333333]"
             } font-semibold text-lg duration-300`}
@@ -55,7 +54,7 @@ function Claims() {
           </div>
         </div>
         <Routes>
-          <Route path="/" element={<PendingClaims />} />
+          <Route path="pending" element={<PendingClaims />} />
           <Route path="completed" element={<CompletedClaims />} />
         </Routes>
         <div className="mb-40">

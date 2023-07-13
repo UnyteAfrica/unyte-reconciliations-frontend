@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
-import Status from "./Status"
+import { Link } from "react-router-dom";
+
+import Status from "./Status";
 
 function Table({ tableHead, tableBody, tableType }) {
   return (
@@ -28,11 +30,17 @@ function Table({ tableHead, tableBody, tableType }) {
             ))
           : tableBody.map((body, i) => (
               <tr key={i} className="border-b font-medium">
-                <td className="p-4">{body.number}</td>
+                <td className="p-4 hover:text-[#25D366]">
+                  <Link to={`claimsInformation/${body.number}`}>
+                    {body.number}
+                  </Link>
+                </td>
                 <td className="p-4">{body.email}</td>
                 <td className="p-4">{body.date}</td>
                 <td className="p-4">{body.insurer}</td>
-                <td className="p-4"><Status status={body.status} /></td>
+                <td className="p-4">
+                  <Status status={body.status} />
+                </td>
                 <td className="p-4">{body.estimate}</td>
               </tr>
             ))}
