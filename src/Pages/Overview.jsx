@@ -111,7 +111,7 @@ function Overview() {
 
   return (
     <>
-      <div className="mx-auto max-w-6xl mt-12 px-6 lg:px-0">
+      <div className="mx-auto max-w-[48rem] xl:max-w-6xl mt-12 px-6 lg:px-0">
         <div className="flex flex-row justify-between items-center mb-10">
           <span className="text-3xl text-[#333333] font-semibold">
             Overview

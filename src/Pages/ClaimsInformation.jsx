@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Cancel from "../assets/Icons/Cancel.svg";
 import Status from "../Components/Status";
 import ClaimImage from "../assets/Images/ClaimImage.png";
 import ClaimImage2 from "../assets/Images/ClaimImage2.png";
+import Overlay from "../Components/Overlay";
+import { DashboardContext } from "../Context/Context"
 
 import { BiChevronRight, BiChevronLeft } from "react-icons/bi";
+
 function ClaimsInformation() {
-  const handleStatusUpdate = () => {};
+  const { userData } = useContext(DashboardContext);
+  const handleStatusUpdate = () => {
+    setIsVisible(true)
+  };
+  const [isVisible, setIsVisible] = useState(false);
   const [currentClaimImage, setCurrentClaimImage] = useState(ClaimImage);
   const [prevClaimImageBtnisDisabled, setPrevClaimImageBtnisDisabled] = useState(false);
   const [nextClaimImageBtnisDisabled, setNextClaimImageBtnisDisabled] = useState(false);
@@ -23,6 +30,7 @@ function ClaimsInformation() {
 
   return (
     <div>
+    <Overlay visible={isVisible} onClose={() => setIsVisible(false)}/>
       <div
         id="policy-info"
         className="flex justify-between items-center px-4 py-5 mx-12"
@@ -36,19 +44,19 @@ function ClaimsInformation() {
           <Status status="submitted" />
         </div>
         <div id="update-btn">
-          <button onClick={handleStatusUpdate} className="bg-[#25D366] rounded">
+          {userData.partner.Role !== "BANK" && <button onClick={handleStatusUpdate} className="bg-[#25D366] rounded">
             <div className="space-x-2 flex flex-row items-center px-4 py-2 text-white">
               <span className="text-base">Update Claim status</span>
             </div>
-          </button>
+          </button>}
         </div>
       </div>
       <hr />
       <div
         id="pry-info-sect"
-        className="mx-auto max-w-7xl mt-12 px-6 lg:px-0 border-red-600"
+        className="mx-auto max-w-[50rem] xl:max-w-6xl mt-12 px-6 lg:px-0 border-red-600"
       >
-        <div id="pry-info-container" className="flex flex-row justify-between">
+        <div id="pry-info-container" className="flex flex-row justify-between space-x-10 xl:space-x-0">
           <div id="pry-info" className="w-1/2">
             <p className="text-2xl font-medium text-[#333333] mb-1.5">
               Primary Information
@@ -116,3 +124,4 @@ function ClaimsInformation() {
 }
 
 export default ClaimsInformation;
+

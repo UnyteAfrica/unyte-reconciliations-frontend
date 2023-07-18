@@ -1,20 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+
+import { DashboardContext } from "../Context/Context"
 import FilterBtn from "../Components/FilterBtn";
 import DownloadBtn from "../Components/DownloadBtn";
-
 import Table from "../Components/Table";
 import SearchBar from "../Components/SearchBar";
-//import { paginate } from "../utils/paginate";
+import PaginationComponent from "../Components/Pagination"
+
+import { paginate } from "../Helpers/helpers";
 
 function Policies() {
+  const { userData } = useContext(DashboardContext);
   const tableHead = [
     "Policy reference",
     "Policy number",
     "Insurer",
-    "Date",
+    "Email",
     "Price",
   ];
   const [tableBody, setTableBody] = useState([]);
+  //Pagination configuration
+  const [page, setPage] = useState(1);
+  const itemsCount = tableBody.length;
+  const pageSize = 10;
+  const count = Math.ceil(itemsCount / pageSize)
+  const onPageChange = (e, value) => {
+    setPage(value);
+  }
+  const policySales = paginate(tableBody, page, pageSize);
 
   const handleSearch = () => {
     //
@@ -22,47 +35,11 @@ function Policies() {
 
 
   useEffect(() => {
-    setTableBody([
-      {
-        ref: "#WP62F3E8F93",
-        number: "123jkf5402",
-        insurer: "AXA mansard",
-        date: "May 7, 2023",
-        price: "₦40,000.00",
-      },
-      {
-        ref: "#WP62F3E8F93",
-        number: "123jkf5402",
-        insurer: "AXA mansard",
-        date: "May 7, 2023",
-        price: "₦40,000.00",
-      },
-      {
-        ref: "#WP62F3E8F93",
-        number: "123jkf5402",
-        insurer: "AXA mansard",
-        date: "May 7, 2023",
-        price: "₦40,000.00",
-      },
-      {
-        ref: "#WP62F3E8F93",
-        number: "123jkf5402",
-        insurer: "AXA mansard",
-        date: "May 7, 2023",
-        price: "₦40,000.00",
-      },
-      {
-        ref: "#WP62F3E8F93",
-        number: "123jkf5402",
-        insurer: "AXA mansard",
-        date: "May 7, 2023",
-        price: "₦40,000.00",
-      },
-    ]);
-  }, []);
+    setTableBody(userData.sales);
+  }, [userData.sales]);
   return (
     <>
-      <div className="mx-auto max-w-6xl mt-12 px-6 lg:px-0">
+      <div className="mx-auto max-w-[48rem] xl:max-w-6xl mt-12 px-6 lg:px-0">
         <div className="flex flex-row justify-between items-center mb-10">
           <span className="text-3xl text-[#333333] font-semibold">
             Policies
@@ -74,10 +51,10 @@ function Policies() {
           </div>
         </div>
         <div id="policies-table" className="mb-10">
-          <Table tableHead={tableHead} tableBody={tableBody} tableType="policies" />
+          <Table tableHead={tableHead} tableBody={policySales} tableType="policies" />
         </div>
         <div className="mb-40">
-            {/*Pagination component */}
+            <PaginationComponent count={count} handleChange={onPageChange} page={page} />
         </div>
       </div>
     </>

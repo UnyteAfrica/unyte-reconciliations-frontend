@@ -1,34 +1,14 @@
-import _ from "lodash";
+import Pagination from "@mui/material/Pagination";
 import PropTypes from "prop-types";
 
-function Pagination({ itemsCount, pageSize, onPageChange, currentPage }) {
-  const pagesCount = Math.ceil(itemsCount / pageSize);
-  if (pagesCount === 1) return null;
-  const pages = _.range(1, pagesCount + 1);
-
-  return (
-    <nav>
-      <ul>
-        {pages.map((page) => (
-          <li
-            className={page === currentPage ? "page-item active" : "page-item"}
-            key={page}
-          >
-            <a className="page-link" onClick={() => onPageChange(page)}>
-              {page}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
+function PaginationComponent({ count, handleChange, page }) {
+  return <Pagination count={count} onChange={handleChange} page={page} />;
 }
 
-Pagination.propTypes = {
-  itemsCount: PropTypes.number.isRequired,
-  pageSize: PropTypes.number.isRequired,
-  currentPage: PropTypes.number.isRequired,
-  onPageChange: PropTypes.func.isRequired,
+PaginationComponent.propTypes = {
+  count: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
 };
 
-export default Pagination;
+export default PaginationComponent;
