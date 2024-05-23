@@ -2,15 +2,14 @@ import { useState, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
-import { DashboardContext } from "../Context/Context";
+import { UserContext } from "../context/user.context";
 import UnyteLogo from "../assets/Icons/UnyteLogo.svg";
 
-function NavBar() {
+export const NavBar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  const { userData = { policies_sold: 0, partner: { Name: '' } } } = useContext(DashboardContext);
-
+  const { userData } = useContext(UserContext);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -28,7 +27,9 @@ function NavBar() {
           <NavLink
             to="/app"
             className={`${
-              location.pathname.includes("/app") && (!location.pathname.includes("/app/policies")) && (!location.pathname.includes("app/claims"))
+              location.pathname.includes("/app") &&
+              !location.pathname.includes("/app/policies") &&
+              !location.pathname.includes("app/claims")
                 ? "text-[#25D366] underline underline-offset-[30px] decoration-4"
                 : "text-[#333333]"
             } font-semibold text-lg duration-300`}
@@ -66,7 +67,9 @@ function NavBar() {
                 <div className="rounded-full h-7 w-7 p-2 bg-gray-200 text-[10px] flex items-center justify-center">
                   FA
                 </div>
-                <span className="text-lg font-semibold">{ userData.partner?.Name }</span>{" "}
+                <span className="text-lg font-semibold">
+                  {userData.partner.name}
+                </span>{" "}
                 {isOpen ? <BiChevronUp /> : <BiChevronDown />}{" "}
               </div>
             </button>
@@ -77,7 +80,7 @@ function NavBar() {
                     FA
                   </div>
                   <span className="text-base font-medium">
-                    { userData.partner?.Name }
+                    {userData.partner.name}
                   </span>
                 </div>
                 <hr />
@@ -95,6 +98,4 @@ function NavBar() {
       <hr />
     </>
   );
-}
-
-export default NavBar;
+};

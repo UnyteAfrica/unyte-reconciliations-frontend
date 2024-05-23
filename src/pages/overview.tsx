@@ -3,14 +3,13 @@ import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { Navigate } from "react-router-dom";
 import Chart from "react-apexcharts";
 import axios from "axios";
-import { endpoint } from "../Endpoint/endpoint";
 
-import { DashboardContext } from "../Context/Context"
+import { UserContext } from "../context/user.context";
+import { endpoint } from "../utils/config";
 
 function Overview() {
   const [isOpen, setIsOpen] = useState(false);
-  const { userData = { policies_sold: 0, partner: { name: '' } }, setUserData } = useContext(DashboardContext);
-
+  const { userData, setUserData } = useContext(UserContext);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -22,18 +21,18 @@ function Overview() {
       try {
         const response = await axios(`${endpoint}/partner/home`, {
           headers: {
-            'Authorization': `Bearer ${token}`,
-          }
-        })
-        console.log(response.data.data)
-        setUserData(response.data.data)
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        console.log(response.data.data);
+        setUserData(response.data.data);
       } catch (err) {
         console.error(err);
       }
-    }
+    };
 
-    fetchData()
-  }, [setUserData])
+    fetchData();
+  }, [setUserData]);
 
   const chartData = {
     series: [
@@ -75,39 +74,41 @@ function Overview() {
         ],
       },
     ],
-    chart: {
-      height: 100,
-      type: "bar",
-    },
-    plotOptions: {
-      bar: {
-        columnWidth: "30%",
+    options: {
+      chart: {
+        height: 100,
+        type: "bar",
       },
-    },
-    colors: ["#25D366"],
-    dataLabels: {
-      enabled: false,
-    },
-    legend: {
-      show: true,
-      showForSingleSeries: true,
-      customLegendItems: ["Actual"],
-    },
-    fill: {
+      plotOptions: {
+        bar: {
+          columnWidth: "30%",
+        },
+      },
+      colors: ["#25D366"],
+      dataLabels: {
+        enabled: false,
+      },
+      legend: {
+        show: true,
+        showForSingleSeries: true,
+        customLegendItems: ["Actual"],
+      },
+      fill: {
         type: "pattern",
         colors: ["#25D366"],
         pattern: {
-            style: "slantedLines",
-            width: 6,
-            height: 6,
-            strokeWidth: 2,
-        }
-    }
+          style: "slantedLines",
+          width: 6,
+          height: 6,
+          strokeWidth: 2,
+        },
+      },
+    },
   };
 
-  if (!localStorage.getItem("token")) {
-    return <Navigate to="/" />;
-  }
+  // if (!localStorage.getItem("token")) {
+  //   return <Navigate to="/" />;
+  // }
 
   return (
     <>
@@ -147,7 +148,7 @@ function Overview() {
               NUMBER OF POLICIES SOLD
             </p>
             <p className="text-xl text-[#333333] font-semibold">
-              { userData?.policies_sold } policies
+              {userData?.policies_sold} policies
             </p>
           </div>
           <div className="rounded p-6 border w-[30rem]">
@@ -155,7 +156,7 @@ function Overview() {
               TOTAL VALUE OF POLICIES
             </p>
             <p className="text-xl text-[#333333] font-semibold">
-                ₦220,000,000.00
+              ₦220,000,000.00
             </p>
           </div>
         </div>

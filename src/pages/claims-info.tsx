@@ -1,5 +1,5 @@
 import Cancel from "../assets/Icons/Cancel.svg";
-import Status from "../Components/Status";
+import { Status } from "../components/status";
 
 function ClaimsInformation() {
   return (
@@ -17,7 +17,7 @@ function ClaimsInformation() {
           <Status status="submitted" />
         </div>
         <div id="update-btn">
-          <button onClick={handleStatusUpdate} className="bg-[#25D366] rounded">
+          <button className="bg-[#25D366] rounded">
             <div className="space-x-2 flex flex-row items-center px-4 py-2 text-white">
               <span className="text-base">Update Claim status</span>
             </div>
@@ -70,10 +70,8 @@ function ClaimsInformation() {
             </table>
           </div>
           <div id="claim-image" className="border border-[#E0E0E0] rounded-sm">
-          <p>Image</p>
-          <div id="image container">
-          
-          </div>
+            <p>Image</p>
+            <div id="image container"></div>
           </div>
         </div>
       </div>

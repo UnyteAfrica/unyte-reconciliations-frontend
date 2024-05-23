@@ -1,18 +1,16 @@
 import { NavLink, useLocation, Routes, Route } from "react-router-dom";
-import FilterBtn from "../Components/FilterBtn";
-import DownloadBtn from "../Components/DownloadBtn";
+import { SearchBar } from "../components/SearchBar";
+import { FilterButton } from "../components/filter-button";
+import { DownloadButton } from "../components/download-button";
+import CompletedClaims from "./completed-claims";
+import PendingClaims from "./pending-claims";
 
-import SearchBar from "../Components/SearchBar";
-import CompletedClaims from "./CompletedClaims";
-import PendingClaims from "./PendingClaims";
 //import { paginate } from "../utils/paginate";
 
 function Claims() {
   const location = useLocation();
 
-  const handleSearch = () => {
-    //
-  };
+  const handleSearch = () => {};
 
   return (
     <>
@@ -50,17 +48,15 @@ function Claims() {
             placeholder="Find policy number"
           />
           <div id="dates" className="flex flex-row items-center space-x-3">
-            <FilterBtn />
-            <DownloadBtn />
+            <FilterButton />
+            <DownloadButton data={[]} />
           </div>
         </div>
         <Routes>
           <Route path="/" element={<PendingClaims />} />
           <Route path="completed" element={<CompletedClaims />} />
         </Routes>
-        <div className="mb-40">
-          {/*Pagination component */}
-        </div>
+        <div className="mb-40">{/*Pagination component */}</div>
       </div>
     </>
   );

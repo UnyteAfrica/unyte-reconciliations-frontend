@@ -1,6 +1,4 @@
-import PropTypes from "prop-types";
-
-function Status({ status }) {
+export const Status: React.FC<{ status: string }> = ({ status }) => {
   return (
     <div
       className={`px-3 py-1.5 bg-opacity-10 rounded inline ${
@@ -20,10 +18,4 @@ function Status({ status }) {
       </span>
     </div>
   );
-}
-
-Status.propTypes = {
-  status: PropTypes.string.isRequired,  
-}
-
-export default Status;
+};

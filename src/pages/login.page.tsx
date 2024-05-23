@@ -1,30 +1,30 @@
-import { useState } from "react";
+import { ChangeEventHandler, FormEventHandler, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { endpoint } from "../Endpoint/endpoint";
+import { endpoint } from "../utils/config";
 
-function Login() {
+export const Login = () => {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
-  const [error, setError] = useState({});
+  const [error, setError] = useState({ otp: "", email: "" });
   const [isEmailValid, setIsEmailValid] = useState(true);
 
   const navigate = useNavigate();
 
-  const validateOtp = (otp) => {
+  const validateOtp = (otp: string) => {
     if (!otp) {
       setError((prevError) => ({
         ...prevError,
         otp: "OTP cannot be empty.",
       }));
     } else {
-      setError((prevError) => ({ ...prevError, otp: null }));
+      setError((prevError) => ({ ...prevError, otp: "" }));
     }
   };
 
-  const validateEmail = (email) => {
+  const validateEmail = (email: string) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValid = emailPattern.test(email);
     setIsEmailValid(isValid);
@@ -37,7 +37,7 @@ function Login() {
     } else if (!isValid) {
       setError((prevError) => ({ ...prevError, email: "Email is not valid." }));
     } else {
-      setError((prevError) => ({ ...prevError, email: null }));
+      setError((prevError) => ({ ...prevError, email: "" }));
     }
   };
 
@@ -55,19 +55,19 @@ function Login() {
     },
   };
 
-  const handleOtpChange = (e) => {
+  const handleOtpChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     e.preventDefault();
     setOtp(e.target.value);
     validateOtp(e.target.value);
   };
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     e.preventDefault();
     setEmail(e.target.value);
     validateEmail(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     validateOtp(otp);
     validateEmail(email);
@@ -148,12 +148,17 @@ function Login() {
             </span>
           </div>
           <div className="text-center mt-12">
-            <button className="px-10 py-2 text-base bg-[#25D366] rounded text-white" disabled={
-              error.email || !isEmailValid || !email ||
-              (!isDisabled && (error.otp || !otp))
-                ? true
-                : false
-            }>
+            <button
+              className="px-10 py-2 text-base bg-[#25D366] rounded text-white"
+              disabled={
+                error.email ||
+                !isEmailValid ||
+                !email ||
+                (!isDisabled && (error.otp || !otp))
+                  ? true
+                  : false
+              }
+            >
               Login
             </button>
           </div>
@@ -161,6 +166,4 @@ function Login() {
       </div>
     </div>
   );
-}
-
-export default Login;
+};

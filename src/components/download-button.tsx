@@ -1,10 +1,15 @@
 import { saveAs } from "file-saver";
 import { BiDownload } from "react-icons/bi";
-import PropTypes from "prop-types";
 
-function DownloadBtn({ data }) {
+type DataType = { [key: string]: string }[];
+
+type DownloadButtonProps = {
+  data: DataType;
+};
+
+export const DownloadButton: React.FC<DownloadButtonProps> = ({ data }) => {
   // Convert data (array of objects) to CSV format
-  const convertToCSV = (data) => {
+  const convertToCSV = (data: DataType) => {
     const csvRows = [];
     const headers = Object.keys(data[0]);
     csvRows.push(headers.join(","));
@@ -34,10 +39,4 @@ function DownloadBtn({ data }) {
       </div>
     </button>
   );
-}
-
-DownloadBtn.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-export default DownloadBtn;
