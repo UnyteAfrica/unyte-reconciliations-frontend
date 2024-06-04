@@ -1,9 +1,10 @@
 import { NavLink, useLocation, Routes, Route } from "react-router-dom";
-import { SearchBar } from "../components/SearchBar";
+
 import { FilterButton } from "../components/filter-button";
 import { DownloadButton } from "../components/download-button";
 import CompletedClaims from "./completed-claims";
 import PendingClaims from "./pending-claims";
+import { SearchBar } from "@/components/searchbar";
 
 //import { paginate } from "../utils/paginate";
 

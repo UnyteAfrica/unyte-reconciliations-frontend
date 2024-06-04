@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
-import { Navigate } from "react-router-dom";
 import Chart from "react-apexcharts";
 import axios from "axios";
 

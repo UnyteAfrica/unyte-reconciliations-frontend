@@ -1,5 +1,5 @@
 import { Claim } from "../../types/types";
-import { Table } from "../Table";
+import { Table } from "../table";
 
 type ClaimsTableProps = {
   claims: Claim[];

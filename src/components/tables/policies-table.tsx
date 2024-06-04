@@ -1,5 +1,5 @@
 import { Policy } from "../../types/types";
-import { Table } from "../Table";
+import { Table } from "../table";
 
 type PoliciesTableProps = {
   policies: Policy[];
