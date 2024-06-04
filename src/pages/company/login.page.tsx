@@ -1,5 +1,3 @@
-import { FormEventHandler } from "react";
-
 import { CustomInput, PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -7,33 +5,36 @@ import { Link } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 
 const formSchema = z.object({
-  gampId: z.string().min(5, "GAMP ID cannot be less than 5 characters"),
-  password: z.string().min(6, "Passwrod cannot be less than 6 characters"),
+  companyId: z.string().min(5, "Company ID cannot be less than 5 characters"),
+  password: z.string().min(6, "Password cannot be less than 6 characters"),
 });
 
-export const AgentLoginPage = () => {
+export const CompanyLoginPage = () => {
   const {
     register,
+    handleSubmit,
     formState: { errors },
   } = useForm<z.infer<typeof formSchema>>({
     defaultValues: {
-      gampId: "",
+      companyId: "",
       password: "",
     },
   });
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
-    console.log("Log in form submitted");
+  const onSubmit = (data: z.infer<typeof formSchema>) => {
+    console.log(data);
   };
 
   return (
     <div className="flex justify-center items-center  bg-[#f5f5f5] min-h-screen">
       <div className="p-10 bg-white flex justify-center items-center w-[700px] h-[700px] rounded-2xl">
-        <form onSubmit={handleSubmit} className="text-[#333] w-[560px]">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="text-[#333] w-[560px]"
+        >
           <header>
             <p className="text-center mb-11 font-medium text-[28px]">
-              Agent Login
+              Company Login
             </p>
             <p className="mb-11 text-xl">Sign in to your account.</p>
           </header>
@@ -41,8 +42,8 @@ export const AgentLoginPage = () => {
             <CustomInput
               label="GAMP ID"
               placeholder="A034529"
-              error={errors.gampId?.message?.toString()}
-              {...register("gampId")}
+              error={errors.companyId?.message?.toString()}
+              {...register("companyId")}
             />
             <PasswordInput
               placeholder="******"
@@ -53,7 +54,7 @@ export const AgentLoginPage = () => {
               <p className="mb-2">
                 Don&apos;t have an account?{" "}
                 <Link
-                  to={BrowserComboRoutes.agentSignup}
+                  to={BrowserComboRoutes.companySignup}
                   className="text-primary"
                 >
                   Sign up

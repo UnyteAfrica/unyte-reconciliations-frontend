@@ -9,4 +9,6 @@ export const BrowserRoutes = {
 export const BrowserComboRoutes = {
   agentLogin: BrowserRoutes.agent + BrowserRoutes.login,
   agentSignup: BrowserRoutes.agent + BrowserRoutes.signup,
+  companyLogin: BrowserRoutes.company + BrowserRoutes.login,
+  companySignup: BrowserRoutes.company + BrowserRoutes.signup,
 };

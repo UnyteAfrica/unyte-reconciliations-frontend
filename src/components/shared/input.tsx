@@ -176,12 +176,7 @@ export const CustomSelect = forwardRef<HTMLSelectElement, CustomSelectProps>(
                 ))}
           </select>
         </div>
-        <p
-          className={twMerge(
-            "font-sora text-sm text-[#7A0323]",
-            errorClassName
-          )}
-        >
+        <p className={twMerge("font-sora text-sm text-[#333]", errorClassName)}>
           {error && error}
         </p>
       </div>
@@ -226,9 +221,7 @@ export const CustomTextArea = forwardRef<
         placeholder={placeholder}
         {...rest}
       />
-      <p
-        className={twMerge("font-sora text-sm text-[#7A0323]", errorClassName)}
-      >
+      <p className={twMerge("font-sora text-sm text-[#333]", errorClassName)}>
         {error && error}
       </p>
     </div>
@@ -300,7 +293,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             <FaRegEye width={20} height={20} />
           </button>
         </div>
-        <p className="font-sora text-sm text-[#7A0323]">{error && error}</p>
+        <p className="font-sora text-sm text-[#333]">{error && error}</p>
       </div>
     );
   }
@@ -381,12 +374,7 @@ export const ImageInput = forwardRef<HTMLInputElement, ImageInputProps>(
             <p>Select Image File</p>
           )}
         </div>
-        <p
-          className={twMerge(
-            "font-sora text-sm text-[#7A0323]",
-            errorClassName
-          )}
-        >
+        <p className={twMerge("font-sora text-sm text-[#333]", errorClassName)}>
           {error && error}
         </p>
       </div>
