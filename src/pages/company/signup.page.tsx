@@ -42,10 +42,11 @@ export const CompanySignupPage = () => {
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="text-[#333] w-[560px] mx-auto my-10"
+          noValidate
         >
           <header>
             <p className="text-center mb-11 font-medium text-[28px]">
-              Agent Signup
+              Company Signup
             </p>
             <p className="mb-11 text-xl">
               Create your account by entering a username and password.

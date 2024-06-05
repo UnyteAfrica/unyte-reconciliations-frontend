@@ -3,6 +3,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const formSchema = z.object({
   companyId: z.string().min(5, "Company ID cannot be less than 5 characters"),
@@ -15,6 +16,7 @@ export const CompanyLoginPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       companyId: "",
       password: "",
@@ -40,12 +42,13 @@ export const CompanyLoginPage = () => {
           </header>
           <div className="space-y-6">
             <CustomInput
-              label="GAMP ID"
+              label="Company ID"
               placeholder="A034529"
               error={errors.companyId?.message?.toString()}
               {...register("companyId")}
             />
             <PasswordInput
+              label="Password"
               placeholder="******"
               error={errors.password?.message?.toString()}
               {...register("password")}
