@@ -381,3 +381,50 @@ export const ImageInput = forwardRef<HTMLInputElement, ImageInputProps>(
     );
   }
 );
+
+type DateInputProps = {
+  containerClassName?: string;
+  text?: string;
+  date: Date;
+  onDateChange: (date: Date) => void;
+};
+
+export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
+  function DateInput(props, ref) {
+    const { containerClassName, date, onDateChange } = props;
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    const formattedDate = date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      // weekday: "short", // Optional, to include weekday (e.g., 'Sun')
+    });
+
+    const inputValue = date.toISOString().split("T")[0];
+
+    return (
+      <button
+        className={twMerge(
+          "px-4 py-2 border rounded-md relative",
+          containerClassName ?? ""
+        )}
+        onClick={() => inputRef.current?.showPicker()}
+      >
+        {formattedDate}
+        <input
+          type="date"
+          className="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
+          value={inputValue}
+          ref={inputRef}
+          onChange={(e) => {
+            const dateVal = e.target.valueAsDate;
+            if (dateVal) {
+              onDateChange(dateVal);
+            }
+          }}
+        />
+      </button>
+    );
+  }
+);
