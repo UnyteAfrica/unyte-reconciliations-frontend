@@ -5,7 +5,6 @@ import { AgentLoginPage } from "./pages/agent/login.page";
 import { AgentSignupPage } from "./pages/agent/signup.page";
 import { CompanyLoginPage } from "./pages/company/login.page";
 import { CompanySignupPage } from "./pages/company/signup.page";
-import { AgentNavbar } from "./components/agent/agent-navbar";
 import { AgentOverview } from "./pages/agent/agent-overview.page";
 import { AgentLayout } from "./components/agent/agent-layout";
 import { CompanyLayout } from "./components/company/company-layout";

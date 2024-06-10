@@ -1,9 +1,8 @@
-import { Fragment, useState } from "react";
-import { BiChevronDown, BiChevronUp } from "react-icons/bi";
+import { useState } from "react";
 import Chart from "react-apexcharts";
 import { nairaSign } from "@/utils/utils";
-import { cx } from "class-variance-authority";
 import { DateInput } from "@/components/shared/input";
+import { PeriodSelector } from "@/components/shared/period-selector";
 
 type Stat = {
   title: string;
@@ -97,13 +96,9 @@ const chartData: {
   },
 };
 
-const periods = ["Daily", "Weekly", "Monthly", "Yearly"] as const;
-
 export const AgentOverview: React.FC = () => {
-  const [isPeriodMenuOpen, setIsPeriodMenuOpen] = useState(false);
   const [startDate, setStartDate] = useState(new Date(1699885840400));
   const [endDate, setEndDate] = useState(new Date());
-  const [period, setPeriod] = useState<(typeof periods)[number]>(periods[0]);
 
   return (
     <>
@@ -113,50 +108,15 @@ export const AgentOverview: React.FC = () => {
             Overview
           </span>
           <div id="dates" className="flex flex-row items-center space-x-3">
-            <div className="relative">
-              <button
-                className="px-4 py-2 text-[#333333] rounded-md border font-semibold w-[120px]"
-                onClick={() =>
-                  setIsPeriodMenuOpen((isPeriodMenuOpen) => !isPeriodMenuOpen)
-                }
-              >
-                <div className="space-x-2 flex flex-row items-center justify-center">
-                  <span className="text-base"> {period} </span>
-                  {isPeriodMenuOpen ? <BiChevronUp /> : <BiChevronDown />}
-                </div>
-              </button>
-              <div
-                className={cx(
-                  "absolute top-[45px] left-0 w-[120px] bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0",
-                  isPeriodMenuOpen && "max-h-[250px] opacity-100"
-                )}
-              >
-                {periods.map((period, idx) => (
-                  <Fragment key={idx}>
-                    <button
-                      className="w-full font-inter py-4 font-semibold"
-                      onClick={() => {
-                        setIsPeriodMenuOpen(false);
-                        setPeriod(period);
-                      }}
-                    >
-                      {period}
-                    </button>
-                    <hr />
-                  </Fragment>
-                ))}
-              </div>
-            </div>
+            <PeriodSelector />
             <div className="flex">
               <DateInput
                 containerClassName="rounded-tr-none rounded-br-none font-semibold"
-                text="May 15 2023"
                 date={startDate}
                 onDateChange={(date) => setStartDate(date)}
               />
               <DateInput
                 containerClassName="rounded-tl-none rounded-bl-none font-semibold"
-                text="May 18 2023"
                 date={endDate}
                 onDateChange={(date) => setEndDate(date)}
               />

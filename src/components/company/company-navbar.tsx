@@ -1,8 +1,6 @@
-import { useState, useContext } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
-
-import { UserContext } from "../../context/user.context";
 import { Icon } from "../shared/icon";
 import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";

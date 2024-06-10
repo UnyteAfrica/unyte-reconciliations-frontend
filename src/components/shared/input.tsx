@@ -384,13 +384,12 @@ export const ImageInput = forwardRef<HTMLInputElement, ImageInputProps>(
 
 type DateInputProps = {
   containerClassName?: string;
-  text?: string;
   date: Date;
   onDateChange: (date: Date) => void;
 };
 
 export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
-  function DateInput(props, ref) {
+  function DateInput(props, _) {
     const { containerClassName, date, onDateChange } = props;
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -414,6 +413,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
         {formattedDate}
         <input
           type="date"
+          placeholder="date"
           className="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
           value={inputValue}
           ref={inputRef}
