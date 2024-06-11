@@ -15,7 +15,6 @@ React x Typescript x TailwindCSS
 - Run `yarn dev` to start the dev server
 
 ### In Production
-
 - Run `yarn build` to build the project
 - The built project will be in the `dist/` folder.
   
