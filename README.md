@@ -20,5 +20,4 @@ React x Typescript x TailwindCSS
 - The built project will be in the `dist/` folder.
   
 ### Running Tests
-
 - Run `yarn test` to run all tests
