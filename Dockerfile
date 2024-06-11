@@ -1,4 +1,4 @@
-FROM node:16.17.0-bullseye-slim AS build
+FROM node:18-bullseye-slim AS build
 WORKDIR /usr/src/app
 COPY package*.json yarn.lock ./
 RUN yarn
