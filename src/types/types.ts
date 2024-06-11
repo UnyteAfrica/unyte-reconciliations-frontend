@@ -10,7 +10,7 @@ export type Claim = {
 export type Policy = {
   policyRef: string;
   policyNo: string;
-  insurer: string;
+  product: string;
   date: string;
   price: string;
 };

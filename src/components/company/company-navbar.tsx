@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { BiChevronDown, BiChevronUp } from "react-icons/bi";
+import { BiChevronDown } from "react-icons/bi";
 import { Icon } from "../shared/icon";
 import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";
@@ -72,7 +72,12 @@ export const CompanyNavbar = () => {
                 <span className="text-lg font-semibold max-xl:hidden">
                   AXA Mansard
                 </span>{" "}
-                {isOpen ? <BiChevronUp /> : <BiChevronDown />}{" "}
+                <BiChevronDown
+                  className={cx(
+                    "transition-all duration-300",
+                    isOpen && "rotate-180"
+                  )}
+                />
               </div>
             </button>
             <div

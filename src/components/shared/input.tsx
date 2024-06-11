@@ -79,6 +79,7 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
       ...rest
     } = props;
     const inputId = camelcase(label);
+
     return (
       <div className={twMerge("", containerClassName)}>
         {label ? (

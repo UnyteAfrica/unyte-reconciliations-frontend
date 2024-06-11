@@ -2,7 +2,8 @@ import { useState } from "react";
 import Chart from "react-apexcharts";
 import { nairaSign } from "@/utils/utils";
 import { DateInput } from "@/components/shared/input";
-import { PeriodSelector } from "@/components/shared/period-selector";
+import { Selector } from "@/components/shared/selector";
+import { periods } from "../policies";
 
 type Stat = {
   title: string;
@@ -99,6 +100,7 @@ const chartData: {
 export const AgentOverview: React.FC = () => {
   const [startDate, setStartDate] = useState(new Date(1699885840400));
   const [endDate, setEndDate] = useState(new Date());
+  const [period, setPeriod] = useState<string>(periods[0]);
 
   return (
     <>
@@ -108,7 +110,11 @@ export const AgentOverview: React.FC = () => {
             Overview
           </span>
           <div id="dates" className="flex flex-row items-center space-x-3">
-            <PeriodSelector />
+            <Selector
+              options={periods}
+              value={period}
+              onChange={(val) => setPeriod(val)}
+            />
             <div className="flex">
               <DateInput
                 containerClassName="rounded-tr-none rounded-br-none font-semibold"
