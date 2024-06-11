@@ -155,7 +155,10 @@ export const Policies = () => {
               placeholder={nairaSign}
             />
             <div className="flex ml-auto">
-              <button className="bg-white border rounded-md w-[90px] inline-block mr-4 py-2 ml-auto">
+              <button
+                className="bg-white border rounded-md w-[90px] inline-block mr-4 py-2 ml-auto"
+                onClick={() => setIsFilterOpen(false)}
+              >
                 Cancel
               </button>
               <button className="bg-primary text-white w-[115px] rounded-md py-2">

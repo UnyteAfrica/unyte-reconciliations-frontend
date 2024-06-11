@@ -3,6 +3,7 @@ import type { UserConfig } from "vite";
 
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { codecovVitePlugin } from "@codecov/vite-plugin";
 import "vitest/config";
 
 // https://vitejs.dev/config/
@@ -10,7 +11,14 @@ import "vitest/config";
 type ViteConfig = UserConfig & { test: InlineConfig };
 
 const config: ViteConfig = {
-  plugins: [react()],
+  plugins: [
+    react(),
+    codecovVitePlugin({
+      enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+      bundleName: "codecov-superpoool-v3",
+      uploadToken: process.env.CODECOV_TOKEN,
+    }),
+  ],
   test: {
     globals: true,
     environment: "jsdom",
