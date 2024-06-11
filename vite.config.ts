@@ -24,6 +24,9 @@ const config: ViteConfig = {
     environment: "jsdom",
     css: true,
     setupFiles: "./src/tests/setup.ts",
+    coverage: {
+      reporter: ["json", "html"],
+    },
   },
   resolve: {
     alias: {

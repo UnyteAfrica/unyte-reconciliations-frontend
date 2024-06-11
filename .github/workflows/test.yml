@@ -24,21 +24,21 @@ jobs:
         with:
           node-version: 18
       
-      - run: npm install
+      - run: yarn
       
       - name: Run test
         run: yarn test
       
       - name: Generate coverage report
         run: |
-              pip install pytest
-              pip install pytest-cov
-              pytest --cov=./ --cov-report=xml
+              
+              yarn add -D @vitest/coverage-v8
+              yarn coverage
       
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
-          directory: ./coverage/reports/
+          directory: ./coverage/
           fail_ci_if_error: true
           flags: unittests
           name: codecov-superpoool-v3
