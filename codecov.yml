@@ -1,13 +1,11 @@
 coverage:
   status:
-    project: #add everything under here, more options at https://docs.codecov.com/docs/commit-status
+    project:
       default:
-        # basic
-        target: auto #default
+        target: auto
         threshold: 0%
         base: auto
         informational: true
-
 codecov:
   notify:
     wait_for_ci: false
