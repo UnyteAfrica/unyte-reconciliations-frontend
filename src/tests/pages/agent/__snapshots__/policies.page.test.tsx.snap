@@ -175,23 +175,23 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 <button
                   class="px-4 py-2 border rounded-md relative rounded-tr-none rounded-br-none font-semibold w-1/2"
                 >
-                  June 11, 2024
+                  November 13, 2023
                   <input
                     class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                     placeholder="date"
                     type="date"
-                    value="2024-06-11"
+                    value="2023-11-13"
                   />
                 </button>
                 <button
                   class="px-4 py-2 border rounded-md relative rounded-tl-none rounded-bl-none font-semibold w-1/2"
                 >
-                  June 11, 2024
+                  November 13, 2023
                   <input
                     class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                     placeholder="date"
                     type="date"
-                    value="2024-06-11"
+                    value="2023-11-13"
                   />
                 </button>
               </div>
@@ -796,23 +796,23 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               <button
                 class="px-4 py-2 border rounded-md relative rounded-tr-none rounded-br-none font-semibold w-1/2"
               >
-                June 11, 2024
+                November 13, 2023
                 <input
                   class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                   placeholder="date"
                   type="date"
-                  value="2024-06-11"
+                  value="2023-11-13"
                 />
               </button>
               <button
                 class="px-4 py-2 border rounded-md relative rounded-tl-none rounded-bl-none font-semibold w-1/2"
               >
-                June 11, 2024
+                November 13, 2023
                 <input
                   class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                   placeholder="date"
                   type="date"
-                  value="2024-06-11"
+                  value="2023-11-13"
                 />
               </button>
             </div>

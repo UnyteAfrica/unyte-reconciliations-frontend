@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, FC } from "react";
 import { clsx } from "clsx";
 
-import logo from "@/assets/icons/UnyteLogo.svg";
+import logo from "@/assets/Icons/UnyteLogo.svg";
 
 const iconTypes = {
   logo,
