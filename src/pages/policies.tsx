@@ -71,8 +71,8 @@ export const Policies = () => {
   const [period, setPeriod] = useState<string>(periods[0]);
   const [product, setProduct] = useState<string>(products[0]);
   const [page, setPage] = useState(1);
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date(1699885840400));
+  const [endDate, setEndDate] = useState(new Date(1699885870400));
 
   const handleSearch = () => {
     //
