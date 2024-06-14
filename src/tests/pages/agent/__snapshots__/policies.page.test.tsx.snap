@@ -95,7 +95,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="bg-white px-5 py-10 absolute top-[50px] w-[400px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all overflow-hidden opacity-0 max-h-0"
+            class="bg-white px-5 py-10 absolute top-[50px] w-[450px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all overflow-hidden opacity-0 max-h-0"
           >
             <div>
               <label
@@ -716,7 +716,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
           </button>
         </div>
         <div
-          class="bg-white px-5 py-10 absolute top-[50px] w-[400px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all overflow-hidden opacity-0 max-h-0"
+          class="bg-white px-5 py-10 absolute top-[50px] w-[450px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all overflow-hidden opacity-0 max-h-0"
         >
           <div>
             <label

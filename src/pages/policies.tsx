@@ -80,7 +80,10 @@ export const Policies = () => {
 
   return (
     <>
-      <div className="mx-auto max-w-6xl mt-12 px-6 lg:px-0">
+      <div
+        className="mx-auto max-w-6xl mt-12 px-6 lg:px-0"
+        onClick={() => setIsFilterOpen(false)}
+      >
         <div className="flex flex-row justify-between items-center mb-10 relative">
           <span className="text-3xl text-[#333333] font-semibold">
             Policies
@@ -92,7 +95,10 @@ export const Policies = () => {
           <div id="dates" className="flex flex-row items-center space-x-3">
             <button
               className="text-[#333333]"
-              onClick={() => setIsFilterOpen((isFilterOpen) => !isFilterOpen)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsFilterOpen((isFilterOpen) => !isFilterOpen);
+              }}
             >
               <div className="space-x-2 flex flex-row items-center bg-[#828282] px-4 py-2 rounded text-white">
                 <span className="text-base">Filter</span>
@@ -108,7 +114,7 @@ export const Policies = () => {
           </div>
           <div
             className={cx(
-              "bg-white px-5 py-10 absolute top-[50px] w-[400px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all overflow-hidden opacity-0 max-h-0",
+              "bg-white px-5 py-10 absolute top-[50px] w-[450px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all overflow-hidden opacity-0 max-h-0",
               isFilterOpen && "max-h-[500px] opacity-100 overflow-y-auto"
             )}
           >
