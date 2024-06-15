@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import React from "react";
-import { Policies } from "@/pages/policies";
+import { Commissions } from "@/pages/agent/commissions";
 
 function setup(reactNode: React.ReactNode) {
   return {
@@ -15,7 +15,7 @@ describe("Agent Policies Page", () => {
   it("renders correctly", () => {
     const tree = render(
       <BrowserRouter>
-        <Policies />
+        <Commissions />
       </BrowserRouter>
     );
     expect(tree).toMatchSnapshot();
@@ -24,7 +24,7 @@ describe("Agent Policies Page", () => {
   it("should show filter menu when filter is clicked", async () => {
     const { user } = setup(
       <BrowserRouter>
-        <Policies />
+        <Commissions />
       </BrowserRouter>
     );
 
@@ -39,14 +39,14 @@ describe("Agent Policies Page", () => {
   it("should close filter menu when it the user clicks outside it", async () => {
     const { user } = setup(
       <BrowserRouter>
-        <Policies />
+        <Commissions />
       </BrowserRouter>
     );
 
     const filterBtn = screen.getByText("Filter");
     await user.click(filterBtn);
 
-    const commissionsText = screen.getByText("Policies");
+    const commissionsText = screen.getByText("Commissions");
     await user.click(commissionsText);
     const filterBox = screen.getByTestId("filter");
 

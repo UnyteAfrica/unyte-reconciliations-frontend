@@ -14,3 +14,11 @@ export type Policy = {
   date: string;
   price: string;
 };
+
+export type Commission = {
+  policyRef: string;
+  policyNo: string;
+  product: string;
+  date: string;
+  commission: number;
+};

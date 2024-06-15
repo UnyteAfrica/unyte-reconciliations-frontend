@@ -14,7 +14,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
           <span
             class="text-3xl text-[#333333] font-semibold"
           >
-            Policies
+            Commissions
           </span>
           <form>
             <div
@@ -269,7 +269,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                   <button
                     class="w-full font-inter py-4 font-semibold"
                   >
-                    Card Protect
+                    Car Protect
                   </button>
                   <hr />
                   <button
@@ -360,7 +360,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 <th
                   class="p-4 text-left"
                 >
-                  Price
+                  Commission
                 </th>
               </tr>
             </thead>
@@ -393,7 +393,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 <td
                   class="p-4"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -422,7 +422,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 <td
                   class="p-4"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -451,7 +451,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 <td
                   class="p-4"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -480,7 +480,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 <td
                   class="p-4"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -509,7 +509,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 <td
                   class="p-4"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -538,7 +538,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 <td
                   class="p-4"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
             </tbody>
@@ -636,7 +636,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
         <span
           class="text-3xl text-[#333333] font-semibold"
         >
-          Policies
+          Commissions
         </span>
         <form>
           <div
@@ -891,7 +891,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 <button
                   class="w-full font-inter py-4 font-semibold"
                 >
-                  Card Protect
+                  Car Protect
                 </button>
                 <hr />
                 <button
@@ -982,7 +982,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               <th
                 class="p-4 text-left"
               >
-                Price
+                Commission
               </th>
             </tr>
           </thead>
@@ -1015,7 +1015,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               <td
                 class="p-4"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1044,7 +1044,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               <td
                 class="p-4"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1073,7 +1073,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               <td
                 class="p-4"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1102,7 +1102,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               <td
                 class="p-4"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1131,7 +1131,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               <td
                 class="p-4"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1160,7 +1160,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               <td
                 class="p-4"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
           </tbody>

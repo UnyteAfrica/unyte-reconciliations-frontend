@@ -1,7 +1,4 @@
-import { SearchBar } from "../components/searchbar";
-import { DownloadButton } from "../components/download-button";
-import { PoliciesTable } from "../components/tables/policies-table";
-import { Policy } from "@/types/types";
+import { Commission } from "@/types/types";
 import { BiChevronDown } from "react-icons/bi";
 import { useState } from "react";
 import { cx } from "class-variance-authority";
@@ -10,49 +7,52 @@ import { CustomInput, DateInput } from "@/components/shared/input";
 import { nairaSign } from "@/utils/utils";
 import { Selector } from "@/components/shared/selector";
 import { Pagination } from "@/components/shared/pagination";
+import { CommissionsTable } from "@/components/tables/commissions-table";
+import { SearchBar } from "@/components/searchbar";
+import { DownloadButton } from "@/components/download-button";
 
-const policies: Policy[] = [
+const commissions: Commission[] = [
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
     product: "Comprehensive",
     date: "May 7, 2023",
-    price: "₦40,000.00",
+    commission: 40000,
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
     product: "Credit Life",
     date: "May 7, 2023",
-    price: "₦40,000.00",
+    commission: 40000,
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
     product: "Card Protect",
     date: "May 7, 2023",
-    price: "₦40,000.00",
+    commission: 40000,
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
     product: "Student",
     date: "May 7, 2023",
-    price: "₦40,000.00",
+    commission: 40000,
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
     product: "Travel",
     date: "May 7, 2023",
-    price: "₦40,000.00",
+    commission: 40000,
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
     product: "Device",
     date: "May 7, 2023",
-    price: "₦40,000.00",
+    commission: 40000,
   },
 ];
 
@@ -60,13 +60,13 @@ export const periods = ["Daily", "Weekly", "Monthly", "Yearly"] as const;
 export const products = [
   "Comprehensive",
   "Credit Life",
-  "Card Protect",
+  "Car Protect",
   "Student",
   "Travel",
   "Device",
 ] as const;
 
-export const Policies = () => {
+export const Commissions = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [period, setPeriod] = useState<string>(periods[0]);
   const [product, setProduct] = useState<string>(products[0]);
@@ -86,7 +86,7 @@ export const Policies = () => {
       >
         <div className="flex flex-row justify-between items-center mb-10 relative">
           <span className="text-3xl text-[#333333] font-semibold">
-            Policies
+            Commissions
           </span>
           <SearchBar
             handleSearch={handleSearch}
@@ -176,7 +176,7 @@ export const Policies = () => {
           </div>
         </div>
         <div className="mb-10">
-          <PoliciesTable policies={policies} />
+          <CommissionsTable commissions={commissions} />
         </div>
         <Pagination
           currentPage={page}
