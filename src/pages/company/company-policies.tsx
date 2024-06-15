@@ -1,57 +1,57 @@
-import { PoliciesTable } from "../components/tables/policies-table";
-import { Policy } from "@/types/types";
+import { CompanyPolicy } from "@/types/types";
 import { PageContent } from "@/components/shared/page-content";
+import { CompanyPoliciesTable } from "@/components/tables/policy-tables";
 
-const policies: Policy[] = [
+const policies: CompanyPolicy[] = [
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
-    product: "Comprehensive",
     date: "May 7, 2023",
     price: "₦40,000.00",
+    agentId: "ID-023535393",
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
-    product: "Credit Life",
     date: "May 7, 2023",
     price: "₦40,000.00",
+    agentId: "ID-023535394",
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
-    product: "Card Protect",
     date: "May 7, 2023",
     price: "₦40,000.00",
+    agentId: "ID-023535395",
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
-    product: "Student",
     date: "May 7, 2023",
     price: "₦40,000.00",
+    agentId: "ID-023535396",
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
-    product: "Travel",
     date: "May 7, 2023",
     price: "₦40,000.00",
+    agentId: "ID-023535397",
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
-    product: "Device",
     date: "May 7, 2023",
     price: "₦40,000.00",
+    agentId: "ID-023535398",
   },
 ];
 
-export const Policies = () => {
+export const CompanyPolicies = () => {
   return (
     <PageContent
       title="Policies"
-      pageTable={<PoliciesTable policies={policies} />}
+      pageTable={<CompanyPoliciesTable policies={policies} />}
     />
   );
 };
