@@ -3,7 +3,7 @@ import Chart from "react-apexcharts";
 import { nairaSign } from "@/utils/utils";
 import { DateInput } from "@/components/shared/input";
 import { Selector } from "@/components/shared/selector";
-import { periods } from "../policies";
+import { periods } from "@/components/shared/page-content";
 
 type Stat = {
   title: string;

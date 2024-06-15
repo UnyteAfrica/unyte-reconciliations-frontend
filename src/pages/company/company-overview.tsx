@@ -2,8 +2,8 @@ import { useState } from "react";
 import Chart from "react-apexcharts";
 import { nairaSign } from "@/utils/utils";
 import { DateInput } from "@/components/shared/input";
-import { periods } from "../policies";
 import { Selector } from "@/components/shared/selector";
+import { periods } from "@/components/shared/page-content";
 
 type Stat = {
   title: string;
