@@ -9,9 +9,10 @@ import { AgentOverview } from "./pages/agent/agent-overview.page";
 import { AgentLayout } from "./components/agent/agent-layout";
 import { CompanyLayout } from "./components/company/company-layout";
 import { CompanyOverview } from "./pages/company/company-overview";
-import { Policies } from "./pages/policies";
+import { AgentPolicies } from "./pages/agent/agent-policies";
 import { Commissions } from "./pages/agent/commissions";
 import { Devices } from "./pages/agent/devices";
+import { CompanyPolicies } from "./pages/company/company-policies";
 
 function App() {
   return (
@@ -43,7 +44,7 @@ function App() {
           />
           <Route
             path={BrowserRoutes.policies.substring(1)}
-            element={<Policies />}
+            element={<AgentPolicies />}
           />
           <Route
             path={BrowserRoutes.commissions.substring(1)}
@@ -64,7 +65,7 @@ function App() {
           />
           <Route
             path={BrowserRoutes.policies.substring(1)}
-            element={<CompanyOverview />}
+            element={<CompanyPolicies />}
           />
           <Route
             path={BrowserRoutes.claims.substring(1)}

@@ -7,10 +7,17 @@ export type Claim = {
   estimate: string;
 };
 
-export type Policy = {
+export type AgentPolicy = {
   policyRef: string;
   policyNo: string;
   product: string;
+  date: string;
+  price: string;
+};
+export type CompanyPolicy = {
+  policyRef: string;
+  policyNo: string;
+  agentId: string;
   date: string;
   price: string;
 };
