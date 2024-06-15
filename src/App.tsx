@@ -11,6 +11,7 @@ import { CompanyLayout } from "./components/company/company-layout";
 import { CompanyOverview } from "./pages/company/company-overview";
 import { Policies } from "./pages/policies";
 import { Commissions } from "./pages/agent/commissions";
+import { Devices } from "./pages/agent/devices";
 
 function App() {
   return (
@@ -50,7 +51,7 @@ function App() {
           />
           <Route
             path={BrowserRoutes.devices.substring(1)}
-            element={<AgentOverview />}
+            element={<Devices />}
           />
         </Route>
         <Route

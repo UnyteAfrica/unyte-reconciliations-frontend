@@ -22,3 +22,13 @@ export type Commission = {
   date: string;
   commission: number;
 };
+
+export type DeviceTableEntry = {
+  policyNo: string;
+  policyType: string;
+  device: {
+    name: string;
+    model: string;
+    imei: string;
+  };
+};
