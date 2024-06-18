@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Agent Policies Page > renders correctly 1`] = `
+exports[`Agent Commissions Page > renders correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -13,6 +13,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
         >
           <span
             class="text-3xl text-[#333333] font-semibold capitalize"
+            data-testid="pageTitle"
           >
             Commissions
           </span>
@@ -338,27 +339,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
             >
               <tr>
                 <th
-                  class="p-4 text-left"
+                  class="p-4 text-center"
                 >
                   Policy Ref.
                 </th>
                 <th
-                  class="p-4 text-left"
+                  class="p-4 text-center"
                 >
                   Policy No.
                 </th>
                 <th
-                  class="p-4 text-left"
+                  class="p-4 text-center"
                 >
                   Product
                 </th>
                 <th
-                  class="p-4 text-left"
+                  class="p-4 text-center"
                 >
                   Date
                 </th>
                 <th
-                  class="p-4 text-left"
+                  class="p-4 text-center"
                 >
                   Commission
                 </th>
@@ -371,27 +372,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 class="border-b font-medium"
               >
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   #WP62F3E8F93
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   123jkf5402
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   Comprehensive
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   May 7, 2023
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   ₦40,000
                 </td>
@@ -400,27 +401,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 class="border-b font-medium"
               >
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   #WP62F3E8F93
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   123jkf5402
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   Credit Life
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   May 7, 2023
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   ₦40,000
                 </td>
@@ -429,27 +430,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 class="border-b font-medium"
               >
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   #WP62F3E8F93
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   123jkf5402
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   Card Protect
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   May 7, 2023
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   ₦40,000
                 </td>
@@ -458,27 +459,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 class="border-b font-medium"
               >
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   #WP62F3E8F93
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   123jkf5402
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   Student
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   May 7, 2023
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   ₦40,000
                 </td>
@@ -487,27 +488,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 class="border-b font-medium"
               >
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   #WP62F3E8F93
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   123jkf5402
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   Travel
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   May 7, 2023
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   ₦40,000
                 </td>
@@ -516,27 +517,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
                 class="border-b font-medium"
               >
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   #WP62F3E8F93
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   123jkf5402
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   Device
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   May 7, 2023
                 </td>
                 <td
-                  class="p-4"
+                  class="p-4 text-center"
                 >
                   ₦40,000
                 </td>
@@ -635,6 +636,7 @@ exports[`Agent Policies Page > renders correctly 1`] = `
       >
         <span
           class="text-3xl text-[#333333] font-semibold capitalize"
+          data-testid="pageTitle"
         >
           Commissions
         </span>
@@ -960,27 +962,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
           >
             <tr>
               <th
-                class="p-4 text-left"
+                class="p-4 text-center"
               >
                 Policy Ref.
               </th>
               <th
-                class="p-4 text-left"
+                class="p-4 text-center"
               >
                 Policy No.
               </th>
               <th
-                class="p-4 text-left"
+                class="p-4 text-center"
               >
                 Product
               </th>
               <th
-                class="p-4 text-left"
+                class="p-4 text-center"
               >
                 Date
               </th>
               <th
-                class="p-4 text-left"
+                class="p-4 text-center"
               >
                 Commission
               </th>
@@ -993,27 +995,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               class="border-b font-medium"
             >
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 #WP62F3E8F93
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 123jkf5402
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 Comprehensive
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 May 7, 2023
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 ₦40,000
               </td>
@@ -1022,27 +1024,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               class="border-b font-medium"
             >
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 #WP62F3E8F93
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 123jkf5402
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 Credit Life
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 May 7, 2023
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 ₦40,000
               </td>
@@ -1051,27 +1053,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               class="border-b font-medium"
             >
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 #WP62F3E8F93
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 123jkf5402
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 Card Protect
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 May 7, 2023
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 ₦40,000
               </td>
@@ -1080,27 +1082,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               class="border-b font-medium"
             >
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 #WP62F3E8F93
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 123jkf5402
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 Student
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 May 7, 2023
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 ₦40,000
               </td>
@@ -1109,27 +1111,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               class="border-b font-medium"
             >
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 #WP62F3E8F93
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 123jkf5402
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 Travel
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 May 7, 2023
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 ₦40,000
               </td>
@@ -1138,27 +1140,27 @@ exports[`Agent Policies Page > renders correctly 1`] = `
               class="border-b font-medium"
             >
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 #WP62F3E8F93
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 123jkf5402
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 Device
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 May 7, 2023
               </td>
               <td
-                class="p-4"
+                class="p-4 text-center"
               >
                 ₦40,000
               </td>

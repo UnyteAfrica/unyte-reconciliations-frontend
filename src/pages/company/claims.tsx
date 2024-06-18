@@ -1,12 +1,10 @@
 import { NavLink, useLocation, Routes, Route } from "react-router-dom";
 
-import { FilterButton } from "../components/filter-button";
-import { DownloadButton } from "../components/download-button";
-import CompletedClaims from "./completed-claims";
-import PendingClaims from "./pending-claims";
+import { FilterButton } from "../../components/filter-button";
+import { DownloadButton } from "../../components/download-button";
 import { SearchBar } from "@/components/searchbar";
-
-//import { paginate } from "../utils/paginate";
+import { PendingClaims } from "../../components/company/pending-claims";
+import { CompletedClaims } from "../../components/company/completed-claims";
 
 function Claims() {
   const location = useLocation();

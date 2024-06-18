@@ -14,7 +14,7 @@ export const Table: React.FC<PropsWithChildren<TableProps>> = ({
         <tr>
           {headers.map((head, i) => {
             return (
-              <th key={i} className="p-4 text-left">
+              <th key={i} className="p-4 text-center">
                 {head}
               </th>
             );

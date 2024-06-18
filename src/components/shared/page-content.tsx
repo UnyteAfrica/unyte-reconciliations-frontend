@@ -45,7 +45,10 @@ export const PageContent: React.FC<PageContentProps> = ({
       onClick={() => setIsFilterOpen(false)}
     >
       <div className="flex flex-row justify-between items-center mb-10 relative">
-        <span className="text-3xl text-[#333333] font-semibold capitalize">
+        <span
+          data-testid="pageTitle"
+          className="text-3xl text-[#333333] font-semibold capitalize"
+        >
           {title}
         </span>
         <SearchBar

@@ -15,11 +15,11 @@ export const CommissionsTable: React.FC<CommissionsTableProps> = ({
     >
       {commissions.map((commission, idx) => (
         <tr key={idx} className="border-b font-medium">
-          <td className="p-4">{commission.policyRef}</td>
-          <td className="p-4">{commission.policyNo}</td>
-          <td className="p-4">{commission.product}</td>
-          <td className="p-4">{commission.date}</td>
-          <td className="p-4">
+          <td className="p-4 text-center">{commission.policyRef}</td>
+          <td className="p-4 text-center">{commission.policyNo}</td>
+          <td className="p-4 text-center">{commission.product}</td>
+          <td className="p-4 text-center">{commission.date}</td>
+          <td className="p-4 text-center">
             {nairaSign + formatAmount(commission.commission)}
           </td>
         </tr>

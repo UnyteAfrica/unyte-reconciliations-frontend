@@ -1,57 +1,55 @@
-import { ClaimsTable } from "../components/tables/claims-table";
-
-//import { paginate } from "../utils/paginate";
+import { PageContent } from "@/components/shared/page-content";
+import { ClaimsTable } from "../tables/claims-table";
+import { Claim, ClaimStatus } from "@/types/types";
 
 export const PendingClaims = () => {
-  const claims = [
+  const claims: Claim[] = [
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: "processing",
-      estimate: "₦40,000.00",
+      status: ClaimStatus.Processing,
+      estimate: 40000,
     },
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: "submitted",
-      estimate: "₦40,000.00",
+      status: ClaimStatus.Submitted,
+      estimate: 40000,
     },
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: "processing",
-      estimate: "₦40,000.00",
+      status: ClaimStatus.Processing,
+      estimate: 40000,
     },
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: "processing",
-      estimate: "₦40,000.00",
+      status: ClaimStatus.Processing,
+      estimate: 40000,
     },
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: "submitted",
-      estimate: "₦40,000.00",
+      status: ClaimStatus.Submitted,
+      estimate: 40000,
     },
   ];
+
   return (
-    <>
-      <div id="policies-table" className="mb-10">
-        <ClaimsTable claims={claims} />
-      </div>
-    </>
+    <PageContent
+      title="Pending Claims"
+      pageTable={<ClaimsTable claims={claims} />}
+    />
   );
 };
-
-export default PendingClaims;

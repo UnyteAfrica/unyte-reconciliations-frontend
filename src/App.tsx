@@ -13,6 +13,7 @@ import { AgentPolicies } from "./pages/agent/agent-policies";
 import { Commissions } from "./pages/agent/commissions";
 import { Devices } from "./pages/agent/devices";
 import { CompanyPolicies } from "./pages/company/company-policies";
+import { CompanyClaims } from "./pages/company/company-claims";
 
 function App() {
   return (
@@ -68,8 +69,8 @@ function App() {
             element={<CompanyPolicies />}
           />
           <Route
-            path={BrowserRoutes.claims.substring(1)}
-            element={<CompanyOverview />}
+            path={BrowserRoutes.claims.substring(1) + BrowserRoutes.wildcard}
+            element={<CompanyClaims />}
           />
           <Route
             path={BrowserRoutes.agents.substring(1)}

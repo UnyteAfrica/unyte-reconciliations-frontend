@@ -11,6 +11,9 @@ export const BrowserRoutes = {
   profile: "/profile",
   claims: "/claims",
   agents: "/agents",
+  pending: "/pending",
+  completed: "/completed",
+  wildcard: "/*",
 };
 
 export const BrowserComboRoutes = {
@@ -20,4 +23,16 @@ export const BrowserComboRoutes = {
   companySignup: BrowserRoutes.company + BrowserRoutes.signup,
   agentDashboard: BrowserRoutes.agent + BrowserRoutes.dashboard,
   companyDashboard: BrowserRoutes.company + BrowserRoutes.dashboard,
+  companyClaims:
+    BrowserRoutes.company + BrowserRoutes.dashboard + BrowserRoutes.claims,
+  pendingCompanyClaims:
+    BrowserRoutes.company +
+    BrowserRoutes.dashboard +
+    BrowserRoutes.claims +
+    BrowserRoutes.pending,
+  completedCompanyClaims:
+    BrowserRoutes.company +
+    BrowserRoutes.dashboard +
+    BrowserRoutes.claims +
+    BrowserRoutes.completed,
 };

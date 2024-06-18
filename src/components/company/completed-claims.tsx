@@ -1,58 +1,54 @@
-import { ClaimsTable } from "../components/tables/claims-table";
+import { PageContent } from "@/components/shared/page-content";
+import { ClaimsTable } from "../tables/claims-table";
+import { Claim, ClaimStatus } from "@/types/types";
 
-//import { paginate } from "../utils/paginate";
-
-function CompletedClaims() {
-  const claims = [
+export const CompletedClaims = () => {
+  const claims: Claim[] = [
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: "completed",
-      estimate: "₦40,000.00",
+      status: ClaimStatus.Completed,
+      estimate: 40000,
     },
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: "completed",
-      estimate: "₦40,000.00",
+      status: ClaimStatus.Completed,
+      estimate: 40000,
     },
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: "completed",
-      estimate: "₦40,000.00",
+      status: ClaimStatus.Completed,
+      estimate: 40000,
     },
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: "completed",
-      estimate: "₦40,000.00",
+      status: ClaimStatus.Completed,
+      estimate: 40000,
     },
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: "completed",
-      estimate: "₦40,000.00",
+      status: ClaimStatus.Completed,
+      estimate: 40000,
     },
   ];
-
   return (
-    <>
-      <div className="mb-10">
-        <ClaimsTable claims={claims} />
-      </div>
-    </>
+    <PageContent
+      title="Completed Claims"
+      pageTable={<ClaimsTable claims={claims} />}
+    />
   );
-}
-
-export default CompletedClaims;
+};
