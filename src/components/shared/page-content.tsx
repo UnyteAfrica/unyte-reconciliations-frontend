@@ -12,6 +12,7 @@ import { Pagination } from "./pagination";
 type PageContentProps = {
   pageTable: ReactNode;
   title: string;
+  searchbarPlaceholder?: string;
 };
 
 export const periods = ["Daily", "Weekly", "Monthly", "Yearly"] as const;
@@ -27,6 +28,7 @@ export const products = [
 export const PageContent: React.FC<PageContentProps> = ({
   pageTable,
   title,
+  searchbarPlaceholder,
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [period, setPeriod] = useState<string>(periods[0]);
@@ -53,7 +55,7 @@ export const PageContent: React.FC<PageContentProps> = ({
         </span>
         <SearchBar
           handleSearch={handleSearch}
-          placeholder="Find policy reference"
+          placeholder={searchbarPlaceholder ?? "Find policy reference"}
         />
         <div id="dates" className="flex flex-row items-center space-x-3">
           <button

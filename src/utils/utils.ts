@@ -14,3 +14,6 @@ export const formatAmount = (amount: number) => {
   }
   return res.join("");
 };
+
+export const formatToNaira = (amount: number) =>
+  nairaSign + formatAmount(amount);

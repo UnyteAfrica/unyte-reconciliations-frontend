@@ -408,7 +408,8 @@ exports[`Pending Claims > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  40000
+                   
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -446,7 +447,8 @@ exports[`Pending Claims > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  40000
+                   
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -484,7 +486,8 @@ exports[`Pending Claims > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  40000
+                   
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -522,7 +525,8 @@ exports[`Pending Claims > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  40000
+                   
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -560,7 +564,8 @@ exports[`Pending Claims > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  40000
+                   
+                  ₦40,000
                 </td>
               </tr>
             </tbody>
@@ -1052,7 +1057,8 @@ exports[`Pending Claims > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                40000
+                 
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1090,7 +1096,8 @@ exports[`Pending Claims > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                40000
+                 
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1128,7 +1135,8 @@ exports[`Pending Claims > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                40000
+                 
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1166,7 +1174,8 @@ exports[`Pending Claims > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                40000
+                 
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1204,7 +1213,8 @@ exports[`Pending Claims > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                40000
+                 
+                ₦40,000
               </td>
             </tr>
           </tbody>

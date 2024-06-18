@@ -1,4 +1,4 @@
-import { formatAmount, nairaSign } from "@/utils/utils";
+import { formatToNaira } from "@/utils/utils";
 import { Commission } from "../../types/types";
 import { Table } from "../table";
 
@@ -20,7 +20,7 @@ export const CommissionsTable: React.FC<CommissionsTableProps> = ({
           <td className="p-4 text-center">{commission.product}</td>
           <td className="p-4 text-center">{commission.date}</td>
           <td className="p-4 text-center">
-            {nairaSign + formatAmount(commission.commission)}
+            {formatToNaira(commission.commission)}
           </td>
         </tr>
       ))}

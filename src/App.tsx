@@ -14,6 +14,7 @@ import { Commissions } from "./pages/agent/commissions";
 import { Devices } from "./pages/agent/devices";
 import { CompanyPolicies } from "./pages/company/company-policies";
 import { CompanyClaims } from "./pages/company/company-claims";
+import { CompanyAgents } from "./pages/company/company-agents";
 
 function App() {
   return (
@@ -74,7 +75,7 @@ function App() {
           />
           <Route
             path={BrowserRoutes.agents.substring(1)}
-            element={<CompanyOverview />}
+            element={<CompanyAgents />}
           />
         </Route>
       </Routes>

@@ -1,5 +1,6 @@
 import { AgentPolicy, CompanyPolicy } from "@/types/types";
 import { Table } from "../table";
+import { formatToNaira } from "@/utils/utils";
 
 type AgentPoliciesTableProps = {
   policies: AgentPolicy[];
@@ -16,7 +17,7 @@ export const AgentPoliciesTable: React.FC<AgentPoliciesTableProps> = ({
           <td className="p-4 text-center">{policy.policyNo}</td>
           <td className="p-4 text-center">{policy.product}</td>
           <td className="p-4 text-center">{policy.date}</td>
-          <td className="p-4 text-center">{policy.price}</td>
+          <td className="p-4 text-center">{formatToNaira(policy.price)}</td>
         </tr>
       ))}
     </Table>
@@ -38,7 +39,7 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
           <td className="p-4 text-center">{policy.policyNo}</td>
           <td className="p-4 text-center">{policy.agentId}</td>
           <td className="p-4 text-center">{policy.date}</td>
-          <td className="p-4 text-center">{policy.price}</td>
+          <td className="p-4 text-center">{formatToNaira(policy.price)}</td>
         </tr>
       ))}
     </Table>
