@@ -15,6 +15,12 @@ import { Devices } from "./pages/agent/devices";
 import { CompanyPolicies } from "./pages/company/company-policies";
 import { CompanyClaims } from "./pages/company/company-claims";
 import { CompanyAgents } from "./pages/company/company-agents";
+import { AgentForgotPasswordPage } from "./pages/agent/forgot-password";
+import { AgentResetPasswordPage } from "./pages/agent/reset-password";
+import { AgentVerifyOTPPage } from "./pages/agent/verify-otp.page";
+import { CompanyForgotPasswordPage } from "./pages/company/forgot-password";
+import { CompanyResetPasswordPage } from "./pages/company/reset-password";
+import { CompanyVerifyOTPPage } from "./pages/company/verify-otp.page";
 
 function App() {
   return (
@@ -29,12 +35,36 @@ function App() {
           element={<AgentSignupPage />}
         />
         <Route
+          path={BrowserComboRoutes.agentForgotPassword}
+          element={<AgentForgotPasswordPage />}
+        />
+        <Route
+          path={BrowserComboRoutes.agentResetPassword}
+          element={<AgentResetPasswordPage />}
+        />
+        <Route
+          path={BrowserComboRoutes.agentVerify}
+          element={<AgentVerifyOTPPage />}
+        />
+        <Route
           path={BrowserComboRoutes.companyLogin}
           element={<CompanyLoginPage />}
         />
         <Route
           path={BrowserComboRoutes.companySignup}
           element={<CompanySignupPage />}
+        />
+        <Route
+          path={BrowserComboRoutes.companyForgotPassword}
+          element={<CompanyForgotPasswordPage />}
+        />
+        <Route
+          path={BrowserComboRoutes.companyResetPassword}
+          element={<CompanyResetPasswordPage />}
+        />
+        <Route
+          path={BrowserComboRoutes.companyVerify}
+          element={<CompanyVerifyOTPPage />}
         />
         <Route
           path={BrowserComboRoutes.agentDashboard}

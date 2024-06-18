@@ -13,15 +13,24 @@ export const BrowserRoutes = {
   agents: "/agents",
   pending: "/pending",
   completed: "/completed",
+  forgotPassword: "/forgot-password",
+  resetPassword: "/reset-password",
+  verify: "/verify",
   wildcard: "/*",
 };
 
 export const BrowserComboRoutes = {
   agentLogin: BrowserRoutes.agent + BrowserRoutes.login,
   agentSignup: BrowserRoutes.agent + BrowserRoutes.signup,
+  agentForgotPassword: BrowserRoutes.agent + BrowserRoutes.forgotPassword,
+  agentResetPassword: BrowserRoutes.agent + BrowserRoutes.resetPassword,
+  agentVerify: BrowserRoutes.agent + BrowserRoutes.verify,
+  agentDashboard: BrowserRoutes.agent + BrowserRoutes.dashboard,
   companyLogin: BrowserRoutes.company + BrowserRoutes.login,
   companySignup: BrowserRoutes.company + BrowserRoutes.signup,
-  agentDashboard: BrowserRoutes.agent + BrowserRoutes.dashboard,
+  companyForgotPassword: BrowserRoutes.company + BrowserRoutes.forgotPassword,
+  companyResetPassword: BrowserRoutes.company + BrowserRoutes.resetPassword,
+  companyVerify: BrowserRoutes.company + BrowserRoutes.verify,
   companyDashboard: BrowserRoutes.company + BrowserRoutes.dashboard,
   companyClaims:
     BrowserRoutes.company + BrowserRoutes.dashboard + BrowserRoutes.claims,
