@@ -63,6 +63,14 @@ export const CompanyLoginPage = () => {
                   Sign up
                 </Link>
               </p>
+              <div className="flex justify-end">
+                <Link
+                  to={BrowserComboRoutes.companyForgotPassword}
+                  className="text-primary mb-2 inline-block"
+                >
+                  Forgotten Password?
+                </Link>
+              </div>
               <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
                 Sign In
               </button>

@@ -108,6 +108,16 @@ exports[`Company Login Page > renders correctly 1`] = `
                     Sign up
                   </a>
                 </p>
+                <div
+                  class="flex justify-end"
+                >
+                  <a
+                    class="text-primary mb-2 inline-block"
+                    href="/company/forgot-password"
+                  >
+                    Forgotten Password?
+                  </a>
+                </div>
                 <button
                   class="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
                 >
@@ -224,6 +234,16 @@ exports[`Company Login Page > renders correctly 1`] = `
                   Sign up
                 </a>
               </p>
+              <div
+                class="flex justify-end"
+              >
+                <a
+                  class="text-primary mb-2 inline-block"
+                  href="/company/forgot-password"
+                >
+                  Forgotten Password?
+                </a>
+              </div>
               <button
                 class="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
               >
