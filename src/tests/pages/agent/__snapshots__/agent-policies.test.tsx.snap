@@ -394,7 +394,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -423,7 +423,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -452,7 +452,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -481,7 +481,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -510,7 +510,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
               <tr
@@ -539,7 +539,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000.00
+                  ₦40,000
                 </td>
               </tr>
             </tbody>
@@ -1017,7 +1017,7 @@ exports[`Agent Policies > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1046,7 +1046,7 @@ exports[`Agent Policies > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1075,7 +1075,7 @@ exports[`Agent Policies > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1104,7 +1104,7 @@ exports[`Agent Policies > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1133,7 +1133,7 @@ exports[`Agent Policies > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
             <tr
@@ -1162,7 +1162,7 @@ exports[`Agent Policies > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                ₦40,000.00
+                ₦40,000
               </td>
             </tr>
           </tbody>

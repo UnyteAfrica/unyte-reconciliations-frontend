@@ -20,14 +20,14 @@ export type AgentPolicy = {
   policyNo: string;
   product: string;
   date: string;
-  price: string;
+  price: number;
 };
 export type CompanyPolicy = {
   policyRef: string;
   policyNo: string;
   agentId: string;
   date: string;
-  price: string;
+  price: number;
 };
 
 export type Commission = {
@@ -46,4 +46,11 @@ export type DeviceTableEntry = {
     model: string;
     imei: string;
   };
+};
+
+export type Agent = {
+  id: string;
+  name: string;
+  commissions: number;
+  policiesSold: number;
 };
