@@ -1,10 +1,18 @@
+export const ClaimStatus = {
+  Processing: "Processing",
+  Submitted: "Submitted",
+  Completed: "Completed",
+} as const;
+
+type ClaimStatusType = keyof typeof ClaimStatus;
+
 export type Claim = {
   policyNo: string;
   email: string;
   date: string;
   insurer: string;
-  status: string;
-  estimate: string;
+  status: ClaimStatusType;
+  estimate: number;
 };
 
 export type AgentPolicy = {

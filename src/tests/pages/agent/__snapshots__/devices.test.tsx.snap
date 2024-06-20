@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Page Content > renders correctly 1`] = `
+exports[`Devices > renders correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -15,7 +15,7 @@ exports[`Page Content > renders correctly 1`] = `
             class="text-3xl text-[#333333] font-semibold capitalize"
             data-testid="pageTitle"
           >
-            Commissions
+            Devices
           </span>
           <form>
             <div
@@ -341,27 +341,27 @@ exports[`Page Content > renders correctly 1`] = `
                 <th
                   class="p-4 text-center"
                 >
-                  Policy Ref.
-                </th>
-                <th
-                  class="p-4 text-center"
-                >
                   Policy No.
                 </th>
                 <th
                   class="p-4 text-center"
                 >
-                  Product
+                  Device Name
                 </th>
                 <th
                   class="p-4 text-center"
                 >
-                  Date
+                  Model
                 </th>
                 <th
                   class="p-4 text-center"
                 >
-                  Commission
+                  Device IMEI
+                </th>
+                <th
+                  class="p-4 text-center"
+                >
+                  Policy Type
                 </th>
               </tr>
             </thead>
@@ -374,27 +374,27 @@ exports[`Page Content > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  #WP62F3E8F93
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
                   123jkf5402
                 </td>
                 <td
                   class="p-4 text-center"
                 >
-                  Travel
+                  Galaxy S22
                 </td>
                 <td
                   class="p-4 text-center"
                 >
-                  May 7, 2023
+                  Samsung
                 </td>
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000
+                  1029347349267642752
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Screen Only
                 </td>
               </tr>
               <tr
@@ -403,8 +403,32 @@ exports[`Page Content > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  #WP62F3E8F93
+                  123jkf5402
                 </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  iPhone 15
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  iPhone
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  1029347349267642752
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Screen Only
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
                 <td
                   class="p-4 text-center"
                 >
@@ -413,17 +437,225 @@ exports[`Page Content > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  Device
+                  Galaxy S22
                 </td>
                 <td
                   class="p-4 text-center"
                 >
-                  May 7, 2023
+                  Samsung
                 </td>
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000
+                  1029347349267642752
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Screen and Camera
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Galaxy S22
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Samsung
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  1029347349267642752
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Screen Only
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Phantom 6
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Tecno
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  1029347349267642752
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  All Parts
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  iPhone SE
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  iPhone
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  1029347349267642752
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Screen Only
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Galaxy S22
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Samsung
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  1029347349267642752
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  All Parts
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Galaxy S24 Ultra
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Samsung
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  1029347349267642752
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Screen Only
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Pixel 8 Pro
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Google Pixel
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  1029347349267642752
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  All Parts
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Pixel 8a
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Google Pixel
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  1029347349267642752
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Screen Only
                 </td>
               </tr>
             </tbody>
@@ -522,7 +754,7 @@ exports[`Page Content > renders correctly 1`] = `
           class="text-3xl text-[#333333] font-semibold capitalize"
           data-testid="pageTitle"
         >
-          Commissions
+          Devices
         </span>
         <form>
           <div
@@ -848,27 +1080,27 @@ exports[`Page Content > renders correctly 1`] = `
               <th
                 class="p-4 text-center"
               >
-                Policy Ref.
-              </th>
-              <th
-                class="p-4 text-center"
-              >
                 Policy No.
               </th>
               <th
                 class="p-4 text-center"
               >
-                Product
+                Device Name
               </th>
               <th
                 class="p-4 text-center"
               >
-                Date
+                Model
               </th>
               <th
                 class="p-4 text-center"
               >
-                Commission
+                Device IMEI
+              </th>
+              <th
+                class="p-4 text-center"
+              >
+                Policy Type
               </th>
             </tr>
           </thead>
@@ -881,27 +1113,27 @@ exports[`Page Content > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                #WP62F3E8F93
-              </td>
-              <td
-                class="p-4 text-center"
-              >
                 123jkf5402
               </td>
               <td
                 class="p-4 text-center"
               >
-                Travel
+                Galaxy S22
               </td>
               <td
                 class="p-4 text-center"
               >
-                May 7, 2023
+                Samsung
               </td>
               <td
                 class="p-4 text-center"
               >
-                ₦40,000
+                1029347349267642752
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Screen Only
               </td>
             </tr>
             <tr
@@ -910,8 +1142,32 @@ exports[`Page Content > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                #WP62F3E8F93
+                123jkf5402
               </td>
+              <td
+                class="p-4 text-center"
+              >
+                iPhone 15
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                iPhone
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                1029347349267642752
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Screen Only
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
               <td
                 class="p-4 text-center"
               >
@@ -920,17 +1176,225 @@ exports[`Page Content > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                Device
+                Galaxy S22
               </td>
               <td
                 class="p-4 text-center"
               >
-                May 7, 2023
+                Samsung
               </td>
               <td
                 class="p-4 text-center"
               >
-                ₦40,000
+                1029347349267642752
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Screen and Camera
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Galaxy S22
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Samsung
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                1029347349267642752
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Screen Only
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Phantom 6
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Tecno
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                1029347349267642752
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                All Parts
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                iPhone SE
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                iPhone
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                1029347349267642752
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Screen Only
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Galaxy S22
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Samsung
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                1029347349267642752
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                All Parts
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Galaxy S24 Ultra
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Samsung
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                1029347349267642752
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Screen Only
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Pixel 8 Pro
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Google Pixel
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                1029347349267642752
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                All Parts
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Pixel 8a
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Google Pixel
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                1029347349267642752
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Screen Only
               </td>
             </tr>
           </tbody>

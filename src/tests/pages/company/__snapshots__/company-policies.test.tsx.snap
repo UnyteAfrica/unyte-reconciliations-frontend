@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Page Content > renders correctly 1`] = `
+exports[`Company Policies > renders correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -15,7 +15,7 @@ exports[`Page Content > renders correctly 1`] = `
             class="text-3xl text-[#333333] font-semibold capitalize"
             data-testid="pageTitle"
           >
-            Commissions
+            Policies
           </span>
           <form>
             <div
@@ -351,7 +351,7 @@ exports[`Page Content > renders correctly 1`] = `
                 <th
                   class="p-4 text-center"
                 >
-                  Product
+                  Agent ID
                 </th>
                 <th
                   class="p-4 text-center"
@@ -361,7 +361,7 @@ exports[`Page Content > renders correctly 1`] = `
                 <th
                   class="p-4 text-center"
                 >
-                  Commission
+                  Price
                 </th>
               </tr>
             </thead>
@@ -384,7 +384,7 @@ exports[`Page Content > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  Travel
+                  ID-023535393
                 </td>
                 <td
                   class="p-4 text-center"
@@ -394,7 +394,7 @@ exports[`Page Content > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000
+                  ₦40,000.00
                 </td>
               </tr>
               <tr
@@ -413,7 +413,7 @@ exports[`Page Content > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  Device
+                  ID-023535394
                 </td>
                 <td
                   class="p-4 text-center"
@@ -423,7 +423,123 @@ exports[`Page Content > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ID-023535395
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ID-023535396
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ID-023535397
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ID-023535398
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ₦40,000.00
                 </td>
               </tr>
             </tbody>
@@ -522,7 +638,7 @@ exports[`Page Content > renders correctly 1`] = `
           class="text-3xl text-[#333333] font-semibold capitalize"
           data-testid="pageTitle"
         >
-          Commissions
+          Policies
         </span>
         <form>
           <div
@@ -858,7 +974,7 @@ exports[`Page Content > renders correctly 1`] = `
               <th
                 class="p-4 text-center"
               >
-                Product
+                Agent ID
               </th>
               <th
                 class="p-4 text-center"
@@ -868,7 +984,7 @@ exports[`Page Content > renders correctly 1`] = `
               <th
                 class="p-4 text-center"
               >
-                Commission
+                Price
               </th>
             </tr>
           </thead>
@@ -891,7 +1007,7 @@ exports[`Page Content > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                Travel
+                ID-023535393
               </td>
               <td
                 class="p-4 text-center"
@@ -901,7 +1017,7 @@ exports[`Page Content > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                ₦40,000
+                ₦40,000.00
               </td>
             </tr>
             <tr
@@ -920,7 +1036,7 @@ exports[`Page Content > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                Device
+                ID-023535394
               </td>
               <td
                 class="p-4 text-center"
@@ -930,7 +1046,123 @@ exports[`Page Content > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                ₦40,000
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ID-023535395
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ID-023535396
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ID-023535397
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ID-023535398
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ₦40,000.00
               </td>
             </tr>
           </tbody>

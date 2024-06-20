@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { BiChevronDown } from "react-icons/bi";
 import { Icon } from "../shared/icon";
 import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
@@ -22,7 +22,7 @@ const navLinks: UrlLink[] = [
   },
   {
     text: "Claims",
-    url: BrowserComboRoutes.companyDashboard + BrowserRoutes.claims,
+    url: BrowserComboRoutes.pendingCompanyClaims,
   },
   {
     text: "Agents",
@@ -32,10 +32,14 @@ const navLinks: UrlLink[] = [
 
 export const CompanyNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
+  console.log(location.pathname);
+
   return (
     <>
       <div
@@ -46,21 +50,24 @@ export const CompanyNavbar = () => {
           <Icon className="shrink-0" type="logo" alt="unyte logo" />
         </div>
         <div className="space-x-24">
-          {navLinks.map((navLink, idx) => (
-            <NavLink
-              key={idx}
-              to={navLink.url}
-              className={({ isActive }) =>
-                cx(
-                  "font-semibold text-lg duration-300",
-                  isActive &&
-                    "text-[#25D366] underline underline-offset-[30px] decoration-4"
-                )
-              }
-            >
-              {navLink.text}
-            </NavLink>
-          ))}
+          {navLinks.map((navLink, idx) => {
+            return (
+              <NavLink
+                key={idx}
+                to={navLink.url}
+                className={({ isActive }) =>
+                  cx(
+                    "font-semibold text-lg duration-300",
+                    (isActive ||
+                      location.pathname.includes(navLink.text.toLowerCase())) &&
+                      "text-[#25D366] underline underline-offset-[30px] decoration-4"
+                  )
+                }
+              >
+                {navLink.text}
+              </NavLink>
+            );
+          })}
         </div>
         <div id="profile">
           <div className="relative">

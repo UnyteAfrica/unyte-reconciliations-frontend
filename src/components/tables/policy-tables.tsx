@@ -12,11 +12,11 @@ export const AgentPoliciesTable: React.FC<AgentPoliciesTableProps> = ({
     <Table headers={["Policy Ref.", "Policy No.", "Product", "Date", "Price"]}>
       {policies.map((policy, i) => (
         <tr key={i} className="border-b font-medium">
-          <td className="p-4">{policy.policyRef}</td>
-          <td className="p-4">{policy.policyNo}</td>
-          <td className="p-4">{policy.product}</td>
-          <td className="p-4">{policy.date}</td>
-          <td className="p-4">{policy.price}</td>
+          <td className="p-4 text-center">{policy.policyRef}</td>
+          <td className="p-4 text-center">{policy.policyNo}</td>
+          <td className="p-4 text-center">{policy.product}</td>
+          <td className="p-4 text-center">{policy.date}</td>
+          <td className="p-4 text-center">{policy.price}</td>
         </tr>
       ))}
     </Table>
@@ -34,11 +34,11 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
     <Table headers={["Policy Ref.", "Policy No.", "Agent ID", "Date", "Price"]}>
       {policies.map((policy, i) => (
         <tr key={i} className="border-b font-medium">
-          <td className="p-4">{policy.policyRef}</td>
-          <td className="p-4">{policy.policyNo}</td>
-          <td className="p-4">{policy.agentId}</td>
-          <td className="p-4">{policy.date}</td>
-          <td className="p-4">{policy.price}</td>
+          <td className="p-4 text-center">{policy.policyRef}</td>
+          <td className="p-4 text-center">{policy.policyNo}</td>
+          <td className="p-4 text-center">{policy.agentId}</td>
+          <td className="p-4 text-center">{policy.date}</td>
+          <td className="p-4 text-center">{policy.price}</td>
         </tr>
       ))}
     </Table>

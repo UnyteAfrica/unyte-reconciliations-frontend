@@ -9,6 +9,9 @@ export default {
       colors: {
         primary: "#25D366",
         textDim: "#333",
+        grey: "#4F4F4F",
+        orange: "#FF9B00",
+        green: "#25D366",
       },
     },
   },

@@ -20,11 +20,11 @@ export const DevicesTable: React.FC<DevicesTableProps> = ({
     >
       {deviceTableEntries.map((entry, idx) => (
         <tr key={idx} className="border-b font-medium">
-          <td className="p-4">{entry.policyNo}</td>
-          <td className="p-4">{entry.device.name}</td>
-          <td className="p-4">{entry.device.model}</td>
-          <td className="p-4">{entry.device.imei}</td>
-          <td className="p-4">{entry.policyType}</td>
+          <td className="p-4 text-center">{entry.policyNo}</td>
+          <td className="p-4 text-center">{entry.device.name}</td>
+          <td className="p-4 text-center">{entry.device.model}</td>
+          <td className="p-4 text-center">{entry.device.imei}</td>
+          <td className="p-4 text-center">{entry.policyType}</td>
         </tr>
       ))}
     </Table>

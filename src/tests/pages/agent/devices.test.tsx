@@ -1,12 +1,12 @@
+import { Devices } from "@/pages/agent/devices";
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import { Commissions } from "@/pages/agent/commissions";
 
-describe("Agent Commissions Page", () => {
+describe("Devices", () => {
   it("renders correctly", () => {
     const tree = render(
       <BrowserRouter>
-        <Commissions />
+        <Devices />
       </BrowserRouter>
     );
     expect(tree).toMatchSnapshot();

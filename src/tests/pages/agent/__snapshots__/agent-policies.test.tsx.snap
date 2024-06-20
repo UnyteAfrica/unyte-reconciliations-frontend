@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Page Content > renders correctly 1`] = `
+exports[`Agent Policies > renders correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -15,7 +15,7 @@ exports[`Page Content > renders correctly 1`] = `
             class="text-3xl text-[#333333] font-semibold capitalize"
             data-testid="pageTitle"
           >
-            Commissions
+            Policies
           </span>
           <form>
             <div
@@ -361,13 +361,129 @@ exports[`Page Content > renders correctly 1`] = `
                 <th
                   class="p-4 text-center"
                 >
-                  Commission
+                  Price
                 </th>
               </tr>
             </thead>
             <tbody
               class="bg-white text-[#333333]"
             >
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Comprehensive
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Credit Life
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Card Protect
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4 text-center"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  Student
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4 text-center"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
               <tr
                 class="border-b font-medium"
               >
@@ -394,7 +510,7 @@ exports[`Page Content > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000
+                  ₦40,000.00
                 </td>
               </tr>
               <tr
@@ -423,7 +539,7 @@ exports[`Page Content > renders correctly 1`] = `
                 <td
                   class="p-4 text-center"
                 >
-                  ₦40,000
+                  ₦40,000.00
                 </td>
               </tr>
             </tbody>
@@ -522,7 +638,7 @@ exports[`Page Content > renders correctly 1`] = `
           class="text-3xl text-[#333333] font-semibold capitalize"
           data-testid="pageTitle"
         >
-          Commissions
+          Policies
         </span>
         <form>
           <div
@@ -868,13 +984,129 @@ exports[`Page Content > renders correctly 1`] = `
               <th
                 class="p-4 text-center"
               >
-                Commission
+                Price
               </th>
             </tr>
           </thead>
           <tbody
             class="bg-white text-[#333333]"
           >
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Comprehensive
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Credit Life
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Card Protect
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4 text-center"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                Student
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4 text-center"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
             <tr
               class="border-b font-medium"
             >
@@ -901,7 +1133,7 @@ exports[`Page Content > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                ₦40,000
+                ₦40,000.00
               </td>
             </tr>
             <tr
@@ -930,7 +1162,7 @@ exports[`Page Content > renders correctly 1`] = `
               <td
                 class="p-4 text-center"
               >
-                ₦40,000
+                ₦40,000.00
               </td>
             </tr>
           </tbody>
