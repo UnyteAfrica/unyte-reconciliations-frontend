@@ -7,8 +7,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 const formSchema = z
   .object({
+    businessName: z
+      .string()
+      .min(3, "Business name must be 3 or more characters")
+      .max(50, "Business name cannot be more than 50 characters"),
+    adminName: z
+      .string()
+      .min(3, "Admin name must be 3 or more characters")
+      .max(50, "Admin name cannot be more than 50 characters"),
+    businessRegNo: z
+      .string()
+      .min(5, "Business Reg No must be 5 or more characters")
+      .max(50, "Business Reg No cannot be more than 50 characters"),
     email: z.string().email("The email you entered is invalid"),
-    companyId: z.string().min(5, "Company ID cannot be less than 5 characters"),
+    gampId: z.string().min(5, "GAMP ID cannot be less than 5 characters"),
     password: z.string().min(6, "Password cannot be less than 6 characters"),
     confirmPassword: z.string(),
   })
@@ -25,8 +37,11 @@ export const CompanySignupPage = () => {
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      adminName: "",
+      businessName: "",
+      businessRegNo: "",
+      gampId: "",
       email: "",
-      companyId: "",
       password: "",
       confirmPassword: "",
     },
@@ -54,18 +69,31 @@ export const CompanySignupPage = () => {
           </header>
           <div className="space-y-6">
             <CustomInput
+              label="Company Name"
+              placeholder="A034529"
+              error={errors.businessName?.message?.toString()}
+              {...register("businessName")}
+            />
+            <CustomInput
+              label="Company Registration No."
+              placeholder="A034529"
+              error={errors.businessRegNo?.message?.toString()}
+              {...register("businessRegNo")}
+            />
+            <CustomInput
+              label="Company Name"
+              placeholder="A034529"
+              error={errors.businessName?.message?.toString()}
+              {...register("businessName")}
+            />
+            <CustomInput
               label="Email"
               type="email"
               placeholder="insurancefirm@company.com"
               error={errors.email?.message?.toString()}
               {...register("email")}
             />
-            <CustomInput
-              label="Company ID"
-              placeholder="A034529"
-              error={errors.companyId?.message?.toString()}
-              {...register("companyId")}
-            />
+
             <PasswordInput
               label="Password"
               placeholder="******"
