@@ -34,7 +34,7 @@ export const AgentForgotPasswordPage = () => {
         >
           <header>
             <p className="text-center mb-11 font-medium text-[28px]">
-              Agent Forget Password
+              Forgot Password
             </p>
           </header>
           <div className="space-y-6">
