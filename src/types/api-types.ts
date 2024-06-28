@@ -4,5 +4,5 @@ export type SignupType = {
   business_registration_number: string;
   email: string;
   password: string;
-  gampId: string;
+  gampId: string | undefined;
 };
