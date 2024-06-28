@@ -14,7 +14,7 @@ const formSchema = z
     lastName: z.string().min(3, "Last name cannot be less than 3 characters"),
     homeAddress: z
       .string()
-      .min(3, "Home Address cannot be less than 10 characters"),
+      .min(10, "Home Address cannot be less than 10 characters"),
     email: z.string().email("Invalid email entered"),
     gampId: z
       .string()
@@ -28,8 +28,8 @@ const formSchema = z
     bankName: z.string().min(3, "Bank name cannot be less than 3 characters"),
     accountNo: z
       .string()
-      .min(10, "BVN must be 10 characters")
-      .max(10, "BVN must be 10 characters"),
+      .min(10, "Account number must be 10 characters")
+      .max(10, "Account number must be 10 characters"),
     affiliatedCompany: z
       .string()
       .min(5, "Company name must be more than 5 characters"),

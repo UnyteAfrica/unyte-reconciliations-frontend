@@ -35,16 +35,16 @@ exports[`Company Signup Page > renders correctly 1`] = `
               >
                 <label
                   class="text-lg text-[#333] leading-[24px] mb-2 block"
-                  for="email"
+                  for="companyName"
                 >
-                  Email
+                  Company Name
+                   
                 </label>
                 <input
                   class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
-                  id="email"
-                  name="email"
-                  placeholder="insurancefirm@company.com"
-                  type="email"
+                  id="companyName"
+                  name="businessName"
+                  placeholder="John Doe Ltd"
                 />
                 <p
                   class="text-sm text-[#333]"
@@ -55,15 +55,81 @@ exports[`Company Signup Page > renders correctly 1`] = `
               >
                 <label
                   class="text-lg text-[#333] leading-[24px] mb-2 block"
-                  for="companyId"
+                  for="companyRegistrationNo"
                 >
-                  Company ID
+                  Company Registration No.
+                   
                 </label>
                 <input
                   class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
-                  id="companyId"
-                  name="companyId"
+                  id="companyRegistrationNo"
+                  name="businessRegNo"
                   placeholder="A034529"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="adminName"
+                >
+                  Admin Name
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  id="adminName"
+                  name="adminName"
+                  placeholder="John Doe"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="adminEmail"
+                >
+                  Admin Email
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  id="adminEmail"
+                  name="adminEmail"
+                  placeholder="insurancefirm@company.com"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="gampId"
+                >
+                  GAMP ID
+                   
+                  <span
+                    class="not-italic text-sm text-[#333]"
+                  >
+                    (optional)
+                  </span>
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  id="gampId"
+                  name="gampId"
+                  placeholder="GP-4739349"
                 />
                 <p
                   class="text-sm text-[#333]"
@@ -219,16 +285,16 @@ exports[`Company Signup Page > renders correctly 1`] = `
             >
               <label
                 class="text-lg text-[#333] leading-[24px] mb-2 block"
-                for="email"
+                for="companyName"
               >
-                Email
+                Company Name
+                 
               </label>
               <input
                 class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
-                id="email"
-                name="email"
-                placeholder="insurancefirm@company.com"
-                type="email"
+                id="companyName"
+                name="businessName"
+                placeholder="John Doe Ltd"
               />
               <p
                 class="text-sm text-[#333]"
@@ -239,15 +305,81 @@ exports[`Company Signup Page > renders correctly 1`] = `
             >
               <label
                 class="text-lg text-[#333] leading-[24px] mb-2 block"
-                for="companyId"
+                for="companyRegistrationNo"
               >
-                Company ID
+                Company Registration No.
+                 
               </label>
               <input
                 class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
-                id="companyId"
-                name="companyId"
+                id="companyRegistrationNo"
+                name="businessRegNo"
                 placeholder="A034529"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="adminName"
+              >
+                Admin Name
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                id="adminName"
+                name="adminName"
+                placeholder="John Doe"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="adminEmail"
+              >
+                Admin Email
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                id="adminEmail"
+                name="adminEmail"
+                placeholder="insurancefirm@company.com"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="gampId"
+              >
+                GAMP ID
+                 
+                <span
+                  class="not-italic text-sm text-[#333]"
+                >
+                  (optional)
+                </span>
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                id="gampId"
+                name="gampId"
+                placeholder="GP-4739349"
               />
               <p
                 class="text-sm text-[#333]"
@@ -422,5 +554,24 @@ exports[`Company Signup Page > renders correctly 1`] = `
   "queryByTitle": [Function],
   "rerender": [Function],
   "unmount": [Function],
+  "user": {
+    "clear": [Function],
+    "click": [Function],
+    "copy": [Function],
+    "cut": [Function],
+    "dblClick": [Function],
+    "deselectOptions": [Function],
+    "hover": [Function],
+    "keyboard": [Function],
+    "paste": [Function],
+    "pointer": [Function],
+    "selectOptions": [Function],
+    "setup": [Function],
+    "tab": [Function],
+    "tripleClick": [Function],
+    "type": [Function],
+    "unhover": [Function],
+    "upload": [Function],
+  },
 }
 `;

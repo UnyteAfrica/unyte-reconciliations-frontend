@@ -34,15 +34,16 @@ exports[`Agent Login Page > renders correctly 1`] = `
               >
                 <label
                   class="text-lg text-[#333] leading-[24px] mb-2 block"
-                  for="gampId"
+                  for="email /GampId"
                 >
-                  GAMP ID
+                  Email / GAMP ID
+                   
                 </label>
                 <input
                   class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
-                  id="gampId"
-                  name="gampId"
-                  placeholder="A034529"
+                  id="email /GampId"
+                  name="emailOrGampId"
+                  placeholder="johndoe@gmail.com / A034529"
                 />
                 <p
                   class="text-sm text-[#333]"
@@ -160,15 +161,16 @@ exports[`Agent Login Page > renders correctly 1`] = `
             >
               <label
                 class="text-lg text-[#333] leading-[24px] mb-2 block"
-                for="gampId"
+                for="email /GampId"
               >
-                GAMP ID
+                Email / GAMP ID
+                 
               </label>
               <input
                 class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
-                id="gampId"
-                name="gampId"
-                placeholder="A034529"
+                id="email /GampId"
+                name="emailOrGampId"
+                placeholder="johndoe@gmail.com / A034529"
               />
               <p
                 class="text-sm text-[#333]"

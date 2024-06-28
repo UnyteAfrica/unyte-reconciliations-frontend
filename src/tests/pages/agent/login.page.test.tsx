@@ -21,21 +21,19 @@ describe("Agent Login Page", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should validate email", async () => {
+  it("should validate email or gamp id", async () => {
     const { user } = setup(
       <BrowserRouter>
         <AgentLoginPage />
       </BrowserRouter>
     );
 
-    const gampIdInput = screen.getByLabelText("GAMP ID");
-    await user.click(gampIdInput);
-    await user.keyboard("A012");
+    const targetInput = screen.getByLabelText("Email / GAMP ID");
+    await user.click(targetInput);
+    await user.keyboard("jgh@");
     const submitButton = screen.getByText("Sign In");
     await user.click(submitButton);
-    const errorMessage = screen.getByText(
-      "GAMP ID cannot be less than 5 characters"
-    );
+    const errorMessage = screen.getByText("Email / GAMP ID Invalid");
     expect(errorMessage).toBeVisible();
   });
 

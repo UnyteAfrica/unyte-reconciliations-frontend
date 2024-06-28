@@ -14,16 +14,11 @@ const formSchema = z
   .object({
     businessName: z
       .string()
-      .min(3, "Business name must be 3 or more characters")
-      .max(50, "Business name cannot be more than 50 characters"),
-    adminName: z
-      .string()
-      .min(3, "Admin name must be 3 or more characters")
-      .max(50, "Admin name cannot be more than 50 characters"),
+      .min(3, "Business name must be 3 or more characters"),
+    adminName: z.string().min(3, "Admin name must be 3 or more characters"),
     businessRegNo: z
       .string()
-      .min(5, "Business Reg No must be 5 or more characters")
-      .max(50, "Business Reg No cannot be more than 50 characters"),
+      .min(5, "Business Reg No must be 5 or more characters"),
     adminEmail: z.string().email("The email you entered is invalid"),
     gampId: z
       .string()
@@ -117,6 +112,7 @@ export const CompanySignupPage = () => {
             />
             <CustomInput
               label="GAMP ID"
+              optional
               placeholder="GP-4739349"
               error={errors.gampId?.message?.toString()}
               {...register("gampId")}
