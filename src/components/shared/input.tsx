@@ -22,6 +22,7 @@ export type CustomInputProps = ComponentPropsWithoutRef<"input"> & {
   error?: string;
   errorClassName?: string;
   after?: ReactNode;
+  optional?: boolean;
 };
 export type ImageInputProps = ComponentPropsWithoutRef<"input"> & {
   label?: string;
@@ -76,6 +77,7 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
       error,
       errorClassName,
       after,
+      optional,
       ...rest
     } = props;
     const inputId = camelcase(label);
@@ -83,15 +85,22 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
     return (
       <div className={twMerge("", containerClassName)}>
         {label ? (
-          <label
-            className={twMerge(
-              "text-lg text-[#333] leading-[24px] mb-2 block",
-              labelClassName
-            )}
-            htmlFor={inputId}
-          >
-            {label}
-          </label>
+          <>
+            <label
+              className={twMerge(
+                "text-lg text-[#333] leading-[24px] mb-2 block",
+                labelClassName
+              )}
+              htmlFor={inputId}
+            >
+              {label}{" "}
+              {optional && (
+                <span className="not-italic text-sm text-[#333]">
+                  (optional)
+                </span>
+              )}
+            </label>
+          </>
         ) : null}
 
         <input

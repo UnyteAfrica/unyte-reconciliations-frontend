@@ -42,8 +42,8 @@ export const AgentLoginPage = () => {
           </header>
           <div className="space-y-6">
             <CustomInput
-              label="GAMP ID"
-              placeholder="A034529"
+              label="Email / GAMP ID"
+              placeholder="johndoe@gmail.com / A034529"
               error={errors.gampId?.message?.toString()}
               {...register("gampId")}
             />

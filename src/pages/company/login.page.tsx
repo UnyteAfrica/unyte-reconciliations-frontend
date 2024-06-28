@@ -6,7 +6,7 @@ import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const formSchema = z.object({
-  companyId: z.string().min(5, "Company ID cannot be less than 5 characters"),
+  email: z.string().email("Admin Email is invalid"),
   password: z.string().min(6, "Password cannot be less than 6 characters"),
 });
 
@@ -18,7 +18,7 @@ export const CompanyLoginPage = () => {
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      companyId: "",
+      email: "",
       password: "",
     },
   });
@@ -42,10 +42,10 @@ export const CompanyLoginPage = () => {
           </header>
           <div className="space-y-6">
             <CustomInput
-              label="Company ID"
-              placeholder="A034529"
-              error={errors.companyId?.message?.toString()}
-              {...register("companyId")}
+              label="Admin Email"
+              placeholder="johndoe@gmail.com"
+              error={errors.email?.message?.toString()}
+              {...register("email")}
             />
             <PasswordInput
               label="Password"
