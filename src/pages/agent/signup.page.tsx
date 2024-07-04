@@ -7,8 +7,32 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 const formSchema = z
   .object({
-    username: z.string().min(3, "Username cannot be less than 3 characters"),
-    gampId: z.string().min(5, "GAMP ID cannot be less than 5 characters"),
+    firstName: z.string().min(3, "First name cannot be less than 3 characters"),
+    middleName: z
+      .string()
+      .min(3, "Middle name cannot be less than 3 characters"),
+    lastName: z.string().min(3, "Last name cannot be less than 3 characters"),
+    homeAddress: z
+      .string()
+      .min(10, "Home Address cannot be less than 10 characters"),
+    email: z.string().email("Invalid email entered"),
+    gampId: z
+      .string()
+      .min(5, "GAMP ID cannot be less than 5 characters")
+      .optional()
+      .or(z.literal("")),
+    bvn: z
+      .string()
+      .min(11, "BVN must be 11 characters")
+      .max(11, "BVN must be 11 characters"),
+    bankName: z.string().min(3, "Bank name cannot be less than 3 characters"),
+    accountNo: z
+      .string()
+      .min(10, "Account number must be 10 characters")
+      .max(10, "Account number must be 10 characters"),
+    affiliatedCompany: z
+      .string()
+      .min(5, "Company name must be more than 5 characters"),
     password: z.string().min(6, "Password cannot be less than 6 characters"),
     confirmPassword: z.string(),
   })
@@ -25,7 +49,15 @@ export const AgentSignupPage = () => {
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      firstName: "",
+      middleName: "",
+      lastName: "",
+      homeAddress: "",
+      email: "",
+      bvn: "",
+      accountNo: "",
+      bankName: "",
+      affiliatedCompany: "",
       gampId: "",
       password: "",
       confirmPassword: "",
@@ -53,13 +85,62 @@ export const AgentSignupPage = () => {
           </header>
           <div className="space-y-6">
             <CustomInput
-              label="Username"
-              placeholder="tobi42"
-              error={errors.username?.message?.toString()}
-              {...register("username")}
+              label="First Name"
+              placeholder="John"
+              error={errors.firstName?.message?.toString()}
+              {...register("firstName")}
+            />
+            <CustomInput
+              label="Middle Name"
+              placeholder="Janet"
+              error={errors.middleName?.message?.toString()}
+              {...register("middleName")}
+            />
+            <CustomInput
+              label="Last Name"
+              placeholder="Doe"
+              error={errors.lastName?.message?.toString()}
+              {...register("lastName")}
+            />
+            <CustomInput
+              label="Home Address"
+              placeholder="2, Sizwe Street"
+              error={errors.homeAddress?.message?.toString()}
+              {...register("homeAddress")}
+            />
+            <CustomInput
+              label="Email"
+              placeholder="johndoe@gmail.com"
+              error={errors.email?.message?.toString()}
+              {...register("email")}
+            />
+            <CustomInput
+              label="Bank Name"
+              placeholder="Access Bank"
+              error={errors.bankName?.message?.toString()}
+              {...register("bankName")}
+            />
+            <CustomInput
+              label="Account No"
+              placeholder="1234567890"
+              error={errors.accountNo?.message?.toString()}
+              {...register("accountNo")}
+            />
+            <CustomInput
+              label="BVN"
+              placeholder="12345678901"
+              error={errors.bvn?.message?.toString()}
+              {...register("bvn")}
+            />
+            <CustomInput
+              label="Affiliated Company"
+              placeholder="JohnDoe Insurance"
+              error={errors.affiliatedCompany?.message?.toString()}
+              {...register("affiliatedCompany")}
             />
             <CustomInput
               label="GAMP ID"
+              optional
               placeholder="A034529"
               error={errors.gampId?.message?.toString()}
               {...register("gampId")}

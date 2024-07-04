@@ -34,15 +34,176 @@ exports[`Agent Signup Page > renders correctly 1`] = `
               >
                 <label
                   class="text-lg text-[#333] leading-[24px] mb-2 block"
-                  for="username"
+                  for="firstName"
                 >
-                  Username
+                  First Name
+                   
                 </label>
                 <input
                   class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
-                  id="username"
-                  name="username"
-                  placeholder="tobi42"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="John"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="middleName"
+                >
+                  Middle Name
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  id="middleName"
+                  name="middleName"
+                  placeholder="Janet"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="lastName"
+                >
+                  Last Name
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Doe"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="homeAddress"
+                >
+                  Home Address
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  id="homeAddress"
+                  name="homeAddress"
+                  placeholder="2, Sizwe Street"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="email"
+                >
+                  Email
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  id="email"
+                  name="email"
+                  placeholder="johndoe@gmail.com"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="bankName"
+                >
+                  Bank Name
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  id="bankName"
+                  name="bankName"
+                  placeholder="Access Bank"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="accountNo"
+                >
+                  Account No
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  id="accountNo"
+                  name="accountNo"
+                  placeholder="1234567890"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="bvn"
+                >
+                  BVN
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  id="bvn"
+                  name="bvn"
+                  placeholder="12345678901"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="affiliatedCompany"
+                >
+                  Affiliated Company
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  id="affiliatedCompany"
+                  name="affiliatedCompany"
+                  placeholder="JohnDoe Insurance"
                 />
                 <p
                   class="text-sm text-[#333]"
@@ -56,6 +217,12 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   for="gampId"
                 >
                   GAMP ID
+                   
+                  <span
+                    class="not-italic text-sm text-[#333]"
+                  >
+                    (optional)
+                  </span>
                 </label>
                 <input
                   class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
@@ -216,15 +383,176 @@ exports[`Agent Signup Page > renders correctly 1`] = `
             >
               <label
                 class="text-lg text-[#333] leading-[24px] mb-2 block"
-                for="username"
+                for="firstName"
               >
-                Username
+                First Name
+                 
               </label>
               <input
                 class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
-                id="username"
-                name="username"
-                placeholder="tobi42"
+                id="firstName"
+                name="firstName"
+                placeholder="John"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="middleName"
+              >
+                Middle Name
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                id="middleName"
+                name="middleName"
+                placeholder="Janet"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="lastName"
+              >
+                Last Name
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                id="lastName"
+                name="lastName"
+                placeholder="Doe"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="homeAddress"
+              >
+                Home Address
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                id="homeAddress"
+                name="homeAddress"
+                placeholder="2, Sizwe Street"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="email"
+              >
+                Email
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                id="email"
+                name="email"
+                placeholder="johndoe@gmail.com"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="bankName"
+              >
+                Bank Name
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                id="bankName"
+                name="bankName"
+                placeholder="Access Bank"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="accountNo"
+              >
+                Account No
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                id="accountNo"
+                name="accountNo"
+                placeholder="1234567890"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="bvn"
+              >
+                BVN
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                id="bvn"
+                name="bvn"
+                placeholder="12345678901"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="affiliatedCompany"
+              >
+                Affiliated Company
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                id="affiliatedCompany"
+                name="affiliatedCompany"
+                placeholder="JohnDoe Insurance"
               />
               <p
                 class="text-sm text-[#333]"
@@ -238,6 +566,12 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 for="gampId"
               >
                 GAMP ID
+                 
+                <span
+                  class="not-italic text-sm text-[#333]"
+                >
+                  (optional)
+                </span>
               </label>
               <input
                 class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"

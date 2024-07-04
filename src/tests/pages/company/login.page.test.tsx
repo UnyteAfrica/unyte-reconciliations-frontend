@@ -28,14 +28,12 @@ describe("Company Login Page", () => {
       </BrowserRouter>
     );
 
-    const companyIdInput = screen.getByLabelText("Company ID");
+    const companyIdInput = screen.getByLabelText("Admin Email");
     await user.click(companyIdInput);
-    await user.keyboard("A012");
+    await user.keyboard("john@");
     const submitButton = screen.getByText("Sign In");
     await user.click(submitButton);
-    const errorMessage = screen.getByText(
-      "Company ID cannot be less than 5 characters"
-    );
+    const errorMessage = screen.getByText("Admin Email is invalid");
     expect(errorMessage).toBeVisible();
   });
 

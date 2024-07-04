@@ -4,11 +4,27 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { MutationKeys } from "@/utils/mutation-keys";
+import { companySignup } from "@/api/api-company";
+import { SignupType } from "@/types/api-types";
+import { Loader } from "@/components/loader";
 
 const formSchema = z
   .object({
-    email: z.string().email("The email you entered is invalid"),
-    companyId: z.string().min(5, "Company ID cannot be less than 5 characters"),
+    businessName: z
+      .string()
+      .min(3, "Business name must be 3 or more characters"),
+    adminName: z.string().min(3, "Admin name must be 3 or more characters"),
+    businessRegNo: z
+      .string()
+      .min(5, "Business Reg No must be 5 or more characters"),
+    adminEmail: z.string().email("The email you entered is invalid"),
+    gampId: z
+      .string()
+      .min(5, "GAMP ID cannot be less than 5 characters")
+      .optional()
+      .or(z.literal("")),
     password: z.string().min(6, "Password cannot be less than 6 characters"),
     confirmPassword: z.string(),
   })
@@ -25,15 +41,32 @@ export const CompanySignupPage = () => {
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
-      companyId: "",
+      adminName: "",
+      businessName: "",
+      businessRegNo: "",
+      gampId: "",
+      adminEmail: "",
       password: "",
       confirmPassword: "",
     },
   });
 
+  const { mutate: signup, isPending } = useMutation({
+    mutationKey: [MutationKeys.companySignup],
+    mutationFn: (data: SignupType) => companySignup(data),
+    onSuccess: console.log,
+  });
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
+    signup({
+      admin_name: data.adminName,
+      business_name: data.businessName,
+      business_registration_number: data.businessRegNo,
+      email: data.adminEmail,
+      gampId: data.gampId,
+      password: data.password,
+    });
   };
 
   return (
@@ -54,18 +87,37 @@ export const CompanySignupPage = () => {
           </header>
           <div className="space-y-6">
             <CustomInput
-              label="Email"
-              type="email"
-              placeholder="insurancefirm@company.com"
-              error={errors.email?.message?.toString()}
-              {...register("email")}
+              label="Company Name"
+              placeholder="John Doe Ltd"
+              error={errors.businessName?.message?.toString()}
+              {...register("businessName")}
             />
             <CustomInput
-              label="Company ID"
+              label="Company Registration No."
               placeholder="A034529"
-              error={errors.companyId?.message?.toString()}
-              {...register("companyId")}
+              error={errors.businessRegNo?.message?.toString()}
+              {...register("businessRegNo")}
             />
+            <CustomInput
+              label="Admin Name"
+              placeholder="John Doe"
+              error={errors.adminName?.message?.toString()}
+              {...register("adminName")}
+            />
+            <CustomInput
+              label="Admin Email"
+              placeholder="insurancefirm@company.com"
+              error={errors.adminEmail?.message?.toString()}
+              {...register("adminEmail")}
+            />
+            <CustomInput
+              label="GAMP ID"
+              optional
+              placeholder="GP-4739349"
+              error={errors.gampId?.message?.toString()}
+              {...register("gampId")}
+            />
+
             <PasswordInput
               label="Password"
               placeholder="******"
@@ -89,7 +141,7 @@ export const CompanySignupPage = () => {
                 </Link>
               </p>
               <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
-                Sign Up
+                {isPending ? <Loader className="mx-auto" /> : "Sign Up"}
               </button>
             </div>
           </div>

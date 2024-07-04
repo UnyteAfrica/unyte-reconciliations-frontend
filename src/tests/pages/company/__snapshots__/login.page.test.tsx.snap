@@ -34,15 +34,16 @@ exports[`Company Login Page > renders correctly 1`] = `
               >
                 <label
                   class="text-lg text-[#333] leading-[24px] mb-2 block"
-                  for="companyId"
+                  for="adminEmail"
                 >
-                  Company ID
+                  Admin Email
+                   
                 </label>
                 <input
                   class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
-                  id="companyId"
-                  name="companyId"
-                  placeholder="A034529"
+                  id="adminEmail"
+                  name="email"
+                  placeholder="johndoe@gmail.com"
                 />
                 <p
                   class="text-sm text-[#333]"
@@ -160,15 +161,16 @@ exports[`Company Login Page > renders correctly 1`] = `
             >
               <label
                 class="text-lg text-[#333] leading-[24px] mb-2 block"
-                for="companyId"
+                for="adminEmail"
               >
-                Company ID
+                Admin Email
+                 
               </label>
               <input
                 class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
-                id="companyId"
-                name="companyId"
-                placeholder="A034529"
+                id="adminEmail"
+                name="email"
+                placeholder="johndoe@gmail.com"
               />
               <p
                 class="text-sm text-[#333]"

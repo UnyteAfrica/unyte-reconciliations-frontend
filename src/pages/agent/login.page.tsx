@@ -5,8 +5,21 @@ import { Link } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+const GAMPID_WITHOUT_NAME_LENGTH = 22;
 const formSchema = z.object({
-  gampId: z.string().min(5, "GAMP ID cannot be less than 5 characters"),
+  emailOrGampId: z.string().refine(
+    (val) => {
+      if (val.endsWith("@getgamp.com")) {
+        return val.length > GAMPID_WITHOUT_NAME_LENGTH + 3;
+      }
+
+      return z.string().email().safeParse(val).success;
+    },
+    {
+      message: "Email / GAMP ID Invalid",
+    }
+  ),
+
   password: z.string().min(6, "Password cannot be less than 6 characters"),
 });
 
@@ -18,7 +31,7 @@ export const AgentLoginPage = () => {
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      gampId: "",
+      emailOrGampId: "",
       password: "",
     },
   });
@@ -42,10 +55,10 @@ export const AgentLoginPage = () => {
           </header>
           <div className="space-y-6">
             <CustomInput
-              label="GAMP ID"
-              placeholder="A034529"
-              error={errors.gampId?.message?.toString()}
-              {...register("gampId")}
+              label="Email / GAMP ID"
+              placeholder="johndoe@gmail.com / A034529"
+              error={errors.emailOrGampId?.message?.toString()}
+              {...register("emailOrGampId")}
             />
             <PasswordInput
               placeholder="******"

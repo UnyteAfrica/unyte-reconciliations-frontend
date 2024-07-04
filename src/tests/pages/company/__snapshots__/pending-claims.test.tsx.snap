@@ -206,6 +206,7 @@ exports[`Pending Claims > renders correctly 1`] = `
                 for="policyNo"
               >
                 Policy No.
+                 
               </label>
               <input
                 class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
@@ -302,6 +303,7 @@ exports[`Pending Claims > renders correctly 1`] = `
                 for="amount"
               >
                 Amount
+                 
               </label>
               <input
                 class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
@@ -855,6 +857,7 @@ exports[`Pending Claims > renders correctly 1`] = `
               for="policyNo"
             >
               Policy No.
+               
             </label>
             <input
               class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
@@ -951,6 +954,7 @@ exports[`Pending Claims > renders correctly 1`] = `
               for="amount"
             >
               Amount
+               
             </label>
             <input
               class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"

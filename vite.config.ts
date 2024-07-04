@@ -19,6 +19,9 @@ const config: ViteConfig = {
       uploadToken: process.env.CODECOV_TOKEN,
     }),
   ],
+  server: {
+    port: 3004,
+  },
   test: {
     globals: true,
     environment: "jsdom",
