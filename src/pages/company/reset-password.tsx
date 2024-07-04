@@ -1,9 +1,17 @@
 import { PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { MutationKeys } from "@/utils/mutation-keys";
+import { companyResetPassword } from "@/api/api-company";
+import { CompanyPasswordResetType } from "@/types/request.types";
+import { isAxiosError } from "axios";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
+import { Loader } from "@/components/loader";
 
 const formSchema = z
   .object({
@@ -28,8 +36,48 @@ export const CompanyResetPasswordPage = () => {
     },
   });
 
+  const { id, token } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!id || !token) navigate(BrowserComboRoutes.companyLogin);
+  }, [id, token]);
+
+  const { mutate: mResetPassword, isPending: isResetPasswordLoading } =
+    useMutation({
+      mutationKey: [MutationKeys.companyResetPassword],
+      mutationFn: (data: CompanyPasswordResetType) =>
+        companyResetPassword(data),
+      onError: (err) => {
+        console.log(err);
+        if (isAxiosError(err)) {
+          let errMessage = err.response?.data.detail ?? "";
+          if (!errMessage) {
+            if (Array.isArray(err.response?.data.error)) {
+              errMessage = err.response.data.error[0];
+            } else {
+              errMessage = err.response?.data.error;
+            }
+          }
+
+          if (errMessage) toast.error(errMessage);
+        }
+      },
+      onSuccess: (data) => {
+        if (data.status == 200) {
+          toast.success(data.data.message);
+          navigate(BrowserComboRoutes.companyLogin);
+        }
+      },
+    });
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
+    mResetPassword({
+      idBase64: id!,
+      token: token!,
+      newPassword: data.password,
+    });
   };
 
   return (
@@ -67,8 +115,15 @@ export const CompanyResetPasswordPage = () => {
                   Log In
                 </Link>
               </p>
-              <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
-                Reset
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                disabled={isResetPasswordLoading}
+              >
+                {isResetPasswordLoading ? (
+                  <Loader className="mx-auto" />
+                ) : (
+                  "Reset"
+                )}
               </button>
             </div>
           </div>

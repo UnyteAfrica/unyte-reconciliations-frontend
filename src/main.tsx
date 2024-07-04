@@ -15,7 +15,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <React.StrictMode>
       <QueryClientProvider client={queryClient}>
-        <Toaster />
+        <Toaster
+          toastOptions={{ duration: 5000, style: { fontFamily: "Inter" } }}
+        />
         <UserProvider>
           <App />
         </UserProvider>

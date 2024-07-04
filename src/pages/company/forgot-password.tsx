@@ -4,6 +4,12 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { MutationKeys } from "@/utils/mutation-keys";
+import { companyForgotPassword } from "@/api/api-company";
+import { isAxiosError } from "axios";
+import { Loader } from "@/components/loader";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email entered"),
@@ -13,6 +19,7 @@ export const CompanyForgotPasswordPage = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -21,8 +28,29 @@ export const CompanyForgotPasswordPage = () => {
     },
   });
 
+  const { mutate: mForgotPassword, isPending: isForgotPasswordLoading } =
+    useMutation({
+      mutationKey: [MutationKeys.companyForgotPassword],
+      mutationFn: (email: string) => companyForgotPassword(email),
+      onError: (err) => {
+        if (isAxiosError(err)) {
+          if (err.response?.status == 400) {
+            toast.error(err.response.data.error[0]);
+          }
+        }
+      },
+      onSuccess: (data) => {
+        if (data.status == 200) {
+          setValue("email", "");
+          toast.success("Password reset email has been sent");
+        }
+        console.log(data);
+      },
+    });
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
+    mForgotPassword(data.email);
   };
 
   return (
@@ -54,8 +82,15 @@ export const CompanyForgotPasswordPage = () => {
                   Log In
                 </Link>
               </p>
-              <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
-                Reset Password
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                disabled={isForgotPasswordLoading}
+              >
+                {isForgotPasswordLoading ? (
+                  <Loader className="mx-auto" />
+                ) : (
+                  "Reset Password"
+                )}
               </button>
             </div>
           </div>
