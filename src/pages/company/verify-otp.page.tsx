@@ -2,6 +2,17 @@ import { PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useContext, useEffect } from "react";
+import { UserContext } from "@/context/user.context";
+import { useMutation } from "@tanstack/react-query";
+import { MutationKeys } from "@/utils/mutation-keys";
+import { companyResendOTP, companyVerifyOTP } from "@/api/api-company";
+import { CompanyVerifyOTPType } from "@/types/request.types";
+import { useNavigate } from "react-router-dom";
+import { BrowserComboRoutes } from "@/utils/routes";
+import { Loader } from "@/components/loader";
+import toast from "react-hot-toast";
+import { isAxiosError } from "axios";
 
 const formSchema = z.object({
   otp: z.string().min(6, "OTP cannot be less than 6 characters"),
@@ -19,8 +30,55 @@ export const CompanyVerifyOTPPage = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+  const navigate = useNavigate();
+
+  const { userEmail, setUserEmail } = useContext(UserContext);
+
+  useEffect(() => {
+    if (!userEmail) navigate(BrowserComboRoutes.companyLogin);
+  }, []);
+
+  const { mutate: mVerify, isPending: isVerificationLoading } = useMutation({
+    mutationKey: [MutationKeys.companyVerify],
+    mutationFn: (data: CompanyVerifyOTPType) => companyVerifyOTP(data),
+    onSuccess: (data) => {
+      console.log(data);
+      toast.success("OTP verified");
+      navigate(BrowserComboRoutes.companyOverview);
+      setUserEmail("");
+    },
+    onError: (err) => {
+      console.log(err);
+      if (isAxiosError(err)) {
+        if (err.response?.status == 400) {
+          toast.error(err.response.data.error);
+        }
+      }
+    },
+  });
+  const { mutate: mResendOTP, isPending: isResendLoading } = useMutation({
+    mutationKey: [MutationKeys.companyVerify],
+    mutationFn: (email: string) => companyResendOTP(email),
+    onSuccess: (data) => {
+      console.log(data);
+      const message = data.data.message;
+      toast.success(message);
+    },
+    onError: (err) => {
+      console.log(err);
+      if (isAxiosError(err)) {
+        if (err.response?.status == 400) {
+          toast.error(err.response.data.error);
+        }
+      }
+    },
+  });
+
+  const onSubmit = ({ otp }: z.infer<typeof formSchema>) => {
+    mVerify({
+      otp,
+      email: userEmail,
+    });
   };
 
   return (
@@ -43,9 +101,30 @@ export const CompanyVerifyOTPPage = () => {
               {...register("otp")}
             />
             <div>
-              <button className="text-primary mb-2">Resend OTP</button>
-              <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
-                Verify
+              <button
+                className="text-primary mb-2"
+                disabled={isResendLoading}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  mResendOTP(userEmail);
+                }}
+              >
+                {isResendLoading ? (
+                  <Loader className="mx-auto" />
+                ) : (
+                  "Resend OTP"
+                )}
+              </button>
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                disabled={isVerificationLoading}
+              >
+                {isVerificationLoading ? (
+                  <Loader className="mx-auto" />
+                ) : (
+                  "Verify"
+                )}
               </button>
             </div>
           </div>
