@@ -1,9 +1,18 @@
 import { CustomInput, PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { MutationKeys } from "@/utils/mutation-keys";
+import { companyLogin } from "@/api/api-company";
+import { Loader } from "@/components/loader";
+import { useContext } from "react";
+import { UserContext } from "@/context/user.context";
+import { CompanyLoginType } from "@/types/request.types";
+import { isAxiosError } from "axios";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   email: z.string().email("Admin Email is invalid"),
@@ -14,6 +23,7 @@ export const CompanyLoginPage = () => {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -23,8 +33,32 @@ export const CompanyLoginPage = () => {
     },
   });
 
+  const { setUserEmail } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
+  const { mutate: mLogin, isPending: isLoginLoading } = useMutation({
+    mutationKey: [MutationKeys.companyLogin],
+    mutationFn: (data: CompanyLoginType) => companyLogin(data),
+    onError: (err) => {
+      console.log(err);
+      if (isAxiosError(err)) {
+        if (err.response?.status == 400) {
+          toast.error(err.response.data.message);
+        }
+      }
+    },
+    onSuccess: (data) => {
+      console.log(data);
+      navigate(BrowserComboRoutes.companyVerify);
+      localStorage.setItem("accessToken", data.data.access_token);
+      localStorage.setItem("refreshToken", data.data.refresh_token);
+      setUserEmail(getValues("email"));
+    },
+  });
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    mLogin(data);
   };
 
   return (
@@ -71,8 +105,15 @@ export const CompanyLoginPage = () => {
                   Forgotten Password?
                 </Link>
               </div>
-              <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
-                Sign In
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                disabled={isLoginLoading}
+              >
+                {isLoginLoading ? (
+                  <Loader className="mx-auto h-6 w-6" />
+                ) : (
+                  "Sign In"
+                )}
               </button>
             </div>
           </div>

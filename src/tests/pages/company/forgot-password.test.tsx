@@ -3,17 +3,23 @@ import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { CompanyForgotPasswordPage } from "@/pages/company/forgot-password";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function setup(reactNode: React.ReactNode) {
+  const queryClient = new QueryClient();
   return {
     user: userEvent.setup(),
-    ...render(reactNode),
+    ...render(
+      <QueryClientProvider client={queryClient}>
+        {reactNode}
+      </QueryClientProvider>
+    ),
   };
 }
 
 describe("Company Forgot Password Page", () => {
   it("renders correctly", () => {
-    const tree = render(
+    const tree = setup(
       <BrowserRouter>
         <CompanyForgotPasswordPage />
       </BrowserRouter>

@@ -1,14 +1,15 @@
 import { CustomInput, PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
 import { companySignup } from "@/api/api-company";
-import { SignupType } from "@/types/api-types";
 import { Loader } from "@/components/loader";
+import toast from "react-hot-toast";
+import { CompanySignupType } from "@/types/request.types";
 
 const formSchema = z
   .object({
@@ -51,14 +52,19 @@ export const CompanySignupPage = () => {
     },
   });
 
+  const navigate = useNavigate();
+
   const { mutate: signup, isPending } = useMutation({
     mutationKey: [MutationKeys.companySignup],
-    mutationFn: (data: SignupType) => companySignup(data),
-    onSuccess: console.log,
+    mutationFn: (data: CompanySignupType) => companySignup(data),
+    onSuccess: (data) => {
+      console.log(data);
+      toast.success("Account created successfully");
+      navigate(BrowserComboRoutes.companyLogin);
+    },
   });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
     signup({
       admin_name: data.adminName,
       business_name: data.businessName,
@@ -140,7 +146,10 @@ export const CompanySignupPage = () => {
                   Sign In
                 </Link>
               </p>
-              <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                disabled={isPending}
+              >
                 {isPending ? <Loader className="mx-auto" /> : "Sign Up"}
               </button>
             </div>

@@ -32,6 +32,8 @@ export const BrowserComboRoutes = {
   companyResetPassword: BrowserRoutes.company + BrowserRoutes.resetPassword,
   companyVerify: BrowserRoutes.company + BrowserRoutes.verify,
   companyDashboard: BrowserRoutes.company + BrowserRoutes.dashboard,
+  companyOverview:
+    BrowserRoutes.company + BrowserRoutes.dashboard + BrowserRoutes.overview,
   companyClaims:
     BrowserRoutes.company + BrowserRoutes.dashboard + BrowserRoutes.claims,
   pendingCompanyClaims:
