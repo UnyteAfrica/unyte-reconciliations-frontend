@@ -3,17 +3,23 @@ import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { AgentResetPasswordPage } from "@/pages/agent/reset-password";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function setup(reactNode: React.ReactNode) {
+  const queryClient = new QueryClient();
   return {
     user: userEvent.setup(),
-    ...render(reactNode),
+    ...render(
+      <QueryClientProvider client={queryClient}>
+        {reactNode}
+      </QueryClientProvider>
+    ),
   };
 }
 
 describe("Agent Reset Password Page", () => {
   it("renders correctly", () => {
-    const tree = render(
+    const tree = setup(
       <BrowserRouter>
         <AgentResetPasswordPage />
       </BrowserRouter>

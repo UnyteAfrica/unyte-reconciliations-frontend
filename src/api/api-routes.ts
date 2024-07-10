@@ -3,7 +3,7 @@ const BaseRoutes = {
   login: "/sign-in",
   verify: "/verify-otp",
   newOTP: "/new-otp",
-  confirmEmail: "/confirm-email",
+  forgotPassword: "/forgot-password",
   passwordReset: "/password-reset",
 };
 
@@ -17,10 +17,15 @@ export const CompanyApiRoutes = {
   login: RouteTypes.company + BaseRoutes.login,
   verifyOTP: RouteTypes.company + BaseRoutes.verify,
   resendOTP: RouteTypes.company + BaseRoutes.newOTP,
-  forgotPassword: RouteTypes.company + BaseRoutes.confirmEmail,
+  forgotPassword: RouteTypes.company + BaseRoutes.forgotPassword,
   resetPassword: RouteTypes.company + BaseRoutes.passwordReset,
 };
 
 export const AgentApiRoutes = {
   signup: RouteTypes.agent + BaseRoutes.signup,
+  login: RouteTypes.agent + BaseRoutes.login,
+  verifyOTP: RouteTypes.agent + BaseRoutes.verify,
+  resendOTP: RouteTypes.agent + BaseRoutes.newOTP,
+  forgotPassword: RouteTypes.agent + BaseRoutes.forgotPassword,
+  resetPassword: RouteTypes.agent + BaseRoutes.passwordReset,
 };

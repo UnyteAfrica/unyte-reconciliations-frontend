@@ -3,7 +3,6 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useContext, useEffect } from "react";
-import { UserContext } from "@/context/user.context";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
 import { companyResendOTP, companyVerifyOTP } from "@/api/api-company";
@@ -13,6 +12,7 @@ import { BrowserComboRoutes } from "@/utils/routes";
 import { Loader } from "@/components/loader";
 import toast from "react-hot-toast";
 import { isAxiosError } from "axios";
+import { CompanyContext } from "@/context/company.context";
 
 const formSchema = z.object({
   otp: z.string().min(6, "OTP cannot be less than 6 characters"),
@@ -32,10 +32,10 @@ export const CompanyVerifyOTPPage = () => {
 
   const navigate = useNavigate();
 
-  const { userEmail, setUserEmail } = useContext(UserContext);
+  const { companyEmail, setCompanyEmail } = useContext(CompanyContext);
 
   useEffect(() => {
-    if (!userEmail) navigate(BrowserComboRoutes.companyLogin);
+    if (!companyEmail) navigate(BrowserComboRoutes.companyLogin);
   }, []);
 
   const { mutate: mVerify, isPending: isVerificationLoading } = useMutation({
@@ -45,7 +45,7 @@ export const CompanyVerifyOTPPage = () => {
       console.log(data);
       toast.success("OTP verified");
       navigate(BrowserComboRoutes.companyOverview);
-      setUserEmail("");
+      setCompanyEmail("");
     },
     onError: (err) => {
       console.log(err);
@@ -56,6 +56,7 @@ export const CompanyVerifyOTPPage = () => {
       }
     },
   });
+
   const { mutate: mResendOTP, isPending: isResendLoading } = useMutation({
     mutationKey: [MutationKeys.companyVerify],
     mutationFn: (email: string) => companyResendOTP(email),
@@ -77,7 +78,7 @@ export const CompanyVerifyOTPPage = () => {
   const onSubmit = ({ otp }: z.infer<typeof formSchema>) => {
     mVerify({
       otp,
-      email: userEmail,
+      email: companyEmail,
     });
   };
 
@@ -107,7 +108,7 @@ export const CompanyVerifyOTPPage = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  mResendOTP(userEmail);
+                  mResendOTP(companyEmail);
                 }}
               >
                 {isResendLoading ? (

@@ -10,12 +10,14 @@ import {
 const URL =
   "https://unyte-reconciliation-backend-dev-ynoamqpukq-uc.a.run.app/api";
 
-export const axiosInstance = axios.create({
+const axiosInstance = axios.create({
   baseURL: URL,
   headers: {
-    Authorization: localStorage.getItem("accessToken")
-      ? `Bearer ${localStorage.getItem("accessToken")}`
-      : "",
+    Authorization: `${
+      localStorage.getItem("companyAccessToken")
+        ? `Bearer ${localStorage.getItem("companyAccessToken")}`
+        : ""
+    }`,
   },
 });
 

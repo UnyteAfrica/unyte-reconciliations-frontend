@@ -15,6 +15,11 @@ export type Claim = {
   estimate: number;
 };
 
+export enum UserType {
+  company,
+  agent,
+}
+
 export type AgentPolicy = {
   policyRef: string;
   policyNo: string;

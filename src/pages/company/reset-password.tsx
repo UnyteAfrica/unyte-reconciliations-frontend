@@ -8,7 +8,6 @@ import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
 import { companyResetPassword } from "@/api/api-company";
 import { CompanyPasswordResetType } from "@/types/request.types";
-import { isAxiosError } from "axios";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 import { Loader } from "@/components/loader";
@@ -48,21 +47,6 @@ export const CompanyResetPasswordPage = () => {
       mutationKey: [MutationKeys.companyResetPassword],
       mutationFn: (data: CompanyPasswordResetType) =>
         companyResetPassword(data),
-      onError: (err) => {
-        console.log(err);
-        if (isAxiosError(err)) {
-          let errMessage = err.response?.data.detail ?? "";
-          if (!errMessage) {
-            if (Array.isArray(err.response?.data.error)) {
-              errMessage = err.response.data.error[0];
-            } else {
-              errMessage = err.response?.data.error;
-            }
-          }
-
-          if (errMessage) toast.error(errMessage);
-        }
-      },
       onSuccess: (data) => {
         if (data.status == 200) {
           toast.success(data.data.message);

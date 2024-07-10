@@ -1,9 +1,16 @@
 import { CustomInput, PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { MutationKeys } from "@/utils/mutation-keys";
+import { Loader } from "@/components/loader";
+import { agentLogin } from "@/api/api-agent";
+import { AgentLoginType } from "@/types/request.types";
+import { useContext } from "react";
+import { AgentContext } from "@/context/agent.context";
 
 const GAMPID_WITHOUT_NAME_LENGTH = 22;
 const formSchema = z.object({
@@ -27,6 +34,7 @@ export const AgentLoginPage = () => {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,8 +44,30 @@ export const AgentLoginPage = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+  const navigate = useNavigate();
+  const { setAgentEmail, setIsLoggedIn } = useContext(AgentContext);
+
+  const { mutate: mLogin, isPending: isLoginLoading } = useMutation({
+    mutationKey: [MutationKeys.agentLogin],
+    mutationFn: (data: AgentLoginType) => agentLogin(data),
+    onSuccess: (data) => {
+      console.log(data);
+      localStorage.setItem("agentAccessToken", data.data.access_token);
+      localStorage.setItem("agentRefreshToken", data.data.refresh_token);
+      setIsLoggedIn(true);
+      setAgentEmail(getValues("emailOrGampId"));
+      navigate(BrowserComboRoutes.agentVerify);
+    },
+  });
+
+  const onSubmit = ({
+    emailOrGampId,
+    password,
+  }: z.infer<typeof formSchema>) => {
+    mLogin({
+      emailOrGampID: emailOrGampId,
+      password,
+    });
   };
 
   return (
@@ -83,8 +113,15 @@ export const AgentLoginPage = () => {
                   Forgotten Password?
                 </Link>
               </div>
-              <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
-                Sign In
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                disabled={isLoginLoading}
+              >
+                {isLoginLoading ? (
+                  <Loader className="mx-auto h-6 w-6" />
+                ) : (
+                  "Sign In"
+                )}
               </button>
             </div>
           </div>

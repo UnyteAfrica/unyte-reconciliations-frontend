@@ -9,10 +9,8 @@ import { MutationKeys } from "@/utils/mutation-keys";
 import { companyLogin } from "@/api/api-company";
 import { Loader } from "@/components/loader";
 import { useContext } from "react";
-import { UserContext } from "@/context/user.context";
 import { CompanyLoginType } from "@/types/request.types";
-import { isAxiosError } from "axios";
-import toast from "react-hot-toast";
+import { CompanyContext } from "@/context/company.context";
 
 const formSchema = z.object({
   email: z.string().email("Admin Email is invalid"),
@@ -33,27 +31,20 @@ export const CompanyLoginPage = () => {
     },
   });
 
-  const { setUserEmail } = useContext(UserContext);
+  const { setCompanyEmail, setIsLoggedIn } = useContext(CompanyContext);
 
   const navigate = useNavigate();
 
   const { mutate: mLogin, isPending: isLoginLoading } = useMutation({
     mutationKey: [MutationKeys.companyLogin],
     mutationFn: (data: CompanyLoginType) => companyLogin(data),
-    onError: (err) => {
-      console.log(err);
-      if (isAxiosError(err)) {
-        if (err.response?.status == 400) {
-          toast.error(err.response.data.message);
-        }
-      }
-    },
     onSuccess: (data) => {
       console.log(data);
       navigate(BrowserComboRoutes.companyVerify);
-      localStorage.setItem("accessToken", data.data.access_token);
-      localStorage.setItem("refreshToken", data.data.refresh_token);
-      setUserEmail(getValues("email"));
+      localStorage.setItem("companyAccessToken", data.data.access_token);
+      localStorage.setItem("companyRefreshToken", data.data.refresh_token);
+      setIsLoggedIn(true);
+      setCompanyEmail(getValues("email"));
     },
   });
 
