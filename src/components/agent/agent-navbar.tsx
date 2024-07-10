@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { BiChevronDown } from "react-icons/bi";
 
@@ -6,6 +6,9 @@ import { Icon } from "../shared/icon";
 import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
+import { clearCredentials } from "@/utils/utils";
+import { UserType } from "@/types/types";
+import { AgentContext } from "@/context/agent.context";
 
 type UrlLink = {
   text: string;
@@ -33,6 +36,8 @@ const navLinks: UrlLink[] = [
 
 export const AgentNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { setIsLoggedIn } = useContext(AgentContext);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -106,12 +111,15 @@ export const AgentNavbar = () => {
                 Profile
               </NavLink>
               <hr />
-              <NavLink
-                to="/"
+              <button
                 className="block px-6 py-4 text-[#EB5757] font-medium"
+                onClick={() => {
+                  clearCredentials(UserType.agent);
+                  setIsLoggedIn(false);
+                }}
               >
                 Sign out
-              </NavLink>
+              </button>
             </div>
           </div>
         </div>

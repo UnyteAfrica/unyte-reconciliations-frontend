@@ -39,7 +39,7 @@ function App() {
           element={<AgentForgotPasswordPage />}
         />
         <Route
-          path={BrowserComboRoutes.agentResetPassword}
+          path={BrowserComboRoutes.agentResetPassword + "/:id/:token"}
           element={<AgentResetPasswordPage />}
         />
         <Route

@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { BiChevronDown } from "react-icons/bi";
 import { Icon } from "../shared/icon";
 import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
+import { CompanyContext } from "@/context/company.context";
+import { clearCredentials } from "@/utils/utils";
+import { UserType } from "@/types/types";
 
 type UrlLink = {
   text: string;
@@ -33,12 +36,11 @@ const navLinks: UrlLink[] = [
 export const CompanyNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { setIsLoggedIn } = useContext(CompanyContext);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
-  console.log(location.pathname);
 
   return (
     <>
@@ -106,12 +108,15 @@ export const CompanyNavbar = () => {
                 Profile
               </NavLink>
               <hr />
-              <NavLink
-                to="/"
+              <button
+                onClick={() => {
+                  clearCredentials(UserType.company);
+                  setIsLoggedIn(false);
+                }}
                 className="block px-6 py-4 text-[#EB5757] font-medium"
               >
                 Sign out
-              </NavLink>
+              </button>
             </div>
           </div>
         </div>

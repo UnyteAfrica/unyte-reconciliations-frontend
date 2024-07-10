@@ -3,7 +3,7 @@ name: Run tests with Codecov
 on:
   pull_request:
     branches:
-       - dev
+      - dev
 
 permissions:
   packages: write
@@ -19,22 +19,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      
+
       - run: yarn
-      
+
       - name: Run test
         run: yarn test
-      
+
       - name: Generate coverage report
         run: |
-              
-              yarn add -D @vitest/coverage-v8
-              yarn coverage
-      
+
+          yarn add -D @vitest/coverage-v8@1.6.0
+          yarn coverage
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:

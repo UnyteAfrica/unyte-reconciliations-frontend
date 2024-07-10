@@ -4,6 +4,11 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { MutationKeys } from "@/utils/mutation-keys";
+import { agentForgotPassword } from "@/api/api-agent";
+import { Loader } from "@/components/loader";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email entered"),
@@ -21,8 +26,19 @@ export const AgentForgotPasswordPage = () => {
     },
   });
 
+  const { mutate: mForgotPassword, isPending: isLoadingForgotPassword } =
+    useMutation({
+      mutationKey: [MutationKeys.agentForgotPassword],
+      mutationFn: (email: string) => agentForgotPassword(email),
+      onSuccess: (data) => {
+        console.log(data);
+        toast.success(data.data.message);
+      },
+    });
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
+    mForgotPassword(data.email);
   };
 
   return (
@@ -54,8 +70,15 @@ export const AgentForgotPasswordPage = () => {
                   Log In
                 </Link>
               </p>
-              <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
-                Reset Password
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                disabled={isLoadingForgotPassword}
+              >
+                {isLoadingForgotPassword ? (
+                  <Loader className="mx-auto" />
+                ) : (
+                  "Reset Password"
+                )}
               </button>
             </div>
           </div>
