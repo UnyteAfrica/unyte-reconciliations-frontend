@@ -56,7 +56,6 @@ export const CompanyVerifyOTPPage = () => {
       }
     },
   });
-
   const { mutate: mResendOTP, isPending: isResendLoading } = useMutation({
     mutationKey: [MutationKeys.companyVerify],
     mutationFn: (email: string) => companyResendOTP(email),

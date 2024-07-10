@@ -36,6 +36,11 @@ export const BrowserComboRoutes = {
   companyDashboard: BrowserRoutes.company + BrowserRoutes.dashboard,
   companyOverview:
     BrowserRoutes.company + BrowserRoutes.dashboard + BrowserRoutes.overview,
+<<<<<<< HEAD
+=======
+  companyClaims:
+    BrowserRoutes.company + BrowserRoutes.dashboard + BrowserRoutes.claims,
+>>>>>>> e60f608e14170646eaabfd81cf39cb9b62d6b742
   pendingCompanyClaims:
     BrowserRoutes.company +
     BrowserRoutes.dashboard +
