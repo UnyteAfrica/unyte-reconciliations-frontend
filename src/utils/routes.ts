@@ -26,6 +26,8 @@ export const BrowserComboRoutes = {
   agentResetPassword: BrowserRoutes.agent + BrowserRoutes.resetPassword,
   agentVerify: BrowserRoutes.agent + BrowserRoutes.verify,
   agentDashboard: BrowserRoutes.agent + BrowserRoutes.dashboard,
+  agentOverview:
+    BrowserRoutes.agent + BrowserRoutes.dashboard + BrowserRoutes.overview,
   companyLogin: BrowserRoutes.company + BrowserRoutes.login,
   companySignup: BrowserRoutes.company + BrowserRoutes.signup,
   companyForgotPassword: BrowserRoutes.company + BrowserRoutes.forgotPassword,
@@ -34,8 +36,6 @@ export const BrowserComboRoutes = {
   companyDashboard: BrowserRoutes.company + BrowserRoutes.dashboard,
   companyOverview:
     BrowserRoutes.company + BrowserRoutes.dashboard + BrowserRoutes.overview,
-  companyClaims:
-    BrowserRoutes.company + BrowserRoutes.dashboard + BrowserRoutes.claims,
   pendingCompanyClaims:
     BrowserRoutes.company +
     BrowserRoutes.dashboard +

@@ -1,9 +1,16 @@
 import { PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { MutationKeys } from "@/utils/mutation-keys";
+import { agentResetPassword } from "@/api/api-agent";
+import { useEffect } from "react";
+import { AgentPasswordResetType } from "@/types/request.types";
+import { Loader } from "@/components/loader";
+import toast from "react-hot-toast";
 
 const formSchema = z
   .object({
@@ -28,8 +35,32 @@ export const AgentResetPasswordPage = () => {
     },
   });
 
+  const navigate = useNavigate();
+
+  const { id, token } = useParams();
+
+  useEffect(() => {
+    if (!id || !token) navigate(BrowserComboRoutes.agentLogin);
+  }, [id, token]);
+
+  const { mutate: mResetPassword, isPending: isResetPasswordLoading } =
+    useMutation({
+      mutationKey: [MutationKeys.agentResetPassword],
+      mutationFn: (data: AgentPasswordResetType) => agentResetPassword(data),
+      onSuccess: (data) => {
+        console.log(data);
+        toast.success(data.data.message);
+        navigate(BrowserComboRoutes.agentLogin);
+      },
+    });
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
+    mResetPassword({
+      idBase64: id!,
+      token: token!,
+      newPassword: data.password,
+    });
   };
 
   return (
@@ -67,8 +98,15 @@ export const AgentResetPasswordPage = () => {
                   Log In
                 </Link>
               </p>
-              <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
-                Reset
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                disabled={isResetPasswordLoading}
+              >
+                {isResetPasswordLoading ? (
+                  <Loader className="mx-auto" />
+                ) : (
+                  "Reset"
+                )}
               </button>
             </div>
           </div>

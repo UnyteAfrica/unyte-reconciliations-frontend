@@ -1,3 +1,5 @@
+import { UserType } from "@/types/types";
+
 export const nairaSign = "₦";
 
 export const formatAmount = (amount: number) => {
@@ -17,3 +19,14 @@ export const formatAmount = (amount: number) => {
 
 export const formatToNaira = (amount: number) =>
   nairaSign + formatAmount(amount);
+
+export const clearCredentials = (userType: UserType) => {
+  if (userType == UserType.company) {
+    localStorage.removeItem("companyAccessToken");
+    localStorage.removeItem("companyRefreshToken");
+  }
+  if (userType == UserType.agent) {
+    localStorage.removeItem("agentAccessToken");
+    localStorage.removeItem("agentRefreshToken");
+  }
+};

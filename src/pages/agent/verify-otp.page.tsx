@@ -2,6 +2,16 @@ import { PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { MutationKeys } from "@/utils/mutation-keys";
+import { agentResendOTP, agentVerifyOTP } from "@/api/api-agent";
+import { AgentVerifyOTPType } from "@/types/request.types";
+import { useContext, useEffect } from "react";
+import { AgentContext } from "@/context/agent.context";
+import { Loader } from "@/components/loader";
+import { BrowserComboRoutes } from "@/utils/routes";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   otp: z.string().min(6, "OTP cannot be less than 6 characters"),
@@ -19,8 +29,38 @@ export const AgentVerifyOTPPage = () => {
     },
   });
 
+  const navigate = useNavigate();
+  const { agentEmail } = useContext(AgentContext);
+
+  useEffect(() => {
+    if (!agentEmail) navigate(BrowserComboRoutes.agentLogin);
+  }, [agentEmail]);
+
+  const { mutate: mVerifyOTP, isPending: isVerificationLoading } = useMutation({
+    mutationKey: [MutationKeys.agentVerify],
+    mutationFn: (data: AgentVerifyOTPType) => agentVerifyOTP(data),
+    onSuccess: (data) => {
+      console.log(data);
+      toast.success(data.data.message);
+      navigate(BrowserComboRoutes.agentOverview);
+    },
+  });
+
+  const { mutate: mResendOTP, isPending: isResendLoading } = useMutation({
+    mutationKey: [MutationKeys.agentResendOTP],
+    mutationFn: (email: string) => agentResendOTP(email),
+    onSuccess: (data) => {
+      console.log(data);
+      toast.success(data.data.message);
+    },
+  });
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
+    mVerifyOTP({
+      email: agentEmail,
+      otp: data.otp,
+    });
   };
 
   return (
@@ -43,9 +83,30 @@ export const AgentVerifyOTPPage = () => {
               {...register("otp")}
             />
             <div>
-              <button className="text-primary mb-2">Resend OTP</button>
-              <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
-                Verify
+              <button
+                className="text-primary mb-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  mResendOTP(agentEmail);
+                }}
+                disabled={isResendLoading}
+              >
+                {isResendLoading ? (
+                  <Loader className="mx-auto" />
+                ) : (
+                  "Resend OTP"
+                )}
+              </button>
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                disabled={isVerificationLoading}
+              >
+                {isVerificationLoading ? (
+                  <Loader className="mx-auto" />
+                ) : (
+                  "Verify"
+                )}
               </button>
             </div>
           </div>

@@ -9,4 +9,6 @@ export const MutationKeys = {
   agentLogin: "agent-login",
   agentVerify: "agent-verify",
   agentResendOTP: "agent-resend-otp",
+  agentForgotPassword: "agent-forgot-password",
+  agentResetPassword: "agent-reset-password",
 };

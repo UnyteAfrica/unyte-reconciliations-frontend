@@ -17,6 +17,22 @@ export type CompanyVerifyOTPType = {
   otp: string;
 };
 
+export type CompanyPasswordResetType = {
+  newPassword: string;
+  token: string;
+  idBase64: string;
+};
+
+export type AgentVerifyOTPType = {
+  email: string;
+  otp: string;
+};
+
+export type AgentLoginType = {
+  emailOrGampID: string;
+  password: string;
+};
+
 export type AgentSignupType = {
   firstName: string;
   lastName: string;
@@ -26,12 +42,11 @@ export type AgentSignupType = {
   bankName: string;
   accountNo: string;
   bvn: string;
-  affiliatedCompany: string;
   agent_gampID: string;
   password: string;
 };
 
-export type CompanyPasswordResetType = {
+export type AgentPasswordResetType = {
   newPassword: string;
   token: string;
   idBase64: string;

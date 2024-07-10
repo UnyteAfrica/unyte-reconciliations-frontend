@@ -1,9 +1,15 @@
 import { CustomInput, PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { MutationKeys } from "@/utils/mutation-keys";
+import { agentSignup } from "@/api/api-agent";
+import { AgentSignupType } from "@/types/request.types";
+import { Loader } from "@/components/loader";
+import toast from "react-hot-toast";
 
 const formSchema = z
   .object({
@@ -30,9 +36,6 @@ const formSchema = z
       .string()
       .min(10, "Account number must be 10 characters")
       .max(10, "Account number must be 10 characters"),
-    affiliatedCompany: z
-      .string()
-      .min(5, "Company name must be more than 5 characters"),
     password: z.string().min(6, "Password cannot be less than 6 characters"),
     confirmPassword: z.string(),
   })
@@ -57,15 +60,50 @@ export const AgentSignupPage = () => {
       bvn: "",
       accountNo: "",
       bankName: "",
-      affiliatedCompany: "",
       gampId: "",
       password: "",
       confirmPassword: "",
     },
   });
 
+  const navigate = useNavigate();
+
+  const { mutate: mSignup, isPending: isSignupLoading } = useMutation({
+    mutationKey: [MutationKeys.agentSignup],
+    mutationFn: (data: AgentSignupType) => agentSignup(data),
+    onSuccess: (data) => {
+      const message = data.data.message;
+      toast.success(message);
+      navigate(BrowserComboRoutes.agentLogin);
+    },
+  });
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
+    const {
+      accountNo,
+      bankName,
+      bvn,
+      email,
+      firstName,
+      homeAddress,
+      lastName,
+      middleName,
+      password,
+      gampId,
+    } = data;
+    mSignup({
+      accountNo,
+      bankName,
+      bvn,
+      password,
+      email,
+      firstName,
+      homeAddress,
+      lastName,
+      middleName,
+      agent_gampID: gampId ?? "",
+    });
   };
 
   return (
@@ -133,12 +171,6 @@ export const AgentSignupPage = () => {
               {...register("bvn")}
             />
             <CustomInput
-              label="Affiliated Company"
-              placeholder="JohnDoe Insurance"
-              error={errors.affiliatedCompany?.message?.toString()}
-              {...register("affiliatedCompany")}
-            />
-            <CustomInput
               label="GAMP ID"
               optional
               placeholder="A034529"
@@ -167,8 +199,11 @@ export const AgentSignupPage = () => {
                   Sign In
                 </Link>
               </p>
-              <button className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl">
-                Sign Up
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                disabled={isSignupLoading}
+              >
+                {isSignupLoading ? <Loader className="mx-auto" /> : "Sign Up"}
               </button>
             </div>
           </div>

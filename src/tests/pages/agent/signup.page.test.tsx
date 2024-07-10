@@ -3,17 +3,23 @@ import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { AgentSignupPage } from "@/pages/agent/signup.page";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function setup(reactNode: React.ReactNode) {
+  const queryClient = new QueryClient();
   return {
     user: userEvent.setup(),
-    ...render(reactNode),
+    ...render(
+      <QueryClientProvider client={queryClient}>
+        {reactNode}
+      </QueryClientProvider>
+    ),
   };
 }
 
 describe("Agent Signup Page", () => {
   it("renders correctly", () => {
-    const tree = render(
+    const tree = setup(
       <BrowserRouter>
         <AgentSignupPage />
       </BrowserRouter>
@@ -156,24 +162,6 @@ describe("Agent Signup Page", () => {
     await user.click(submitButton);
     const errorMessage = screen.getByText(
       "Account number must be 10 characters"
-    );
-    expect(errorMessage).toBeVisible();
-  });
-
-  it("should validate affiliated company", async () => {
-    const { user } = setup(
-      <BrowserRouter>
-        <AgentSignupPage />
-      </BrowserRouter>
-    );
-
-    const targetInput = screen.getByLabelText("Affiliated Company");
-    await user.click(targetInput);
-    await user.keyboard("john");
-    const submitButton = screen.getByText("Sign Up");
-    await user.click(submitButton);
-    const errorMessage = screen.getByText(
-      "Company name must be more than 5 characters"
     );
     expect(errorMessage).toBeVisible();
   });
