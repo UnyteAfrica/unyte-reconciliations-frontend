@@ -32,6 +32,27 @@
         display: block;
       }
 
+      .login {
+        width: 300px;
+        font-weight: 500;
+        font-size: 1.25rem;
+        height: 64px;
+        color: white;
+        background-color: rgb(37 211 102);
+        line-height: 24px;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        margin: 1rem 0;
+        text-decoration: none;
+      }
+
+      .loginLink {
+        display: block;
+      }
+
       .better {
         font-weight: 400;
       }
@@ -67,6 +88,14 @@
       .mail span {
         display: block;
         margin-bottom: 4px;
+      }
+
+      .otp {
+        margin: 2rem 0;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: 8px;
       }
 
       .salutation {
@@ -132,18 +161,15 @@
           </defs>
         </svg>
       </div>
-      <em class="salutation">Welcome to Unyte, [Name]</em>
+      <em class="salutation">Hello [Company Name],</em>
       <p>
-        <span>
-          We are excited to have you on board. Your journey toward smooth and
-          efficient insurance management begins here.
-        </span>
-        <span style="display: block"
-          >We are currently verifying the details associated with your account.
-          When we're done, you'll have full access to your dashboard.</span
-        >
+        You requested for a One Time Password. If you didn't make the request,
+        ignore this email.
       </p>
-
+      <div>
+        <p>Use this OTP to complete your action:</p>
+        <p class="otp">[OTP]</p>
+      </div>
       <p>
         If you have any questions or need assistance, feel free to reach out to
         our support team at
