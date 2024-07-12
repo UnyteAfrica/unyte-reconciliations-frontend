@@ -8,7 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
 import { companyLogin } from "@/services/api/api-company";
 import { Loader } from "@/components/loader";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { CompanyLoginType } from "@/types/request.types";
 import { CompanyContext } from "@/context/company.context";
 import { LocalStorage } from "@/services/local-storage";

@@ -36,6 +36,10 @@ export const AgentApiRoutes = {
   resendOTP: RouteTypes.agent + BaseRoutes.newOTP,
   forgotPassword: RouteTypes.agent + BaseRoutes.forgotPassword,
   resetPassword: RouteTypes.agent + BaseRoutes.passwordReset,
+  details: RouteTypes.company + BaseRoutes.details,
+  profile: RouteTypes.company + BaseRoutes.insurerProfile,
+  inviteAgent: RouteTypes.company + BaseRoutes.inviteAgent,
+  resetToken: RouteTypes.company + BaseRoutes.resetToken,
 };
 
 export const COMPANY_UNPROTECTED_ROUTES = [
@@ -46,4 +50,14 @@ export const COMPANY_UNPROTECTED_ROUTES = [
   CompanyApiRoutes.forgotPassword,
   CompanyApiRoutes.resetPassword,
   CompanyApiRoutes.resetToken,
+];
+
+export const AGENT_UNPROTECTED_ROUTES = [
+  AgentApiRoutes.signup,
+  AgentApiRoutes.login,
+  AgentApiRoutes.verifyOTP,
+  AgentApiRoutes.resendOTP,
+  AgentApiRoutes.forgotPassword,
+  AgentApiRoutes.resetPassword,
+  AgentApiRoutes.resetToken,
 ];

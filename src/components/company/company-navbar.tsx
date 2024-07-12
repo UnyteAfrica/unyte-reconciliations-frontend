@@ -42,14 +42,11 @@ export const CompanyNavbar = () => {
   const location = useLocation();
   const { setIsLoggedIn } = useContext(CompanyContext);
 
-  const {
-    data: companyDetailsData,
-    isPending: isCompanyDetailsLoading,
-    error: companyDetailsError,
-  } = useQuery({
-    queryKey: [CompanyQueryKeys.details],
-    queryFn: () => getCompanyDetails(),
-  });
+  const { data: companyDetailsData, isPending: isCompanyDetailsLoading } =
+    useQuery({
+      queryKey: [CompanyQueryKeys.details],
+      queryFn: () => getCompanyDetails(),
+    });
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
