@@ -1,9 +1,11 @@
+import { LocalStorage } from "@/services/local-storage";
 import {
   createContext,
   useState,
   Dispatch,
   SetStateAction,
   PropsWithChildren,
+  useEffect,
 } from "react";
 
 const defaultCompanyData = {
@@ -33,7 +35,13 @@ export const CompanyContext = createContext<CompanyContextType>({
 export const CompanyProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [companyData, setCompanyData] = useState(defaultCompanyData);
   const [companyEmail, setCompanyEmail] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    !!LocalStorage.getItem("companyAccessToken")
+  );
+
+  useEffect(() => {
+    if (LocalStorage.getItem("companyAccessToken")) setIsLoggedIn(true);
+  }, []);
 
   return (
     <CompanyContext.Provider

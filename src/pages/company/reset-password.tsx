@@ -6,7 +6,7 @@ import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
-import { companyResetPassword } from "@/api/api-company";
+import { companyResetPassword } from "@/services/api/api-company";
 import { CompanyPasswordResetType } from "@/types/request.types";
 import toast from "react-hot-toast";
 import { useEffect } from "react";

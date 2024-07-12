@@ -8,6 +8,7 @@ const BaseRoutes = {
   details: "/details",
   inviteAgent: "/gen-agent-sign-up",
   insurerProfile: "/insurer-profile",
+  resetToken: "/reset-token",
 };
 
 const RouteTypes = {
@@ -25,6 +26,7 @@ export const CompanyApiRoutes = {
   details: RouteTypes.company + BaseRoutes.details,
   profile: RouteTypes.company + BaseRoutes.insurerProfile,
   inviteAgent: RouteTypes.company + BaseRoutes.inviteAgent,
+  resetToken: RouteTypes.company + BaseRoutes.resetToken,
 };
 
 export const AgentApiRoutes = {
@@ -35,3 +37,13 @@ export const AgentApiRoutes = {
   forgotPassword: RouteTypes.agent + BaseRoutes.forgotPassword,
   resetPassword: RouteTypes.agent + BaseRoutes.passwordReset,
 };
+
+export const COMPANY_UNPROTECTED_ROUTES = [
+  CompanyApiRoutes.signup,
+  CompanyApiRoutes.login,
+  CompanyApiRoutes.verifyOTP,
+  CompanyApiRoutes.resendOTP,
+  CompanyApiRoutes.forgotPassword,
+  CompanyApiRoutes.resetPassword,
+  CompanyApiRoutes.resetToken,
+];

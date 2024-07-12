@@ -1,25 +1,79 @@
 import axios from "axios";
-import { CompanyApiRoutes } from "./api-routes";
+import { COMPANY_UNPROTECTED_ROUTES, CompanyApiRoutes } from "./api-routes";
 import {
   CompanyLoginType,
   CompanyPasswordResetType,
   CompanySignupType,
   CompanyVerifyOTPType,
 } from "@/types/request.types";
+import { jwtDecode } from "jwt-decode";
+import { clearCredentials } from "@/utils/utils";
+import { UserType } from "@/types/types";
+import { LocalStorage } from "../local-storage";
 
 const URL =
   "https://unyte-reconciliation-backend-dev-ynoamqpukq-uc.a.run.app/api";
 
 const axiosInstance = axios.create({
   baseURL: URL,
-  headers: {
-    Authorization: `${
-      localStorage.getItem("companyAccessToken")
-        ? `Bearer ${localStorage.getItem("companyAccessToken")}`
-        : ""
-    }`,
-  },
 });
+
+axiosInstance.interceptors.request.use(
+  async (config) => {
+    // get both tokens from local storage
+    let refreshToken = LocalStorage.getItem("companyRefreshToken") || "";
+    let accessToken = LocalStorage.getItem("companyAccessToken") || "";
+
+    if (COMPANY_UNPROTECTED_ROUTES.includes(config.url ?? "")) return config;
+
+    if (refreshToken && accessToken) {
+      const decodedAccessToken = jwtDecode(accessToken as string);
+      const decodedRefreshToken = jwtDecode(refreshToken as string);
+
+      // if access token hasn't expired, just go ahead with the request
+      if (new Date(Number(decodedAccessToken.exp + "000")) < new Date()) {
+        // if refresh token has expired, clear tokens from local storage and log user out
+        if (new Date(Number(decodedRefreshToken.exp + "000")) < new Date()) {
+          clearCredentials(UserType.company);
+        } else {
+          //otherwise get new access tokens
+          try {
+            let resp = await axios.post(
+              URL + "/" + CompanyApiRoutes.resetToken,
+              {
+                refresh_token: refreshToken,
+              }
+            );
+
+            LocalStorage.setItem("companyAccessToken", resp.data.access_token);
+            LocalStorage.setItem(
+              "companyRefreshToken",
+              resp.data.refresh_token
+            );
+          } catch (e: any) {
+            clearCredentials(UserType.company);
+
+            console.log(e.message);
+          }
+        }
+      } else {
+        accessToken = LocalStorage.getItem("companyAccessToken") || "";
+
+        config.headers.Authorization = accessToken
+          ? `Bearer ${accessToken}`
+          : "";
+      }
+    }
+
+    if (!accessToken) {
+      clearCredentials(UserType.company);
+    }
+    return config;
+  },
+  (err) => {
+    return err;
+  }
+);
 
 export const companySignup = ({
   admin_name,

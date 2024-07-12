@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserComboRoutes, BrowserRoutes } from "./utils/routes";
 import { AgentLoginPage } from "./pages/agent/login.page";

@@ -6,6 +6,7 @@ import {
   AgentSignupType,
   AgentVerifyOTPType,
 } from "@/types/request.types";
+import { LocalStorage } from "../local-storage";
 
 const URL =
   "https://unyte-reconciliation-backend-dev-ynoamqpukq-uc.a.run.app/api";
@@ -13,8 +14,8 @@ const URL =
 const axiosInstance = axios.create({
   baseURL: URL,
   headers: {
-    Authorization: localStorage.getItem("agentAccessToken")
-      ? `Bearer ${localStorage.getItem("agentAccessToken")}`
+    Authorization: LocalStorage.getItem("agentAccessToken")
+      ? `Bearer ${LocalStorage.getItem("agentAccessToken")}`
       : "",
   },
 });

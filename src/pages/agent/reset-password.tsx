@@ -6,7 +6,7 @@ import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
-import { agentResetPassword } from "@/api/api-agent";
+import { agentResetPassword } from "@/services/api/api-agent";
 import { useEffect } from "react";
 import { AgentPasswordResetType } from "@/types/request.types";
 import { Loader } from "@/components/loader";

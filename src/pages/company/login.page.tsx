@@ -6,11 +6,12 @@ import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
-import { companyLogin } from "@/api/api-company";
+import { companyLogin } from "@/services/api/api-company";
 import { Loader } from "@/components/loader";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CompanyLoginType } from "@/types/request.types";
 import { CompanyContext } from "@/context/company.context";
+import { LocalStorage } from "@/services/local-storage";
 
 const formSchema = z.object({
   email: z.string().email("Admin Email is invalid"),
@@ -40,11 +41,11 @@ export const CompanyLoginPage = () => {
     mutationFn: (data: CompanyLoginType) => companyLogin(data),
     onSuccess: (data) => {
       console.log(data);
-      navigate(BrowserComboRoutes.companyVerify);
-      localStorage.setItem("companyAccessToken", data.data.access_token);
-      localStorage.setItem("companyRefreshToken", data.data.refresh_token);
+      LocalStorage.setItem("companyAccessToken", data.data.access_token);
+      LocalStorage.setItem("companyRefreshToken", data.data.refresh_token);
       setIsLoggedIn(true);
       setCompanyEmail(getValues("email"));
+      navigate(BrowserComboRoutes.companyVerify);
     },
   });
 
