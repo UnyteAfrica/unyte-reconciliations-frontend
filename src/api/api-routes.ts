@@ -5,6 +5,9 @@ const BaseRoutes = {
   newOTP: "/new-otp",
   forgotPassword: "/forgot-password",
   passwordReset: "/password-reset",
+  details: "/details",
+  inviteAgent: "/gen-agent-sign-up",
+  insurerProfile: "/insurer-profile",
 };
 
 const RouteTypes = {
@@ -19,6 +22,9 @@ export const CompanyApiRoutes = {
   resendOTP: RouteTypes.company + BaseRoutes.newOTP,
   forgotPassword: RouteTypes.company + BaseRoutes.forgotPassword,
   resetPassword: RouteTypes.company + BaseRoutes.passwordReset,
+  details: RouteTypes.company + BaseRoutes.details,
+  profile: RouteTypes.company + BaseRoutes.insurerProfile,
+  inviteAgent: RouteTypes.company + BaseRoutes.inviteAgent,
 };
 
 export const AgentApiRoutes = {
