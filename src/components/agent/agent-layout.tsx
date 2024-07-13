@@ -8,7 +8,6 @@ export const AgentLayout = () => {
   const navigate = useNavigate();
 
   const listener = (e: CustomEvent) => {
-    console.log(e.detail!);
     if (e.detail.key == "agentAccessToken" && e.detail.value == null) {
       navigate(BrowserComboRoutes.agentLogin);
     }

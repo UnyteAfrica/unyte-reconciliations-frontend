@@ -1,3 +1,4 @@
+import { LocalStorage } from "@/services/local-storage";
 import {
   createContext,
   useState,
@@ -33,7 +34,9 @@ export const AgentContext = createContext<AgentContextType>({
 export const AgentProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [agentData, setAgentData] = useState(defaultAgentData);
   const [agentEmail, setAgentEmail] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    !!LocalStorage.getItem("companyAccessToken")
+  );
 
   return (
     <AgentContext.Provider
