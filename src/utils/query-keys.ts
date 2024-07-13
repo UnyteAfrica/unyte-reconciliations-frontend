@@ -1,4 +1,9 @@
 export const CompanyQueryKeys = {
-  profile: "profile",
-  details: "details",
+  profile: "company-profile",
+  details: "company-details",
+};
+
+export const AgentQueryKeys = {
+  profile: "agent-profile",
+  details: "agent-details",
 };

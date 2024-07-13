@@ -11,10 +11,7 @@ export const CompanyLayout = () => {
   const navigate = useNavigate();
 
   const listener = (e: CustomEvent) => {
-    console.log("hekko");
-    console.log(e.detail!);
     if (e.detail.key == "companyAccessToken" && e.detail.value == null) {
-      console.log(e.detail);
       navigate(BrowserComboRoutes.companyLogin);
     }
   };
