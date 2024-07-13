@@ -22,7 +22,10 @@ const queryClient = new QueryClient({
       console.log(err);
       if (isAxiosError(err)) {
         let errMessage =
-          err.response?.data.detail ?? err.response?.data.message ?? "";
+          err.response?.data.detail ??
+          err.response?.data.message ??
+          err.response?.data.non_field_errors ??
+          "";
         if (!errMessage) {
           if (Array.isArray(err.response?.data.error)) {
             errMessage = err.response.data.error[0];

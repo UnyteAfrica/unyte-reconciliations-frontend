@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
-import { agentResendOTP, agentVerifyOTP } from "@/api/api-agent";
+import { agentResendOTP, agentVerifyOTP } from "@/services/api/api-agent";
 import { AgentVerifyOTPType } from "@/types/request.types";
 import { useContext, useEffect } from "react";
 import { AgentContext } from "@/context/agent.context";

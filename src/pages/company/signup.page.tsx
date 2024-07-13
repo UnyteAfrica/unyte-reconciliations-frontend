@@ -6,7 +6,7 @@ import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
-import { companySignup } from "@/api/api-company";
+import { companySignup } from "@/services/api/api-company";
 import { Loader } from "@/components/loader";
 import toast from "react-hot-toast";
 import { CompanySignupType } from "@/types/request.types";

@@ -7,10 +7,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
 import { Loader } from "@/components/loader";
-import { agentLogin } from "@/api/api-agent";
+import { agentLogin } from "@/services/api/api-agent";
 import { AgentLoginType } from "@/types/request.types";
 import { useContext } from "react";
 import { AgentContext } from "@/context/agent.context";
+import { LocalStorage } from "@/services/local-storage";
 
 const GAMPID_WITHOUT_NAME_LENGTH = 22;
 const formSchema = z.object({
@@ -52,8 +53,8 @@ export const AgentLoginPage = () => {
     mutationFn: (data: AgentLoginType) => agentLogin(data),
     onSuccess: (data) => {
       console.log(data);
-      localStorage.setItem("agentAccessToken", data.data.access_token);
-      localStorage.setItem("agentRefreshToken", data.data.refresh_token);
+      LocalStorage.setItem("agentAccessToken", data.data.access_token);
+      LocalStorage.setItem("agentRefreshToken", data.data.refresh_token);
       setIsLoggedIn(true);
       setAgentEmail(getValues("emailOrGampId"));
       navigate(BrowserComboRoutes.agentVerify);

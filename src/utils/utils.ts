@@ -1,3 +1,4 @@
+import { LocalStorage } from "@/services/local-storage";
 import { UserType } from "@/types/types";
 
 export const nairaSign = "₦";
@@ -22,11 +23,11 @@ export const formatToNaira = (amount: number) =>
 
 export const clearCredentials = (userType: UserType) => {
   if (userType == UserType.company) {
-    localStorage.removeItem("companyAccessToken");
-    localStorage.removeItem("companyRefreshToken");
+    LocalStorage.removeItem("companyAccessToken");
+    LocalStorage.removeItem("companyRefreshToken");
   }
   if (userType == UserType.agent) {
-    localStorage.removeItem("agentAccessToken");
-    localStorage.removeItem("agentRefreshToken");
+    LocalStorage.removeItem("agentAccessToken");
+    LocalStorage.removeItem("agentRefreshToken");
   }
 };
