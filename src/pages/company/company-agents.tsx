@@ -1,6 +1,10 @@
 import { Agent } from "@/types/types";
 import { PageContent } from "@/components/shared/page-content";
 import { AgentsTable } from "@/components/tables/agents-table";
+import { Overlay } from "@/components/overlay";
+import { NewAgentOverlay } from "@/components/overlays/new-agent-overlay";
+import { useContext } from "react";
+import { OverlayContext, OverlayContextType } from "@/context/overlay.context";
 
 const agents: Agent[] = [
   {
@@ -36,11 +40,24 @@ const agents: Agent[] = [
 ];
 
 export const CompanyAgents = () => {
+  const { isNewAgentOverlayOpened } = useContext(
+    OverlayContext
+  ) as OverlayContextType;
+
   return (
-    <PageContent
-      title="Agents"
-      searchbarPlaceholder="Find Agent ID"
-      pageTable={<AgentsTable agents={agents} />}
-    />
+    <>
+      {isNewAgentOverlayOpened && (
+        <Overlay>
+          <NewAgentOverlay />
+        </Overlay>
+      )}
+
+      <PageContent
+        title="Agents"
+        searchbarPlaceholder="Find Agent ID"
+        pageTable={<AgentsTable agents={agents} />}
+        hasNewAgent
+      />
+    </>
   );
 };
