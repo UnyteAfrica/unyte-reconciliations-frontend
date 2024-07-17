@@ -31,3 +31,18 @@ export const clearCredentials = (userType: UserType) => {
     LocalStorage.removeItem("agentRefreshToken");
   }
 };
+
+export const splitQueryParams = (query: string) => {
+  const queries = query.split("&");
+  const queryParamObj: { [key: string]: string } = {};
+  for (let query of queries) {
+    const querySplit = query.split("=");
+    const key = querySplit[0].startsWith("?")
+      ? querySplit[0].substring(1)
+      : querySplit[0];
+    const value = querySplit[1];
+    queryParamObj[key] = value;
+  }
+
+  return queryParamObj;
+};

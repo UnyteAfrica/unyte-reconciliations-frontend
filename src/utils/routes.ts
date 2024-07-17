@@ -1,6 +1,6 @@
 export const BrowserRoutes = {
   login: "/login",
-  signup: "/signup",
+  signup: "/sign-up",
   agent: "/agent",
   company: "/company",
   overview: "/overview",

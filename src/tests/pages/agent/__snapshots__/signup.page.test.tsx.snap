@@ -194,6 +194,27 @@ exports[`Agent Signup Page > renders correctly 1`] = `
               >
                 <label
                   class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  for="companyId"
+                >
+                  Company ID
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  disabled=""
+                  id="companyId"
+                  placeholder="A034529"
+                  value=""
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-lg text-[#333] leading-[24px] mb-2 block"
                   for="gampId"
                 >
                   GAMP ID
@@ -513,6 +534,27 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 id="bvn"
                 name="bvn"
                 placeholder="12345678901"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                for="companyId"
+              >
+                Company ID
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                disabled=""
+                id="companyId"
+                placeholder="A034529"
+                value=""
               />
               <p
                 class="text-sm text-[#333]"

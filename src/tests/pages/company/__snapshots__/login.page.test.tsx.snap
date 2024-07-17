@@ -104,7 +104,7 @@ exports[`Company Login Page > renders correctly 1`] = `
                    
                   <a
                     class="text-primary"
-                    href="/company/signup"
+                    href="/company/sign-up"
                   >
                     Sign up
                   </a>
@@ -231,7 +231,7 @@ exports[`Company Login Page > renders correctly 1`] = `
                  
                 <a
                   class="text-primary"
-                  href="/company/signup"
+                  href="/company/sign-up"
                 >
                   Sign up
                 </a>
