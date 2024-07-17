@@ -6,7 +6,7 @@ const BaseRoutes = {
   forgotPassword: "/forgot-password",
   passwordReset: "/password-reset",
   details: "/details",
-  inviteAgent: "/gen-agent-sign-up",
+  inviteAgent: "/generate-agent-sign-up",
   insurerProfile: "/insurer-profile",
   resetToken: "/reset-token",
 };

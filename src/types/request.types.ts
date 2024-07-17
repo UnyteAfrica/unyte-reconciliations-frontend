@@ -23,6 +23,8 @@ export type CompanyPasswordResetType = {
   idBase64: string;
 };
 
+export type InviteAgentType = { names: string; emails: string }[];
+
 export type AgentVerifyOTPType = {
   email: string;
   otp: string;

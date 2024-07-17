@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useContext, useState } from "react";
 import { Selector } from "./selector";
 import { SearchBar } from "../searchbar";
 import { BiChevronDown } from "react-icons/bi";
@@ -8,11 +8,14 @@ import { WithLabel } from "./with-label";
 import { CustomInput, DateInput } from "./input";
 import { nairaSign } from "@/utils/utils";
 import { Pagination } from "./pagination";
+import { IoMdAdd } from "react-icons/io";
+import { OverlayContext, OverlayContextType } from "@/context/overlay.context";
 
 type PageContentProps = {
   pageTable: ReactNode;
   title: string;
   searchbarPlaceholder?: string;
+  hasNewAgent?: boolean;
 };
 
 export const periods = ["Daily", "Weekly", "Monthly", "Yearly"] as const;
@@ -29,6 +32,7 @@ export const PageContent: React.FC<PageContentProps> = ({
   pageTable,
   title,
   searchbarPlaceholder,
+  hasNewAgent = false,
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [period, setPeriod] = useState<string>(periods[0]);
@@ -36,6 +40,10 @@ export const PageContent: React.FC<PageContentProps> = ({
   const [page, setPage] = useState(1);
   const [startDate, setStartDate] = useState(new Date(1699885840400));
   const [endDate, setEndDate] = useState(new Date(1699885870400));
+
+  const { setNewAgentOverlayOpened } = useContext(
+    OverlayContext
+  ) as OverlayContextType;
 
   const handleSearch = () => {
     //
@@ -58,6 +66,21 @@ export const PageContent: React.FC<PageContentProps> = ({
           placeholder={searchbarPlaceholder ?? "Find policy reference"}
         />
         <div id="dates" className="flex flex-row items-center space-x-3">
+          {hasNewAgent && (
+            <button
+              className="text-[#333333]"
+              onClick={(e) => {
+                e.stopPropagation();
+                setNewAgentOverlayOpened(true);
+              }}
+            >
+              <div className="space-x-2 flex flex-row items-center bg-primary px-4 py-2 rounded text-white">
+                <span className="text-base">Invite Agent</span>
+                <IoMdAdd />
+              </div>
+            </button>
+          )}
+
           <button
             className="text-[#333333]"
             onClick={(e) => {

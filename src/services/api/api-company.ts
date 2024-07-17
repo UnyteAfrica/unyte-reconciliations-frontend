@@ -5,6 +5,7 @@ import {
   CompanyPasswordResetType,
   CompanySignupType,
   CompanyVerifyOTPType,
+  InviteAgentType,
 } from "@/types/request.types";
 import { jwtDecode } from "jwt-decode";
 import { clearCredentials } from "@/utils/utils";
@@ -186,4 +187,10 @@ export const getCompanyProfile = () => {
 
 export const getCompanyDetails = () => {
   return axiosInstance.get(CompanyApiRoutes.details);
+};
+
+export const inviteAgent = (agents: InviteAgentType) => {
+  return axiosInstance.post(CompanyApiRoutes.inviteAgent, {
+    agents_list: agents,
+  });
 };
