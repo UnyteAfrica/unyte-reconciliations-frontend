@@ -1,7 +1,7 @@
 import { CustomInput, PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -10,6 +10,8 @@ import { agentSignup } from "@/services/api/api-agent";
 import { AgentSignupType } from "@/types/request.types";
 import { Loader } from "@/components/loader";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
+import { splitQueryParams } from "@/utils/utils";
 
 const formSchema = z
   .object({
@@ -66,7 +68,14 @@ export const AgentSignupPage = () => {
     },
   });
 
+  const location = useLocation();
+  const inviteCode = splitQueryParams(location.search)["invite"];
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!inviteCode) navigate(BrowserComboRoutes.agentLogin);
+  }, []);
 
   const { mutate: mSignup, isPending: isSignupLoading } = useMutation({
     mutationKey: [MutationKeys.agentSignup],
@@ -77,6 +86,8 @@ export const AgentSignupPage = () => {
       navigate(BrowserComboRoutes.agentLogin);
     },
   });
+
+  console.log(inviteCode);
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
@@ -103,6 +114,7 @@ export const AgentSignupPage = () => {
       lastName,
       middleName,
       agent_gampID: gampId ?? "",
+      companyInviteCode: inviteCode!,
     });
   };
 
@@ -169,6 +181,12 @@ export const AgentSignupPage = () => {
               placeholder="12345678901"
               error={errors.bvn?.message?.toString()}
               {...register("bvn")}
+            />
+            <CustomInput
+              label="Company ID"
+              disabled
+              placeholder="A034529"
+              value={inviteCode!}
             />
             <CustomInput
               label="GAMP ID"

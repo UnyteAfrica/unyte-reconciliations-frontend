@@ -97,15 +97,6 @@ export const AgentLoginPage = () => {
               {...register("password")}
             />
             <div>
-              <p className="mb-2">
-                Don&apos;t have an account?{" "}
-                <Link
-                  to={BrowserComboRoutes.agentSignup}
-                  className="text-primary"
-                >
-                  Sign up
-                </Link>
-              </p>
               <div className="flex justify-end">
                 <Link
                   to={BrowserComboRoutes.agentForgotPassword}

@@ -46,6 +46,7 @@ export type AgentSignupType = {
   bvn: string;
   agent_gampID: string;
   password: string;
+  companyInviteCode: string;
 };
 
 export type AgentPasswordResetType = {

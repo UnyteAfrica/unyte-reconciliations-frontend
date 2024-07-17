@@ -79,9 +79,10 @@ export const agentSignup = ({
   lastName,
   middleName,
   password,
+  companyInviteCode,
 }: AgentSignupType) => {
   return axiosInstance.post(
-    AgentApiRoutes.signup + "?invite=Incognito%2B9232%2Bunyte.com",
+    AgentApiRoutes.signup,
     {
       first_name: firstName,
       last_name: lastName,
@@ -94,6 +95,9 @@ export const agentSignup = ({
       password,
     },
     {
+      params: {
+        invite: companyInviteCode,
+      },
       headers: {
         Authorization: "",
       },

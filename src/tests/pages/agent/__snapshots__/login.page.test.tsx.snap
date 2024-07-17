@@ -97,18 +97,6 @@ exports[`Agent Login Page > renders correctly 1`] = `
                 />
               </div>
               <div>
-                <p
-                  class="mb-2"
-                >
-                  Don't have an account?
-                   
-                  <a
-                    class="text-primary"
-                    href="/agent/signup"
-                  >
-                    Sign up
-                  </a>
-                </p>
                 <div
                   class="flex justify-end"
                 >
@@ -224,18 +212,6 @@ exports[`Agent Login Page > renders correctly 1`] = `
               />
             </div>
             <div>
-              <p
-                class="mb-2"
-              >
-                Don't have an account?
-                 
-                <a
-                  class="text-primary"
-                  href="/agent/signup"
-                >
-                  Sign up
-                </a>
-              </p>
               <div
                 class="flex justify-end"
               >
