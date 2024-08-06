@@ -24,8 +24,8 @@ describe("Pagination", () => {
         />
       </BrowserRouter>
     );
-    const activeBtn = screen.getByTestId("active");
-    expect(activeBtn).toHaveTextContent("4");
+    const activeBtn = screen.getByText("4/6");
+    expect(activeBtn).toBeVisible();
   });
 
   it("previous button is disabled when on first page", async () => {

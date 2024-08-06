@@ -6,97 +6,752 @@ exports[`Devices > renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="mx-auto max-w-6xl mt-12 px-6 mb-16 lg:px-0"
+        class="px-5 py-6 max-w-[850px] mx-auto"
       >
-        <div
-          class="flex flex-row justify-between items-center mb-10 relative"
+        <header
+          class="mb-7"
         >
-          <span
-            class="text-3xl text-[#333333] font-semibold capitalize"
-            data-testid="pageTitle"
+          <h1
+            class="font-semibold text-2xl mb-5"
           >
             Devices
-          </span>
-          <form>
-            <div
-              class="relative"
-            >
-              <input
-                class="border rounded bg-[#F2F2F2] pl-9 px-6 py-2 placeholder:text-[#828282] text-opacity-20"
-                placeholder="Find policy reference"
-                type="search"
-                value=""
-              />
-              <img
-                alt="search icon"
-                class="absolute top-3.5 left-2"
-                src="/src/assets/Icons/SearchIcon.svg"
-              />
-            </div>
-          </form>
+          </h1>
           <div
-            class="flex flex-row items-center space-x-3"
-            id="dates"
+            class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
           >
-            <button
-              class="text-[#333333]"
+            <img
+              alt="search icon"
+              class="block mr-2 w-7 h-7"
+              src="/src/assets/Icons/SearchIcon.svg"
+            />
+            <input
+              class="bg-transparent py-2 text-opacity-20"
+              placeholder="Find policy reference"
+              type="search"
+              value=""
+            />
+          </div>
+        </header>
+        <main
+          class=""
+        >
+          <div
+            class="flex justify-between items-center relative"
+          >
+            <h2
+              class="font-medium"
             >
-              <div
-                class="space-x-2 flex flex-row items-center bg-[#828282] px-4 py-2 rounded text-white"
-              >
-                <span
-                  class="text-base"
-                >
-                  Filter
-                </span>
-                <svg
-                  class="transition-all duration-300"
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
-                  />
-                </svg>
-              </div>
-            </button>
+              Activity
+            </h2>
             <button
-              class="bg-[#25D366] rounded"
+              class="bg-[#25D366] rounded-full p-2 px-4 text-white"
             >
-              <div
-                class="space-x-2 flex flex-row items-center px-4 py-2 text-white"
+              <svg
+                class="inline-block mr-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <span
-                  class="text-base"
-                >
-                  Download
-                </span>
-                <svg
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="m12 16 4-5h-3V4h-2v7H8z"
-                  />
-                  <path
-                    d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"
-                  />
-                </svg>
-              </div>
+                <path
+                  d="M32 144h448M112 256h288M208 368h96"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="32"
+                />
+              </svg>
+              Filter
             </button>
+            <div
+              class="bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[7000] overflow-hidden opacity-0  max-h-0"
+              data-testid="filter"
+            >
+              <div>
+                <label
+                  class="mb-2 inline-block"
+                >
+                  Period Range
+                </label>
+                <div
+                  class="relative w-full"
+                >
+                  <button
+                    class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
+                  >
+                    <div
+                      class="space-x-2 flex flex-row items-center justify-between"
+                    >
+                      <span
+                        class="text-base"
+                        title="selectBtn"
+                      >
+                        Daily
+                      </span>
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
+                  >
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Daily
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Weekly
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Monthly
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Yearly
+                    </button>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label
+                  class="mb-2 inline-block"
+                >
+                  Custom Date Range
+                </label>
+                <div
+                  class="w-full"
+                >
+                  <button
+                    class="px-4 py-2 border rounded-md relative rounded-tr-none rounded-br-none font-semibold w-full block"
+                  >
+                    November 13, 2023
+                    <input
+                      class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
+                      placeholder="date"
+                      type="date"
+                      value="2023-11-13"
+                    />
+                  </button>
+                  <button
+                    class="px-4 py-2 border rounded-md relative rounded-tl-none rounded-bl-none font-semibold w-full"
+                  >
+                    November 13, 2023
+                    <input
+                      class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
+                      placeholder="date"
+                      type="date"
+                      value="2023-11-13"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-[#333] mb-2 block text-base"
+                  for="policyNo"
+                >
+                  Policy No.
+                   
+                </label>
+                <input
+                  class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
+                  id="policyNo"
+                  placeholder="#A023457"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div>
+                <label
+                  class="mb-2 inline-block"
+                >
+                  Select Product(s)
+                </label>
+                <div
+                  class="relative w-full"
+                >
+                  <button
+                    class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
+                  >
+                    <div
+                      class="space-x-2 flex flex-row items-center justify-between"
+                    >
+                      <span
+                        class="text-base"
+                        title="selectBtn"
+                      >
+                        Comprehensive
+                      </span>
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
+                  >
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Comprehensive
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Credit Life
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Card Protect
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Student
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Travel
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Device
+                    </button>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-[#333] mb-2 block text-base"
+                  for="amount"
+                >
+                  Amount
+                   
+                </label>
+                <input
+                  class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
+                  id="amount"
+                  placeholder="₦"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class="flex ml-auto"
+              >
+                <button
+                  class="bg-white border rounded-md w-[90px] inline-block mr-4 py-2 ml-auto"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="bg-primary text-white w-[115px] rounded-md py-2"
+                >
+                  Apply Filter
+                </button>
+              </div>
+            </div>
           </div>
           <div
-            class="bg-white px-5 py-10 absolute top-[50px] w-[450px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all overflow-hidden opacity-0 max-h-0"
+            class="my-6"
+          >
+            <table
+              class="table-auto w-full"
+            >
+              <thead
+                class="bg-gray-200 text-[#333333]"
+              >
+                <tr>
+                  <th
+                    class="p-4 text-center"
+                  >
+                    Policy No.
+                  </th>
+                  <th
+                    class="p-4 text-center"
+                  >
+                    Device Name
+                  </th>
+                  <th
+                    class="p-4 text-center"
+                  >
+                    Model
+                  </th>
+                  <th
+                    class="p-4 text-center"
+                  >
+                    Device IMEI
+                  </th>
+                  <th
+                    class="p-4 text-center"
+                  >
+                    Policy Type
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="bg-white text-[#333333]"
+              >
+                <tr
+                  class="border-b font-medium"
+                >
+                  <td
+                    class="p-4 text-center"
+                  >
+                    123jkf5402
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Galaxy S22
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Samsung
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    1029347349267642752
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Screen Only
+                  </td>
+                </tr>
+                <tr
+                  class="border-b font-medium"
+                >
+                  <td
+                    class="p-4 text-center"
+                  >
+                    123jkf5402
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    iPhone 15
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    iPhone
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    1029347349267642752
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Screen Only
+                  </td>
+                </tr>
+                <tr
+                  class="border-b font-medium"
+                >
+                  <td
+                    class="p-4 text-center"
+                  >
+                    123jkf5402
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Galaxy S22
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Samsung
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    1029347349267642752
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Screen and Camera
+                  </td>
+                </tr>
+                <tr
+                  class="border-b font-medium"
+                >
+                  <td
+                    class="p-4 text-center"
+                  >
+                    123jkf5402
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Galaxy S22
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Samsung
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    1029347349267642752
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Screen Only
+                  </td>
+                </tr>
+                <tr
+                  class="border-b font-medium"
+                >
+                  <td
+                    class="p-4 text-center"
+                  >
+                    123jkf5402
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Phantom 6
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Tecno
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    1029347349267642752
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    All Parts
+                  </td>
+                </tr>
+                <tr
+                  class="border-b font-medium"
+                >
+                  <td
+                    class="p-4 text-center"
+                  >
+                    123jkf5402
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    iPhone SE
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    iPhone
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    1029347349267642752
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Screen Only
+                  </td>
+                </tr>
+                <tr
+                  class="border-b font-medium"
+                >
+                  <td
+                    class="p-4 text-center"
+                  >
+                    123jkf5402
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Galaxy S22
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Samsung
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    1029347349267642752
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    All Parts
+                  </td>
+                </tr>
+                <tr
+                  class="border-b font-medium"
+                >
+                  <td
+                    class="p-4 text-center"
+                  >
+                    123jkf5402
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Galaxy S24 Ultra
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Samsung
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    1029347349267642752
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Screen Only
+                  </td>
+                </tr>
+                <tr
+                  class="border-b font-medium"
+                >
+                  <td
+                    class="p-4 text-center"
+                  >
+                    123jkf5402
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Pixel 8 Pro
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Google Pixel
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    1029347349267642752
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    All Parts
+                  </td>
+                </tr>
+                <tr
+                  class="border-b font-medium"
+                >
+                  <td
+                    class="p-4 text-center"
+                  >
+                    123jkf5402
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Pixel 8a
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Google Pixel
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    1029347349267642752
+                  </td>
+                  <td
+                    class="p-4 text-center"
+                  >
+                    Screen Only
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div
+            class="mt-8 mx-auto w-[280px] flex items-center justify-between"
+          >
+            <button
+              class="flex items-center disabled:text-[#ccc]"
+              disabled=""
+            >
+              <svg
+                class="inline-block mr-3"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 320 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                />
+              </svg>
+              Previous
+            </button>
+            <div
+              class="bg-[#F2F2F2] px-6 py-2 rounded-lg"
+            >
+              1
+              /
+              6
+            </div>
+            <button
+              class="flex items-center disabled:text-[#ccc]"
+            >
+              Next
+              <svg
+                class="inline-block ml-3"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 320 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                />
+              </svg>
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="px-5 py-6 max-w-[850px] mx-auto"
+    >
+      <header
+        class="mb-7"
+      >
+        <h1
+          class="font-semibold text-2xl mb-5"
+        >
+          Devices
+        </h1>
+        <div
+          class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
+        >
+          <img
+            alt="search icon"
+            class="block mr-2 w-7 h-7"
+            src="/src/assets/Icons/SearchIcon.svg"
+          />
+          <input
+            class="bg-transparent py-2 text-opacity-20"
+            placeholder="Find policy reference"
+            type="search"
+            value=""
+          />
+        </div>
+      </header>
+      <main
+        class=""
+      >
+        <div
+          class="flex justify-between items-center relative"
+        >
+          <h2
+            class="font-medium"
+          >
+            Activity
+          </h2>
+          <button
+            class="bg-[#25D366] rounded-full p-2 px-4 text-white"
+          >
+            <svg
+              class="inline-block mr-1"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M32 144h448M112 256h288M208 368h96"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+              />
+            </svg>
+            Filter
+          </button>
+          <div
+            class="bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[7000] overflow-hidden opacity-0  max-h-0"
             data-testid="filter"
           >
             <div>
@@ -172,10 +827,10 @@ exports[`Devices > renders correctly 1`] = `
                 Custom Date Range
               </label>
               <div
-                class="flex w-full"
+                class="w-full"
               >
                 <button
-                  class="px-4 py-2 border rounded-md relative rounded-tr-none rounded-br-none font-semibold w-1/2"
+                  class="px-4 py-2 border rounded-md relative rounded-tr-none rounded-br-none font-semibold w-full block"
                 >
                   November 13, 2023
                   <input
@@ -186,7 +841,7 @@ exports[`Devices > renders correctly 1`] = `
                   />
                 </button>
                 <button
-                  class="px-4 py-2 border rounded-md relative rounded-tl-none rounded-bl-none font-semibold w-1/2"
+                  class="px-4 py-2 border rounded-md relative rounded-tl-none rounded-bl-none font-semibold w-full"
                 >
                   November 13, 2023
                   <input
@@ -331,7 +986,7 @@ exports[`Devices > renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="mb-10"
+          class="my-6"
         >
           <table
             class="table-auto w-full"
@@ -663,826 +1318,57 @@ exports[`Devices > renders correctly 1`] = `
             </tbody>
           </table>
         </div>
-        <nav
-          class="flex space-x-4"
+        <div
+          class="mt-8 mx-auto w-[280px] flex items-center justify-between"
         >
           <button
-            class="px-5 py-2 rounded-md border text-sm font-medium text-[#ccc]"
+            class="flex items-center disabled:text-[#ccc]"
             disabled=""
           >
+            <svg
+              class="inline-block mr-3"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 320 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+              />
+            </svg>
             Previous
           </button>
-          <ul
-            class="flex space-x-2"
+          <div
+            class="bg-[#F2F2F2] px-6 py-2 rounded-lg"
           >
-            <li
-              class="border rounded-md bg-primary text-white border-none"
-              data-testid="active"
-            >
-              <button
-                class="h-[38px] w-[38px]"
-              >
-                1
-              </button>
-            </li>
-            <li
-              class="border rounded-md"
-              data-testid="false"
-            >
-              <button
-                class="h-[38px] w-[38px]"
-              >
-                2
-              </button>
-            </li>
-            <li
-              class="border rounded-md"
-              data-testid="false"
-            >
-              <button
-                class="h-[38px] w-[38px]"
-              >
-                3
-              </button>
-            </li>
-            <li
-              class="border rounded-md"
-              data-testid="false"
-            >
-              <button
-                class="h-[38px] w-[38px]"
-              >
-                4
-              </button>
-            </li>
-            <li
-              class="border rounded-md"
-              data-testid="false"
-            >
-              <button
-                class="h-[38px] w-[38px]"
-              >
-                5
-              </button>
-            </li>
-            <li
-              class="border rounded-md"
-              data-testid="false"
-            >
-              <button
-                class="h-[38px] w-[38px]"
-              >
-                6
-              </button>
-            </li>
-          </ul>
+            1
+            /
+            6
+          </div>
           <button
-            class="px-5 py-2 rounded-md border text-sm font-medium"
+            class="flex items-center disabled:text-[#ccc]"
           >
             Next
-          </button>
-        </nav>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="mx-auto max-w-6xl mt-12 px-6 mb-16 lg:px-0"
-    >
-      <div
-        class="flex flex-row justify-between items-center mb-10 relative"
-      >
-        <span
-          class="text-3xl text-[#333333] font-semibold capitalize"
-          data-testid="pageTitle"
-        >
-          Devices
-        </span>
-        <form>
-          <div
-            class="relative"
-          >
-            <input
-              class="border rounded bg-[#F2F2F2] pl-9 px-6 py-2 placeholder:text-[#828282] text-opacity-20"
-              placeholder="Find policy reference"
-              type="search"
-              value=""
-            />
-            <img
-              alt="search icon"
-              class="absolute top-3.5 left-2"
-              src="/src/assets/Icons/SearchIcon.svg"
-            />
-          </div>
-        </form>
-        <div
-          class="flex flex-row items-center space-x-3"
-          id="dates"
-        >
-          <button
-            class="text-[#333333]"
-          >
-            <div
-              class="space-x-2 flex flex-row items-center bg-[#828282] px-4 py-2 rounded text-white"
+            <svg
+              class="inline-block ml-3"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 320 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <span
-                class="text-base"
-              >
-                Filter
-              </span>
-              <svg
-                class="transition-all duration-300"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
-                />
-              </svg>
-            </div>
-          </button>
-          <button
-            class="bg-[#25D366] rounded"
-          >
-            <div
-              class="space-x-2 flex flex-row items-center px-4 py-2 text-white"
-            >
-              <span
-                class="text-base"
-              >
-                Download
-              </span>
-              <svg
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m12 16 4-5h-3V4h-2v7H8z"
-                />
-                <path
-                  d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"
-                />
-              </svg>
-            </div>
+              <path
+                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+              />
+            </svg>
           </button>
         </div>
-        <div
-          class="bg-white px-5 py-10 absolute top-[50px] w-[450px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all overflow-hidden opacity-0 max-h-0"
-          data-testid="filter"
-        >
-          <div>
-            <label
-              class="mb-2 inline-block"
-            >
-              Period Range
-            </label>
-            <div
-              class="relative w-full"
-            >
-              <button
-                class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
-              >
-                <div
-                  class="space-x-2 flex flex-row items-center justify-between"
-                >
-                  <span
-                    class="text-base"
-                    title="selectBtn"
-                  >
-                    Daily
-                  </span>
-                  <svg
-                    fill="currentColor"
-                    height="1em"
-                    stroke="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
-                    />
-                  </svg>
-                </div>
-              </button>
-              <div
-                class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
-              >
-                <button
-                  class="w-full font-inter py-4 font-semibold"
-                >
-                  Daily
-                </button>
-                <hr />
-                <button
-                  class="w-full font-inter py-4 font-semibold"
-                >
-                  Weekly
-                </button>
-                <hr />
-                <button
-                  class="w-full font-inter py-4 font-semibold"
-                >
-                  Monthly
-                </button>
-                <hr />
-                <button
-                  class="w-full font-inter py-4 font-semibold"
-                >
-                  Yearly
-                </button>
-                <hr />
-              </div>
-            </div>
-          </div>
-          <div>
-            <label
-              class="mb-2 inline-block"
-            >
-              Custom Date Range
-            </label>
-            <div
-              class="flex w-full"
-            >
-              <button
-                class="px-4 py-2 border rounded-md relative rounded-tr-none rounded-br-none font-semibold w-1/2"
-              >
-                November 13, 2023
-                <input
-                  class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
-                  placeholder="date"
-                  type="date"
-                  value="2023-11-13"
-                />
-              </button>
-              <button
-                class="px-4 py-2 border rounded-md relative rounded-tl-none rounded-bl-none font-semibold w-1/2"
-              >
-                November 13, 2023
-                <input
-                  class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
-                  placeholder="date"
-                  type="date"
-                  value="2023-11-13"
-                />
-              </button>
-            </div>
-          </div>
-          <div
-            class=""
-          >
-            <label
-              class="text-[#333] mb-2 block text-base"
-              for="policyNo"
-            >
-              Policy No.
-               
-            </label>
-            <input
-              class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
-              id="policyNo"
-              placeholder="#A023457"
-            />
-            <p
-              class="text-sm text-[#333]"
-            />
-          </div>
-          <div>
-            <label
-              class="mb-2 inline-block"
-            >
-              Select Product(s)
-            </label>
-            <div
-              class="relative w-full"
-            >
-              <button
-                class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
-              >
-                <div
-                  class="space-x-2 flex flex-row items-center justify-between"
-                >
-                  <span
-                    class="text-base"
-                    title="selectBtn"
-                  >
-                    Comprehensive
-                  </span>
-                  <svg
-                    fill="currentColor"
-                    height="1em"
-                    stroke="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
-                    />
-                  </svg>
-                </div>
-              </button>
-              <div
-                class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
-              >
-                <button
-                  class="w-full font-inter py-4 font-semibold"
-                >
-                  Comprehensive
-                </button>
-                <hr />
-                <button
-                  class="w-full font-inter py-4 font-semibold"
-                >
-                  Credit Life
-                </button>
-                <hr />
-                <button
-                  class="w-full font-inter py-4 font-semibold"
-                >
-                  Card Protect
-                </button>
-                <hr />
-                <button
-                  class="w-full font-inter py-4 font-semibold"
-                >
-                  Student
-                </button>
-                <hr />
-                <button
-                  class="w-full font-inter py-4 font-semibold"
-                >
-                  Travel
-                </button>
-                <hr />
-                <button
-                  class="w-full font-inter py-4 font-semibold"
-                >
-                  Device
-                </button>
-                <hr />
-              </div>
-            </div>
-          </div>
-          <div
-            class=""
-          >
-            <label
-              class="text-[#333] mb-2 block text-base"
-              for="amount"
-            >
-              Amount
-               
-            </label>
-            <input
-              class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
-              id="amount"
-              placeholder="₦"
-            />
-            <p
-              class="text-sm text-[#333]"
-            />
-          </div>
-          <div
-            class="flex ml-auto"
-          >
-            <button
-              class="bg-white border rounded-md w-[90px] inline-block mr-4 py-2 ml-auto"
-            >
-              Cancel
-            </button>
-            <button
-              class="bg-primary text-white w-[115px] rounded-md py-2"
-            >
-              Apply Filter
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mb-10"
-      >
-        <table
-          class="table-auto w-full"
-        >
-          <thead
-            class="bg-gray-200 text-[#333333]"
-          >
-            <tr>
-              <th
-                class="p-4 text-center"
-              >
-                Policy No.
-              </th>
-              <th
-                class="p-4 text-center"
-              >
-                Device Name
-              </th>
-              <th
-                class="p-4 text-center"
-              >
-                Model
-              </th>
-              <th
-                class="p-4 text-center"
-              >
-                Device IMEI
-              </th>
-              <th
-                class="p-4 text-center"
-              >
-                Policy Type
-              </th>
-            </tr>
-          </thead>
-          <tbody
-            class="bg-white text-[#333333]"
-          >
-            <tr
-              class="border-b font-medium"
-            >
-              <td
-                class="p-4 text-center"
-              >
-                123jkf5402
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Galaxy S22
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Samsung
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                1029347349267642752
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Screen Only
-              </td>
-            </tr>
-            <tr
-              class="border-b font-medium"
-            >
-              <td
-                class="p-4 text-center"
-              >
-                123jkf5402
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                iPhone 15
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                iPhone
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                1029347349267642752
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Screen Only
-              </td>
-            </tr>
-            <tr
-              class="border-b font-medium"
-            >
-              <td
-                class="p-4 text-center"
-              >
-                123jkf5402
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Galaxy S22
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Samsung
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                1029347349267642752
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Screen and Camera
-              </td>
-            </tr>
-            <tr
-              class="border-b font-medium"
-            >
-              <td
-                class="p-4 text-center"
-              >
-                123jkf5402
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Galaxy S22
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Samsung
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                1029347349267642752
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Screen Only
-              </td>
-            </tr>
-            <tr
-              class="border-b font-medium"
-            >
-              <td
-                class="p-4 text-center"
-              >
-                123jkf5402
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Phantom 6
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Tecno
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                1029347349267642752
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                All Parts
-              </td>
-            </tr>
-            <tr
-              class="border-b font-medium"
-            >
-              <td
-                class="p-4 text-center"
-              >
-                123jkf5402
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                iPhone SE
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                iPhone
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                1029347349267642752
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Screen Only
-              </td>
-            </tr>
-            <tr
-              class="border-b font-medium"
-            >
-              <td
-                class="p-4 text-center"
-              >
-                123jkf5402
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Galaxy S22
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Samsung
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                1029347349267642752
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                All Parts
-              </td>
-            </tr>
-            <tr
-              class="border-b font-medium"
-            >
-              <td
-                class="p-4 text-center"
-              >
-                123jkf5402
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Galaxy S24 Ultra
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Samsung
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                1029347349267642752
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Screen Only
-              </td>
-            </tr>
-            <tr
-              class="border-b font-medium"
-            >
-              <td
-                class="p-4 text-center"
-              >
-                123jkf5402
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Pixel 8 Pro
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Google Pixel
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                1029347349267642752
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                All Parts
-              </td>
-            </tr>
-            <tr
-              class="border-b font-medium"
-            >
-              <td
-                class="p-4 text-center"
-              >
-                123jkf5402
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Pixel 8a
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Google Pixel
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                1029347349267642752
-              </td>
-              <td
-                class="p-4 text-center"
-              >
-                Screen Only
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <nav
-        class="flex space-x-4"
-      >
-        <button
-          class="px-5 py-2 rounded-md border text-sm font-medium text-[#ccc]"
-          disabled=""
-        >
-          Previous
-        </button>
-        <ul
-          class="flex space-x-2"
-        >
-          <li
-            class="border rounded-md bg-primary text-white border-none"
-            data-testid="active"
-          >
-            <button
-              class="h-[38px] w-[38px]"
-            >
-              1
-            </button>
-          </li>
-          <li
-            class="border rounded-md"
-            data-testid="false"
-          >
-            <button
-              class="h-[38px] w-[38px]"
-            >
-              2
-            </button>
-          </li>
-          <li
-            class="border rounded-md"
-            data-testid="false"
-          >
-            <button
-              class="h-[38px] w-[38px]"
-            >
-              3
-            </button>
-          </li>
-          <li
-            class="border rounded-md"
-            data-testid="false"
-          >
-            <button
-              class="h-[38px] w-[38px]"
-            >
-              4
-            </button>
-          </li>
-          <li
-            class="border rounded-md"
-            data-testid="false"
-          >
-            <button
-              class="h-[38px] w-[38px]"
-            >
-              5
-            </button>
-          </li>
-          <li
-            class="border rounded-md"
-            data-testid="false"
-          >
-            <button
-              class="h-[38px] w-[38px]"
-            >
-              6
-            </button>
-          </li>
-        </ul>
-        <button
-          class="px-5 py-2 rounded-md border text-sm font-medium"
-        >
-          Next
-        </button>
-      </nav>
+      </main>
     </div>
   </div>,
   "debug": [Function],
