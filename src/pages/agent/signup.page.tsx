@@ -75,7 +75,7 @@ export const AgentSignupPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // if (!inviteCode) navigate(BrowserComboRoutes.agentLogin);
+    if (!inviteCode) navigate(BrowserComboRoutes.agentLogin);
   }, []);
 
   const { mutate: mSignup, isPending: isSignupLoading } = useMutation({
