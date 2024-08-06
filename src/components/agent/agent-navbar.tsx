@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { BiChevronDown } from "react-icons/bi";
 
@@ -46,6 +46,10 @@ export const AgentNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { setIsLoggedIn } = useContext(AgentContext);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const { data: agentDetailsData, isPending: isAgentDetailsLoading } = useQuery(
     {
