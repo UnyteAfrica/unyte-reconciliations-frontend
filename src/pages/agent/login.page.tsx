@@ -13,7 +13,7 @@ import { useContext } from "react";
 import { AgentContext } from "@/context/agent.context";
 import { LocalStorage } from "@/services/local-storage";
 import { Icon } from "@/components/shared/icon";
-import { useMediaQuery } from "@/utils/utils";
+import { useMediaQuery } from "@/utils/hooks";
 
 const GAMPID_WITHOUT_NAME_LENGTH = 22;
 const formSchema = z.object({

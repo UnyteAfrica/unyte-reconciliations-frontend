@@ -11,8 +11,9 @@ import { AgentSignupType } from "@/types/request.types";
 import { Loader } from "@/components/loader";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
-import { splitQueryParams, useMediaQuery } from "@/utils/utils";
+import { splitQueryParams } from "@/utils/utils";
 import { Icon } from "@/components/shared/icon";
+import { useMediaQuery } from "@/utils/hooks";
 
 const formSchema = z
   .object({

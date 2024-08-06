@@ -4,6 +4,7 @@ import { nairaSign } from "@/utils/utils";
 import { DateInput } from "@/components/shared/input";
 import { Selector } from "@/components/shared/selector";
 import { periods } from "@/components/shared/page-content";
+import { useMediaQuery } from "@/utils/hooks";
 
 type Stat = {
   title: string;
@@ -102,52 +103,101 @@ export const AgentOverview: React.FC = () => {
   const [endDate, setEndDate] = useState(new Date());
   const [period, setPeriod] = useState<string>(periods[0]);
 
+  const { isMediaQueryMatched } = useMediaQuery(1024);
+
   return (
     <>
-      <div className="mx-auto max-w-6xl mt-12 px-6 lg:px-0">
-        <div className="flex flex-row justify-between items-center mb-10">
-          <span className="text-3xl text-[#333333] font-semibold">
-            Overview
-          </span>
-          <div id="dates" className="flex flex-row items-center space-x-3">
+      {!isMediaQueryMatched && (
+        <div className="px-5 py-6 max-w-[850px] mx-auto">
+          <div className="flex flex-row justify-between items-center mb-10">
+            <h1 className="text-3xl text-[#333333] font-semibold">Overview</h1>
             <Selector
               options={periods}
               value={period}
               onChange={(val) => setPeriod(val)}
             />
-            <div className="flex">
-              <DateInput
-                containerClassName="rounded-tr-none rounded-br-none font-semibold"
-                date={startDate}
-                onDateChange={(date) => setStartDate(date)}
-              />
-              <DateInput
-                containerClassName="rounded-tl-none rounded-bl-none font-semibold"
-                date={endDate}
-                onDateChange={(date) => setEndDate(date)}
-              />
+          </div>
+          <div className="flex flex-wrap">
+            <div className="mb-5 mr-8">
+              <em className="not-italic block text-[#4F4F4F] text-xs mb-2">
+                Number of policies sold
+              </em>
+              <em className="not-italic block text-[#333] text-xl font-semibold">
+                20,000 policies
+              </em>
+            </div>
+            <div className="mb-8">
+              <em className="not-italic block text-[#4F4F4F] text-xs mb-2">
+                Total value of policies sold
+              </em>
+              <em className="not-italic block text-[#333] text-xl font-semibold">
+                {nairaSign}150,000.00
+              </em>
             </div>
           </div>
+          <hr />
+          <div className="mt-10">
+            <p className="text-sm text-[#4F4F4F] mb-4">
+              Showing data for the month of{" "}
+              <span className="font-semibold text-[#333]">September</span>
+            </p>
+            <Chart
+              options={chartData.options}
+              series={chartData.series}
+              type="bar"
+              height={400}
+            />
+          </div>
         </div>
-        <div className="flex flex-row justify-between items-center mb-24">
-          {stats.map((stat, idx) => (
-            <div key={idx} className="rounded p-6 border w-[30rem]">
-              <p className="text-sm text-[#4F4F4F] mb-8 uppercase">
-                {stat.title}
-              </p>
-              <p className="text-xl text-[#333333] font-medium">{stat.value}</p>
+      )}
+      {isMediaQueryMatched && (
+        <div className="mx-auto max-w-6xl mt-12 px-5 py-8">
+          <div className="flex flex-row justify-between items-center mb-10">
+            <span className="text-3xl text-[#333333] font-semibold">
+              Overview
+            </span>
+            <div id="dates" className="flex flex-row items-center space-x-3">
+              <Selector
+                options={periods}
+                value={period}
+                onChange={(val) => setPeriod(val)}
+              />
+              <div className="flex">
+                <DateInput
+                  containerClassName="rounded-tr-none rounded-br-none font-semibold"
+                  date={startDate}
+                  onDateChange={(date) => setStartDate(date)}
+                />
+                <DateInput
+                  containerClassName="rounded-tl-none rounded-bl-none font-semibold"
+                  date={endDate}
+                  onDateChange={(date) => setEndDate(date)}
+                />
+              </div>
             </div>
-          ))}
+          </div>
+          <div className="flex flex-row justify-between items-center mb-24">
+            {stats.map((stat, idx) => (
+              <div key={idx} className="rounded p-6 border w-[30rem]">
+                <p className="text-sm text-[#4F4F4F] mb-8 uppercase">
+                  {stat.title}
+                </p>
+                <p className="text-xl text-[#333333] font-medium">
+                  {stat.value}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="border rounded p-10 mb-40">
+            <Chart
+              options={chartData.options}
+              series={chartData.series}
+              type="bar"
+              height={400}
+            />
+          </div>
         </div>
-        <div className="border rounded p-10 mb-40">
-          <Chart
-            options={chartData.options}
-            series={chartData.series}
-            type="bar"
-            height={400}
-          />
-        </div>
-      </div>
+      )}
     </>
   );
 };
