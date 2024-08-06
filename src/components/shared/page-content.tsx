@@ -104,6 +104,7 @@ export const PageContent: React.FC<PageContentProps> = ({
               </button>
               <div
                 data-testid="filter"
+                onClick={(e) => e.stopPropagation()}
                 className={cx(
                   "bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[7000] overflow-hidden opacity-0 ",
                   !isFilterOpen && "max-h-0",
@@ -121,12 +122,12 @@ export const PageContent: React.FC<PageContentProps> = ({
                 <WithLabel label="Custom Date Range">
                   <div className="w-full">
                     <DateInput
-                      containerClassName="rounded-tr-none rounded-br-none font-semibold w-full block"
+                      containerClassName="font-semibold w-full block"
                       date={startDate}
                       onDateChange={(date) => setStartDate(date)}
                     />
                     <DateInput
-                      containerClassName="rounded-tl-none rounded-bl-none font-semibold w-full"
+                      containerClassName="font-semibold w-full"
                       date={endDate}
                       onDateChange={(date) => setEndDate(date)}
                     />

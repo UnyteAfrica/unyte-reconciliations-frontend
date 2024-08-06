@@ -146,7 +146,7 @@ exports[`Devices > renders correctly 1`] = `
                   class="w-full"
                 >
                   <button
-                    class="px-4 py-2 border rounded-md relative rounded-tr-none rounded-br-none font-semibold w-full block"
+                    class="px-4 py-2 border rounded-md relative font-semibold w-full block"
                   >
                     November 13, 2023
                     <input
@@ -157,7 +157,7 @@ exports[`Devices > renders correctly 1`] = `
                     />
                   </button>
                   <button
-                    class="px-4 py-2 border rounded-md relative rounded-tl-none rounded-bl-none font-semibold w-full"
+                    class="px-4 py-2 border rounded-md relative font-semibold w-full"
                   >
                     November 13, 2023
                     <input
@@ -304,335 +304,328 @@ exports[`Devices > renders correctly 1`] = `
           <div
             class="my-6"
           >
-            <table
-              class="table-auto w-full"
-            >
-              <thead
-                class="bg-gray-200 text-[#333333]"
+            <div>
+              <div
+                class="border-b py-2"
               >
-                <tr>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Policy No.
-                  </th>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Device Name
-                  </th>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Model
-                  </th>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Device IMEI
-                  </th>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Policy Type
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="bg-white text-[#333333]"
-              >
-                <tr
-                  class="border-b font-medium"
+                <div
+                  class="flex justify-between items-center mb-2"
                 >
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     Galaxy S22
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    Samsung
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    1029347349267642752
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     Screen Only
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic text-[#828282]"
                   >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                    Samsung
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    1029347349267642752
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     iPhone 15
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    iPhone
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    1029347349267642752
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     Screen Only
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic text-[#828282]"
                   >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    Galaxy S22
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    Samsung
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                    iPhone
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     1029347349267642752
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    Galaxy S22
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     Screen and Camera
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
                 >
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    Galaxy S22
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     Samsung
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     1029347349267642752
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    Galaxy S22
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     Screen Only
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic text-[#828282]"
                   >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                    Samsung
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    1029347349267642752
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     Phantom 6
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    All Parts
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     Tecno
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     1029347349267642752
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    All Parts
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
                 >
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     iPhone SE
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    Screen Only
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     iPhone
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     1029347349267642752
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    Screen Only
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
                 >
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     Galaxy S22
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    Samsung
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    1029347349267642752
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     All Parts
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic text-[#828282]"
                   >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                    Samsung
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    1029347349267642752
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     Galaxy S24 Ultra
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    Screen Only
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     Samsung
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     1029347349267642752
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    Screen Only
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
                 >
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     Pixel 8 Pro
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    Google Pixel
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    1029347349267642752
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     All Parts
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
                 >
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    Pixel 8a
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     Google Pixel
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     1029347349267642752
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    Pixel 8a
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     Screen Only
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    Google Pixel
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    1029347349267642752
+                  </em>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="mt-8 mx-auto w-[280px] flex items-center justify-between"
@@ -830,7 +823,7 @@ exports[`Devices > renders correctly 1`] = `
                 class="w-full"
               >
                 <button
-                  class="px-4 py-2 border rounded-md relative rounded-tr-none rounded-br-none font-semibold w-full block"
+                  class="px-4 py-2 border rounded-md relative font-semibold w-full block"
                 >
                   November 13, 2023
                   <input
@@ -841,7 +834,7 @@ exports[`Devices > renders correctly 1`] = `
                   />
                 </button>
                 <button
-                  class="px-4 py-2 border rounded-md relative rounded-tl-none rounded-bl-none font-semibold w-full"
+                  class="px-4 py-2 border rounded-md relative font-semibold w-full"
                 >
                   November 13, 2023
                   <input
@@ -988,335 +981,328 @@ exports[`Devices > renders correctly 1`] = `
         <div
           class="my-6"
         >
-          <table
-            class="table-auto w-full"
-          >
-            <thead
-              class="bg-gray-200 text-[#333333]"
+          <div>
+            <div
+              class="border-b py-2"
             >
-              <tr>
-                <th
-                  class="p-4 text-center"
-                >
-                  Policy No.
-                </th>
-                <th
-                  class="p-4 text-center"
-                >
-                  Device Name
-                </th>
-                <th
-                  class="p-4 text-center"
-                >
-                  Model
-                </th>
-                <th
-                  class="p-4 text-center"
-                >
-                  Device IMEI
-                </th>
-                <th
-                  class="p-4 text-center"
-                >
-                  Policy Type
-                </th>
-              </tr>
-            </thead>
-            <tbody
-              class="bg-white text-[#333333]"
-            >
-              <tr
-                class="border-b font-medium"
+              <div
+                class="flex justify-between items-center mb-2"
               >
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   Galaxy S22
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  Samsung
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  1029347349267642752
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   Screen Only
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic text-[#828282]"
                 >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                  Samsung
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  1029347349267642752
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   iPhone 15
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  iPhone
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  1029347349267642752
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   Screen Only
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic text-[#828282]"
                 >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  Galaxy S22
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  Samsung
-                </td>
-                <td
-                  class="p-4 text-center"
+                  iPhone
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   1029347349267642752
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  Galaxy S22
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   Screen and Camera
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
               >
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  Galaxy S22
-                </td>
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   Samsung
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   1029347349267642752
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  Galaxy S22
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   Screen Only
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic text-[#828282]"
                 >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                  Samsung
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  1029347349267642752
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   Phantom 6
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  All Parts
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   Tecno
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   1029347349267642752
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  All Parts
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
               >
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   iPhone SE
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  Screen Only
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   iPhone
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   1029347349267642752
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  Screen Only
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
               >
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   Galaxy S22
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  Samsung
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  1029347349267642752
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   All Parts
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic text-[#828282]"
                 >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                  Samsung
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  1029347349267642752
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   Galaxy S24 Ultra
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  Screen Only
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   Samsung
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   1029347349267642752
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  Screen Only
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
               >
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   Pixel 8 Pro
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  Google Pixel
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  1029347349267642752
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   All Parts
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
               >
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  Pixel 8a
-                </td>
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   Google Pixel
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   1029347349267642752
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  Pixel 8a
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   Screen Only
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  Google Pixel
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  1029347349267642752
+                </em>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           class="mt-8 mx-auto w-[280px] flex items-center justify-between"
