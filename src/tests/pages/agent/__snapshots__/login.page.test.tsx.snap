@@ -5,23 +5,24 @@ exports[`Agent Login Page > renders correctly 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="flex justify-center items-center  bg-[#f5f5f5] min-h-screen"
-      >
+      <div>
         <div
-          class="p-10 bg-white flex justify-center items-center w-[700px] h-[700px] rounded-2xl"
+          class="px-5 py-10 max-w-[600px] mx-auto"
         >
-          <form
-            class="text-[#333] w-[560px]"
-          >
+          <img
+            alt=""
+            class="mb-6 block"
+            src="/src/assets/Icons/UnyteLogo.svg"
+          />
+          <form>
             <header>
               <p
-                class="text-center mb-11 font-medium text-[28px]"
+                class="mb-2 font-semibold text-[20px]"
               >
                 Agent Login
               </p>
               <p
-                class="mb-11 text-xl"
+                class="mb-6 text-sm text-[#4F4F4F]"
               >
                 Sign in to your account.
               </p>
@@ -33,14 +34,14 @@ exports[`Agent Login Page > renders correctly 1`] = `
                 class=""
               >
                 <label
-                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  class="mb-2 block text-sm text-[#333"
                   for="email /GampId"
                 >
                   Email / GAMP ID
                    
                 </label>
                 <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
                   id="email /GampId"
                   name="emailOrGampId"
                   placeholder="johndoe@gmail.com / A034529"
@@ -51,19 +52,19 @@ exports[`Agent Login Page > renders correctly 1`] = `
               </div>
               <div>
                 <label
-                  class="text-lg text-[#333] leading-[24px] mb-2 block"
+                  class="mb-2 block text-sm text-[#333"
                   for="password"
                 >
                   Password
                 </label>
                 <div
-                  class="flex relative items-center w-[100%] border border-[#424242] rounded-lg transition duration-300 focus-within:border-black"
+                  class="flex relative items-center w-[100%] border rounded-lg transition duration-300 focus-within:border-black p-2 h-[58px] border-[#E0E0E0]"
                 >
                   <div
                     class="w-full"
                   >
                     <input
-                      class="block text-lg font-sora px-3 py-[16px] h-[72px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0"
+                      class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
                       id="password"
                       name="password"
                       placeholder="******"
@@ -101,14 +102,14 @@ exports[`Agent Login Page > renders correctly 1`] = `
                   class="flex justify-end"
                 >
                   <a
-                    class="text-primary mb-2 inline-block"
+                    class="text-primary text-sm mb-2 inline-block"
                     href="/agent/forgot-password"
                   >
                     Forgotten Password?
                   </a>
                 </div>
                 <button
-                  class="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                  class="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
                 >
                   Sign In
                 </button>
@@ -120,23 +121,24 @@ exports[`Agent Login Page > renders correctly 1`] = `
     </div>
   </body>,
   "container": <div>
-    <div
-      class="flex justify-center items-center  bg-[#f5f5f5] min-h-screen"
-    >
+    <div>
       <div
-        class="p-10 bg-white flex justify-center items-center w-[700px] h-[700px] rounded-2xl"
+        class="px-5 py-10 max-w-[600px] mx-auto"
       >
-        <form
-          class="text-[#333] w-[560px]"
-        >
+        <img
+          alt=""
+          class="mb-6 block"
+          src="/src/assets/Icons/UnyteLogo.svg"
+        />
+        <form>
           <header>
             <p
-              class="text-center mb-11 font-medium text-[28px]"
+              class="mb-2 font-semibold text-[20px]"
             >
               Agent Login
             </p>
             <p
-              class="mb-11 text-xl"
+              class="mb-6 text-sm text-[#4F4F4F]"
             >
               Sign in to your account.
             </p>
@@ -148,14 +150,14 @@ exports[`Agent Login Page > renders correctly 1`] = `
               class=""
             >
               <label
-                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                class="mb-2 block text-sm text-[#333"
                 for="email /GampId"
               >
                 Email / GAMP ID
                  
               </label>
               <input
-                class="block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black"
+                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
                 id="email /GampId"
                 name="emailOrGampId"
                 placeholder="johndoe@gmail.com / A034529"
@@ -166,19 +168,19 @@ exports[`Agent Login Page > renders correctly 1`] = `
             </div>
             <div>
               <label
-                class="text-lg text-[#333] leading-[24px] mb-2 block"
+                class="mb-2 block text-sm text-[#333"
                 for="password"
               >
                 Password
               </label>
               <div
-                class="flex relative items-center w-[100%] border border-[#424242] rounded-lg transition duration-300 focus-within:border-black"
+                class="flex relative items-center w-[100%] border rounded-lg transition duration-300 focus-within:border-black p-2 h-[58px] border-[#E0E0E0]"
               >
                 <div
                   class="w-full"
                 >
                   <input
-                    class="block text-lg font-sora px-3 py-[16px] h-[72px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0"
+                    class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
                     id="password"
                     name="password"
                     placeholder="******"
@@ -216,14 +218,14 @@ exports[`Agent Login Page > renders correctly 1`] = `
                 class="flex justify-end"
               >
                 <a
-                  class="text-primary mb-2 inline-block"
+                  class="text-primary text-sm mb-2 inline-block"
                   href="/agent/forgot-password"
                 >
                   Forgotten Password?
                 </a>
               </div>
               <button
-                class="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                class="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
               >
                 Sign In
               </button>
