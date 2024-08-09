@@ -6,12 +6,15 @@ exports[`Agent Verify OTP Page > renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="px-5 py-10 max-w-[600px] mx-auto"
+        class="px-5 py-10 max-w-[600px] mx-auto min-h-screen flex flex-col"
       >
         <img
           alt=""
-          class="mb-6 block"
+          class="mb-6 block w-28"
           src="/src/assets/Icons/UnyteLogo.svg"
+        />
+        <div
+          class="grow"
         />
         <form>
           <header>
@@ -85,17 +88,23 @@ exports[`Agent Verify OTP Page > renders correctly 1`] = `
             </div>
           </div>
         </form>
+        <div
+          class="grow"
+        />
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="px-5 py-10 max-w-[600px] mx-auto"
+      class="px-5 py-10 max-w-[600px] mx-auto min-h-screen flex flex-col"
     >
       <img
         alt=""
-        class="mb-6 block"
+        class="mb-6 block w-28"
         src="/src/assets/Icons/UnyteLogo.svg"
+      />
+      <div
+        class="grow"
       />
       <form>
         <header>
@@ -169,6 +178,9 @@ exports[`Agent Verify OTP Page > renders correctly 1`] = `
           </div>
         </div>
       </form>
+      <div
+        class="grow"
+      />
     </div>
   </div>,
   "debug": [Function],

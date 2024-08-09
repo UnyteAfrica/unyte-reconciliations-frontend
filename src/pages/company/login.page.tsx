@@ -12,6 +12,8 @@ import { useContext } from "react";
 import { CompanyLoginType } from "@/types/request.types";
 import { CompanyContext } from "@/context/company.context";
 import { LocalStorage } from "@/services/local-storage";
+import { useMediaQuery } from "@/utils/hooks";
+import { Icon } from "@/components/shared/icon";
 
 const formSchema = z.object({
   email: z.string().email("Admin Email is invalid"),
@@ -53,64 +55,130 @@ export const CompanyLoginPage = () => {
     mLogin(data);
   };
 
+  const { isMediaQueryMatched } = useMediaQuery(1024);
+
   return (
-    <div className="flex justify-center items-center  bg-[#f5f5f5] min-h-screen">
-      <div className="p-10 bg-white flex justify-center items-center w-[700px] h-[700px] rounded-2xl">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="text-[#333] w-[560px]"
-        >
-          <header>
-            <p className="text-center mb-11 font-medium text-[28px]">
-              Company Login
-            </p>
-            <p className="mb-11 text-xl">Sign in to your account.</p>
-          </header>
-          <div className="space-y-6">
-            <CustomInput
-              label="Admin Email"
-              placeholder="johndoe@gmail.com"
-              error={errors.email?.message?.toString()}
-              {...register("email")}
-            />
-            <PasswordInput
-              label="Password"
-              placeholder="******"
-              error={errors.password?.message?.toString()}
-              {...register("password")}
-            />
-            <div>
-              <p className="mb-2">
-                Don&apos;t have an account?{" "}
-                <Link
-                  to={BrowserComboRoutes.companySignup}
-                  className="text-primary"
-                >
-                  Sign up
-                </Link>
+    <div>
+      {!isMediaQueryMatched && (
+        <div className="px-5 py-10 max-w-[600px] mx-auto">
+          <Icon type="logo" className="mb-6 block" />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <header>
+              <p className="mb-2 font-semibold text-[20px]">Company Login</p>
+              <p className="mb-6 text-sm text-[#4F4F4F]">
+                Sign in to your account.
               </p>
-              <div className="flex justify-end">
-                <Link
-                  to={BrowserComboRoutes.companyForgotPassword}
-                  className="text-primary mb-2 inline-block"
+            </header>
+            <div className="space-y-6">
+              <CustomInput
+                label="Admin Email"
+                labelClassName="text-sm text-[#333"
+                className="h-[58px] border-[#E0E0E0]"
+                placeholder="johndoe@gmail.com / A034529"
+                error={errors.email?.message?.toString()}
+                {...register("email")}
+              />
+              <PasswordInput
+                placeholder="******"
+                labelClassName="text-sm text-[#333"
+                className="p-2 h-[58px] border-[#E0E0E0]"
+                inputClassname="h-[56px]"
+                error={errors.password?.message?.toString()}
+                {...register("password")}
+              />
+              <div>
+                <p className="mb-2 text-sm">
+                  Don&apos;t have an account?{" "}
+                  <Link
+                    to={BrowserComboRoutes.companySignup}
+                    className="text-primary"
+                  >
+                    Sign up
+                  </Link>
+                </p>
+                <div className="">
+                  <Link
+                    to={BrowserComboRoutes.companyForgotPassword}
+                    className="text-primary text-sm mb-2 inline-block"
+                  >
+                    Forgotten Password?
+                  </Link>
+                </div>
+                <button
+                  className="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                  disabled={isLoginLoading}
                 >
-                  Forgotten Password?
-                </Link>
+                  {isLoginLoading ? (
+                    <Loader className="mx-auto h-6 w-6" />
+                  ) : (
+                    "Sign In"
+                  )}
+                </button>
               </div>
-              <button
-                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
-                disabled={isLoginLoading}
-              >
-                {isLoginLoading ? (
-                  <Loader className="mx-auto h-6 w-6" />
-                ) : (
-                  "Sign In"
-                )}
-              </button>
             </div>
+          </form>
+        </div>
+      )}
+      {isMediaQueryMatched && (
+        <div className="flex justify-center items-center  bg-[#f5f5f5] min-h-screen">
+          <div className="p-10 bg-white flex justify-center items-center w-[700px] h-[700px] rounded-2xl">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="text-[#333] w-[560px]"
+            >
+              <header>
+                <p className="text-center mb-11 font-medium text-[28px]">
+                  Company Login
+                </p>
+                <p className="mb-11 text-xl">Sign in to your account.</p>
+              </header>
+              <div className="space-y-6">
+                <CustomInput
+                  label="Admin Email"
+                  placeholder="johndoe@gmail.com"
+                  error={errors.email?.message?.toString()}
+                  {...register("email")}
+                />
+                <PasswordInput
+                  label="Password"
+                  placeholder="******"
+                  error={errors.password?.message?.toString()}
+                  {...register("password")}
+                />
+                <div>
+                  <p className="mb-2">
+                    Don&apos;t have an account?{" "}
+                    <Link
+                      to={BrowserComboRoutes.companySignup}
+                      className="text-primary"
+                    >
+                      Sign up
+                    </Link>
+                  </p>
+                  <div className="flex justify-end">
+                    <Link
+                      to={BrowserComboRoutes.companyForgotPassword}
+                      className="text-primary mb-2 inline-block"
+                    >
+                      Forgotten Password?
+                    </Link>
+                  </div>
+                  <button
+                    className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                    disabled={isLoginLoading}
+                  >
+                    {isLoginLoading ? (
+                      <Loader className="mx-auto h-6 w-6" />
+                    ) : (
+                      "Sign In"
+                    )}
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
+        </div>
+      )}
     </div>
   );
 };
