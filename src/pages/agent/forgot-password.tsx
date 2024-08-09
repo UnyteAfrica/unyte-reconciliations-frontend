@@ -1,4 +1,4 @@
-import { CustomInput } from "@/components/shared/input";
+import { CustomInput, PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
@@ -9,6 +9,8 @@ import { MutationKeys } from "@/utils/mutation-keys";
 import { agentForgotPassword } from "@/services/api/api-agent";
 import { Loader } from "@/components/loader";
 import toast from "react-hot-toast";
+import { useMediaQuery } from "@/utils/hooks";
+import { Icon } from "@/components/shared/icon";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email entered"),
@@ -40,6 +42,53 @@ export const AgentForgotPasswordPage = () => {
     console.log(data);
     mForgotPassword(data.email);
   };
+
+  const { isMediaQueryMatched } = useMediaQuery(1024);
+
+  if (!isMediaQueryMatched)
+    return (
+      <div className="px-5 py-10 max-w-[600px] min-h-screen mx-auto flex flex-col ">
+        <Icon type="logo" className="mb-6 block w-28" />
+        <div className="grow" />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <header>
+            <p className="mb-2 font-semibold text-[20px]">Forgot Password</p>
+          </header>
+          <div className="space-y-6">
+            <CustomInput
+              label="Email"
+              placeholder="johndoe@gmail.com"
+              labelClassName="text-sm text-[#333"
+              className="p-2 h-[58px] border-[#E0E0E0]"
+              error={errors.email?.message?.toString()}
+              {...register("email")}
+            />
+            <div>
+              <p className="mb-2 text-sm">
+                Already have an account?{" "}
+                <Link
+                  to={BrowserComboRoutes.agentLogin}
+                  className="text-primary"
+                >
+                  Log In
+                </Link>
+              </p>
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                disabled={isLoadingForgotPassword}
+              >
+                {isLoadingForgotPassword ? (
+                  <Loader className="mx-auto" />
+                ) : (
+                  "Reset Password"
+                )}
+              </button>
+            </div>
+          </div>
+        </form>
+        <div className="grow" />
+      </div>
+    );
 
   return (
     <div className="flex justify-center items-center  bg-[#f5f5f5] min-h-screen">
