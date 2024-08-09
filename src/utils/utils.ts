@@ -46,3 +46,16 @@ export const splitQueryParams = (query: string) => {
 
   return queryParamObj;
 };
+
+export const getInitials = (firstName: string, lastName: string) =>
+  firstName.substring(0, 1).toUpperCase() +
+  lastName.substring(0, 1).toUpperCase();
+
+export const getCompanyInitials = (companyName: string) => {
+  let words = companyName.split(" ");
+  let initals = "";
+  for (let word of words) {
+    initals += word[0].toUpperCase();
+  }
+  return initals;
+};

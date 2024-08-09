@@ -78,12 +78,15 @@ export const AgentLoginPage = () => {
   return (
     <div>
       {!isMediaQueryMatched && (
-        <div className="px-5 py-10 max-w-[600px] mx-auto">
-          <Icon type="logo" className="mb-6 block" />
+        <div className="px-5 py-10 max-w-[600px] mx-auto min-h-screen flex flex-col">
+          <Icon type="logo" className="mb-6 block w-28" />
+          <div className="grow" />
           <form onSubmit={handleSubmit(onSubmit)}>
             <header>
-              <p className="mb-2 font-semibold text-[20px]">Agent Login</p>
-              <p className="mb-6 text-sm text-[#4F4F4F]">
+              <p className="mb-2 font-semibold text-[20px] text-center">
+                Agent Login
+              </p>
+              <p className="mb-6 text-sm text-[#4F4F4F] text-center">
                 Sign in to your account.
               </p>
             </header>
@@ -126,6 +129,7 @@ export const AgentLoginPage = () => {
               </div>
             </div>
           </form>
+          <div className="grow" />
         </div>
       )}
 

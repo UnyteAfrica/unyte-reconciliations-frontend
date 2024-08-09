@@ -7,22 +7,25 @@ exports[`Company Login Page > renders correctly 1`] = `
     <div>
       <div>
         <div
-          class="px-5 py-10 max-w-[600px] mx-auto"
+          class="px-5 py-10 max-w-[600px] min-h-screen mx-auto flex flex-col"
         >
           <img
             alt=""
-            class="mb-6 block"
+            class="mb-6 block w-28"
             src="/src/assets/Icons/UnyteLogo.svg"
+          />
+          <div
+            class="grow"
           />
           <form>
             <header>
               <p
-                class="mb-2 font-semibold text-[20px]"
+                class="mb-2 font-semibold text-[20px] text-center"
               >
                 Company Login
               </p>
               <p
-                class="mb-6 text-sm text-[#4F4F4F]"
+                class="mb-6 text-sm text-[#4F4F4F] text-center"
               >
                 Sign in to your account.
               </p>
@@ -128,6 +131,9 @@ exports[`Company Login Page > renders correctly 1`] = `
               </div>
             </div>
           </form>
+          <div
+            class="grow"
+          />
         </div>
       </div>
     </div>
@@ -135,22 +141,25 @@ exports[`Company Login Page > renders correctly 1`] = `
   "container": <div>
     <div>
       <div
-        class="px-5 py-10 max-w-[600px] mx-auto"
+        class="px-5 py-10 max-w-[600px] min-h-screen mx-auto flex flex-col"
       >
         <img
           alt=""
-          class="mb-6 block"
+          class="mb-6 block w-28"
           src="/src/assets/Icons/UnyteLogo.svg"
+        />
+        <div
+          class="grow"
         />
         <form>
           <header>
             <p
-              class="mb-2 font-semibold text-[20px]"
+              class="mb-2 font-semibold text-[20px] text-center"
             >
               Company Login
             </p>
             <p
-              class="mb-6 text-sm text-[#4F4F4F]"
+              class="mb-6 text-sm text-[#4F4F4F] text-center"
             >
               Sign in to your account.
             </p>
@@ -256,6 +265,9 @@ exports[`Company Login Page > renders correctly 1`] = `
             </div>
           </div>
         </form>
+        <div
+          class="grow"
+        />
       </div>
     </div>
   </div>,

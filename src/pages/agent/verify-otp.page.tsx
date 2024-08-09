@@ -35,7 +35,7 @@ export const AgentVerifyOTPPage = () => {
   const { agentEmail } = useContext(AgentContext);
 
   useEffect(() => {
-    if (!agentEmail) navigate(BrowserComboRoutes.agentLogin);
+    // if (!agentEmail) navigate(BrowserComboRoutes.agentLogin);
   }, [agentEmail]);
 
   const { mutate: mVerifyOTP, isPending: isVerificationLoading } = useMutation({
@@ -74,7 +74,9 @@ export const AgentVerifyOTPPage = () => {
         <div className="grow" />
         <form onSubmit={handleSubmit(onSubmit)}>
           <header>
-            <p className="mb-2 font-semibold text-[20px]">Verify OTP</p>
+            <p className="mb-2 font-semibold text-[20px] text-center">
+              Verify OTP
+            </p>
           </header>
           <div className="space-y-6">
             <PasswordInput
