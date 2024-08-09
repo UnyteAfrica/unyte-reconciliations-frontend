@@ -13,6 +13,8 @@ import { Loader } from "@/components/loader";
 import toast from "react-hot-toast";
 import { isAxiosError } from "axios";
 import { CompanyContext } from "@/context/company.context";
+import { useMediaQuery } from "@/utils/hooks";
+import { Icon } from "@/components/shared/icon";
 
 const formSchema = z.object({
   otp: z.string().min(6, "OTP cannot be less than 6 characters"),
@@ -35,7 +37,7 @@ export const CompanyVerifyOTPPage = () => {
   const { companyEmail, setCompanyEmail } = useContext(CompanyContext);
 
   useEffect(() => {
-    if (!companyEmail) navigate(BrowserComboRoutes.companyLogin);
+    // if (!companyEmail) navigate(BrowserComboRoutes.companyLogin);
   }, []);
 
   const { mutate: mVerify, isPending: isVerificationLoading } = useMutation({
@@ -80,6 +82,60 @@ export const CompanyVerifyOTPPage = () => {
       email: companyEmail,
     });
   };
+
+  const { isMediaQueryMatched } = useMediaQuery(1024);
+
+  if (!isMediaQueryMatched)
+    return (
+      <div className="px-5 py-10 max-w-[600px] mx-auto min-h-screen flex flex-col">
+        <Icon type="logo" className="mb-6 block w-28" />
+        <div className="grow" />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <header>
+            <p className="mb-2 font-semibold text-[20px]">Verify OTP</p>
+          </header>
+          <div className="space-y-6">
+            <PasswordInput
+              label="OTP"
+              placeholder="******"
+              labelClassName="text-sm text-[#333"
+              className="p-2 h-[58px] border-[#E0E0E0]"
+              inputClassname="h-[56px]"
+              error={errors.otp?.message?.toString()}
+              {...register("otp")}
+            />
+            <div>
+              <button
+                className="text-primary mb-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  mResendOTP(companyEmail);
+                }}
+                disabled={isResendLoading}
+              >
+                {isResendLoading ? (
+                  <Loader className="mx-auto" />
+                ) : (
+                  "Resend OTP"
+                )}
+              </button>
+              <button
+                className="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                disabled={isVerificationLoading}
+              >
+                {isVerificationLoading ? (
+                  <Loader className="mx-auto" />
+                ) : (
+                  "Verify"
+                )}
+              </button>
+            </div>
+          </div>
+        </form>
+        <div className="grow" />
+      </div>
+    );
 
   return (
     <div className="flex justify-center items-center  bg-[#f5f5f5] min-h-screen">
