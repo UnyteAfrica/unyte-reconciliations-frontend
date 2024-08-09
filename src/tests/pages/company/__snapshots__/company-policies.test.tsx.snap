@@ -304,219 +304,200 @@ exports[`Company Policies > renders correctly 1`] = `
           <div
             class="my-6"
           >
-            <table
-              class="table-auto w-full"
-            >
-              <thead
-                class="bg-gray-200 text-[#333333]"
+            <div>
+              <div
+                class="border-b py-2"
               >
-                <tr>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Policy Ref.
-                  </th>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Policy No.
-                  </th>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Agent ID
-                  </th>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Date
-                  </th>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Price
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="bg-white text-[#333333]"
-              >
-                <tr
-                  class="border-b font-medium"
+                <div
+                  class="flex justify-between items-center mb-2"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     #WP62F3E8F93
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     ID-023535393
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     May 7, 2023
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     ₦40,000
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     #WP62F3E8F93
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     ID-023535394
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     May 7, 2023
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     ₦40,000
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     #WP62F3E8F93
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     ID-023535395
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     May 7, 2023
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     ₦40,000
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     #WP62F3E8F93
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     ID-023535396
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     May 7, 2023
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     ₦40,000
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     #WP62F3E8F93
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     ID-023535397
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     May 7, 2023
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     ₦40,000
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     #WP62F3E8F93
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     ID-023535398
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     May 7, 2023
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     ₦40,000
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                  </em>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="mt-8 mx-auto w-[280px] flex items-center justify-between"
@@ -872,219 +853,200 @@ exports[`Company Policies > renders correctly 1`] = `
         <div
           class="my-6"
         >
-          <table
-            class="table-auto w-full"
-          >
-            <thead
-              class="bg-gray-200 text-[#333333]"
+          <div>
+            <div
+              class="border-b py-2"
             >
-              <tr>
-                <th
-                  class="p-4 text-center"
-                >
-                  Policy Ref.
-                </th>
-                <th
-                  class="p-4 text-center"
-                >
-                  Policy No.
-                </th>
-                <th
-                  class="p-4 text-center"
-                >
-                  Agent ID
-                </th>
-                <th
-                  class="p-4 text-center"
-                >
-                  Date
-                </th>
-                <th
-                  class="p-4 text-center"
-                >
-                  Price
-                </th>
-              </tr>
-            </thead>
-            <tbody
-              class="bg-white text-[#333333]"
-            >
-              <tr
-                class="border-b font-medium"
+              <div
+                class="flex justify-between items-center mb-2"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   #WP62F3E8F93
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   ID-023535393
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   May 7, 2023
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   ₦40,000
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   #WP62F3E8F93
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   ID-023535394
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   May 7, 2023
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   ₦40,000
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   #WP62F3E8F93
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   ID-023535395
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   May 7, 2023
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   ₦40,000
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   #WP62F3E8F93
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   ID-023535396
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   May 7, 2023
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   ₦40,000
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   #WP62F3E8F93
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   ID-023535397
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   May 7, 2023
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   ₦40,000
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   #WP62F3E8F93
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   ID-023535398
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   May 7, 2023
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   ₦40,000
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                </em>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           class="mt-8 mx-auto w-[280px] flex items-center justify-between"

@@ -2,12 +2,37 @@ import { cx } from "class-variance-authority";
 import { Claim, ClaimStatus } from "../../types/types";
 import { Table } from "../table";
 import { formatToNaira } from "@/utils/utils";
+import { useMediaQuery } from "@/utils/hooks";
 
 type ClaimsTableProps = {
   claims: Claim[];
 };
 
 export const ClaimsTable: React.FC<ClaimsTableProps> = ({ claims }) => {
+  const { isMediaQueryMatched } = useMediaQuery(1024);
+
+  if (!isMediaQueryMatched)
+    return (
+      <div>
+        {claims.map((claim, idx) => (
+          <div key={idx} className="border-b py-2">
+            <div className="flex justify-between items-center mb-2">
+              <em className="not-italic font-semibold text-[#333]">
+                {claim.email}
+              </em>
+              <em className="not-italic font-semibold text-[#333]">
+                {claim.estimate}
+              </em>
+            </div>
+            <div className="flex justify-between items-center">
+              <em className="not-italic text-[#828282]">{claim.policyNo}</em>
+              <em className="not-italic text-[#828282]">{claim.status}</em>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+
   return (
     <Table
       headers={[
