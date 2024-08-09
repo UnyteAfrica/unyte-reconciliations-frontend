@@ -6,7 +6,7 @@ import { Icon } from "../shared/icon";
 import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
-import { clearCredentials } from "@/utils/utils";
+import { clearCredentials, getInitials } from "@/utils/utils";
 import { UserType } from "@/types/types";
 import { AgentContext } from "@/context/agent.context";
 import { getAgentDetails } from "@/services/api/api-agent";
@@ -61,10 +61,6 @@ export const AgentNavbar = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
-  const getInitials = (firstName: string, lastName: string) =>
-    firstName.substring(0, 1).toUpperCase() +
-    lastName.substring(0, 1).toUpperCase();
 
   const agentDetails = agentDetailsData?.data;
 

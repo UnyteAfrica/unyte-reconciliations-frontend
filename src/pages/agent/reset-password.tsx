@@ -74,7 +74,9 @@ export const AgentResetPasswordPage = () => {
         <div className="grow" />
         <form onSubmit={handleSubmit(onSubmit)}>
           <header>
-            <p className="mb-2 font-semibold text-[20px]">Reset Password</p>
+            <p className="mb-2 font-semibold text-[20px] text-center">
+              Reset Password
+            </p>
           </header>
           <div className="space-y-6">
             <PasswordInput

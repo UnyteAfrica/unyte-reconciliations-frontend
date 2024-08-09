@@ -64,7 +64,9 @@ export const CompanyForgotPasswordPage = () => {
         <div className="grow" />
         <form onSubmit={handleSubmit(onSubmit)}>
           <header>
-            <p className="mb-2 font-semibold text-[20px]">Forgot Password</p>
+            <p className="mb-2 font-semibold text-[20px] text-center">
+              Forgot Password
+            </p>
           </header>
           <div className="space-y-6">
             <CustomInput
