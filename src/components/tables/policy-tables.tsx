@@ -58,6 +58,31 @@ type CompanyPoliciesTableProps = {
 export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
   policies,
 }) => {
+  const { isMediaQueryMatched } = useMediaQuery(1024);
+
+  if (!isMediaQueryMatched)
+    return (
+      <div>
+        {policies.map((policy, idx) => (
+          <div key={idx} className="border-b py-2">
+            <div className="flex justify-between items-center mb-2">
+              <em className="not-italic font-semibold text-[#333]">
+                {policy.policyRef}
+              </em>
+              <em className="not-italic font-semibold text-[#333]">
+                {policy.agentId}
+              </em>
+            </div>
+            <div className="flex justify-between items-center">
+              <em className="not-italic text-[#828282]">{policy.date}</em>
+              <em className="not-italic text-[#828282]">
+                {formatToNaira(policy.price)}
+              </em>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
   return (
     <Table headers={["Policy Ref.", "Policy No.", "Agent ID", "Date", "Price"]}>
       {policies.map((policy, i) => (

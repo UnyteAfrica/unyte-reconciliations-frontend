@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { BiChevronDown } from "react-icons/bi";
 import { Icon } from "../shared/icon";
@@ -51,6 +51,10 @@ export const CompanyNavbar = () => {
       queryKey: [CompanyQueryKeys.details],
       queryFn: () => getCompanyDetails(),
     });
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);

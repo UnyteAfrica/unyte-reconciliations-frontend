@@ -3,6 +3,7 @@ import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";
 import { PendingClaims } from "../../components/company/pending-claims";
 import { CompletedClaims } from "../../components/company/completed-claims";
+import { useMediaQuery } from "@/utils/hooks";
 
 type UrlLink = {
   text: string;
@@ -21,26 +22,50 @@ const links: UrlLink[] = [
 ];
 
 export const CompanyClaims = () => {
+  const { isMediaQueryMatched } = useMediaQuery(1024);
   return (
     <div>
-      <div className="flex flex-row space-x-8 px-32 my-10 border-b pb-[7px] border-[#333] mx-auto max-w-6xl mt-12 mb-16 lg:px-0">
-        {links.map((link, idx) => (
-          <NavLink
-            key={idx}
-            to={link.url}
-            className={({ isActive }) =>
-              cx(
-                "font-medium text-lg duration-300",
-                isActive &&
-                  "text-[#25D366] underline underline-offset-[15px] decoration-2",
-                !isActive && "text-[#333333]"
-              )
-            }
-          >
-            {link.text}
-          </NavLink>
-        ))}
-      </div>
+      {!isMediaQueryMatched && (
+        <div className="flex flex-row px-5 py-6 my-4 border-[#333] space-x-4 mx-auto">
+          {links.map((link, idx) => (
+            <NavLink
+              key={idx}
+              to={link.url}
+              className={({ isActive }) =>
+                cx(
+                  "font-medium duration-300",
+                  isActive &&
+                    "text-[#25D366] underline underline-offset-[10px] decoration-2",
+                  !isActive && "text-[#333333]"
+                )
+              }
+            >
+              {link.text}
+            </NavLink>
+          ))}
+        </div>
+      )}
+      {isMediaQueryMatched && (
+        <div className="flex flex-row space-x-8 my-10 pb-[7px] mx-auto max-w-6xl px-6 mt-12 mb-16">
+          {links.map((link, idx) => (
+            <NavLink
+              key={idx}
+              to={link.url}
+              className={({ isActive }) =>
+                cx(
+                  "font-medium text-lg duration-300",
+                  isActive &&
+                    "text-[#25D366] underline underline-offset-[15px] decoration-2",
+                  !isActive && "text-[#333333]"
+                )
+              }
+            >
+              {link.text}
+            </NavLink>
+          ))}
+        </div>
+      )}
+
       <div>
         <Routes>
           <Route

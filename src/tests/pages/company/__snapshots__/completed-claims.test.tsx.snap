@@ -304,245 +304,168 @@ exports[`Completed Claims > renders correctly 1`] = `
           <div
             class="my-6"
           >
-            <table
-              class="table-auto w-full"
-            >
-              <thead
-                class="bg-gray-200 text-[#333333]"
+            <div>
+              <div
+                class="border-b py-2"
               >
-                <tr>
-                  <th
-                    class="p-4 text-center"
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
-                    Policy No.
-                  </th>
-                  <th
-                    class="p-4 text-center"
+                    samloco@gmail.com
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
-                    User Email
-                  </th>
-                  <th
-                    class="p-4 text-center"
+                    40000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
                   >
-                    Date Created
-                  </th>
-                  <th
-                    class="p-4 text-center"
+                    123jkf5402
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
-                    Insurer
-                  </th>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Status
-                  </th>
-                  <th
-                    class="p-4 text-center"
-                  >
-                    Bill estimate
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="bg-white text-[#333333]"
+                    Completed
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
               >
-                <tr
-                  class="border-b font-medium"
+                <div
+                  class="flex justify-between items-center mb-2"
                 >
-                  <td
-                    class="p-4 text-center"
-                  >
-                    123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     samloco@gmail.com
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
-                    May 7, 2023
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    AXA mansard
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    <div
-                      class="py-2 px-4 text-center rounded-lg inline-block bg-green/[.1] text-green"
-                    >
-                      Completed
-                    </div>
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                     
-                    ₦40,000
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                    40000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    Completed
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     samloco@gmail.com
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
-                    May 7, 2023
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    AXA mansard
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    <div
-                      class="py-2 px-4 text-center rounded-lg inline-block bg-green/[.1] text-green"
-                    >
-                      Completed
-                    </div>
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                     
-                    ₦40,000
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                    40000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    Completed
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     samloco@gmail.com
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
-                    May 7, 2023
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    AXA mansard
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    <div
-                      class="py-2 px-4 text-center rounded-lg inline-block bg-green/[.1] text-green"
-                    >
-                      Completed
-                    </div>
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                     
-                    ₦40,000
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                    40000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    Completed
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
                     samloco@gmail.com
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
                   >
-                    May 7, 2023
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    AXA mansard
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    <div
-                      class="py-2 px-4 text-center rounded-lg inline-block bg-green/[.1] text-green"
-                    >
-                      Completed
-                    </div>
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                     
-                    ₦40,000
-                  </td>
-                </tr>
-                <tr
-                  class="border-b font-medium"
+                    40000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
                 >
-                  <td
-                    class="p-4 text-center"
+                  <em
+                    class="not-italic text-[#828282]"
                   >
                     123jkf5402
-                  </td>
-                  <td
-                    class="p-4 text-center"
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
                   >
-                    samloco@gmail.com
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    May 7, 2023
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    AXA mansard
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                    <div
-                      class="py-2 px-4 text-center rounded-lg inline-block bg-green/[.1] text-green"
-                    >
-                      Completed
-                    </div>
-                  </td>
-                  <td
-                    class="p-4 text-center"
-                  >
-                     
-                    ₦40,000
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                    Completed
+                  </em>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="mt-8 mx-auto w-[280px] flex items-center justify-between"
@@ -898,245 +821,168 @@ exports[`Completed Claims > renders correctly 1`] = `
         <div
           class="my-6"
         >
-          <table
-            class="table-auto w-full"
-          >
-            <thead
-              class="bg-gray-200 text-[#333333]"
+          <div>
+            <div
+              class="border-b py-2"
             >
-              <tr>
-                <th
-                  class="p-4 text-center"
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
-                  Policy No.
-                </th>
-                <th
-                  class="p-4 text-center"
+                  samloco@gmail.com
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
-                  User Email
-                </th>
-                <th
-                  class="p-4 text-center"
+                  40000
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
                 >
-                  Date Created
-                </th>
-                <th
-                  class="p-4 text-center"
+                  123jkf5402
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
-                  Insurer
-                </th>
-                <th
-                  class="p-4 text-center"
-                >
-                  Status
-                </th>
-                <th
-                  class="p-4 text-center"
-                >
-                  Bill estimate
-                </th>
-              </tr>
-            </thead>
-            <tbody
-              class="bg-white text-[#333333]"
+                  Completed
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
             >
-              <tr
-                class="border-b font-medium"
+              <div
+                class="flex justify-between items-center mb-2"
               >
-                <td
-                  class="p-4 text-center"
-                >
-                  123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   samloco@gmail.com
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
-                  May 7, 2023
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  AXA mansard
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  <div
-                    class="py-2 px-4 text-center rounded-lg inline-block bg-green/[.1] text-green"
-                  >
-                    Completed
-                  </div>
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                   
-                  ₦40,000
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                  40000
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  Completed
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   samloco@gmail.com
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
-                  May 7, 2023
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  AXA mansard
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  <div
-                    class="py-2 px-4 text-center rounded-lg inline-block bg-green/[.1] text-green"
-                  >
-                    Completed
-                  </div>
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                   
-                  ₦40,000
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                  40000
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  Completed
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   samloco@gmail.com
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
-                  May 7, 2023
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  AXA mansard
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  <div
-                    class="py-2 px-4 text-center rounded-lg inline-block bg-green/[.1] text-green"
-                  >
-                    Completed
-                  </div>
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                   
-                  ₦40,000
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                  40000
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  Completed
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
                   samloco@gmail.com
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
                 >
-                  May 7, 2023
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  AXA mansard
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  <div
-                    class="py-2 px-4 text-center rounded-lg inline-block bg-green/[.1] text-green"
-                  >
-                    Completed
-                  </div>
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                   
-                  ₦40,000
-                </td>
-              </tr>
-              <tr
-                class="border-b font-medium"
+                  40000
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
               >
-                <td
-                  class="p-4 text-center"
+                <em
+                  class="not-italic text-[#828282]"
                 >
                   123jkf5402
-                </td>
-                <td
-                  class="p-4 text-center"
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
                 >
-                  samloco@gmail.com
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  May 7, 2023
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  AXA mansard
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                  <div
-                    class="py-2 px-4 text-center rounded-lg inline-block bg-green/[.1] text-green"
-                  >
-                    Completed
-                  </div>
-                </td>
-                <td
-                  class="p-4 text-center"
-                >
-                   
-                  ₦40,000
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  Completed
+                </em>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           class="mt-8 mx-auto w-[280px] flex items-center justify-between"
