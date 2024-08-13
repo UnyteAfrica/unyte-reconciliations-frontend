@@ -10,6 +10,7 @@ import { LocalStorage } from "../local-storage";
 import { jwtDecode } from "jwt-decode";
 import { clearCredentials } from "@/utils/utils";
 import { UserType } from "@/types/types";
+import { logger } from "@/utils/logger";
 
 const URL =
   "https://unyte-reconciliation-backend-dev-ynoamqpukq-uc.a.run.app/api";
@@ -47,7 +48,7 @@ axiosInstance.interceptors.request.use(
           } catch (e: any) {
             clearCredentials(UserType.agent);
 
-            console.log(e.message);
+            logger.error(e.message);
           }
         }
       } else {

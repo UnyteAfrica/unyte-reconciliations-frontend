@@ -12,6 +12,7 @@ import toast from "react-hot-toast";
 import { CompanySignupType } from "@/types/request.types";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
+import { logger } from "@/utils/logger";
 
 const formSchema = z
   .object({
@@ -60,7 +61,7 @@ export const CompanySignupPage = () => {
     mutationKey: [MutationKeys.companySignup],
     mutationFn: (data: CompanySignupType) => companySignup(data),
     onSuccess: (data) => {
-      console.log(data);
+      logger.log(data);
       toast.success("Account created successfully");
       navigate(BrowserComboRoutes.companyLogin);
     },

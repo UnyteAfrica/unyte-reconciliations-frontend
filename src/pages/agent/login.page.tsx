@@ -14,6 +14,7 @@ import { AgentContext } from "@/context/agent.context";
 import { LocalStorage } from "@/services/local-storage";
 import { Icon } from "@/components/shared/icon";
 import { useMediaQuery } from "@/utils/hooks";
+import { logger } from "@/utils/logger";
 
 const GAMPID_WITHOUT_NAME_LENGTH = 22;
 const formSchema = z.object({
@@ -54,7 +55,7 @@ export const AgentLoginPage = () => {
     mutationKey: [MutationKeys.agentLogin],
     mutationFn: (data: AgentLoginType) => agentLogin(data),
     onSuccess: (data) => {
-      console.log(data);
+      logger.log(data);
       LocalStorage.setItem("agentAccessToken", data.data.access_token);
       LocalStorage.setItem("agentRefreshToken", data.data.refresh_token);
       setIsLoggedIn(true);

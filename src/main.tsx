@@ -15,11 +15,12 @@ import { isAxiosError } from "axios";
 import { CompanyProvider } from "./context/company.context.tsx";
 import { AgentProvider } from "./context/agent.context.tsx";
 import { OverlayContextProvider } from "./context/overlay.context.tsx";
+import { logger } from "./utils/logger.ts";
 
 const queryClient = new QueryClient({
   mutationCache: new MutationCache({
     onError: (err) => {
-      console.log(err);
+      logger.error(err);
       if (isAxiosError(err)) {
         let errMessage =
           err.response?.data.detail ??

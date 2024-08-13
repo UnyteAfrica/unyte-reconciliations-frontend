@@ -14,6 +14,7 @@ import { BrowserComboRoutes } from "@/utils/routes";
 import toast from "react-hot-toast";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
+import { logger } from "@/utils/logger";
 
 const formSchema = z.object({
   otp: z.string().min(6, "OTP cannot be less than 6 characters"),
@@ -42,7 +43,7 @@ export const AgentVerifyOTPPage = () => {
     mutationKey: [MutationKeys.agentVerify],
     mutationFn: (data: AgentVerifyOTPType) => agentVerifyOTP(data),
     onSuccess: (data) => {
-      console.log(data);
+      logger.log(data);
       toast.success(data.data.message);
       navigate(BrowserComboRoutes.agentOverview);
     },
@@ -52,13 +53,13 @@ export const AgentVerifyOTPPage = () => {
     mutationKey: [MutationKeys.agentResendOTP],
     mutationFn: (email: string) => agentResendOTP(email),
     onSuccess: (data) => {
-      console.log(data);
+      logger.log(data);
       toast.success(data.data.message);
     },
   });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    logger.log(data);
     mVerifyOTP({
       email: agentEmail,
       otp: data.otp,

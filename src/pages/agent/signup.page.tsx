@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { splitQueryParams } from "@/utils/utils";
 import { Icon } from "@/components/shared/icon";
 import { useMediaQuery } from "@/utils/hooks";
+import { logger } from "@/utils/logger";
 
 const formSchema = z
   .object({
@@ -90,7 +91,7 @@ export const AgentSignupPage = () => {
   });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    logger.log(data);
     const {
       accountNo,
       bankName,
