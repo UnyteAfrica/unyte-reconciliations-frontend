@@ -6,6 +6,11 @@ export const ClaimStatus = {
 
 type ClaimStatusType = keyof typeof ClaimStatus;
 
+export enum ApiType {
+  Insurer,
+  Agent,
+}
+
 export type Claim = {
   policyNo: string;
   email: string;

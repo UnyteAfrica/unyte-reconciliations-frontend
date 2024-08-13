@@ -44,7 +44,7 @@ export const CompanyNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { setIsLoggedIn } = useContext(CompanyContext);
+  const { setIsLoggedIn, setCompanyEmail } = useContext(CompanyContext);
 
   const { data: companyDetailsData, isPending: isCompanyDetailsLoading } =
     useQuery({
@@ -61,6 +61,7 @@ export const CompanyNavbar = () => {
   };
 
   const companyDetails = companyDetailsData?.data;
+  if (companyDetails) setCompanyEmail(companyDetails.email);
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 

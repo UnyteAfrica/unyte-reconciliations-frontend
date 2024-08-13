@@ -45,7 +45,7 @@ export const AgentNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { setIsLoggedIn } = useContext(AgentContext);
+  const { setIsLoggedIn, setAgentEmail } = useContext(AgentContext);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -63,6 +63,7 @@ export const AgentNavbar = () => {
   };
 
   const agentDetails = agentDetailsData?.data;
+  if (agentDetails) setAgentEmail(agentDetails.email);
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 

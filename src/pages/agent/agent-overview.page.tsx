@@ -188,6 +188,7 @@ export const AgentOverview: React.FC = () => {
               </div>
             ))}
           </div>
+
           <div className="border rounded p-10 mb-40">
             <Chart
               options={chartData.options}
