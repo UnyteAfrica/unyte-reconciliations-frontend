@@ -1,5 +1,15 @@
-type OTPInputProps = {};
+import { logger } from "@/utils/logger";
 
-export const OTPInput = () => {
+enum ApiType {
+  Insurer,
+  Agent,
+}
+
+type OTPInputProps = {
+  apiType: ApiType;
+};
+
+export const OTPInput: React.FC<OTPInputProps> = ({ apiType }) => {
+  logger.log(apiType);
   return <div></div>;
 };
