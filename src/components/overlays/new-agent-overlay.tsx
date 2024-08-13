@@ -9,6 +9,8 @@ import { Loader } from "../loader";
 import { inviteAgent } from "@/services/api/api-company";
 import toast from "react-hot-toast";
 import { logger } from "@/utils/logger";
+import { OTPInput } from "../shared/otp-input";
+import { ApiType } from "@/types/types";
 
 const formSchema = z
   .object({
@@ -111,6 +113,7 @@ export const NewAgentOverlay: React.FC = () => {
         error={errors.agentNames?.message?.toString()}
         {...register("agentNames")}
       />
+      <OTPInput apiType={ApiType.Insurer} />
       <button className="block rounded-lg text-white font-medium text-lg bg-primary p-5 w-full  font-poppins text-center mx-auto">
         {isInviteLoading ? <Loader className="mx-auto" /> : "Invite Agent"}
       </button>

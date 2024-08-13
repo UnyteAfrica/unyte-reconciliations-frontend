@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { isAxiosError } from "axios";
 import { AGENT_UNPROTECTED_ROUTES, AgentApiRoutes } from "./api-routes";
 import {
   AgentLoginType,
@@ -28,35 +28,36 @@ axiosInstance.interceptors.request.use(
     if (AGENT_UNPROTECTED_ROUTES.includes(config.url ?? "")) return config;
 
     if (refreshToken && accessToken) {
-      const decodedAccessToken = jwtDecode(accessToken as string);
-      const decodedRefreshToken = jwtDecode(refreshToken as string);
+      try {
+        const decodedAccessToken = jwtDecode(accessToken as string);
+        const decodedRefreshToken = jwtDecode(refreshToken as string);
 
-      // if access token hasn't expired, just go ahead with the request
-      if (new Date(Number(decodedAccessToken.exp + "000")) < new Date()) {
-        // if refresh token has expired, clear tokens from local storage and log user out
-        if (new Date(Number(decodedRefreshToken.exp + "000")) < new Date()) {
-          clearCredentials(UserType.agent);
-        } else {
-          //otherwise get new access tokens
-          try {
+        // if access token hasn't expired, just go ahead with the request
+        if (new Date(Number(decodedAccessToken.exp + "000")) < new Date()) {
+          // if refresh token has expired, clear tokens from local storage and log user out
+          if (new Date(Number(decodedRefreshToken.exp + "000")) < new Date()) {
+            clearCredentials(UserType.agent);
+          } else {
+            //otherwise get new access tokens
+
             let resp = await axios.post(URL + "/" + AgentApiRoutes.resetToken, {
               refresh_token: refreshToken,
             });
 
             LocalStorage.setItem("agentAccessToken", resp.data.access_token);
             LocalStorage.setItem("agentRefreshToken", resp.data.refresh_token);
-          } catch (e: any) {
-            clearCredentials(UserType.agent);
-
-            logger.error(e.message);
           }
-        }
-      } else {
-        accessToken = LocalStorage.getItem("agentAccessToken") || "";
+        } else {
+          accessToken = LocalStorage.getItem("agentAccessToken") || "";
 
-        config.headers.Authorization = accessToken
-          ? `Bearer ${accessToken}`
-          : "";
+          config.headers.Authorization = accessToken
+            ? `Bearer ${accessToken}`
+            : "";
+        }
+      } catch (e) {
+        logger.error(e);
+        if (isAxiosError(e)) logger.error(e);
+        clearCredentials(UserType.agent);
       }
     }
 

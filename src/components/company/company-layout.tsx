@@ -6,13 +6,14 @@ import { BrowserComboRoutes } from "@/utils/routes";
 import { LocalStorage } from "@/services/local-storage";
 
 export const CompanyLayout = () => {
-  const { isLoggedIn } = useContext(CompanyContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(CompanyContext);
 
   const navigate = useNavigate();
 
   const listener = (e: CustomEvent) => {
     if (e.detail.key == "companyAccessToken" && e.detail.value == null) {
       navigate(BrowserComboRoutes.companyLogin);
+      setIsLoggedIn(false);
     }
   };
 
