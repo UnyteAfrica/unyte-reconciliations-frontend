@@ -5,8 +5,6 @@ import { DateInput } from "@/components/shared/input";
 import { Selector } from "@/components/shared/selector";
 import { periods } from "@/components/shared/page-content";
 import { useMediaQuery } from "@/utils/hooks";
-import { OTPInput } from "@/components/shared/otp-input";
-import { ApiType } from "@/types/types";
 
 type Stat = {
   title: string;
