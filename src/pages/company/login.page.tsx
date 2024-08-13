@@ -14,6 +14,7 @@ import { CompanyContext } from "@/context/company.context";
 import { LocalStorage } from "@/services/local-storage";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
+import { logger } from "@/utils/logger";
 
 const formSchema = z.object({
   email: z.string().email("Admin Email is invalid"),
@@ -42,7 +43,7 @@ export const CompanyLoginPage = () => {
     mutationKey: [MutationKeys.companyLogin],
     mutationFn: (data: CompanyLoginType) => companyLogin(data),
     onSuccess: (data) => {
-      console.log(data);
+      logger.log(data);
       LocalStorage.setItem("companyAccessToken", data.data.access_token);
       LocalStorage.setItem("companyRefreshToken", data.data.refresh_token);
       setIsLoggedIn(true);

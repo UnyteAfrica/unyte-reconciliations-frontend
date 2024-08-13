@@ -8,6 +8,7 @@ import { InviteAgentType } from "@/types/request.types";
 import { Loader } from "../loader";
 import { inviteAgent } from "@/services/api/api-company";
 import toast from "react-hot-toast";
+import { logger } from "@/utils/logger";
 
 const formSchema = z
   .object({
@@ -83,7 +84,7 @@ export const NewAgentOverlay: React.FC = () => {
       agents.push(agent);
     }
 
-    console.log(agents);
+    logger.log(agents);
     mInvite(agents);
   };
 

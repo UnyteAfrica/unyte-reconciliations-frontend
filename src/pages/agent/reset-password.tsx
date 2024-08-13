@@ -13,6 +13,7 @@ import { Loader } from "@/components/loader";
 import toast from "react-hot-toast";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
+import { logger } from "@/utils/logger";
 
 const formSchema = z
   .object({
@@ -50,14 +51,14 @@ export const AgentResetPasswordPage = () => {
       mutationKey: [MutationKeys.agentResetPassword],
       mutationFn: (data: AgentPasswordResetType) => agentResetPassword(data),
       onSuccess: (data) => {
-        console.log(data);
+        logger.log(data);
         toast.success(data.data.message);
         navigate(BrowserComboRoutes.agentLogin);
       },
     });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    logger.log(data);
     mResetPassword({
       idBase64: id!,
       token: token!,

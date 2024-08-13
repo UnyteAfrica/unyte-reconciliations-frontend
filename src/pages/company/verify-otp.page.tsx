@@ -15,6 +15,7 @@ import { isAxiosError } from "axios";
 import { CompanyContext } from "@/context/company.context";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
+import { logger } from "@/utils/logger";
 
 const formSchema = z.object({
   otp: z.string().min(6, "OTP cannot be less than 6 characters"),
@@ -44,13 +45,13 @@ export const CompanyVerifyOTPPage = () => {
     mutationKey: [MutationKeys.companyVerify],
     mutationFn: (data: CompanyVerifyOTPType) => companyVerifyOTP(data),
     onSuccess: (data) => {
-      console.log(data);
+      logger.log(data);
       toast.success("OTP verified");
       navigate(BrowserComboRoutes.companyOverview);
       setCompanyEmail("");
     },
     onError: (err) => {
-      console.log(err);
+      logger.log(err);
       if (isAxiosError(err)) {
         if (err.response?.status == 400) {
           toast.error(err.response.data.error);
@@ -62,12 +63,12 @@ export const CompanyVerifyOTPPage = () => {
     mutationKey: [MutationKeys.companyVerify],
     mutationFn: (email: string) => companyResendOTP(email),
     onSuccess: (data) => {
-      console.log(data);
+      logger.log(data);
       const message = data.data.message;
       toast.success(message);
     },
     onError: (err) => {
-      console.log(err);
+      logger.error(err);
       if (isAxiosError(err)) {
         if (err.response?.status == 400) {
           toast.error(err.response.data.error);

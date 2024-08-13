@@ -12,6 +12,7 @@ import { Loader } from "@/components/loader";
 import toast from "react-hot-toast";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
+import { logger } from "@/utils/logger";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email entered"),
@@ -46,12 +47,12 @@ export const CompanyForgotPasswordPage = () => {
           setValue("email", "");
           toast.success("Password reset email has been sent");
         }
-        console.log(data);
+        logger.log(data);
       },
     });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    logger.log(data);
     mForgotPassword(data.email);
   };
 
