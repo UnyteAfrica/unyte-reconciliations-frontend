@@ -19,6 +19,7 @@ const settings = {
 export const ViewClaimsPage = () => {
   const { isUpdateClaimStatusOpened, setIsUpdateClaimStatusOpened } =
     useContext(OverlayContext) as OverlayContextType;
+
   return (
     <>
       {isUpdateClaimStatusOpened && (
@@ -26,9 +27,9 @@ export const ViewClaimsPage = () => {
           <ClaimStatusOverlay />
         </Overlay>
       )}
-      <div className="p-8 max-w-6xl mx-auto">
-        <header className="flex justify-between items-center pb-4 border-b border-[#e0e0e0]">
-          <div className="flex flex-col space-y-3">
+      <div className="p-8 max-w-6xl mx-auto w-full">
+        <header className="flex pb-4 border-b border-[#e0e0e0] flex-col lg:flex-row lg:w-full lg:justify-between">
+          <div className="flex flex-col space-y-3 mb-4">
             <div className="flex items-center">
               <em className="font-medium text-xl inline-block mr-4 not-italic">
                 123jkf5402
@@ -40,19 +41,19 @@ export const ViewClaimsPage = () => {
             <em className="not-italic font-medium text-sm">May 7, 2023</em>
           </div>
           <button
-            className="rounded-md"
+            className="rounded-md w-[200px] text-center"
             onClick={(_) => setIsUpdateClaimStatusOpened(true)}
             data-testid="update-claim-btn"
           >
-            <div className="space-x-2 flex flex-row items-center bg-primary px-4 py-2 rounded text-white">
+            <div className="space-x-2 flex justify-center items-center bg-primary px-4 py-2 rounded text-white">
               <span className="text-base">Update Claim Status</span>
             </div>
           </button>
         </header>
-        <main className="flex justify-between w-full items-center py-8">
-          <div className="w-[600px] shrink-0">
+        <main className="flex flex-col w-full mt-6 lg:flex-row lg:justify-between lg:items-center">
+          <div className="w-full mb-8 lg:w-[500px]">
             <h2 className="font-medium text-2xl mb-4">Primary Information</h2>
-            <div className="gap-y-4 w-[500px] grid grid-cols-2">
+            <div className="gap-y-4 w-full grid grid-cols-2">
               <em className="not-italic text-[##4F4F4F] text-sm inline-block mr-4">
                 Policy Number:
               </em>
@@ -61,7 +62,9 @@ export const ViewClaimsPage = () => {
               <em className="not-italic text-[##4F4F4F] text-sm inline-block mr-4">
                 User Email:
               </em>
-              <em className="not-italic">fortunateanozie@gmail.com</em>
+              <em className="not-italic break-words">
+                fortunateanozie@gmail.com
+              </em>
 
               <em className="not-italic text-[##4F4F4F] text-sm inline-block mr-4">
                 Type of Claim:
@@ -87,20 +90,23 @@ export const ViewClaimsPage = () => {
               </p>
             </div>
           </div>
-          <div className="border rounded-md border-[#ccc] p-8">
+          <div className="border rounded-md border-[#ccc] p-8 w-full lg:w-[400px] xl:w-[500px] mx-auto lg:mx-0">
             <h2 className="font-medium text-2xl text-[#333] mb-6">Images</h2>
-            <Slider className="w-[400px]" {...settings}>
-              <div className="w-[400px] mx-auto">
-                <img src={car} />
+            <Slider className="w-full" {...settings}>
+              <div className="mx-auto">
+                <img className="mx-auto lg:w-full" src={car} />
               </div>
-              <div>
-                <img className="w-[400px]  bg-[#ccc]" src={car} />
+
+              <div className="mx-auto">
+                <img className="mx-auto lg:w-full" src={car} />
               </div>
-              <div>
-                <img className="w-[400px]  bg-[#ccc]" src={car} />
+
+              <div className="mx-auto">
+                <img className="mx-auto lg:w-full" src={car} />
               </div>
-              <div>
-                <img className="w-[400px]  bg-[#ccc]" src={car} />
+
+              <div className="mx-auto">
+                <img className="mx-auto lg:w-full" src={car} />
               </div>
             </Slider>
           </div>
