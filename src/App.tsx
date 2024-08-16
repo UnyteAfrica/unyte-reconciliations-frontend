@@ -21,6 +21,7 @@ import { AgentVerifyOTPPage } from "./pages/agent/verify-otp.page";
 import { CompanyForgotPasswordPage } from "./pages/company/forgot-password";
 import { CompanyResetPasswordPage } from "./pages/company/reset-password";
 import { CompanyVerifyOTPPage } from "./pages/company/verify-otp.page";
+import { ViewClaimsPage } from "./pages/company/view-claims";
 
 function App() {
   return (
@@ -102,6 +103,10 @@ function App() {
           <Route
             path={BrowserRoutes.claims.substring(1) + BrowserRoutes.wildcard}
             element={<CompanyClaims />}
+          />
+          <Route
+            path={BrowserRoutes.viewClaim.substring(1)}
+            element={<ViewClaimsPage />}
           />
           <Route
             path={BrowserRoutes.agents.substring(1)}

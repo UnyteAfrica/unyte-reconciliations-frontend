@@ -8,7 +8,7 @@ const BaseRoutes = {
   details: "/details",
   inviteAgent: "/generate-agent-sign-up",
   insurerProfile: "/insurer-profile",
-  resetToken: "/reset-token",
+  resetToken: "/refresh-access-token",
 };
 
 const RouteTypes = {
