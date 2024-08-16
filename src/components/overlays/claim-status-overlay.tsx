@@ -1,21 +1,16 @@
-import { useForm } from "react-hook-form";
-import { CustomInput } from "../shared/input";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
 import { InviteAgentType } from "@/types/request.types";
 import { Loader } from "../loader";
 import { inviteAgent } from "@/services/api/api-company";
 import toast from "react-hot-toast";
-import { logger } from "@/utils/logger";
-import { OTPInput } from "../shared/otp-input";
-import { ApiType, ClaimStatus, ClaimStatusType } from "@/types/types";
+
+import { ClaimStatus, ClaimStatusType } from "@/types/types";
 import { RadioInput } from "../shared/radio-input";
 import { useState } from "react";
 
 export const ClaimStatusOverlay: React.FC = () => {
-  const { mutate: mInvite, isPending: isInviteLoading } = useMutation({
+  const { isPending: isInviteLoading } = useMutation({
     mutationKey: [MutationKeys.companyInviteAgent],
     mutationFn: (data: InviteAgentType) => inviteAgent(data),
     onSuccess: () => {

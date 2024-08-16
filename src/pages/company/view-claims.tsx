@@ -1,5 +1,5 @@
 import { nairaSign } from "@/utils/utils";
-import Slider, { Settings } from "react-slick";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import car from "@/assets/images/car.png";
