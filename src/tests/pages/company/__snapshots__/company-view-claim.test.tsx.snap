@@ -1,0 +1,814 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`View Claims > renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="p-8 max-w-6xl mx-auto w-full"
+      >
+        <header
+          class="flex pb-4 border-b border-[#e0e0e0] flex-col lg:flex-row lg:w-full lg:justify-between"
+        >
+          <div
+            class="flex flex-col space-y-3 mb-4"
+          >
+            <div
+              class="flex items-center"
+            >
+              <em
+                class="font-medium text-xl inline-block mr-4 not-italic"
+              >
+                123jkf5402
+              </em>
+              <div
+                class="p-2 py-1 font-medium text-sm w-20 text-center bg-[#4f4f4f]/[.1]"
+              >
+                Submitted
+              </div>
+            </div>
+            <em
+              class="not-italic font-medium text-sm"
+            >
+              May 7, 2023
+            </em>
+          </div>
+          <button
+            class="rounded-md w-[200px] text-center"
+            data-testid="update-claim-btn"
+          >
+            <div
+              class="space-x-2 flex justify-center items-center bg-primary px-4 py-2 rounded text-white"
+            >
+              <span
+                class="text-base"
+              >
+                Update Claim Status
+              </span>
+            </div>
+          </button>
+        </header>
+        <main
+          class="flex flex-col w-full mt-6 lg:flex-row lg:justify-between lg:items-center"
+        >
+          <div
+            class="w-full mb-8 lg:w-[500px]"
+          >
+            <h2
+              class="font-medium text-2xl mb-4"
+            >
+              Primary Information
+            </h2>
+            <div
+              class="gap-y-4 w-full grid grid-cols-2"
+            >
+              <em
+                class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+              >
+                Policy Number:
+              </em>
+              <em
+                class="not-italic"
+              >
+                123jkf5402
+              </em>
+              <em
+                class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+              >
+                User Email:
+              </em>
+              <em
+                class="not-italic break-words"
+              >
+                fortunateanozie@gmail.com
+              </em>
+              <em
+                class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+              >
+                Type of Claim:
+              </em>
+              <em
+                class="not-italic"
+              >
+                Auto
+              </em>
+              <em
+                class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+              >
+                Bill Estimate:
+              </em>
+              <em
+                class="not-italic"
+              >
+                ₦
+                50,000.00
+              </em>
+              <em
+                class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+              >
+                Date:
+              </em>
+              <em
+                class="not-italic"
+              >
+                May 7, 2023
+              </em>
+              <em
+                class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+              >
+                Description:
+              </em>
+              <p>
+                While I was driving my car got hit by some mad keke-napep. He rear-ended me and damaged my bumper.
+              </p>
+            </div>
+          </div>
+          <div
+            class="border rounded-md border-[#ccc] p-8 w-full lg:w-[400px] xl:w-[500px] mx-auto lg:mx-0"
+          >
+            <h2
+              class="font-medium text-2xl text-[#333] mb-6"
+            >
+              Images
+            </h2>
+            <div
+              class="slick-slider w-full slick-initialized"
+              dir="ltr"
+            >
+              <button
+                class="slick-arrow slick-prev"
+                data-role="none"
+                style="display: block;"
+                type="button"
+              >
+                 
+                Previous
+              </button>
+              <div
+                class="slick-list"
+              >
+                <div
+                  class="slick-track"
+                  style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide slick-cloned"
+                    data-index="-1"
+                    style="width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="mx-auto"
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <img
+                          class="mx-auto lg:w-full"
+                          src="/src/assets/images/car.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="false"
+                    class="slick-slide slick-active slick-current"
+                    data-index="0"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="mx-auto"
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <img
+                          class="mx-auto lg:w-full"
+                          src="/src/assets/images/car.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="1"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="mx-auto"
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <img
+                          class="mx-auto lg:w-full"
+                          src="/src/assets/images/car.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="2"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="mx-auto"
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <img
+                          class="mx-auto lg:w-full"
+                          src="/src/assets/images/car.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide"
+                    data-index="3"
+                    style="outline: none; width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="mx-auto"
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <img
+                          class="mx-auto lg:w-full"
+                          src="/src/assets/images/car.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide slick-cloned"
+                    data-index="4"
+                    style="width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="mx-auto"
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <img
+                          class="mx-auto lg:w-full"
+                          src="/src/assets/images/car.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide slick-cloned"
+                    data-index="5"
+                    style="width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="mx-auto"
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <img
+                          class="mx-auto lg:w-full"
+                          src="/src/assets/images/car.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide slick-cloned"
+                    data-index="6"
+                    style="width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="mx-auto"
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <img
+                          class="mx-auto lg:w-full"
+                          src="/src/assets/images/car.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    class="slick-slide slick-cloned"
+                    data-index="7"
+                    style="width: 0px;"
+                    tabindex="-1"
+                  >
+                    <div>
+                      <div
+                        class="mx-auto"
+                        style="width: 100%; display: inline-block;"
+                        tabindex="-1"
+                      >
+                        <img
+                          class="mx-auto lg:w-full"
+                          src="/src/assets/images/car.png"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="slick-arrow slick-next"
+                data-role="none"
+                style="display: block;"
+                type="button"
+              >
+                 
+                Next
+              </button>
+              <ul
+                class="slick-dots"
+                style="display: block;"
+              >
+                <li
+                  class="slick-active"
+                >
+                  <button>
+                    1
+                  </button>
+                </li>
+                <li
+                  class=""
+                >
+                  <button>
+                    2
+                  </button>
+                </li>
+                <li
+                  class=""
+                >
+                  <button>
+                    3
+                  </button>
+                </li>
+                <li
+                  class=""
+                >
+                  <button>
+                    4
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="p-8 max-w-6xl mx-auto w-full"
+    >
+      <header
+        class="flex pb-4 border-b border-[#e0e0e0] flex-col lg:flex-row lg:w-full lg:justify-between"
+      >
+        <div
+          class="flex flex-col space-y-3 mb-4"
+        >
+          <div
+            class="flex items-center"
+          >
+            <em
+              class="font-medium text-xl inline-block mr-4 not-italic"
+            >
+              123jkf5402
+            </em>
+            <div
+              class="p-2 py-1 font-medium text-sm w-20 text-center bg-[#4f4f4f]/[.1]"
+            >
+              Submitted
+            </div>
+          </div>
+          <em
+            class="not-italic font-medium text-sm"
+          >
+            May 7, 2023
+          </em>
+        </div>
+        <button
+          class="rounded-md w-[200px] text-center"
+          data-testid="update-claim-btn"
+        >
+          <div
+            class="space-x-2 flex justify-center items-center bg-primary px-4 py-2 rounded text-white"
+          >
+            <span
+              class="text-base"
+            >
+              Update Claim Status
+            </span>
+          </div>
+        </button>
+      </header>
+      <main
+        class="flex flex-col w-full mt-6 lg:flex-row lg:justify-between lg:items-center"
+      >
+        <div
+          class="w-full mb-8 lg:w-[500px]"
+        >
+          <h2
+            class="font-medium text-2xl mb-4"
+          >
+            Primary Information
+          </h2>
+          <div
+            class="gap-y-4 w-full grid grid-cols-2"
+          >
+            <em
+              class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+            >
+              Policy Number:
+            </em>
+            <em
+              class="not-italic"
+            >
+              123jkf5402
+            </em>
+            <em
+              class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+            >
+              User Email:
+            </em>
+            <em
+              class="not-italic break-words"
+            >
+              fortunateanozie@gmail.com
+            </em>
+            <em
+              class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+            >
+              Type of Claim:
+            </em>
+            <em
+              class="not-italic"
+            >
+              Auto
+            </em>
+            <em
+              class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+            >
+              Bill Estimate:
+            </em>
+            <em
+              class="not-italic"
+            >
+              ₦
+              50,000.00
+            </em>
+            <em
+              class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+            >
+              Date:
+            </em>
+            <em
+              class="not-italic"
+            >
+              May 7, 2023
+            </em>
+            <em
+              class="not-italic text-[##4F4F4F] text-sm inline-block mr-4"
+            >
+              Description:
+            </em>
+            <p>
+              While I was driving my car got hit by some mad keke-napep. He rear-ended me and damaged my bumper.
+            </p>
+          </div>
+        </div>
+        <div
+          class="border rounded-md border-[#ccc] p-8 w-full lg:w-[400px] xl:w-[500px] mx-auto lg:mx-0"
+        >
+          <h2
+            class="font-medium text-2xl text-[#333] mb-6"
+          >
+            Images
+          </h2>
+          <div
+            class="slick-slider w-full slick-initialized"
+            dir="ltr"
+          >
+            <button
+              class="slick-arrow slick-prev"
+              data-role="none"
+              style="display: block;"
+              type="button"
+            >
+               
+              Previous
+            </button>
+            <div
+              class="slick-list"
+            >
+              <div
+                class="slick-track"
+                style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+              >
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="-1"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="mx-auto"
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <img
+                        class="mx-auto lg:w-full"
+                        src="/src/assets/images/car.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active slick-current"
+                  data-index="0"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="mx-auto"
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <img
+                        class="mx-auto lg:w-full"
+                        src="/src/assets/images/car.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="1"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="mx-auto"
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <img
+                        class="mx-auto lg:w-full"
+                        src="/src/assets/images/car.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="2"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="mx-auto"
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <img
+                        class="mx-auto lg:w-full"
+                        src="/src/assets/images/car.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="3"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="mx-auto"
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <img
+                        class="mx-auto lg:w-full"
+                        src="/src/assets/images/car.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="4"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="mx-auto"
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <img
+                        class="mx-auto lg:w-full"
+                        src="/src/assets/images/car.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="5"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="mx-auto"
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <img
+                        class="mx-auto lg:w-full"
+                        src="/src/assets/images/car.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="6"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="mx-auto"
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <img
+                        class="mx-auto lg:w-full"
+                        src="/src/assets/images/car.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide slick-cloned"
+                  data-index="7"
+                  style="width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      class="mx-auto"
+                      style="width: 100%; display: inline-block;"
+                      tabindex="-1"
+                    >
+                      <img
+                        class="mx-auto lg:w-full"
+                        src="/src/assets/images/car.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="slick-arrow slick-next"
+              data-role="none"
+              style="display: block;"
+              type="button"
+            >
+               
+              Next
+            </button>
+            <ul
+              class="slick-dots"
+              style="display: block;"
+            >
+              <li
+                class="slick-active"
+              >
+                <button>
+                  1
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  2
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  3
+                </button>
+              </li>
+              <li
+                class=""
+              >
+                <button>
+                  4
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

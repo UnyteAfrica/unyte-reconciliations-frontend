@@ -28,6 +28,7 @@ export const Overlay: React.FC<PropsWithChildren<{ className?: string }>> = ({
         className
       )}
       onClick={handleClose}
+      data-testid="overlay"
     >
       <div className="max-h-[80vh] overlayContainer w-[90%] max-w-[550px] overflow-y-auto rounded-2xl bg-white">
         {children}
