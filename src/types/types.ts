@@ -4,7 +4,7 @@ export const ClaimStatus = {
   Completed: "Completed",
 } as const;
 
-type ClaimStatusType = keyof typeof ClaimStatus;
+export type ClaimStatusType = keyof typeof ClaimStatus;
 
 export enum ApiType {
   Insurer,

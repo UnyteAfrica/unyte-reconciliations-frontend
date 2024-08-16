@@ -69,6 +69,7 @@ export const CompanyLoginPage = () => {
               <p className="mb-2 font-semibold text-[20px] text-center">
                 Company Login
               </p>
+
               <p className="mb-6 text-sm text-[#4F4F4F] text-center">
                 Sign in to your account.
               </p>

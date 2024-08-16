@@ -151,7 +151,7 @@ export const CompanyNavbar = () => {
       {isMediaQueryMatched && (
         <div
           id="navbar-container"
-          className="flex justify-between items-center p-4 mx-12"
+          className="flex justify-between items-center p-6 px-0 mx-auto max-w-6xl"
         >
           <div>
             <Icon className="shrink-0" type="logo" alt="unyte logo" />

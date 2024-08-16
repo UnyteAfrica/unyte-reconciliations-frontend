@@ -7,14 +7,18 @@ export const Overlay: React.FC<PropsWithChildren<{ className?: string }>> = ({
   className,
   children,
 }) => {
-  const { isNewAgentOverlayOpened, setNewAgentOverlayOpened } = useContext(
-    OverlayContext
-  ) as OverlayContextType;
+  const {
+    isNewAgentOverlayOpened,
+    setNewAgentOverlayOpened,
+    isUpdateClaimStatusOpened,
+    setIsUpdateClaimStatusOpened,
+  } = useContext(OverlayContext) as OverlayContextType;
 
   useLockScroll(true);
 
   const handleClose = () => {
     if (isNewAgentOverlayOpened) setNewAgentOverlayOpened(false);
+    if (isUpdateClaimStatusOpened) setIsUpdateClaimStatusOpened(false);
   };
 
   return (

@@ -50,14 +50,6 @@ export const CompanyVerifyOTPPage = () => {
       navigate(BrowserComboRoutes.companyOverview);
       setCompanyEmail("");
     },
-    onError: (err) => {
-      logger.log(err);
-      if (isAxiosError(err)) {
-        if (err.response?.status == 400) {
-          toast.error(err.response.data.error);
-        }
-      }
-    },
   });
   const { mutate: mResendOTP, isPending: isResendLoading } = useMutation({
     mutationKey: [MutationKeys.companyVerify],

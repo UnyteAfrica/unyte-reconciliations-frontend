@@ -15,6 +15,7 @@ export const BrowserRoutes = {
   completed: "/completed",
   forgotPassword: "/forgot-password",
   resetPassword: "/reset-password",
+  viewClaim: "/view-claim",
   verify: "/verify",
   wildcard: "/*",
 };
@@ -34,6 +35,7 @@ export const BrowserComboRoutes = {
   companyResetPassword: BrowserRoutes.company + BrowserRoutes.resetPassword,
   companyVerify: BrowserRoutes.company + BrowserRoutes.verify,
   companyDashboard: BrowserRoutes.company + BrowserRoutes.dashboard,
+  companyViewClaim: BrowserRoutes.company + BrowserRoutes.viewClaim,
   companyOverview:
     BrowserRoutes.company + BrowserRoutes.dashboard + BrowserRoutes.overview,
   pendingCompanyClaims:

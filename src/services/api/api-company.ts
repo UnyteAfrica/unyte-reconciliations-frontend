@@ -47,11 +47,11 @@ axiosInstance.interceptors.request.use(
               }
             );
 
-            LocalStorage.setItem("companyAccessToken", resp.data.access_token);
-            LocalStorage.setItem(
-              "companyRefreshToken",
-              resp.data.refresh_token
-            );
+            LocalStorage.setItem("companyAccessToken", resp.data.access);
+            // LocalStorage.setItem(
+            //   "companyRefreshToken",
+            //   resp.data.refresh_token
+            // );
           }
         } else {
           accessToken = LocalStorage.getItem("companyAccessToken") || "";
@@ -189,7 +189,6 @@ export const getCompanyProfile = () => {
 };
 
 export const getCompanyDetails = () => {
-  logger.log("yes");
   return axiosInstance.get(CompanyApiRoutes.details);
 };
 

@@ -44,8 +44,8 @@ axiosInstance.interceptors.request.use(
               refresh_token: refreshToken,
             });
 
-            LocalStorage.setItem("agentAccessToken", resp.data.access_token);
-            LocalStorage.setItem("agentRefreshToken", resp.data.refresh_token);
+            LocalStorage.setItem("agentAccessToken", resp.data.access);
+            // LocalStorage.setItem("agentRefreshToken", resp.data.refresh_token);
           }
         } else {
           accessToken = LocalStorage.getItem("agentAccessToken") || "";
