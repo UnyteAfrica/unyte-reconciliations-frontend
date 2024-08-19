@@ -61,7 +61,10 @@ export const CompanyNavbar = () => {
   };
 
   const companyDetails = companyDetailsData?.data;
-  if (companyDetails) setCompanyEmail(companyDetails.email);
+
+  useEffect(() => {
+    if (companyDetails) setCompanyEmail(companyDetails.email);
+  }, [companyDetails]);
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 
