@@ -22,8 +22,6 @@ export const OTPInput: React.FC<OTPInputProps> = ({ apiType }) => {
     AgentContext
   ) as AgentContextType;
 
-  logger.log(isCompanyLoggedIn);
-
   if (!isCompanyLoggedIn && apiType == ApiType.Insurer) return <></>;
   if (!isAgentLoggedIn && apiType == ApiType.Agent) return <></>;
 
@@ -43,7 +41,10 @@ export const OTPInput: React.FC<OTPInputProps> = ({ apiType }) => {
       <CustomInput label="OTP" placeholder="******" />
       <button
         className="text-primary text-sm font-semibold my-2"
-        onClick={() => mResendOTP()}
+        onClick={(e) => {
+          e.preventDefault();
+          mResendOTP();
+        }}
         disabled={isResendLoading}
       >
         {isResendLoading ? <Loader className="mx-auto" /> : "Request OTP"}
