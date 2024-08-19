@@ -46,6 +46,8 @@ axiosInstance.interceptors.request.use(
 
             LocalStorage.setItem("agentAccessToken", resp.data.access);
             // LocalStorage.setItem("agentRefreshToken", resp.data.refresh_token);
+
+            config.headers.Authorization = `Bearer ${resp.data.access}`;
           }
         } else {
           accessToken = LocalStorage.getItem("agentAccessToken") || "";
@@ -56,7 +58,7 @@ axiosInstance.interceptors.request.use(
         }
       } catch (e) {
         logger.error(e);
-        if (isAxiosError(e)) logger.error(e);
+        if (isAxiosError(e)) logger.error(e.response);
         clearCredentials(UserType.agent);
       }
     }

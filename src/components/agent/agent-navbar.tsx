@@ -63,7 +63,9 @@ export const AgentNavbar = () => {
   };
 
   const agentDetails = agentDetailsData?.data;
-  if (agentDetails) setAgentEmail(agentDetails.email);
+  useEffect(() => {
+    if (agentDetails) setAgentEmail(agentDetails.email);
+  }, [agentDetails]);
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 

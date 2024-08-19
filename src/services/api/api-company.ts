@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { isAxiosError } from "axios";
 import { COMPANY_UNPROTECTED_ROUTES, CompanyApiRoutes } from "./api-routes";
 import {
   CompanyLoginType,
@@ -52,6 +52,7 @@ axiosInstance.interceptors.request.use(
             //   "companyRefreshToken",
             //   resp.data.refresh_token
             // );
+            config.headers.Authorization = `Bearer ${resp.data.access}`;
           }
         } else {
           accessToken = LocalStorage.getItem("companyAccessToken") || "";
@@ -62,6 +63,7 @@ axiosInstance.interceptors.request.use(
         }
       } catch (e) {
         logger.error(e);
+        if (isAxiosError(e)) logger.error(e.response);
         clearCredentials(UserType.company);
       }
 
