@@ -54,6 +54,7 @@ export const CompanyNavbar = () => {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setIsOpen(false);
   }, [location.pathname]);
 
   const toggleDropdown = () => {
@@ -218,7 +219,7 @@ export const CompanyNavbar = () => {
                     <hr />
                     <NavLink
                       to={
-                        BrowserComboRoutes.agentDashboard +
+                        BrowserComboRoutes.companyDashboard +
                         BrowserRoutes.profile
                       }
                       className="block px-6 py-4 text-[#333] font-medium"

@@ -22,6 +22,8 @@ import { CompanyForgotPasswordPage } from "./pages/company/forgot-password";
 import { CompanyResetPasswordPage } from "./pages/company/reset-password";
 import { CompanyVerifyOTPPage } from "./pages/company/verify-otp.page";
 import { ViewClaimsPage } from "./pages/company/view-claims";
+import { CompanyProfile } from "./pages/company/company-profile";
+import { AgentProfile } from "./pages/agent/agent-profile";
 
 function App() {
   return (
@@ -80,6 +82,10 @@ function App() {
             element={<AgentPolicies />}
           />
           <Route
+            path={BrowserRoutes.profile.substring(1)}
+            element={<AgentProfile />}
+          />
+          <Route
             path={BrowserRoutes.commissions.substring(1)}
             element={<Commissions />}
           />
@@ -99,6 +105,10 @@ function App() {
           <Route
             path={BrowserRoutes.policies.substring(1)}
             element={<CompanyPolicies />}
+          />
+          <Route
+            path={BrowserRoutes.profile.substring(1)}
+            element={<CompanyProfile />}
           />
           <Route
             path={BrowserRoutes.claims.substring(1) + BrowserRoutes.wildcard}
