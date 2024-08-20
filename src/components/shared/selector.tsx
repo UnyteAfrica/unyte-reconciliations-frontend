@@ -21,11 +21,10 @@ export const Selector: React.FC<SelectorProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const focusOutHandler = (e: FocusEvent) => {
+    const focusOutHandler = () => {
       setIsSelectorMenuOpen(false);
-      console.log("focusout", e);
     };
-    containerRef.current?.addEventListener("focusout", focusOutHandler);
+    // containerRef.current?.addEventListener("focusout", focusOutHandler);
 
     return () => {
       containerRef.current?.removeEventListener("focusout", focusOutHandler);
