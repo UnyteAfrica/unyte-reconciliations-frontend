@@ -49,6 +49,7 @@ export const AgentNavbar = () => {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setIsOpen(false);
   }, [location.pathname]);
 
   const { data: agentDetailsData, isPending: isAgentDetailsLoading } = useQuery(
@@ -224,7 +225,7 @@ export const AgentNavbar = () => {
                       )}
                     >
                       <div className="px-6 py-4 flex items-center p-2">
-                        <div className="rounded-full h-10 w-10 p-2 bg-gray-200 text-base flex items-center justify-center mr-2">
+                        <div className="rounded-full h-10 w-10 p-2 bg-gray-200 text-base flex items-center justify-center mr-2 font-bold">
                           {getInitials(
                             agentDetails.first_name,
                             agentDetails.last_name
