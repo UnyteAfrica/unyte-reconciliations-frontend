@@ -1,5 +1,5 @@
 import { cx } from "class-variance-authority";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
 type SelectorProps = {
@@ -18,9 +18,22 @@ export const Selector: React.FC<SelectorProps> = ({
   onChange,
 }) => {
   const [isSelectorMenuOpen, setIsSelectorMenuOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const focusOutHandler = (e: FocusEvent) => {
+      setIsSelectorMenuOpen(false);
+      console.log("focusout", e);
+    };
+    containerRef.current?.addEventListener("focusout", focusOutHandler);
+
+    return () => {
+      containerRef.current?.removeEventListener("focusout", focusOutHandler);
+    };
+  });
 
   return (
-    <div className={cx("relative", containerClassName)}>
+    <div className={cx("relative", containerClassName)} ref={containerRef}>
       <button
         className="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
         onClick={() =>

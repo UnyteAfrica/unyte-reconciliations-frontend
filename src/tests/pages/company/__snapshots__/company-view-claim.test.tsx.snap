@@ -39,7 +39,7 @@ exports[`View Claims > renders correctly 1`] = `
             data-testid="update-claim-btn"
           >
             <div
-              class="space-x-2 flex justify-center items-center bg-primary px-4 py-2 rounded text-white"
+              class="space-x-2 flex justify-center items-center bg-mPrimary px-4 py-2 rounded text-white"
             >
               <span
                 class="text-base"
@@ -58,7 +58,7 @@ exports[`View Claims > renders correctly 1`] = `
             <h2
               class="font-medium text-2xl mb-4"
             >
-              Primary Information
+              mPrimary Information
             </h2>
             <div
               class="gap-y-4 w-full grid grid-cols-2"
@@ -417,7 +417,7 @@ exports[`View Claims > renders correctly 1`] = `
           data-testid="update-claim-btn"
         >
           <div
-            class="space-x-2 flex justify-center items-center bg-primary px-4 py-2 rounded text-white"
+            class="space-x-2 flex justify-center items-center bg-mPrimary px-4 py-2 rounded text-white"
           >
             <span
               class="text-base"
@@ -436,7 +436,7 @@ exports[`View Claims > renders correctly 1`] = `
           <h2
             class="font-medium text-2xl mb-4"
           >
-            Primary Information
+            mPrimary Information
           </h2>
           <div
             class="gap-y-4 w-full grid grid-cols-2"

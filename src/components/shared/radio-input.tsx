@@ -31,12 +31,12 @@ export const RadioInput: React.FC<RadioInputProps> = ({
         />
         <div
           className={twMerge(
-            "bg-white border border-primary rounded-full hidden justify-center items-center w-5 h-5",
+            "bg-white border border-mPrimary rounded-full hidden justify-center items-center w-5 h-5",
             checked && "flex"
           )}
           onClick={onClick}
         >
-          <div className="w-[12px] h-[12px] bg-primary rounded-full" />
+          <div className="w-[12px] h-[12px] bg-mPrimary rounded-full" />
         </div>
       </div>
       <label htmlFor={camelcase(label)}>{label}</label>

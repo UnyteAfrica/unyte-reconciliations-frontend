@@ -64,7 +64,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               <li
                 className={cx(
                   "border rounded-md",
-                  currentPage == page && "bg-primary text-white border-none"
+                  currentPage == page && "bg-mPrimary text-white border-none"
                 )}
                 key={page}
                 data-testid={currentPage == page && "active"}

@@ -105,14 +105,14 @@ exports[`Agent Login Page > renders correctly 1`] = `
                   class="flex justify-end"
                 >
                   <a
-                    class="text-primary text-sm mb-2 inline-block"
+                    class="text-mPrimary text-sm mb-2 inline-block"
                     href="/agent/forgot-password"
                   >
                     Forgotten Password?
                   </a>
                 </div>
                 <button
-                  class="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                  class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                 >
                   Sign In
                 </button>
@@ -227,14 +227,14 @@ exports[`Agent Login Page > renders correctly 1`] = `
                 class="flex justify-end"
               >
                 <a
-                  class="text-primary text-sm mb-2 inline-block"
+                  class="text-mPrimary text-sm mb-2 inline-block"
                   href="/agent/forgot-password"
                 >
                   Forgotten Password?
                 </a>
               </div>
               <button
-                class="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
               >
                 Sign In
               </button>
