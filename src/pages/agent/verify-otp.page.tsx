@@ -91,7 +91,7 @@ export const AgentVerifyOTPPage = () => {
             />
             <div>
               <button
-                className="text-primary mb-2"
+                className="text-mPrimary mb-2"
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -106,7 +106,7 @@ export const AgentVerifyOTPPage = () => {
                 )}
               </button>
               <button
-                className="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                 disabled={isVerificationLoading}
               >
                 {isVerificationLoading ? (
@@ -144,7 +144,7 @@ export const AgentVerifyOTPPage = () => {
               />
               <div>
                 <button
-                  className="text-primary mb-2"
+                  className="text-mPrimary mb-2"
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -159,7 +159,7 @@ export const AgentVerifyOTPPage = () => {
                   )}
                 </button>
                 <button
-                  className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                  className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[72px] text-white rounded-2xl"
                   disabled={isVerificationLoading}
                 >
                   {isVerificationLoading ? (

@@ -71,13 +71,13 @@ export const AgentForgotPasswordPage = () => {
                 Already have an account?{" "}
                 <Link
                   to={BrowserComboRoutes.agentLogin}
-                  className="text-primary"
+                  className="text-mPrimary"
                 >
                   Log In
                 </Link>
               </p>
               <button
-                className="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                 disabled={isLoadingForgotPassword}
               >
                 {isLoadingForgotPassword ? (
@@ -117,13 +117,13 @@ export const AgentForgotPasswordPage = () => {
                 Already have an account?{" "}
                 <Link
                   to={BrowserComboRoutes.agentLogin}
-                  className="text-primary"
+                  className="text-mPrimary"
                 >
                   Log In
                 </Link>
               </p>
               <button
-                className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[72px] text-white rounded-2xl"
                 disabled={isLoadingForgotPassword}
               >
                 {isLoadingForgotPassword ? (

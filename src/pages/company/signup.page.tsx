@@ -160,13 +160,13 @@ export const CompanySignupPage = () => {
                   Already have an account?{" "}
                   <Link
                     to={BrowserComboRoutes.companyLogin}
-                    className="text-primary"
+                    className="text-mPrimary"
                   >
                     Sign In
                   </Link>
                 </p>
                 <button
-                  className="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                  className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                   disabled={isPending}
                 >
                   {isPending ? <Loader className="mx-auto" /> : "Sign Up"}
@@ -243,13 +243,13 @@ export const CompanySignupPage = () => {
                     Already have an account?{" "}
                     <Link
                       to={BrowserComboRoutes.companyLogin}
-                      className="text-primary"
+                      className="text-mPrimary"
                     >
                       Sign In
                     </Link>
                   </p>
                   <button
-                    className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                    className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[72px] text-white rounded-2xl"
                     disabled={isPending}
                   >
                     {isPending ? <Loader className="mx-auto" /> : "Sign Up"}

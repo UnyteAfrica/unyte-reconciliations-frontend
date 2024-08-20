@@ -96,7 +96,7 @@ export const CompanyLoginPage = () => {
                   Don&apos;t have an account?{" "}
                   <Link
                     to={BrowserComboRoutes.companySignup}
-                    className="text-primary"
+                    className="text-mPrimary"
                   >
                     Sign up
                   </Link>
@@ -104,13 +104,13 @@ export const CompanyLoginPage = () => {
                 <div className="">
                   <Link
                     to={BrowserComboRoutes.companyForgotPassword}
-                    className="text-primary text-sm mb-2 inline-block"
+                    className="text-mPrimary text-sm mb-2 inline-block"
                   >
                     Forgotten Password?
                   </Link>
                 </div>
                 <button
-                  className="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                  className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                   disabled={isLoginLoading}
                 >
                   {isLoginLoading ? (
@@ -156,7 +156,7 @@ export const CompanyLoginPage = () => {
                     Don&apos;t have an account?{" "}
                     <Link
                       to={BrowserComboRoutes.companySignup}
-                      className="text-primary"
+                      className="text-mPrimary"
                     >
                       Sign up
                     </Link>
@@ -164,13 +164,13 @@ export const CompanyLoginPage = () => {
                   <div className="flex justify-end">
                     <Link
                       to={BrowserComboRoutes.companyForgotPassword}
-                      className="text-primary mb-2 inline-block"
+                      className="text-mPrimary mb-2 inline-block"
                     >
                       Forgotten Password?
                     </Link>
                   </div>
                   <button
-                    className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                    className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[72px] text-white rounded-2xl"
                     disabled={isLoginLoading}
                   >
                     {isLoginLoading ? (

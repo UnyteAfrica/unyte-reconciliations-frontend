@@ -114,7 +114,7 @@ export const NewAgentOverlay: React.FC = () => {
         {...register("agentNames")}
       />
       <OTPInput apiType={ApiType.Insurer} />
-      <button className="block rounded-lg text-white font-medium text-lg bg-primary p-5 w-full  font-poppins text-center mx-auto">
+      <button className="block rounded-lg text-white font-medium text-lg bg-mPrimary p-5 w-full  font-poppins text-center mx-auto">
         {isInviteLoading ? <Loader className="mx-auto" /> : "Invite Agent"}
       </button>
     </form>

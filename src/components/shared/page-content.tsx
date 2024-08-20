@@ -106,7 +106,7 @@ export const PageContent: React.FC<PageContentProps> = ({
                 data-testid="filter"
                 onClick={(e) => e.stopPropagation()}
                 className={cx(
-                  "bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[7000] overflow-hidden opacity-0 ",
+                  "bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[5000ms] overflow-hidden opacity-0 ",
                   !isFilterOpen && "max-h-0",
                   isFilterOpen && "max-h-[500px] opacity-100 overflow-y-auto"
                 )}
@@ -161,7 +161,7 @@ export const PageContent: React.FC<PageContentProps> = ({
                     Cancel
                   </button>
                   <button
-                    className="bg-primary text-white w-[115px] rounded-md py-2"
+                    className="bg-mPrimary text-white w-[115px] rounded-md py-2"
                     onClick={() => setIsFilterOpen(false)}
                   >
                     Apply Filter
@@ -203,7 +203,7 @@ export const PageContent: React.FC<PageContentProps> = ({
                     setNewAgentOverlayOpened(true);
                   }}
                 >
-                  <div className="space-x-2 flex flex-row items-center bg-primary px-4 py-2 rounded text-white">
+                  <div className="space-x-2 flex flex-row items-center bg-mPrimary px-4 py-2 rounded text-white">
                     <span className="text-base">Invite Agent</span>
                     <IoMdAdd />
                   </div>
@@ -287,7 +287,7 @@ export const PageContent: React.FC<PageContentProps> = ({
                   Cancel
                 </button>
                 <button
-                  className="bg-primary text-white w-[115px] rounded-md py-2"
+                  className="bg-mPrimary text-white w-[115px] rounded-md py-2"
                   onClick={() => setIsFilterOpen(false)}
                 >
                   Apply Filter

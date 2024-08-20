@@ -76,12 +76,12 @@ exports[`Agent Verify OTP Page > renders correctly 1`] = `
             </div>
             <div>
               <button
-                class="text-primary mb-2"
+                class="text-mPrimary mb-2"
               >
                 Resend OTP
               </button>
               <button
-                class="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
               >
                 Verify
               </button>
@@ -166,12 +166,12 @@ exports[`Agent Verify OTP Page > renders correctly 1`] = `
           </div>
           <div>
             <button
-              class="text-primary mb-2"
+              class="text-mPrimary mb-2"
             >
               Resend OTP
             </button>
             <button
-              class="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+              class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
             >
               Verify
             </button>

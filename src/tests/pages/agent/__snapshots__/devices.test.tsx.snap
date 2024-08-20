@@ -67,7 +67,7 @@ exports[`Devices > renders correctly 1`] = `
               Filter
             </button>
             <div
-              class="bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[7000] overflow-hidden opacity-0  max-h-0"
+              class="bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[5000ms] overflow-hidden opacity-0  max-h-0"
               data-testid="filter"
             >
               <div>
@@ -294,7 +294,7 @@ exports[`Devices > renders correctly 1`] = `
                   Cancel
                 </button>
                 <button
-                  class="bg-primary text-white w-[115px] rounded-md py-2"
+                  class="bg-mPrimary text-white w-[115px] rounded-md py-2"
                 >
                   Apply Filter
                 </button>
@@ -744,7 +744,7 @@ exports[`Devices > renders correctly 1`] = `
             Filter
           </button>
           <div
-            class="bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[7000] overflow-hidden opacity-0  max-h-0"
+            class="bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[5000ms] overflow-hidden opacity-0  max-h-0"
             data-testid="filter"
           >
             <div>
@@ -971,7 +971,7 @@ exports[`Devices > renders correctly 1`] = `
                 Cancel
               </button>
               <button
-                class="bg-primary text-white w-[115px] rounded-md py-2"
+                class="bg-mPrimary text-white w-[115px] rounded-md py-2"
               >
                 Apply Filter
               </button>

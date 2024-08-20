@@ -45,14 +45,14 @@ export const ViewClaimsPage = () => {
             onClick={(_) => setIsUpdateClaimStatusOpened(true)}
             data-testid="update-claim-btn"
           >
-            <div className="space-x-2 flex justify-center items-center bg-primary px-4 py-2 rounded text-white">
+            <div className="space-x-2 flex justify-center items-center bg-mPrimary px-4 py-2 rounded text-white">
               <span className="text-base">Update Claim Status</span>
             </div>
           </button>
         </header>
         <main className="flex flex-col w-full mt-6 lg:flex-row lg:justify-between lg:items-center">
           <div className="w-full mb-8 lg:w-[500px]">
-            <h2 className="font-medium text-2xl mb-4">Primary Information</h2>
+            <h2 className="font-medium text-2xl mb-4">mPrimary Information</h2>
             <div className="gap-y-4 w-full grid grid-cols-2">
               <em className="not-italic text-[##4F4F4F] text-sm inline-block mr-4">
                 Policy Number:

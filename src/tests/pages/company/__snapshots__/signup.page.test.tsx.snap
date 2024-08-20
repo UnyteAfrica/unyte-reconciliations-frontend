@@ -236,14 +236,14 @@ exports[`Company Signup Page > renders correctly 1`] = `
                   Already have an account?
                    
                   <a
-                    class="text-primary"
+                    class="text-mPrimary"
                     href="/company/login"
                   >
                     Sign In
                   </a>
                 </p>
                 <button
-                  class="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                  class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                 >
                   Sign Up
                 </button>
@@ -486,14 +486,14 @@ exports[`Company Signup Page > renders correctly 1`] = `
                 Already have an account?
                  
                 <a
-                  class="text-primary"
+                  class="text-mPrimary"
                   href="/company/login"
                 >
                   Sign In
                 </a>
               </p>
               <button
-                class="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
               >
                 Sign Up
               </button>

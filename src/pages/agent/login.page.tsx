@@ -112,13 +112,13 @@ export const AgentLoginPage = () => {
                 <div className="flex justify-end">
                   <Link
                     to={BrowserComboRoutes.agentForgotPassword}
-                    className="text-primary text-sm mb-2 inline-block"
+                    className="text-mPrimary text-sm mb-2 inline-block"
                   >
                     Forgotten Password?
                   </Link>
                 </div>
                 <button
-                  className="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                  className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                   disabled={isLoginLoading}
                 >
                   {isLoginLoading ? (
@@ -163,13 +163,13 @@ export const AgentLoginPage = () => {
                   <div className="flex justify-end">
                     <Link
                       to={BrowserComboRoutes.agentForgotPassword}
-                      className="text-primary mb-2 inline-block"
+                      className="text-mPrimary mb-2 inline-block"
                     >
                       Forgotten Password?
                     </Link>
                   </div>
                   <button
-                    className="w-full font-medium text-xl leading-[24px] bg-primary h-[72px] text-white rounded-2xl"
+                    className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[72px] text-white rounded-2xl"
                     disabled={isLoginLoading}
                   >
                     {isLoginLoading ? (

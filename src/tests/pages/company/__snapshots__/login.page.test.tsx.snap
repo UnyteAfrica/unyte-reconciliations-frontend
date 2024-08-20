@@ -107,7 +107,7 @@ exports[`Company Login Page > renders correctly 1`] = `
                   Don't have an account?
                    
                   <a
-                    class="text-primary"
+                    class="text-mPrimary"
                     href="/company/sign-up"
                   >
                     Sign up
@@ -117,14 +117,14 @@ exports[`Company Login Page > renders correctly 1`] = `
                   class=""
                 >
                   <a
-                    class="text-primary text-sm mb-2 inline-block"
+                    class="text-mPrimary text-sm mb-2 inline-block"
                     href="/company/forgot-password"
                   >
                     Forgotten Password?
                   </a>
                 </div>
                 <button
-                  class="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                  class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                 >
                   Sign In
                 </button>
@@ -241,7 +241,7 @@ exports[`Company Login Page > renders correctly 1`] = `
                 Don't have an account?
                  
                 <a
-                  class="text-primary"
+                  class="text-mPrimary"
                   href="/company/sign-up"
                 >
                   Sign up
@@ -251,14 +251,14 @@ exports[`Company Login Page > renders correctly 1`] = `
                 class=""
               >
                 <a
-                  class="text-primary text-sm mb-2 inline-block"
+                  class="text-mPrimary text-sm mb-2 inline-block"
                   href="/company/forgot-password"
                 >
                   Forgotten Password?
                 </a>
               </div>
               <button
-                class="w-full font-medium text-xl leading-[24px] bg-primary h-[58px] text-white rounded-2xl"
+                class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
               >
                 Sign In
               </button>

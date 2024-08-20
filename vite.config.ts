@@ -1,5 +1,6 @@
 import type { InlineConfig } from "vitest";
 import type { UserConfig } from "vite";
+import path from "path";
 
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
@@ -33,7 +34,7 @@ const config: ViteConfig = {
   },
   resolve: {
     alias: {
-      "@": "/src",
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 
