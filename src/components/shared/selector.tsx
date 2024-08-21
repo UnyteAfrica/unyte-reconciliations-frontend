@@ -21,15 +21,12 @@ export const Selector: React.FC<SelectorProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const focusOutHandler = () => {
-      setIsSelectorMenuOpen(false);
-    };
-    // containerRef.current?.addEventListener("focusout", focusOutHandler);
-
-    return () => {
-      containerRef.current?.removeEventListener("focusout", focusOutHandler);
-    };
-  });
+    document.querySelector("body")?.addEventListener("click", (e) => {
+      if (!containerRef.current?.contains(e.target as Node)) {
+        setIsSelectorMenuOpen(false);
+      }
+    });
+  }, []);
 
   return (
     <div className={cx("relative", containerClassName)} ref={containerRef}>

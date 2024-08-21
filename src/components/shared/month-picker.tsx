@@ -62,9 +62,9 @@ export const RangeMonthPicker: React.FC<RangeMonthPickerProps> = ({
   onEndMonthChange,
 }) => {
   return (
-    <div className="flex">
+    <div className="flex flex-col min-[450px]:flex-row">
       <MonthPicker
-        className="rounded-r-none"
+        className="sm:rounded-r-none"
         date={startMonth}
         onChange={onStartMonthChange}
         isValidDate={(currDate) =>
@@ -72,7 +72,7 @@ export const RangeMonthPicker: React.FC<RangeMonthPickerProps> = ({
         }
       />
       <MonthPicker
-        className="rounded-l-none"
+        className="sm:rounded-l-none"
         date={endMonth}
         onChange={onEndMonthChange}
         isValidDate={(currDate: Moment) =>

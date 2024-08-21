@@ -128,5 +128,12 @@ div.rdtPicker td.rdtDisabled {
 
 div.rdtPicker {
   top: 110%;
-  right: 0;
+  left: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  div.rdtPicker {
+    right: 0;
+    left: unset;
+  }
 }
