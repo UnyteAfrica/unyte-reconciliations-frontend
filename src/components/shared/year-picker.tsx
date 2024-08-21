@@ -62,9 +62,9 @@ export const RangeYearPicker: React.FC<RangeYearPickerProps> = ({
   onEndYearChange,
 }) => {
   return (
-    <div className="flex">
+    <div className="flex flex-col min-[450px]:flex-row">
       <YearPicker
-        className="rounded-r-none"
+        className="sm:rounded-r-none"
         date={startYear}
         onChange={onStartYearChange}
         isValidDate={(currDate) =>
@@ -72,7 +72,7 @@ export const RangeYearPicker: React.FC<RangeYearPickerProps> = ({
         }
       />
       <YearPicker
-        className="rounded-l-none"
+        className="sm:rounded-l-none"
         date={endYear}
         onChange={onEndYearChange}
         isValidDate={(currDate: Moment) =>

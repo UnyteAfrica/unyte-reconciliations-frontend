@@ -5,12 +5,12 @@ import { getWeekValue, nairaSign } from "@/utils/utils";
 import { Selector } from "@/components/shared/selector";
 import { periods } from "@/components/shared/page-content";
 import { useMediaQuery } from "@/utils/hooks";
-import { RangeYearPicker } from "@/components/ui/year-picker";
-import { RangeDayPicker } from "@/components/ui/day-picker";
-import { RangeWeekPicker } from "@/components/ui/week-picker";
+import { RangeYearPicker } from "@/components/shared/year-picker";
+import { RangeDayPicker } from "@/components/shared/day-picker";
+import { RangeWeekPicker } from "@/components/shared/week-picker";
 import moment, { Moment } from "moment";
 import { random } from "lodash";
-import { RangeMonthPicker } from "@/components/ui/month-picker";
+import { RangeMonthPicker } from "@/components/shared/month-picker";
 
 type Stat = {
   title: string;
@@ -152,8 +152,9 @@ export const CompanyOverview: React.FC = () => {
         data: [],
       },
     ];
-    const curr = startWeek.clone();
-    while (!curr.isAfter(endWeek)) {
+    const curr = startWeek.clone().startOf("week");
+    const end = endWeek.clone().endOf("week");
+    while (!curr.isAfter(end)) {
       const x = getWeekValue(curr);
       const y = random(1, 10000);
       weeklyChartSeries[0].data.push({
@@ -223,7 +224,7 @@ export const CompanyOverview: React.FC = () => {
         updateWeeklySeries();
         break;
       case periods[2]:
-        updateMonthlySeries;
+        updateMonthlySeries();
         break;
       case periods[3]:
         updateYearlySeries();
@@ -257,12 +258,88 @@ export const CompanyOverview: React.FC = () => {
         <div className="px-5 py-6 max-w-[850px] mx-auto">
           <div className="flex flex-row justify-between items-center mb-10">
             <h1 className="text-3xl text-[#333333] font-semibold">Overview</h1>
-
+          </div>
+          <div className="my-8 w-[200px] sm:w-auto sm:flex sm:space-x-4">
             <Selector
               options={periods}
               value={period}
               onChange={(val) => setPeriod(val)}
+              containerClassName="mb-4 sm:mb-0"
             />
+            <div className="flex">
+              {period == periods[3] ? (
+                <RangeYearPicker
+                  startYear={startYear}
+                  endYear={endYear}
+                  onStartYearChange={(date) => {
+                    if (moment.isMoment(date)) {
+                      setStartYear(date);
+                    }
+                  }}
+                  onEndYearChange={(date) => {
+                    if (moment.isMoment(date)) {
+                      setEndYear(date);
+                    }
+                  }}
+                />
+              ) : (
+                <></>
+              )}
+              {period == periods[2] ? (
+                <RangeMonthPicker
+                  startMonth={startMonth}
+                  endMonth={endMonth}
+                  onStartMonthChange={(date) => {
+                    if (moment.isMoment(date)) {
+                      setStartMonth(date);
+                    }
+                  }}
+                  onEndMonthChange={(date) => {
+                    if (moment.isMoment(date)) {
+                      setEndMonth(date);
+                    }
+                  }}
+                />
+              ) : (
+                <></>
+              )}
+              {period == periods[1] ? (
+                <RangeWeekPicker
+                  startWeek={startWeek}
+                  endWeek={endWeek}
+                  onStartWeekChange={(date) => {
+                    if (moment.isMoment(date)) {
+                      setStartWeek(date);
+                    }
+                  }}
+                  onEndWeekChange={(date) => {
+                    if (moment.isMoment(date)) {
+                      setEndWeek(date);
+                    }
+                  }}
+                />
+              ) : (
+                <></>
+              )}
+              {period == periods[0] ? (
+                <RangeDayPicker
+                  startDay={startDay}
+                  endDay={endDay}
+                  onStartDayChange={(date) => {
+                    if (moment.isMoment(date)) {
+                      setStartDay(date);
+                    }
+                  }}
+                  onEndDayChange={(date) => {
+                    if (moment.isMoment(date)) {
+                      setEndDay(date);
+                    }
+                  }}
+                />
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
           <div className="flex flex-wrap">
             <div className="mb-5 mr-8">
@@ -284,10 +361,10 @@ export const CompanyOverview: React.FC = () => {
           </div>
           <hr />
           <div className="mt-10">
-            <p className="text-sm text-[#4F4F4F] mb-4">
+            {/* <p className="text-sm text-[#4F4F4F] mb-4">
               Showing data for the month of{" "}
               <span className="font-semibold text-[#333]">September</span>
-            </p>
+            </p> */}
             <Chart
               options={chartDataOptions}
               series={chartDataSeries}

@@ -1,15 +1,15 @@
 import moment, { Moment } from "moment";
 import { ComponentProps } from "react";
 import { ClassNameValue, twMerge } from "tailwind-merge";
-import "react-datetime/css/react-datetime.css";
 import Datetime from "react-datetime";
+import { getWeekValue } from "@/utils/utils";
 
-type DayPickerProps = {
+type WeekPickerProps = {
   className?: ClassNameValue;
   date?: Moment;
 } & ComponentProps<typeof Datetime>;
 
-export const DayPicker: React.FC<DayPickerProps> = ({
+export const WeekPicker: React.FC<WeekPickerProps> = ({
   className,
   date,
   ...props
@@ -34,7 +34,7 @@ export const DayPicker: React.FC<DayPickerProps> = ({
             <input
               {...props}
               className="w-[150px] text-center cursor-pointer"
-              value={date?.format("MMMM DD, YYYY")}
+              value={getWeekValue(date!)}
             />
           </div>
         );
@@ -45,39 +45,41 @@ export const DayPicker: React.FC<DayPickerProps> = ({
 };
 
 const YEAR_1999 = moment("2000");
-const endOfCurrentDay = moment().endOf("day");
+const endOfCurrentWeek = moment().endOf("week");
 
-type RangeDayPickerProps = {
+type RangeWeekPickerProps = {
   className?: ClassNameValue;
-  startDay?: Moment;
-  endDay?: Moment;
-  onStartDayChange?: ((value: moment.Moment | string) => void) | undefined;
-  onEndDayChange?: ((value: moment.Moment | string) => void) | undefined;
+  startWeek: Moment;
+  endWeek: Moment;
+  onStartWeekChange?: ((value: moment.Moment | string) => void) | undefined;
+  onEndWeekChange?: ((value: moment.Moment | string) => void) | undefined;
 } & ComponentProps<typeof Datetime>;
 
-export const RangeDayPicker: React.FC<RangeDayPickerProps> = ({
-  startDay,
-  endDay,
-  onStartDayChange,
-  onEndDayChange,
+export const RangeWeekPicker: React.FC<RangeWeekPickerProps> = ({
+  startWeek,
+  endWeek,
+  onStartWeekChange,
+  onEndWeekChange,
 }) => {
   return (
-    <div className="flex">
-      <DayPicker
-        className="rounded-r-none"
-        date={startDay}
-        onChange={onStartDayChange}
+    <div className="flex flex-col min-[450px]:flex-row">
+      <WeekPicker
+        className="sm:rounded-r-none"
+        date={startWeek}
+        onChange={onStartWeekChange}
         isValidDate={(currDate) =>
-          currDate.isAfter(YEAR_1999) && currDate.isBefore(endOfCurrentDay)
+          currDate.isBetween(YEAR_1999, endOfCurrentWeek)
         }
       />
-      <DayPicker
-        className="rounded-l-none"
-        date={endDay}
-        onChange={onEndDayChange}
+      <WeekPicker
+        className="sm:rounded-l-none"
+        date={endWeek}
+        onChange={onEndWeekChange}
         isValidDate={(currDate: Moment) =>
-          currDate.endOf("day").isAfter(startDay) &&
-          currDate.startOf("day").isBefore(endOfCurrentDay)
+          currDate.isBetween(
+            startWeek.clone().startOf("week").subtract(1, "day"),
+            endOfCurrentWeek
+          )
         }
       />
     </div>
