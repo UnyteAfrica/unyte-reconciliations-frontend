@@ -40,7 +40,7 @@ export const OTPInput: React.FC<OTPInputProps> = ({ apiType }) => {
     <div>
       <CustomInput label="OTP" placeholder="******" />
       <button
-        className="text-primary text-sm font-semibold my-2"
+        className="text-mPrimary text-sm font-semibold my-2"
         onClick={(e) => {
           e.preventDefault();
           mResendOTP();

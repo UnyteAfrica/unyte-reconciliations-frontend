@@ -392,6 +392,102 @@ export const ImageInput = forwardRef<HTMLInputElement, ImageInputProps>(
   }
 );
 
+export type FileInputProps = ComponentPropsWithoutRef<"input"> & {
+  label?: string;
+  labelClassName?: string;
+  containerClassName?: string;
+  error?: string;
+  errorClassName?: string;
+  onFileChange: (file: File) => void;
+  acceptedFiles?: string;
+  innerContent?: React.ReactNode;
+};
+
+export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
+  function FileInput(props, ref) {
+    const {
+      placeholder,
+      type,
+      className,
+      label = "",
+      labelClassName = "",
+      containerClassName = "",
+      error,
+      errorClassName,
+      onFileChange,
+      innerContent,
+      acceptedFiles,
+      ...rest
+    } = props;
+    const inputId = camelcase(label);
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+    useImperativeHandle(ref, () => fileInputRef.current!, []);
+    return (
+      <div className={twMerge("", containerClassName)}>
+        {label ? (
+          <>
+            <label
+              className={twMerge(
+                "font-sora font-semibold text-[16px] leading-[20px] mb-2 block",
+                labelClassName
+              )}
+              htmlFor={inputId}
+            >
+              {label}
+            </label>
+            <p className="my-0 mb-2 text-sm">
+              Tap the box to select the image*
+            </p>
+          </>
+        ) : null}
+
+        <input
+          ref={fileInputRef}
+          className={twMerge(
+            "text-[14px] font-sora w-full px-3 py-[16px] border border-[#424242] rounded-lg outline-none focus:border-black hidden",
+            className
+          )}
+          id={inputId}
+          type="file"
+          placeholder={placeholder}
+          onChange={(e) => {
+            if (e.target.files) {
+              const file = e.target.files[0];
+              setSelectedFile(file);
+              onFileChange(file);
+            }
+          }}
+          accept={
+            acceptedFiles || "image/png, image/jpeg, image/webp, image/jpg"
+          }
+          {...rest}
+        />
+        <div
+          className="w-full aspect-[282/131] border border-[#838080] flex justify-center items-center rounded-lg"
+          onClick={() => {
+            fileInputRef?.current?.click();
+          }}
+        >
+          {selectedFile ? (
+            <p>
+              <span className="block">You have selected</span>
+              <span className="block text-mPrimary text-center text-3xl font-medium">
+                {selectedFile.name}
+              </span>
+            </p>
+          ) : (
+            innerContent || <p>Select Image File</p>
+          )}
+        </div>
+        <p className={twMerge("font-sora text-sm text-[#333]", errorClassName)}>
+          {error && error}
+        </p>
+      </div>
+    );
+  }
+);
+
 type DateInputProps = {
   containerClassName?: string;
   date: Date;
