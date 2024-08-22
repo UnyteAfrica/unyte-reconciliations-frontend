@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { CustomInput } from "../shared/input";
+import { CustomInput, FileInput } from "../shared/input";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -11,6 +11,9 @@ import toast from "react-hot-toast";
 import { logger } from "@/utils/logger";
 import { OTPInput } from "../shared/otp-input";
 import { ApiType } from "@/types/types";
+import { useState } from "react";
+import { cx } from "class-variance-authority";
+import { FaFileCsv } from "react-icons/fa";
 
 const formSchema = z
   .object({
@@ -51,6 +54,11 @@ const formSchema = z
     }
   );
 
+enum AddAgentState {
+  TEXT,
+  CSV,
+}
+
 export const NewAgentOverlay: React.FC = () => {
   const {
     register,
@@ -63,6 +71,10 @@ export const NewAgentOverlay: React.FC = () => {
       agentNames: "",
     },
   });
+
+  const [addAgentState, setAddAgentState] = useState<AddAgentState>(
+    AddAgentState.TEXT
+  );
 
   const { mutate: mInvite, isPending: isInviteLoading } = useMutation({
     mutationKey: [MutationKeys.companyInviteAgent],
@@ -92,27 +104,77 @@ export const NewAgentOverlay: React.FC = () => {
 
   return (
     <form
-      className="p-8 space-y-4 w-full z-50 relative"
+      className="p-8 w-full z-50 relative"
       onClick={(e) => {
         e.stopPropagation();
       }}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className="text-center text-2xl font-bold">Invite New Agent</h1>
-      <CustomInput
-        label="Emails"
-        placeholder="johndoe@gmail.com, john@john.com"
-        className=""
-        error={errors.email?.message?.toString()}
-        {...register("email")}
-      />
-      <CustomInput
-        label="Agent Names"
-        placeholder="Seun, Taiwo"
-        className=""
-        error={errors.agentNames?.message?.toString()}
-        {...register("agentNames")}
-      />
+      <h1 className="text-center text-2xl font-bold mb-4">Invite New Agent</h1>
+      <div className="space-x-4 mb-4">
+        <button
+          className={cx(
+            "font-medium px-4",
+            addAgentState == AddAgentState.TEXT &&
+              "border-b-2 border-mPrimary pb-2"
+          )}
+          onClick={(e) => {
+            e.preventDefault();
+            setAddAgentState(AddAgentState.TEXT);
+          }}
+        >
+          Invite By Text
+        </button>
+        <button
+          className={cx(
+            "font-medium px-4",
+            addAgentState == AddAgentState.CSV &&
+              "border-b-2 border-mPrimary pb-2"
+          )}
+          onClick={(e) => {
+            e.preventDefault();
+            setAddAgentState(AddAgentState.CSV);
+          }}
+        >
+          Invite By CSV
+        </button>
+      </div>
+      {addAgentState == AddAgentState.TEXT && (
+        <div className="space-y-4 mb-4">
+          <CustomInput
+            label="Emails"
+            placeholder="johndoe@gmail.com, john@john.com"
+            className=""
+            error={errors.email?.message?.toString()}
+            {...register("email")}
+          />
+          <CustomInput
+            label="Agent Names"
+            placeholder="Seun, Taiwo"
+            className=""
+            error={errors.agentNames?.message?.toString()}
+            {...register("agentNames")}
+          />
+        </div>
+      )}
+      {addAgentState == AddAgentState.CSV && (
+        <>
+          <div className=" font-inter flex justify-center items-center"></div>
+          <FileInput
+            containerClassName="h-52 my-8 border border-[#ccc] rounded-2xl"
+            innerContent={
+              <div className="w-full flex flex-col justify-center items-center">
+                <FaFileCsv className="text-5xl text-mPrimary/[.7] text-center" />
+                <p className="mx-auto inline-block mt-4">Select a CSV file</p>
+              </div>
+            }
+            acceptedFiles=".csv"
+            onFileChange={(e) => {
+              console.log(e);
+            }}
+          />
+        </>
+      )}
       <OTPInput apiType={ApiType.Insurer} />
       <button className="block rounded-lg text-white font-medium text-lg bg-mPrimary p-5 w-full  font-poppins text-center mx-auto">
         {isInviteLoading ? <Loader className="mx-auto" /> : "Invite Agent"}
