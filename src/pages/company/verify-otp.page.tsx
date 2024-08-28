@@ -38,7 +38,7 @@ export const CompanyVerifyOTPPage = () => {
   const { companyEmail, setCompanyEmail } = useContext(CompanyContext);
 
   useEffect(() => {
-    // if (!companyEmail) navigate(BrowserComboRoutes.companyLogin);
+    if (!companyEmail) navigate(BrowserComboRoutes.companyLogin);
   }, []);
 
   const { mutate: mVerify, isPending: isVerificationLoading } = useMutation({

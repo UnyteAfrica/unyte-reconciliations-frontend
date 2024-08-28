@@ -179,7 +179,7 @@ export const CompanyOverview: React.FC = () => {
     ];
     const curr = startMonth.clone();
     while (!curr.isAfter(endMonth)) {
-      const x = curr.format("MM YYYY");
+      const x = curr.format("MM/YYYY");
       const y = random(1, 10000);
       monthlyChartSeries[0].data.push({
         x,

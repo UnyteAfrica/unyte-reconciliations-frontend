@@ -151,8 +151,9 @@ export const AgentOverview: React.FC = () => {
         data: [],
       },
     ];
-    const curr = startWeek.clone();
-    while (!curr.isAfter(endWeek)) {
+    const curr = startWeek.clone().startOf("week");
+    const end = endWeek.clone().endOf("week");
+    while (!curr.isAfter(end)) {
       const x = getWeekValue(curr);
       const y = random(1, 10000);
       weeklyChartSeries[0].data.push({
@@ -177,7 +178,7 @@ export const AgentOverview: React.FC = () => {
     ];
     const curr = startMonth.clone();
     while (!curr.isAfter(endMonth)) {
-      const x = curr.format("MM YYYY");
+      const x = curr.format("MM/YYYY");
       const y = random(1, 10000);
       monthlyChartSeries[0].data.push({
         x,
