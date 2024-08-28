@@ -1,0 +1,1092 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Completed Claims > renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="px-5 py-6 max-w-[850px] mx-auto"
+      >
+        <header
+          class="mb-7"
+        >
+          <h1
+            class="font-semibold text-2xl mb-5"
+          >
+            Completed Claims
+          </h1>
+          <div
+            class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
+          >
+            <img
+              alt="search icon"
+              class="block mr-2 w-7 h-7"
+              src="/src/assets/Icons/SearchIcon.svg"
+            />
+            <input
+              class="bg-transparent py-2 text-opacity-20"
+              placeholder="Find policy reference"
+              type="search"
+              value=""
+            />
+          </div>
+        </header>
+        <main
+          class=""
+        >
+          <div
+            class="flex justify-between items-center relative"
+          >
+            <h2
+              class="font-medium"
+            >
+              Activity
+            </h2>
+            <button
+              class="bg-[#25D366] rounded-full p-2 px-4 text-white"
+            >
+              <svg
+                class="inline-block mr-1"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32 144h448M112 256h288M208 368h96"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="32"
+                />
+              </svg>
+              Filter
+            </button>
+            <div
+              class="bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[5000ms] overflow-hidden opacity-0  max-h-0"
+              data-testid="filter"
+            >
+              <div>
+                <label
+                  class="mb-2 inline-block"
+                >
+                  Period Range
+                </label>
+                <div
+                  class="relative w-full"
+                >
+                  <button
+                    class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
+                  >
+                    <div
+                      class="space-x-2 flex flex-row items-center justify-between"
+                    >
+                      <span
+                        class="text-base"
+                        title="selectBtn"
+                      >
+                        Daily
+                      </span>
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
+                  >
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Daily
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Weekly
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Monthly
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Yearly
+                    </button>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label
+                  class="mb-2 inline-block"
+                >
+                  Custom Date Range
+                </label>
+                <div
+                  class="w-full"
+                >
+                  <button
+                    class="px-4 py-2 border rounded-md relative font-semibold w-full block"
+                  >
+                    November 13, 2023
+                    <input
+                      class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
+                      placeholder="date"
+                      type="date"
+                      value="2023-11-13"
+                    />
+                  </button>
+                  <button
+                    class="px-4 py-2 border rounded-md relative font-semibold w-full"
+                  >
+                    November 13, 2023
+                    <input
+                      class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
+                      placeholder="date"
+                      type="date"
+                      value="2023-11-13"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-[#333] mb-2 block text-base"
+                  for="policyNo"
+                >
+                  Policy No.
+                   
+                </label>
+                <input
+                  class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
+                  id="policyNo"
+                  placeholder="#A023457"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div>
+                <label
+                  class="mb-2 inline-block"
+                >
+                  Select Product(s)
+                </label>
+                <div
+                  class="relative w-full"
+                >
+                  <button
+                    class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
+                  >
+                    <div
+                      class="space-x-2 flex flex-row items-center justify-between"
+                    >
+                      <span
+                        class="text-base"
+                        title="selectBtn"
+                      >
+                        Comprehensive
+                      </span>
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                  <div
+                    class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
+                  >
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Comprehensive
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Credit Life
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Card Protect
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Student
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Travel
+                    </button>
+                    <hr />
+                    <button
+                      class="w-full font-inter py-4 font-semibold"
+                    >
+                      Device
+                    </button>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                <label
+                  class="text-[#333] mb-2 block text-base"
+                  for="amount"
+                >
+                  Amount
+                   
+                </label>
+                <input
+                  class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
+                  id="amount"
+                  placeholder="₦"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class="flex ml-auto"
+              >
+                <button
+                  class="bg-white border rounded-md w-[90px] inline-block mr-4 py-2 ml-auto"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="bg-mPrimary text-white w-[115px] rounded-md py-2"
+                >
+                  Apply Filter
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="my-6"
+          >
+            <div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    samloco@gmail.com
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    40000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    123jkf5402
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    Completed
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    samloco@gmail.com
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    40000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    123jkf5402
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    Completed
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    samloco@gmail.com
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    40000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    123jkf5402
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    Completed
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    samloco@gmail.com
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    40000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    123jkf5402
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    Completed
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    samloco@gmail.com
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    40000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    123jkf5402
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    Completed
+                  </em>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mt-8 mx-auto w-[280px] flex items-center justify-between"
+          >
+            <button
+              class="flex items-center disabled:text-[#ccc]"
+              disabled=""
+            >
+              <svg
+                class="inline-block mr-3"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 320 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                />
+              </svg>
+              Previous
+            </button>
+            <div
+              class="bg-[#F2F2F2] px-6 py-2 rounded-lg"
+            >
+              1
+              /
+              6
+            </div>
+            <button
+              class="flex items-center disabled:text-[#ccc]"
+            >
+              Next
+              <svg
+                class="inline-block ml-3"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 320 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                />
+              </svg>
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="px-5 py-6 max-w-[850px] mx-auto"
+    >
+      <header
+        class="mb-7"
+      >
+        <h1
+          class="font-semibold text-2xl mb-5"
+        >
+          Completed Claims
+        </h1>
+        <div
+          class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
+        >
+          <img
+            alt="search icon"
+            class="block mr-2 w-7 h-7"
+            src="/src/assets/Icons/SearchIcon.svg"
+          />
+          <input
+            class="bg-transparent py-2 text-opacity-20"
+            placeholder="Find policy reference"
+            type="search"
+            value=""
+          />
+        </div>
+      </header>
+      <main
+        class=""
+      >
+        <div
+          class="flex justify-between items-center relative"
+        >
+          <h2
+            class="font-medium"
+          >
+            Activity
+          </h2>
+          <button
+            class="bg-[#25D366] rounded-full p-2 px-4 text-white"
+          >
+            <svg
+              class="inline-block mr-1"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M32 144h448M112 256h288M208 368h96"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+              />
+            </svg>
+            Filter
+          </button>
+          <div
+            class="bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[5000ms] overflow-hidden opacity-0  max-h-0"
+            data-testid="filter"
+          >
+            <div>
+              <label
+                class="mb-2 inline-block"
+              >
+                Period Range
+              </label>
+              <div
+                class="relative w-full"
+              >
+                <button
+                  class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
+                >
+                  <div
+                    class="space-x-2 flex flex-row items-center justify-between"
+                  >
+                    <span
+                      class="text-base"
+                      title="selectBtn"
+                    >
+                      Daily
+                    </span>
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                      />
+                    </svg>
+                  </div>
+                </button>
+                <div
+                  class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
+                >
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Daily
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Weekly
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Monthly
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Yearly
+                  </button>
+                  <hr />
+                </div>
+              </div>
+            </div>
+            <div>
+              <label
+                class="mb-2 inline-block"
+              >
+                Custom Date Range
+              </label>
+              <div
+                class="w-full"
+              >
+                <button
+                  class="px-4 py-2 border rounded-md relative font-semibold w-full block"
+                >
+                  November 13, 2023
+                  <input
+                    class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
+                    placeholder="date"
+                    type="date"
+                    value="2023-11-13"
+                  />
+                </button>
+                <button
+                  class="px-4 py-2 border rounded-md relative font-semibold w-full"
+                >
+                  November 13, 2023
+                  <input
+                    class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
+                    placeholder="date"
+                    type="date"
+                    value="2023-11-13"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-[#333] mb-2 block text-base"
+                for="policyNo"
+              >
+                Policy No.
+                 
+              </label>
+              <input
+                class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
+                id="policyNo"
+                placeholder="#A023457"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div>
+              <label
+                class="mb-2 inline-block"
+              >
+                Select Product(s)
+              </label>
+              <div
+                class="relative w-full"
+              >
+                <button
+                  class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
+                >
+                  <div
+                    class="space-x-2 flex flex-row items-center justify-between"
+                  >
+                    <span
+                      class="text-base"
+                      title="selectBtn"
+                    >
+                      Comprehensive
+                    </span>
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                      />
+                    </svg>
+                  </div>
+                </button>
+                <div
+                  class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
+                >
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Comprehensive
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Credit Life
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Card Protect
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Student
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Travel
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Device
+                  </button>
+                  <hr />
+                </div>
+              </div>
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-[#333] mb-2 block text-base"
+                for="amount"
+              >
+                Amount
+                 
+              </label>
+              <input
+                class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
+                id="amount"
+                placeholder="₦"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class="flex ml-auto"
+            >
+              <button
+                class="bg-white border rounded-md w-[90px] inline-block mr-4 py-2 ml-auto"
+              >
+                Cancel
+              </button>
+              <button
+                class="bg-mPrimary text-white w-[115px] rounded-md py-2"
+              >
+                Apply Filter
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="my-6"
+        >
+          <div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  samloco@gmail.com
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  40000
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  123jkf5402
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  Completed
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  samloco@gmail.com
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  40000
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  123jkf5402
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  Completed
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  samloco@gmail.com
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  40000
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  123jkf5402
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  Completed
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  samloco@gmail.com
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  40000
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  123jkf5402
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  Completed
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  samloco@gmail.com
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  40000
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  123jkf5402
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  Completed
+                </em>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-8 mx-auto w-[280px] flex items-center justify-between"
+        >
+          <button
+            class="flex items-center disabled:text-[#ccc]"
+            disabled=""
+          >
+            <svg
+              class="inline-block mr-3"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 320 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+              />
+            </svg>
+            Previous
+          </button>
+          <div
+            class="bg-[#F2F2F2] px-6 py-2 rounded-lg"
+          >
+            1
+            /
+            6
+          </div>
+          <button
+            class="flex items-center disabled:text-[#ccc]"
+          >
+            Next
+            <svg
+              class="inline-block ml-3"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 320 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+              />
+            </svg>
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -1,0 +1,15 @@
+export const MutationKeys = {
+  companySignup: "company-signup",
+  companyLogin: "company-login",
+  companyVerify: "company-verify",
+  companyResendOTP: "company-resend-otp",
+  companyForgotPassword: "company-forgot-password",
+  companyResetPassword: "company-reset-password",
+  companyInviteAgent: "company-invite-agent",
+  agentSignup: "agent-signup",
+  agentLogin: "agent-login",
+  agentVerify: "agent-verify",
+  agentResendOTP: "agent-resend-otp",
+  agentForgotPassword: "agent-forgot-password",
+  agentResetPassword: "agent-reset-password",
+};

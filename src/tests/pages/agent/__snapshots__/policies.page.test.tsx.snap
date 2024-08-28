@@ -1,0 +1,1302 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Agent Policies Page > renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mx-auto max-w-6xl mt-12 px-6 lg:px-0"
+      >
+        <div
+          class="flex flex-row justify-between items-center mb-10 relative"
+        >
+          <span
+            class="text-3xl text-[#333333] font-semibold"
+          >
+            Policies
+          </span>
+          <form>
+            <div
+              class="relative"
+            >
+              <input
+                class="border rounded bg-[#F2F2F2] pl-9 px-6 py-2 placeholder:text-[#828282] text-opacity-20"
+                placeholder="Find policy reference"
+                type="search"
+                value=""
+              />
+              <img
+                alt="search icon"
+                class="absolute top-3.5 left-2"
+                src="/src/assets/Icons/SearchIcon.svg"
+              />
+            </div>
+          </form>
+          <div
+            class="flex flex-row items-center space-x-3"
+            id="dates"
+          >
+            <button
+              class="text-[#333333]"
+            >
+              <div
+                class="space-x-2 flex flex-row items-center bg-[#828282] px-4 py-2 rounded text-white"
+              >
+                <span
+                  class="text-base"
+                >
+                  Filter
+                </span>
+                <svg
+                  class="transition-all duration-300"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                  />
+                </svg>
+              </div>
+            </button>
+            <button
+              class="bg-[#25D366] rounded"
+            >
+              <div
+                class="space-x-2 flex flex-row items-center px-4 py-2 text-white"
+              >
+                <span
+                  class="text-base"
+                >
+                  Download
+                </span>
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m12 16 4-5h-3V4h-2v7H8z"
+                  />
+                  <path
+                    d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+          <div
+            class="bg-white px-5 py-10 absolute top-[50px] w-[450px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all overflow-hidden opacity-0 max-h-0"
+            data-testid="filter"
+          >
+            <div>
+              <label
+                class="mb-2 inline-block"
+              >
+                Period Range
+              </label>
+              <div
+                class="relative w-full"
+              >
+                <button
+                  class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
+                >
+                  <div
+                    class="space-x-2 flex flex-row items-center justify-between"
+                  >
+                    <span
+                      class="text-base"
+                      title="selectBtn"
+                    >
+                      Daily
+                    </span>
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                      />
+                    </svg>
+                  </div>
+                </button>
+                <div
+                  class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
+                >
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Daily
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Weekly
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Monthly
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Yearly
+                  </button>
+                  <hr />
+                </div>
+              </div>
+            </div>
+            <div>
+              <label
+                class="mb-2 inline-block"
+              >
+                Custom Date Range
+              </label>
+              <div
+                class="flex w-full"
+              >
+                <button
+                  class="px-4 py-2 border rounded-md relative rounded-tr-none rounded-br-none font-semibold w-1/2"
+                >
+                  November 13, 2023
+                  <input
+                    class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
+                    placeholder="date"
+                    type="date"
+                    value="2023-11-13"
+                  />
+                </button>
+                <button
+                  class="px-4 py-2 border rounded-md relative rounded-tl-none rounded-bl-none font-semibold w-1/2"
+                >
+                  November 13, 2023
+                  <input
+                    class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
+                    placeholder="date"
+                    type="date"
+                    value="2023-11-13"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-[#333] mb-2 block text-base"
+                for="policyNo"
+              >
+                Policy No.
+              </label>
+              <input
+                class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
+                id="policyNo"
+                placeholder="#A023457"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div>
+              <label
+                class="mb-2 inline-block"
+              >
+                Select Product(s)
+              </label>
+              <div
+                class="relative w-full"
+              >
+                <button
+                  class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
+                >
+                  <div
+                    class="space-x-2 flex flex-row items-center justify-between"
+                  >
+                    <span
+                      class="text-base"
+                      title="selectBtn"
+                    >
+                      Comprehensive
+                    </span>
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                      />
+                    </svg>
+                  </div>
+                </button>
+                <div
+                  class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
+                >
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Comprehensive
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Credit Life
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Card Protect
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Student
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Travel
+                  </button>
+                  <hr />
+                  <button
+                    class="w-full font-inter py-4 font-semibold"
+                  >
+                    Device
+                  </button>
+                  <hr />
+                </div>
+              </div>
+            </div>
+            <div
+              class=""
+            >
+              <label
+                class="text-[#333] mb-2 block text-base"
+                for="amount"
+              >
+                Amount
+              </label>
+              <input
+                class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
+                id="amount"
+                placeholder="₦"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div
+              class="flex ml-auto"
+            >
+              <button
+                class="bg-white border rounded-md w-[90px] inline-block mr-4 py-2 ml-auto"
+              >
+                Cancel
+              </button>
+              <button
+                class="bg-primary text-white w-[115px] rounded-md py-2"
+              >
+                Apply Filter
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mb-10"
+        >
+          <table
+            class="table-auto w-full"
+          >
+            <thead
+              class="bg-gray-200 text-[#333333]"
+            >
+              <tr>
+                <th
+                  class="p-4 text-left"
+                >
+                  Policy Ref.
+                </th>
+                <th
+                  class="p-4 text-left"
+                >
+                  Policy No.
+                </th>
+                <th
+                  class="p-4 text-left"
+                >
+                  Product
+                </th>
+                <th
+                  class="p-4 text-left"
+                >
+                  Date
+                </th>
+                <th
+                  class="p-4 text-left"
+                >
+                  Price
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="bg-white text-[#333333]"
+            >
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4"
+                >
+                  Comprehensive
+                </td>
+                <td
+                  class="p-4"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4"
+                >
+                  Credit Life
+                </td>
+                <td
+                  class="p-4"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4"
+                >
+                  Card Protect
+                </td>
+                <td
+                  class="p-4"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4"
+                >
+                  Student
+                </td>
+                <td
+                  class="p-4"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4"
+                >
+                  Travel
+                </td>
+                <td
+                  class="p-4"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+              <tr
+                class="border-b font-medium"
+              >
+                <td
+                  class="p-4"
+                >
+                  #WP62F3E8F93
+                </td>
+                <td
+                  class="p-4"
+                >
+                  123jkf5402
+                </td>
+                <td
+                  class="p-4"
+                >
+                  Device
+                </td>
+                <td
+                  class="p-4"
+                >
+                  May 7, 2023
+                </td>
+                <td
+                  class="p-4"
+                >
+                  ₦40,000.00
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <nav
+          class="flex space-x-4"
+        >
+          <button
+            class="px-5 py-2 rounded-md border text-sm font-medium text-[#ccc]"
+            disabled=""
+          >
+            Previous
+          </button>
+          <ul
+            class="flex space-x-2"
+          >
+            <li
+              class="border rounded-md bg-primary text-white border-none"
+              data-testid="active"
+            >
+              <button
+                class="h-[38px] w-[38px]"
+              >
+                1
+              </button>
+            </li>
+            <li
+              class="border rounded-md"
+              data-testid="false"
+            >
+              <button
+                class="h-[38px] w-[38px]"
+              >
+                2
+              </button>
+            </li>
+            <li
+              class="border rounded-md"
+              data-testid="false"
+            >
+              <button
+                class="h-[38px] w-[38px]"
+              >
+                3
+              </button>
+            </li>
+            <li
+              class="border rounded-md"
+              data-testid="false"
+            >
+              <button
+                class="h-[38px] w-[38px]"
+              >
+                4
+              </button>
+            </li>
+            <li
+              class="border rounded-md"
+              data-testid="false"
+            >
+              <button
+                class="h-[38px] w-[38px]"
+              >
+                5
+              </button>
+            </li>
+            <li
+              class="border rounded-md"
+              data-testid="false"
+            >
+              <button
+                class="h-[38px] w-[38px]"
+              >
+                6
+              </button>
+            </li>
+          </ul>
+          <button
+            class="px-5 py-2 rounded-md border text-sm font-medium"
+          >
+            Next
+          </button>
+        </nav>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mx-auto max-w-6xl mt-12 px-6 lg:px-0"
+    >
+      <div
+        class="flex flex-row justify-between items-center mb-10 relative"
+      >
+        <span
+          class="text-3xl text-[#333333] font-semibold"
+        >
+          Policies
+        </span>
+        <form>
+          <div
+            class="relative"
+          >
+            <input
+              class="border rounded bg-[#F2F2F2] pl-9 px-6 py-2 placeholder:text-[#828282] text-opacity-20"
+              placeholder="Find policy reference"
+              type="search"
+              value=""
+            />
+            <img
+              alt="search icon"
+              class="absolute top-3.5 left-2"
+              src="/src/assets/Icons/SearchIcon.svg"
+            />
+          </div>
+        </form>
+        <div
+          class="flex flex-row items-center space-x-3"
+          id="dates"
+        >
+          <button
+            class="text-[#333333]"
+          >
+            <div
+              class="space-x-2 flex flex-row items-center bg-[#828282] px-4 py-2 rounded text-white"
+            >
+              <span
+                class="text-base"
+              >
+                Filter
+              </span>
+              <svg
+                class="transition-all duration-300"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                />
+              </svg>
+            </div>
+          </button>
+          <button
+            class="bg-[#25D366] rounded"
+          >
+            <div
+              class="space-x-2 flex flex-row items-center px-4 py-2 text-white"
+            >
+              <span
+                class="text-base"
+              >
+                Download
+              </span>
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m12 16 4-5h-3V4h-2v7H8z"
+                />
+                <path
+                  d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"
+                />
+              </svg>
+            </div>
+          </button>
+        </div>
+        <div
+          class="bg-white px-5 py-10 absolute top-[50px] w-[450px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all overflow-hidden opacity-0 max-h-0"
+          data-testid="filter"
+        >
+          <div>
+            <label
+              class="mb-2 inline-block"
+            >
+              Period Range
+            </label>
+            <div
+              class="relative w-full"
+            >
+              <button
+                class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
+              >
+                <div
+                  class="space-x-2 flex flex-row items-center justify-between"
+                >
+                  <span
+                    class="text-base"
+                    title="selectBtn"
+                  >
+                    Daily
+                  </span>
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div
+                class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
+              >
+                <button
+                  class="w-full font-inter py-4 font-semibold"
+                >
+                  Daily
+                </button>
+                <hr />
+                <button
+                  class="w-full font-inter py-4 font-semibold"
+                >
+                  Weekly
+                </button>
+                <hr />
+                <button
+                  class="w-full font-inter py-4 font-semibold"
+                >
+                  Monthly
+                </button>
+                <hr />
+                <button
+                  class="w-full font-inter py-4 font-semibold"
+                >
+                  Yearly
+                </button>
+                <hr />
+              </div>
+            </div>
+          </div>
+          <div>
+            <label
+              class="mb-2 inline-block"
+            >
+              Custom Date Range
+            </label>
+            <div
+              class="flex w-full"
+            >
+              <button
+                class="px-4 py-2 border rounded-md relative rounded-tr-none rounded-br-none font-semibold w-1/2"
+              >
+                November 13, 2023
+                <input
+                  class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
+                  placeholder="date"
+                  type="date"
+                  value="2023-11-13"
+                />
+              </button>
+              <button
+                class="px-4 py-2 border rounded-md relative rounded-tl-none rounded-bl-none font-semibold w-1/2"
+              >
+                November 13, 2023
+                <input
+                  class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
+                  placeholder="date"
+                  type="date"
+                  value="2023-11-13"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-base"
+              for="policyNo"
+            >
+              Policy No.
+            </label>
+            <input
+              class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
+              id="policyNo"
+              placeholder="#A023457"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div>
+            <label
+              class="mb-2 inline-block"
+            >
+              Select Product(s)
+            </label>
+            <div
+              class="relative w-full"
+            >
+              <button
+                class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
+              >
+                <div
+                  class="space-x-2 flex flex-row items-center justify-between"
+                >
+                  <span
+                    class="text-base"
+                    title="selectBtn"
+                  >
+                    Comprehensive
+                  </span>
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <div
+                class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
+              >
+                <button
+                  class="w-full font-inter py-4 font-semibold"
+                >
+                  Comprehensive
+                </button>
+                <hr />
+                <button
+                  class="w-full font-inter py-4 font-semibold"
+                >
+                  Credit Life
+                </button>
+                <hr />
+                <button
+                  class="w-full font-inter py-4 font-semibold"
+                >
+                  Card Protect
+                </button>
+                <hr />
+                <button
+                  class="w-full font-inter py-4 font-semibold"
+                >
+                  Student
+                </button>
+                <hr />
+                <button
+                  class="w-full font-inter py-4 font-semibold"
+                >
+                  Travel
+                </button>
+                <hr />
+                <button
+                  class="w-full font-inter py-4 font-semibold"
+                >
+                  Device
+                </button>
+                <hr />
+              </div>
+            </div>
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-base"
+              for="amount"
+            >
+              Amount
+            </label>
+            <input
+              class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
+              id="amount"
+              placeholder="₦"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class="flex ml-auto"
+          >
+            <button
+              class="bg-white border rounded-md w-[90px] inline-block mr-4 py-2 ml-auto"
+            >
+              Cancel
+            </button>
+            <button
+              class="bg-primary text-white w-[115px] rounded-md py-2"
+            >
+              Apply Filter
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mb-10"
+      >
+        <table
+          class="table-auto w-full"
+        >
+          <thead
+            class="bg-gray-200 text-[#333333]"
+          >
+            <tr>
+              <th
+                class="p-4 text-left"
+              >
+                Policy Ref.
+              </th>
+              <th
+                class="p-4 text-left"
+              >
+                Policy No.
+              </th>
+              <th
+                class="p-4 text-left"
+              >
+                Product
+              </th>
+              <th
+                class="p-4 text-left"
+              >
+                Date
+              </th>
+              <th
+                class="p-4 text-left"
+              >
+                Price
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="bg-white text-[#333333]"
+          >
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4"
+              >
+                Comprehensive
+              </td>
+              <td
+                class="p-4"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4"
+              >
+                Credit Life
+              </td>
+              <td
+                class="p-4"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4"
+              >
+                Card Protect
+              </td>
+              <td
+                class="p-4"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4"
+              >
+                Student
+              </td>
+              <td
+                class="p-4"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4"
+              >
+                Travel
+              </td>
+              <td
+                class="p-4"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+            <tr
+              class="border-b font-medium"
+            >
+              <td
+                class="p-4"
+              >
+                #WP62F3E8F93
+              </td>
+              <td
+                class="p-4"
+              >
+                123jkf5402
+              </td>
+              <td
+                class="p-4"
+              >
+                Device
+              </td>
+              <td
+                class="p-4"
+              >
+                May 7, 2023
+              </td>
+              <td
+                class="p-4"
+              >
+                ₦40,000.00
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <nav
+        class="flex space-x-4"
+      >
+        <button
+          class="px-5 py-2 rounded-md border text-sm font-medium text-[#ccc]"
+          disabled=""
+        >
+          Previous
+        </button>
+        <ul
+          class="flex space-x-2"
+        >
+          <li
+            class="border rounded-md bg-primary text-white border-none"
+            data-testid="active"
+          >
+            <button
+              class="h-[38px] w-[38px]"
+            >
+              1
+            </button>
+          </li>
+          <li
+            class="border rounded-md"
+            data-testid="false"
+          >
+            <button
+              class="h-[38px] w-[38px]"
+            >
+              2
+            </button>
+          </li>
+          <li
+            class="border rounded-md"
+            data-testid="false"
+          >
+            <button
+              class="h-[38px] w-[38px]"
+            >
+              3
+            </button>
+          </li>
+          <li
+            class="border rounded-md"
+            data-testid="false"
+          >
+            <button
+              class="h-[38px] w-[38px]"
+            >
+              4
+            </button>
+          </li>
+          <li
+            class="border rounded-md"
+            data-testid="false"
+          >
+            <button
+              class="h-[38px] w-[38px]"
+            >
+              5
+            </button>
+          </li>
+          <li
+            class="border rounded-md"
+            data-testid="false"
+          >
+            <button
+              class="h-[38px] w-[38px]"
+            >
+              6
+            </button>
+          </li>
+        </ul>
+        <button
+          class="px-5 py-2 rounded-md border text-sm font-medium"
+        >
+          Next
+        </button>
+      </nav>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
