@@ -15,7 +15,19 @@ import { isAxiosError } from "axios";
 import { CompanyProvider } from "./context/company.context.tsx";
 import { AgentProvider } from "./context/agent.context.tsx";
 import { OverlayContextProvider } from "./context/overlay.context.tsx";
+import * as changeCase from "change-case";
+
 import { logger } from "./utils/logger.ts";
+import { isPlainObject } from "lodash";
+
+const ERR_MAP: { [key: string]: string } = {
+  business_registration_number: "Company Registration No",
+  admin_name: "Admin Name",
+  business_name: "Company Name",
+  email: "Admin Email",
+  password: "Password",
+  insurer_gampID: "GAMP ID",
+};
 
 const queryClient = new QueryClient({
   mutationCache: new MutationCache({
@@ -27,15 +39,28 @@ const queryClient = new QueryClient({
           err.response?.data.message ??
           err.response?.data.non_field_errors ??
           "";
-        if (!errMessage) {
-          if (Array.isArray(err.response?.data.error)) {
-            errMessage = err.response.data.error[0];
-          } else {
-            errMessage = err.response?.data.error;
-          }
+
+        if (!errMessage && Array.isArray(err.response?.data.error)) {
+          errMessage = err.response.data.error[0];
+        }
+        if (!errMessage && err.response?.data.error) {
+          errMessage = err.response?.data.error;
+        }
+        if (errMessage) {
+          toast.error(errMessage);
         }
 
-        if (errMessage) toast.error(errMessage);
+        if (!errMessage && isPlainObject(err.response?.data)) {
+          const errObj = err.response?.data;
+          for (let key in errObj) {
+            const keyVal: string =
+              key in ERR_MAP
+                ? (ERR_MAP[key] as string)
+                : changeCase.capitalCase(key);
+
+            toast.error(`${keyVal}: ${errObj[key]}`);
+          }
+        }
       }
     },
   }),

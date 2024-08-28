@@ -36,7 +36,7 @@ export const AgentVerifyOTPPage = () => {
   const { agentEmail } = useContext(AgentContext);
 
   useEffect(() => {
-    // if (!agentEmail) navigate(BrowserComboRoutes.agentLogin);
+    if (!agentEmail) navigate(BrowserComboRoutes.agentLogin);
   }, [agentEmail]);
 
   const { mutate: mVerifyOTP, isPending: isVerificationLoading } = useMutation({

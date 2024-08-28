@@ -170,7 +170,7 @@ export const NewAgentOverlay: React.FC = () => {
             }
             acceptedFiles=".csv"
             onFileChange={(e) => {
-              console.log(e);
+              logger.log(e);
             }}
           />
         </>
