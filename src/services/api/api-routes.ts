@@ -9,6 +9,7 @@ const BaseRoutes = {
   inviteAgent: "/generate-agent-sign-up",
   insurerProfile: "/insurer-profile",
   resetToken: "/refresh-access-token",
+  updateProfilePicture: "/update-profile-picture",
 };
 
 const RouteTypes = {
@@ -27,6 +28,7 @@ export const CompanyApiRoutes = {
   profile: RouteTypes.company + BaseRoutes.insurerProfile,
   inviteAgent: RouteTypes.company + BaseRoutes.inviteAgent,
   resetToken: RouteTypes.company + BaseRoutes.resetToken,
+  updateProfilePicture: RouteTypes.company + BaseRoutes.updateProfilePicture,
 };
 
 export const AgentApiRoutes = {

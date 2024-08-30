@@ -1,11 +1,16 @@
 import { Loader } from "@/components/loader";
+import { EditableProfileImage } from "@/components/shared/editable-image";
 import { CustomInput } from "@/components/shared/input";
-import { getCompanyDetails } from "@/services/api/api-company";
+import {
+  getCompanyProfile,
+  updateCompanyProfilePicture,
+} from "@/services/api/api-company";
 import { logger } from "@/utils/logger";
 import { CompanyQueryKeys } from "@/utils/query-keys";
 import { getCompanyInitials } from "@/utils/utils";
-import { useQuery } from "@tanstack/react-query";
-import { MdEdit } from "react-icons/md";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 // const formSchema = z.object({
 //   firstName: z.string().min(3, "First name cannot be less than 3 characters"),
@@ -16,16 +21,33 @@ import { MdEdit } from "react-icons/md";
 export const CompanyProfile = () => {
   const { data: companyDetailsData, isPending: isCompanyDetailsLoading } =
     useQuery({
-      queryKey: [CompanyQueryKeys.details],
-      queryFn: () => getCompanyDetails(),
+      queryKey: [CompanyQueryKeys.profile],
+      queryFn: () => getCompanyProfile(),
     });
+
+  const { mutate: updateProfilePicture, isPending: isUpdatingProfilePicture } =
+    useMutation({
+      mutationFn: (data: FormData) => updateCompanyProfilePicture(data),
+      onSuccess: () =>
+        queryClient.invalidateQueries({ queryKey: [CompanyQueryKeys.profile] }),
+    });
+
+  const queryClient = useQueryClient();
 
   const companyDetails = companyDetailsData?.data;
 
   if (isCompanyDetailsLoading)
     return <Loader className="mx-auto w-16 h-16 mt-40" />;
 
-  logger.log(companyDetails);
+  const handleInfoClick = () => {
+    toast("Reach out to us at tech@unyte.africa to edit your information.");
+  };
+
+  const handleImageChange = (image: File) => {
+    const data = new FormData();
+    data.append("profile_image", image);
+    updateProfilePicture(data);
+  };
 
   return (
     <div className="px-5 py-6 max-w-[768px] mx-auto space-y-8 lg:max-w-6xl lg:px-0 lg:my-12 lg:space-y-16">
@@ -37,14 +59,12 @@ export const CompanyProfile = () => {
             Edit your profile picture
           </em>
         </div>
-        <div className="w-32 h-32 bg-[#e0e0e0] rounded-full flex justify-center items-center my-4 relative lg:shrink-0 lg:my-0">
-          <div className="w-8 h-8 rounded-full bg-black text-white absolute bottom-2 right-2 flex justify-center items-center">
-            <MdEdit className="text-xl" />
-          </div>
-          <em className="not-italic font-semibold text-3xl">
-            {getCompanyInitials(companyDetails.business_name)}
-          </em>
-        </div>
+        <EditableProfileImage
+          extImageUrl={companyDetails.profile_image}
+          initials={getCompanyInitials(companyDetails.business_name)}
+          isLoading={isUpdatingProfilePicture}
+          onImageChange={handleImageChange}
+        />
       </section>
       <section className="w-full lg:flex">
         <div className="mb-4 lg:shrink-0 lg:mr-52 lg:mb-0 lg:w-[200px]">
@@ -56,15 +76,17 @@ export const CompanyProfile = () => {
         <div className="space-y-4 w-full max-w-[600px]">
           <CustomInput
             value={companyDetails.business_name}
-            disabled
             placeholder="Dro Corp"
+            className="cursor-not-allowed caret-white"
             label="Business Name"
+            onClick={handleInfoClick}
           />
           <CustomInput
             value={companyDetails.email}
             placeholder="johndoe@gmail.com"
             label="Email"
-            disabled
+            className="cursor-not-allowed caret-white"
+            onClick={handleInfoClick}
           />
           {/* <CustomInput placeholder="07031234567" label="Phone Number" /> */}
         </div>
