@@ -5,11 +5,9 @@ import {
   getCompanyProfile,
   updateCompanyProfilePicture,
 } from "@/services/api/api-company";
-import { logger } from "@/utils/logger";
 import { CompanyQueryKeys } from "@/utils/query-keys";
 import { getCompanyInitials } from "@/utils/utils";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
 import toast from "react-hot-toast";
 
 // const formSchema = z.object({

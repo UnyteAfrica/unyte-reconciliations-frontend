@@ -10,10 +10,7 @@ import { clearCredentials, getCompanyInitials } from "@/utils/utils";
 import { UserType } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import { CompanyQueryKeys } from "@/utils/query-keys";
-import {
-  getCompanyDetails,
-  getCompanyProfile,
-} from "@/services/api/api-company";
+import { getCompanyProfile } from "@/services/api/api-company";
 import { Loader } from "../loader";
 import { useLockScroll, useMediaQuery } from "@/utils/hooks";
 import { LuMenu } from "react-icons/lu";
