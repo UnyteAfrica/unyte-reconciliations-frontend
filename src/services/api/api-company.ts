@@ -199,3 +199,11 @@ export const inviteAgent = (agents: InviteAgentType) => {
     agents_list: agents,
   });
 };
+
+export const updateCompanyProfilePicture = (data: FormData) => {
+  return axiosInstance.post(CompanyApiRoutes.updateProfilePicture, data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};

@@ -10,7 +10,7 @@ import { clearCredentials, getCompanyInitials } from "@/utils/utils";
 import { UserType } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import { CompanyQueryKeys } from "@/utils/query-keys";
-import { getCompanyDetails } from "@/services/api/api-company";
+import { getCompanyProfile } from "@/services/api/api-company";
 import { Loader } from "../loader";
 import { useLockScroll, useMediaQuery } from "@/utils/hooks";
 import { LuMenu } from "react-icons/lu";
@@ -48,8 +48,8 @@ export const CompanyNavbar = () => {
 
   const { data: companyDetailsData, isPending: isCompanyDetailsLoading } =
     useQuery({
-      queryKey: [CompanyQueryKeys.details],
-      queryFn: () => getCompanyDetails(),
+      queryKey: [CompanyQueryKeys.profile],
+      queryFn: () => getCompanyProfile(),
     });
 
   useEffect(() => {
@@ -123,9 +123,18 @@ export const CompanyNavbar = () => {
                   !!companyDetails && (
                     <div id="profile">
                       <div className="flex items-center mb-6">
-                        <div className="rounded-full h-10 w-10 bg-gray-200 text-base flex items-center justify-center mr-2">
-                          {getCompanyInitials(companyDetails.business_name)}
-                        </div>
+                        {!!companyDetails.profile_image ? (
+                          <img
+                            className="h-10 w-10 object-cover inline-block mr-2 rounded-full"
+                            src={companyDetails.profile_image}
+                            alt=""
+                          />
+                        ) : (
+                          <div className="rounded-full h-10 w-10 bg-gray-200 text-base flex items-center justify-center mr-2">
+                            {getCompanyInitials(companyDetails.business_name)}
+                          </div>
+                        )}
+
                         <div className="text-base text-[#333] font-medium">
                           {companyDetails.business_name}
                         </div>
@@ -194,7 +203,18 @@ export const CompanyNavbar = () => {
                     onClick={toggleDropdown}
                   >
                     <div className="space-x-2 flex flex-row items-center">
-                      <span className="text-lg font-semibold max-xl:hidden">
+                      {!!companyDetails.profile_image ? (
+                        <img
+                          className="rounded-full h-10 w-10"
+                          src={companyDetails.profile_image}
+                          alt=""
+                        />
+                      ) : (
+                        <div className="rounded-full h-10 w-10 p-2 bg-gray-200 text-base flex items-center justify-center">
+                          {getCompanyInitials(companyDetails.business_name)}
+                        </div>
+                      )}
+                      <span className="text-lg font-semibold hidden min-[1200px]:inline">
                         {companyDetails.business_name}
                       </span>{" "}
                       <BiChevronDown
