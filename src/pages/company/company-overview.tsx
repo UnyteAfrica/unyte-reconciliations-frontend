@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
-import { getWeekValue, nairaSign } from "@/utils/utils";
+import { formatToNaira, getWeekValue } from "@/utils/utils";
 
 import { Selector } from "@/components/shared/selector";
 import { periods } from "@/components/shared/page-content";
@@ -11,22 +11,6 @@ import { RangeWeekPicker } from "@/components/shared/week-picker";
 import moment, { Moment } from "moment";
 import { random } from "lodash";
 import { RangeMonthPicker } from "@/components/shared/month-picker";
-
-type Stat = {
-  title: string;
-  value: string;
-};
-
-const stats: Stat[] = [
-  {
-    title: "number of policies sold",
-    value: "20,000 policies",
-  },
-  {
-    title: "total value of policies",
-    value: `${nairaSign}220,000,000.00`,
-  },
-];
 
 const dailyChartDataSeries: ApexAxisChartSeries = [
   {
@@ -68,37 +52,7 @@ const dailyChartDataSeries: ApexAxisChartSeries = [
   },
 ];
 
-const defaultChartDataOptions: ApexCharts.ApexOptions = {
-  chart: {
-    height: 100,
-    type: "bar",
-    fontFamily: "Inter",
-  },
-  plotOptions: {
-    bar: {
-      columnWidth: "50%",
-    },
-  },
-  colors: ["#25D366"],
-  dataLabels: {
-    enabled: false,
-  },
-  legend: {
-    show: true,
-    showForSingleSeries: true,
-    customLegendItems: ["Actual"],
-  },
-  fill: {
-    type: "pattern",
-    colors: ["#25D366"],
-    pattern: {
-      style: "slantedLines",
-      width: 6,
-      height: 6,
-      strokeWidth: 2,
-    },
-  },
-};
+const POLICY_COST = 2000;
 
 export const CompanyOverview: React.FC = () => {
   const [startDay, setStartDay] = useState<Moment>(moment());
@@ -112,9 +66,56 @@ export const CompanyOverview: React.FC = () => {
   const [period, setPeriod] = useState<string>(periods[0]);
   const [chartDataSeries, setChartDataSeries] =
     useState<ApexAxisChartSeries>(dailyChartDataSeries);
-  const [chartDataOptions] = useState<ApexCharts.ApexOptions>(
-    defaultChartDataOptions
-  );
+  const [totalPolicyValue, setTotalPolicyValue] = useState(0);
+
+  const chartDataOptions: ApexCharts.ApexOptions = {
+    yaxis: {
+      show: true,
+      title: {
+        offsetX: -5,
+        text: "Value of Policies Sold",
+        style: {
+          fontSize: "16px",
+        },
+      },
+    },
+    xaxis: {
+      title: {
+        text: `${period} Period`,
+        style: {
+          fontSize: "16px",
+        },
+      },
+    },
+    chart: {
+      height: 100,
+      type: "bar",
+      fontFamily: "Inter",
+      toolbar: {
+        show: false,
+      },
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "50%",
+      },
+    },
+    colors: ["#25D366"],
+    dataLabels: {
+      enabled: false,
+    },
+
+    fill: {
+      type: "pattern",
+      colors: ["#25D366"],
+      pattern: {
+        style: "slantedLines",
+        width: 6,
+        height: 6,
+        strokeWidth: 2,
+      },
+    },
+  };
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 
@@ -129,16 +130,18 @@ export const CompanyOverview: React.FC = () => {
       },
     ];
     const curr = startDay.clone();
+    let total = 0;
     while (!curr.isAfter(endDay)) {
       const x = curr.format("DD/MM");
       const y = random(1, 10000);
+      total += y;
       dailyChartSeries[0].data.push({
         x,
         y,
       });
       curr.add(1, "day");
     }
-
+    setTotalPolicyValue(total);
     setChartDataSeries(dailyChartSeries);
   };
 
@@ -154,16 +157,18 @@ export const CompanyOverview: React.FC = () => {
     ];
     const curr = startWeek.clone().startOf("week");
     const end = endWeek.clone().endOf("week");
+    let total = 0;
     while (!curr.isAfter(end)) {
       const x = getWeekValue(curr);
       const y = random(1, 10000);
+      total += y;
       weeklyChartSeries[0].data.push({
         x,
         y,
       });
       curr.add(1, "week");
     }
-
+    setTotalPolicyValue(total);
     setChartDataSeries(weeklyChartSeries);
   };
 
@@ -178,16 +183,18 @@ export const CompanyOverview: React.FC = () => {
       },
     ];
     const curr = startMonth.clone();
+    let total = 0;
     while (!curr.isAfter(endMonth)) {
       const x = curr.format("MM/YYYY");
       const y = random(1, 10000);
+      total += y;
       monthlyChartSeries[0].data.push({
         x,
         y,
       });
       curr.add(1, "month");
     }
-
+    setTotalPolicyValue(total);
     setChartDataSeries(monthlyChartSeries);
   };
 
@@ -202,16 +209,18 @@ export const CompanyOverview: React.FC = () => {
       },
     ];
     const curr = startYear.clone();
+    let total = 0;
     while (!curr.isAfter(endYear)) {
       const x = curr.format("YYYY");
       const y = random(1, 10000);
+      total += y;
       yearlyChartSeries[0].data.push({
         x,
         y,
       });
       curr.add(1, "year");
     }
-
+    setTotalPolicyValue(total);
     setChartDataSeries(yearlyChartSeries);
   };
 
@@ -347,7 +356,7 @@ export const CompanyOverview: React.FC = () => {
                 Number of policies sold
               </em>
               <em className="not-italic block text-[#333] text-xl font-semibold">
-                20,000 policies
+                {Math.floor(totalPolicyValue / POLICY_COST)} policies
               </em>
             </div>
             <div className="mb-8">
@@ -355,7 +364,7 @@ export const CompanyOverview: React.FC = () => {
                 Total value of policies sold
               </em>
               <em className="not-italic block text-[#333] text-xl font-semibold">
-                {nairaSign}150,000.00
+                {formatToNaira(totalPolicyValue)}
               </em>
             </div>
           </div>
@@ -464,16 +473,22 @@ export const CompanyOverview: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-row justify-between items-center mb-24">
-            {stats.map((stat, idx) => (
-              <div key={idx} className="rounded p-6 border w-[30rem]">
-                <p className="text-sm text-[#4F4F4F] mb-8 uppercase">
-                  {stat.title}
-                </p>
-                <p className="text-xl text-[#333333] font-medium">
-                  {stat.value}
-                </p>
-              </div>
-            ))}
+            <div className="rounded p-6 border w-[30rem]">
+              <p className="text-sm text-[#4F4F4F] mb-8 uppercase">
+                number of policies sold
+              </p>
+              <p className="text-xl text-[#333333] font-medium">
+                {Math.floor(totalPolicyValue / POLICY_COST)} policies
+              </p>
+            </div>
+            <div className="rounded p-6 border w-[30rem]">
+              <p className="text-sm text-[#4F4F4F] mb-8 uppercase">
+                total value of policies
+              </p>
+              <p className="text-xl text-[#333333] font-medium">
+                {formatToNaira(totalPolicyValue)}
+              </p>
+            </div>
           </div>
           <div className="border rounded p-10 mb-40">
             <Chart
