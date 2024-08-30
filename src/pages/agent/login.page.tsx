@@ -100,23 +100,23 @@ export const AgentLoginPage = () => {
                 error={errors.emailOrGampId?.message?.toString()}
                 {...register("emailOrGampId")}
               />
-              <PasswordInput
-                placeholder="******"
-                labelClassName="text-sm text-[#333"
-                className="p-2 h-[58px] border-[#E0E0E0]"
-                inputClassname="h-[56px]"
-                error={errors.password?.message?.toString()}
-                {...register("password")}
-              />
               <div>
-                <div className="flex justify-end">
-                  <Link
-                    to={BrowserComboRoutes.agentForgotPassword}
-                    className="text-mPrimary text-sm mb-2 inline-block"
-                  >
-                    Forgotten Password?
-                  </Link>
-                </div>
+                <PasswordInput
+                  placeholder="******"
+                  labelClassName="text-sm text-[#333"
+                  className="p-2 h-[58px] border-[#E0E0E0]"
+                  inputClassname="h-[56px]"
+                  error={errors.password?.message?.toString()}
+                  {...register("password")}
+                />
+                <Link
+                  to={BrowserComboRoutes.agentForgotPassword}
+                  className="text-mPrimary text-sm mt-2 inline-block"
+                >
+                  Forgotten Password?
+                </Link>
+              </div>
+              <div>
                 <button
                   className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                   disabled={isLoginLoading}
@@ -154,20 +154,20 @@ export const AgentLoginPage = () => {
                   error={errors.emailOrGampId?.message?.toString()}
                   {...register("emailOrGampId")}
                 />
-                <PasswordInput
-                  placeholder="******"
-                  error={errors.password?.message?.toString()}
-                  {...register("password")}
-                />
                 <div>
-                  <div className="flex justify-end">
-                    <Link
-                      to={BrowserComboRoutes.agentForgotPassword}
-                      className="text-mPrimary mb-2 inline-block"
-                    >
-                      Forgotten Password?
-                    </Link>
-                  </div>
+                  <PasswordInput
+                    placeholder="******"
+                    error={errors.password?.message?.toString()}
+                    {...register("password")}
+                  />
+                  <Link
+                    to={BrowserComboRoutes.agentForgotPassword}
+                    className="text-mPrimary mt-2 inline-block"
+                  >
+                    Forgotten Password?
+                  </Link>
+                </div>
+                <div>
                   <button
                     className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[72px] text-white rounded-2xl"
                     disabled={isLoginLoading}
