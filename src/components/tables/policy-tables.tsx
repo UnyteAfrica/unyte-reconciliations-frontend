@@ -67,16 +67,24 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
           <div key={idx} className="border-b py-2">
             <div className="flex justify-between items-center mb-2">
               <em className="not-italic font-semibold text-[#333]">
-                {policy.policyRef}
+                {policy.policyType}
               </em>
               <em className="not-italic font-semibold text-[#333]">
-                {policy.agentId}
+                {policy.agent}
+              </em>
+            </div>
+            <div className="flex justify-between items-center mb-2">
+              <em className="not-italic font-medium text-[#333]">
+                {policy.policyName}
+              </em>
+              <em className="not-italic font-medium text-[#333]">
+                {policy.policyCategory}
               </em>
             </div>
             <div className="flex justify-between items-center">
               <em className="not-italic text-[#828282]">{policy.date}</em>
               <em className="not-italic text-[#828282]">
-                {formatToNaira(policy.price)}
+                {formatToNaira(Number(policy.price))}
               </em>
             </div>
           </div>
@@ -84,14 +92,28 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
       </div>
     );
   return (
-    <Table headers={["Policy Ref.", "Policy No.", "Agent ID", "Date", "Price"]}>
+    <Table
+      headers={[
+        "Policy Category",
+        "Policy Name",
+        "Policy Type",
+        "Agent",
+
+        "Price",
+        "Date",
+      ]}
+    >
       {policies.map((policy, i) => (
         <tr key={i} className="border-b font-medium">
-          <td className="p-4 text-center">{policy.policyRef}</td>
-          <td className="p-4 text-center">{policy.policyNo}</td>
-          <td className="p-4 text-center">{policy.agentId}</td>
+          <td className="p-4 text-center">{policy.policyCategory}</td>
+          <td className="p-4 text-center">{policy.policyName}</td>
+          <td className="p-4 text-center">{policy.policyType}</td>
+          <td className="p-4 text-center">{policy.agent}</td>
+
+          <td className="p-4 text-center">
+            {formatToNaira(Number(policy.price))}
+          </td>
           <td className="p-4 text-center">{policy.date}</td>
-          <td className="p-4 text-center">{formatToNaira(policy.price)}</td>
         </tr>
       ))}
     </Table>

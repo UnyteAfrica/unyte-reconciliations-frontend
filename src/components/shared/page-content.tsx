@@ -12,13 +12,7 @@ import { IoMdAdd } from "react-icons/io";
 import { OverlayContext, OverlayContextType } from "@/context/overlay.context";
 import { useMediaQuery } from "@/utils/hooks";
 import { IoFilterOutline } from "react-icons/io5";
-
-type PageContentProps = {
-  pageTable: ReactNode;
-  title: string;
-  searchbarPlaceholder?: string;
-  hasNewAgent?: boolean;
-};
+import { Loader } from "../loader";
 
 export const periods = ["Daily", "Weekly", "Monthly", "Yearly"] as const;
 export const products = [
@@ -30,16 +24,34 @@ export const products = [
   "Device",
 ] as const;
 
+type PageContentProps = {
+  pageTable: ReactNode;
+  title: string;
+  searchbarPlaceholder?: string;
+  hasNewAgent?: boolean;
+  error?: Error | null;
+  isLoading?: boolean;
+  page?: number;
+  onPageChange?: (page: number) => void;
+  totalItems?: number;
+  pageCount?: number;
+};
+
 export const PageContent: React.FC<PageContentProps> = ({
   pageTable,
   title,
   searchbarPlaceholder,
   hasNewAgent = false,
+  error,
+  isLoading,
+  onPageChange,
+  page,
+  pageCount,
+  totalItems,
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [period, setPeriod] = useState<string>(periods[0]);
   const [product, setProduct] = useState<string>(products[0]);
-  const [page, setPage] = useState(1);
   const [startDate, setStartDate] = useState(new Date(1699885840400));
   const [endDate, setEndDate] = useState(new Date(1699885870400));
 
@@ -169,13 +181,23 @@ export const PageContent: React.FC<PageContentProps> = ({
                 </div>
               </div>
             </div>
-            <div className="my-6">{pageTable}</div>
-            <Pagination
-              currentPage={page}
-              itemsCount={56}
-              pageSize={10}
-              onPageChange={(page) => setPage(page)}
-            />
+            {isLoading ? (
+              <Loader className="mx-auto w-16 h-16 mt-20" />
+            ) : error ? (
+              <p className="text-red-600 text-xl font-bold text-center mt-10">
+                Something went wrong. Please try again
+              </p>
+            ) : (
+              <>
+                <div className="my-6">{pageTable}</div>
+                <Pagination
+                  currentPage={page || 1}
+                  itemsCount={totalItems || 56}
+                  pageSize={pageCount || 10}
+                  onPageChange={onPageChange ? onPageChange : () => {}}
+                />
+              </>
+            )}
           </main>
         </div>
       )}
@@ -295,13 +317,23 @@ export const PageContent: React.FC<PageContentProps> = ({
               </div>
             </div>
           </div>
-          <div className="mb-10">{pageTable}</div>
-          <Pagination
-            currentPage={page}
-            itemsCount={56}
-            pageSize={10}
-            onPageChange={(page) => setPage(page)}
-          />
+          {isLoading ? (
+            <Loader className="mx-auto w-16 h-16 mt-20" />
+          ) : error ? (
+            <p className="text-red-600 text-xl font-bold text-center mt-10">
+              Something went wrong. Please try again
+            </p>
+          ) : (
+            <>
+              <div className="mb-10">{pageTable}</div>
+              <Pagination
+                currentPage={page || 1}
+                itemsCount={totalItems || 56}
+                pageSize={pageCount || 10}
+                onPageChange={onPageChange ? onPageChange : () => {}}
+              />
+            </>
+          )}
         </div>
       )}
     </>

@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
+import { LocalStorage } from "@/services/local-storage";
 
 const formSchema = z.object({
   otp: z.string().min(6, "OTP cannot be less than 6 characters"),
@@ -33,7 +34,7 @@ export const AgentVerifyOTPPage = () => {
   });
 
   const navigate = useNavigate();
-  const { agentEmail } = useContext(AgentContext);
+  const { agentEmail, setAgentEmail, setIsLoggedIn } = useContext(AgentContext);
 
   useEffect(() => {
     if (!agentEmail) navigate(BrowserComboRoutes.agentLogin);
@@ -44,8 +45,12 @@ export const AgentVerifyOTPPage = () => {
     mutationFn: (data: AgentVerifyOTPType) => agentVerifyOTP(data),
     onSuccess: (data) => {
       logger.log(data);
-      toast.success(data.data.message);
+      toast.success("OTP verified");
+      LocalStorage.setItem("agentAccessToken", data.data.access_token);
+      LocalStorage.setItem("agentRefreshToken", data.data.refresh_token);
+      setIsLoggedIn(true);
       navigate(BrowserComboRoutes.agentOverview);
+      setAgentEmail("");
     },
   });
 

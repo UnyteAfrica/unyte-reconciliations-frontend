@@ -1,5 +1,5 @@
 import { LocalStorage } from "@/services/local-storage";
-import { UserType } from "@/types/types";
+import { ApiCompanyPolicy, CompanyPolicy, UserType } from "@/types/types";
 import { clsx, type ClassValue } from "clsx";
 import { Moment } from "moment";
 import { twMerge } from "tailwind-merge";
@@ -97,4 +97,81 @@ export const getWeekValue = (date: Moment) => {
   const weekInMonth = currWeek - startOfMonthWeek + 1;
 
   return `${month} Week ${weekInMonth}`;
+};
+
+export const flattenApiPolicy = (
+  apiPolicy: ApiCompanyPolicy
+): CompanyPolicy[] => {
+  const { agent, policies_sold, policy_category, policy_name } = apiPolicy;
+  const basePolicy = {
+    agent,
+    policyCategory: policy_category,
+    policyName: policy_name,
+  };
+
+  const result = [];
+  for (let policy of policies_sold) {
+    const newPolicy: CompanyPolicy = {
+      ...basePolicy,
+      date: policy.date_sold,
+      policyType: policy.name,
+      price: policy.premium,
+    };
+    result.push(newPolicy);
+  }
+
+  return result;
+};
+
+export const flattenApiPolicies = (
+  apiPolicies: ApiCompanyPolicy[]
+): CompanyPolicy[] => {
+  const result = [];
+  const nestedPolicies = apiPolicies.map(flattenApiPolicy);
+  for (let policies of nestedPolicies) {
+    for (let policy of policies) {
+      result.push(policy);
+    }
+  }
+  return result;
+};
+
+export const ascendingDateComparator = (date1: string, date2: string) => {
+  if (date1 == date2) return 0;
+  const [year1, month1, day1] = date1.split("-").map((str) => Number(str));
+  const [year2, month2, day2] = date2.split("-").map((str) => Number(str));
+
+  // -ve val means 1 before 2
+  // +ve val means 2 before 1
+
+  if (year1 < year2) return -1;
+  if (year2 < year1) return 1;
+
+  if (month1 < month2) return -1;
+  if (month2 < month1) return 1;
+
+  if (day1 < day2) return -1;
+  if (day2 < day1) return 1;
+
+  return 0;
+};
+
+export const descendingDateComparator = (date1: string, date2: string) => {
+  if (date1 == date2) return 0;
+  const [year1, month1, day1] = date1.split("-").map((str) => Number(str));
+  const [year2, month2, day2] = date2.split("-").map((str) => Number(str));
+
+  // -ve val means 1 before 2
+  // +ve val means 2 before 1
+
+  if (year1 < year2) return 1;
+  if (year2 < year1) return -1;
+
+  if (month1 < month2) return 1;
+  if (month2 < month1) return -1;
+
+  if (day1 < day2) return 1;
+  if (day2 < day1) return -1;
+
+  return 0;
 };
