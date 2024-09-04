@@ -123,7 +123,7 @@ export const NewAgentOverlay: React.FC = () => {
             setAddAgentState(AddAgentState.TEXT);
           }}
         >
-          Invite By Text
+          Invite By Email
         </button>
         <button
           className={cx(

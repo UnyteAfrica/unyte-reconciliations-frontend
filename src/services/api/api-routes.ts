@@ -10,6 +10,9 @@ const BaseRoutes = {
   insurerProfile: "/insurer-profile",
   resetToken: "/refresh-access-token",
   updateProfilePicture: "/update-profile-picture",
+  agents: "/all-agents",
+  policies: "/view-all-policies",
+  dateRangePolicies: "/view-all-policies-date-range",
 };
 
 const RouteTypes = {
@@ -29,6 +32,8 @@ export const CompanyApiRoutes = {
   inviteAgent: RouteTypes.company + BaseRoutes.inviteAgent,
   resetToken: RouteTypes.company + BaseRoutes.resetToken,
   updateProfilePicture: RouteTypes.company + BaseRoutes.updateProfilePicture,
+  getAllAgents: RouteTypes.company + BaseRoutes.agents,
+  getPolicies: RouteTypes.company + BaseRoutes.policies,
 };
 
 export const AgentApiRoutes = {

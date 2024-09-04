@@ -16,6 +16,7 @@ import { CompanyContext } from "@/context/company.context";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
+import { LocalStorage } from "@/services/local-storage";
 
 const formSchema = z.object({
   otp: z.string().min(6, "OTP cannot be less than 6 characters"),
@@ -35,7 +36,8 @@ export const CompanyVerifyOTPPage = () => {
 
   const navigate = useNavigate();
 
-  const { companyEmail, setCompanyEmail } = useContext(CompanyContext);
+  const { companyEmail, setCompanyEmail, setIsLoggedIn } =
+    useContext(CompanyContext);
 
   useEffect(() => {
     if (!companyEmail) navigate(BrowserComboRoutes.companyLogin);
@@ -47,6 +49,9 @@ export const CompanyVerifyOTPPage = () => {
     onSuccess: (data) => {
       logger.log(data);
       toast.success("OTP verified");
+      LocalStorage.setItem("companyAccessToken", data.data.access_token);
+      LocalStorage.setItem("companyRefreshToken", data.data.refresh_token);
+      setIsLoggedIn(true);
       navigate(BrowserComboRoutes.companyOverview);
       setCompanyEmail("");
     },

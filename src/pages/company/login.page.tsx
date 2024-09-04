@@ -11,10 +11,10 @@ import { Loader } from "@/components/loader";
 import { useContext } from "react";
 import { CompanyLoginType } from "@/types/request.types";
 import { CompanyContext } from "@/context/company.context";
-import { LocalStorage } from "@/services/local-storage";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   email: z.string().email("Admin Email is invalid"),
@@ -35,7 +35,7 @@ export const CompanyLoginPage = () => {
     },
   });
 
-  const { setCompanyEmail, setIsLoggedIn } = useContext(CompanyContext);
+  const { setCompanyEmail } = useContext(CompanyContext);
 
   const navigate = useNavigate();
 
@@ -44,9 +44,7 @@ export const CompanyLoginPage = () => {
     mutationFn: (data: CompanyLoginType) => companyLogin(data),
     onSuccess: (data) => {
       logger.log(data);
-      LocalStorage.setItem("companyAccessToken", data.data.access_token);
-      LocalStorage.setItem("companyRefreshToken", data.data.refresh_token);
-      setIsLoggedIn(true);
+      toast.success("Please enter the OTP sent to your email");
       setCompanyEmail(getValues("email"));
       navigate(BrowserComboRoutes.companyVerify);
     },

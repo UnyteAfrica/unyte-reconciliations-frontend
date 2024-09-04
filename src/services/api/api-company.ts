@@ -9,7 +9,7 @@ import {
 } from "@/types/request.types";
 import { jwtDecode } from "jwt-decode";
 import { clearCredentials } from "@/utils/utils";
-import { UserType } from "@/types/types";
+import { ApiCompanyAgent, ApiCompanyPolicy, UserType } from "@/types/types";
 import { LocalStorage } from "../local-storage";
 import { logger } from "@/utils/logger";
 
@@ -200,10 +200,18 @@ export const inviteAgent = (agents: InviteAgentType) => {
   });
 };
 
+export const getAllAgents = () => {
+  return axiosInstance.get<ApiCompanyAgent[]>(CompanyApiRoutes.getAllAgents);
+};
+
 export const updateCompanyProfilePicture = (data: FormData) => {
   return axiosInstance.post(CompanyApiRoutes.updateProfilePicture, data, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
   });
+};
+
+export const getPolicies = () => {
+  return axiosInstance.get<ApiCompanyPolicy[]>(CompanyApiRoutes.getPolicies);
 };
