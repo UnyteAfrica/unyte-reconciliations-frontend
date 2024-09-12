@@ -89,6 +89,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const getWeekValue = (date: Moment) => {
+  date = date.clone().startOf("week");
   const month = date.format("MMMM");
   const startOfMonth = date.clone().startOf("month");
 

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
 import { Selector } from "@/components/shared/selector";
-import { periods } from "@/components/shared/page-content";
 import { useMediaQuery } from "@/utils/hooks";
 import moment, { Moment } from "moment";
 import { random } from "lodash";
@@ -10,6 +9,7 @@ import { RangeMonthPicker } from "@/components/shared/month-picker";
 import { RangeWeekPicker } from "@/components/shared/week-picker";
 import { RangeDayPicker } from "@/components/shared/day-picker";
 import { formatToNaira, getWeekValue } from "@/utils/utils";
+import { PERIODS } from "@/components/shared/page-content";
 
 const dailyChartDataSeries: ApexAxisChartSeries = [
   {
@@ -62,7 +62,7 @@ export const AgentOverview: React.FC = () => {
   const [endMonth, setEndMonth] = useState<Moment>(moment());
   const [startYear, setStartYear] = useState<Moment>(moment());
   const [endYear, setEndYear] = useState<Moment>(moment());
-  const [period, setPeriod] = useState<string>(periods[0]);
+  const [period, setPeriod] = useState<string>(PERIODS.DAILY);
   const [chartDataSeries, setChartDataSeries] =
     useState<ApexAxisChartSeries>(dailyChartDataSeries);
   const [totalPolicyValue, setTotalPolicyValue] = useState(0);
@@ -225,16 +225,16 @@ export const AgentOverview: React.FC = () => {
 
   useEffect(() => {
     switch (period) {
-      case periods[0]:
+      case PERIODS.DAILY:
         updateDailySeries();
         break;
-      case periods[1]:
+      case PERIODS.WEEKLY:
         updateWeeklySeries();
         break;
-      case periods[2]:
+      case PERIODS.MONTHLY:
         updateMonthlySeries();
         break;
-      case periods[3]:
+      case PERIODS.YEARLY:
         updateYearlySeries();
         break;
     }
@@ -269,13 +269,13 @@ export const AgentOverview: React.FC = () => {
           </div>
           <div className="my-8 w-[200px] sm:w-auto sm:flex sm:space-x-4">
             <Selector
-              options={periods}
+              options={Object.values(PERIODS)}
               value={period}
               onChange={(val) => setPeriod(val)}
               containerClassName="mb-4 sm:mb-0"
             />
             <div className="flex">
-              {period == periods[3] ? (
+              {period == PERIODS.YEARLY ? (
                 <RangeYearPicker
                   startYear={startYear}
                   endYear={endYear}
@@ -293,7 +293,7 @@ export const AgentOverview: React.FC = () => {
               ) : (
                 <></>
               )}
-              {period == periods[2] ? (
+              {period == PERIODS.MONTHLY ? (
                 <RangeMonthPicker
                   startMonth={startMonth}
                   endMonth={endMonth}
@@ -311,7 +311,7 @@ export const AgentOverview: React.FC = () => {
               ) : (
                 <></>
               )}
-              {period == periods[1] ? (
+              {period == PERIODS.WEEKLY ? (
                 <RangeWeekPicker
                   startWeek={startWeek}
                   endWeek={endWeek}
@@ -329,7 +329,7 @@ export const AgentOverview: React.FC = () => {
               ) : (
                 <></>
               )}
-              {period == periods[0] ? (
+              {period == PERIODS.DAILY ? (
                 <RangeDayPicker
                   startDay={startDay}
                   endDay={endDay}
@@ -390,12 +390,12 @@ export const AgentOverview: React.FC = () => {
             </span>
             <div id="dates" className="flex flex-row items-center space-x-3">
               <Selector
-                options={periods}
+                options={Object.values(PERIODS)}
                 value={period}
                 onChange={(val) => setPeriod(val)}
               />
               <div className="flex">
-                {period == periods[3] ? (
+                {period == PERIODS.YEARLY ? (
                   <RangeYearPicker
                     startYear={startYear}
                     endYear={endYear}
@@ -413,7 +413,7 @@ export const AgentOverview: React.FC = () => {
                 ) : (
                   <></>
                 )}
-                {period == periods[2] ? (
+                {period == PERIODS.MONTHLY ? (
                   <RangeMonthPicker
                     startMonth={startMonth}
                     endMonth={endMonth}
@@ -431,7 +431,7 @@ export const AgentOverview: React.FC = () => {
                 ) : (
                   <></>
                 )}
-                {period == periods[1] ? (
+                {period == PERIODS.WEEKLY ? (
                   <RangeWeekPicker
                     startWeek={startWeek}
                     endWeek={endWeek}
@@ -449,7 +449,7 @@ export const AgentOverview: React.FC = () => {
                 ) : (
                   <></>
                 )}
-                {period == periods[0] ? (
+                {period == PERIODS.DAILY ? (
                   <RangeDayPicker
                     startDay={startDay}
                     endDay={endDay}

@@ -14,7 +14,13 @@ import { useMediaQuery } from "@/utils/hooks";
 import { IoFilterOutline } from "react-icons/io5";
 import { Loader } from "../loader";
 
-export const periods = ["Daily", "Weekly", "Monthly", "Yearly"] as const;
+export const PERIODS = {
+  DAILY: "Daily",
+  WEEKLY: "Weekly",
+  MONTHLY: "Monthly",
+  YEARLY: "Yearly",
+} as const;
+const periods = Object.values(PERIODS);
 export const products = [
   "Comprehensive",
   "Credit Life",

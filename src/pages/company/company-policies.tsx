@@ -1,23 +1,21 @@
-import { CompanyPolicy } from "@/types/types";
 import { PageContent } from "@/components/shared/page-content";
 import { CompanyPoliciesTable } from "@/components/tables/policy-tables";
 import { useQuery } from "@tanstack/react-query";
 import { CompanyQueryKeys } from "@/utils/query-keys";
 import { getPolicies } from "@/services/api/api-company";
-import { descendingDateComparator, flattenApiPolicies } from "@/utils/utils";
 import { useState } from "react";
 import { PAGE_COUNT } from "@/utils/constants";
 
 export const CompanyPolicies = () => {
+  const [page, setPage] = useState(1);
   const {
     isPending: isLoadingPolicies,
     data: policiesData,
     error: policiesError,
   } = useQuery({
-    queryKey: [CompanyQueryKeys.policies],
-    queryFn: () => getPolicies(),
+    queryKey: [CompanyQueryKeys.policies, page],
+    queryFn: () => getPolicies(page),
   });
-  const [page, setPage] = useState(1);
 
   if (isLoadingPolicies)
     return (
@@ -28,25 +26,15 @@ export const CompanyPolicies = () => {
       />
     );
 
-  const apiPolicies = policiesData?.data;
-  const policies = flattenApiPolicies(apiPolicies?.slice(0, -1)!);
-  policies.sort((policy1, policy2) =>
-    descendingDateComparator(policy1.date, policy2.date)
-  );
+  const policies = policiesData?.data.results;
+  console.log(policies);
 
-  const totalPages = policies.length;
-  const paginatedMap: { [key: number]: CompanyPolicy[] } = {};
-  for (let i = 0; i < totalPages; i++) {
-    paginatedMap[i + 1] = policies.slice(
-      i * PAGE_COUNT,
-      i * PAGE_COUNT + (PAGE_COUNT - 1)
-    );
-  }
+  const totalPages = policiesData?.data.count;
 
   return (
     <PageContent
       title="Policies"
-      pageTable={<CompanyPoliciesTable policies={paginatedMap[page]} />}
+      pageTable={<CompanyPoliciesTable policies={policies!} />}
       error={policiesError}
       isLoading={isLoadingPolicies}
       page={page}
