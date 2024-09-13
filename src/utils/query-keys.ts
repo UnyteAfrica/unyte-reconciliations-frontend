@@ -3,6 +3,7 @@ export const CompanyQueryKeys = {
   details: "company-details",
   agents: "agents",
   policies: "policies",
+  dateRangePolicies: "date-range-policies",
 };
 
 export const AgentQueryKeys = {

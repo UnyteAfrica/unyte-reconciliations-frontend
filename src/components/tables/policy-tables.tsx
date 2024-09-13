@@ -1,4 +1,4 @@
-import { AgentPolicy, CompanyPolicy } from "@/types/types";
+import { AgentPolicy, Policy } from "@/types/types";
 import { Table } from "../table";
 import { formatToNaira } from "@/utils/utils";
 import { useMediaQuery } from "@/utils/hooks";
@@ -52,7 +52,7 @@ export const AgentPoliciesTable: React.FC<AgentPoliciesTableProps> = ({
 };
 
 type CompanyPoliciesTableProps = {
-  policies: CompanyPolicy[];
+  policies: Policy[];
 };
 
 export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
@@ -67,7 +67,7 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
           <div key={idx} className="border-b py-2">
             <div className="flex justify-between items-center mb-2">
               <em className="not-italic font-semibold text-[#333]">
-                {policy.policyType}
+                {policy.name}
               </em>
               <em className="not-italic font-semibold text-[#333]">
                 {policy.agent}
@@ -75,16 +75,16 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
             </div>
             <div className="flex justify-between items-center mb-2">
               <em className="not-italic font-medium text-[#333]">
-                {policy.policyName}
+                {policy.policy_name}
               </em>
               <em className="not-italic font-medium text-[#333]">
-                {policy.policyCategory}
+                {policy.policy_category}
               </em>
             </div>
             <div className="flex justify-between items-center">
-              <em className="not-italic text-[#828282]">{policy.date}</em>
+              <em className="not-italic text-[#828282]">{policy.date_sold}</em>
               <em className="not-italic text-[#828282]">
-                {formatToNaira(Number(policy.price))}
+                {formatToNaira(Number(policy.premium))}
               </em>
             </div>
           </div>
@@ -105,15 +105,15 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
     >
       {policies.map((policy, i) => (
         <tr key={i} className="border-b font-medium">
-          <td className="p-4 text-center">{policy.policyCategory}</td>
-          <td className="p-4 text-center">{policy.policyName}</td>
-          <td className="p-4 text-center">{policy.policyType}</td>
+          <td className="p-4 text-center">{policy.policy_category}</td>
+          <td className="p-4 text-center">{policy.policy_name}</td>
+          <td className="p-4 text-center">{policy.name}</td>
           <td className="p-4 text-center">{policy.agent}</td>
 
           <td className="p-4 text-center">
-            {formatToNaira(Number(policy.price))}
+            {formatToNaira(Number(policy.premium))}
           </td>
-          <td className="p-4 text-center">{policy.date}</td>
+          <td className="p-4 text-center">{policy.date_sold}</td>
         </tr>
       ))}
     </Table>

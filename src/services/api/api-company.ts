@@ -9,9 +9,16 @@ import {
 } from "@/types/request.types";
 import { jwtDecode } from "jwt-decode";
 import { clearCredentials } from "@/utils/utils";
-import { ApiCompanyAgent, ApiCompanyPolicy, UserType } from "@/types/types";
+import {
+  ApiCompanyAgent,
+  DateRangePolicy,
+  PaginationWrapper,
+  Policy,
+  UserType,
+} from "@/types/types";
 import { LocalStorage } from "../local-storage";
 import { logger } from "@/utils/logger";
+import { Moment } from "moment";
 
 const URL =
   "https://unyte-reconciliation-backend-dev-ynoamqpukq-uc.a.run.app/api";
@@ -212,6 +219,16 @@ export const updateCompanyProfilePicture = (data: FormData) => {
   });
 };
 
-export const getPolicies = () => {
-  return axiosInstance.get<ApiCompanyPolicy[]>(CompanyApiRoutes.getPolicies);
+export const getPolicies = (page?: number) => {
+  return axiosInstance.get<PaginationWrapper<Policy>>(
+    CompanyApiRoutes.getPolicies(page || 1)
+  );
 };
+
+export const getDateRangePolicies = (startDate: Moment, endDate: Moment) =>
+  axiosInstance.get<PaginationWrapper<DateRangePolicy>>(
+    CompanyApiRoutes.getDateRangePolicies(
+      startDate.format("YYYY-MM-DD"),
+      endDate.format("YYYY-MM-DD")
+    )
+  );

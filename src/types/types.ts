@@ -86,3 +86,32 @@ export type ApiCompanyAgent = {
   id: number;
   last_name: string;
 };
+
+export type PaginationWrapper<T> = {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: T[];
+};
+
+export type FlatFeeStatus = "NO" | "YES";
+
+export type DateRangePolicy = {
+  agent: string;
+  date_sold: string;
+  flat_fee: FlatFeeStatus;
+  name: string;
+  policy_category: string;
+  policy_name: string;
+  premium: string;
+};
+
+export type Policy = {
+  agent: string;
+  date_sold: string;
+  flat_fee: FlatFeeStatus;
+  name: string;
+  policy_category: string;
+  policy_name: string;
+  premium: string;
+};
