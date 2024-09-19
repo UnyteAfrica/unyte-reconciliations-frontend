@@ -87,9 +87,9 @@ export const CompanyOverview: React.FC = () => {
         formatter: (num) => {
           const policyCount = policyCountMap[num.toString()];
           return `
-            <h1>${policyCount} ${
+            <strong>${policyCount} ${
             policyCount == 1 ? "Policy" : "Policies"
-          } Sold</h1>
+          } Sold</strong>
           `;
         },
       },

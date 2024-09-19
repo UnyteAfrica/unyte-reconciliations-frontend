@@ -6,6 +6,7 @@ export const MutationKeys = {
   companyForgotPassword: "company-forgot-password",
   companyResetPassword: "company-reset-password",
   companyInviteAgent: "company-invite-agent",
+  companyInviteAgentCSV: "company-invite-agent-csv",
   agentSignup: "agent-signup",
   agentLogin: "agent-login",
   agentVerify: "agent-verify",
