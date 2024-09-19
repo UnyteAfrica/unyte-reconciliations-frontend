@@ -219,6 +219,14 @@ export const updateCompanyProfilePicture = (data: FormData) => {
   });
 };
 
+export const inviteAgentsThroughCSV = (data: FormData) => {
+  return axiosInstance.post(CompanyApiRoutes.inviteAgentsThroughCSV, data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
 export const getPolicies = (page?: number) => {
   return axiosInstance.get<PaginationWrapper<Policy>>(
     CompanyApiRoutes.getPolicies(page || 1)

@@ -27,7 +27,6 @@ export const CompanyPolicies = () => {
     );
 
   const policies = policiesData?.data.results;
-  console.log(policies);
 
   const totalPages = policiesData?.data.count;
 
