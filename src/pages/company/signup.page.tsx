@@ -13,8 +13,6 @@ import { CompanySignupType } from "@/types/request.types";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
-import { OTPInput } from "@/components/shared/otp-input";
-import { ApiType } from "@/types/types";
 
 const formSchema = z
   .object({
@@ -193,7 +191,6 @@ export const CompanySignupPage = () => {
                 </p>
               </header>
               <div className="space-y-6">
-                <OTPInput apiType={ApiType.Insurer} />
                 <CustomInput
                   label="Company Name"
                   placeholder="John Doe Ltd"

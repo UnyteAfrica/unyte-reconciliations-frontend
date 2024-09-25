@@ -38,14 +38,14 @@ exports[`Agent Login Page > renders correctly 1`] = `
               >
                 <label
                   class="mb-2 block text-sm text-[#333"
-                  for="email /GampId"
+                  for="email"
                 >
-                  Email / GAMP ID
+                  Email
                    
                 </label>
                 <input
                   class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
-                  id="email /GampId"
+                  id="email"
                   name="emailOrGampId"
                   placeholder="johndoe@gmail.com / A034529"
                 />
@@ -158,14 +158,14 @@ exports[`Agent Login Page > renders correctly 1`] = `
             >
               <label
                 class="mb-2 block text-sm text-[#333"
-                for="email /GampId"
+                for="email"
               >
-                Email / GAMP ID
+                Email
                  
               </label>
               <input
                 class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
-                id="email /GampId"
+                id="email"
                 name="emailOrGampId"
                 placeholder="johndoe@gmail.com / A034529"
               />

@@ -1,5 +1,5 @@
 import { logger } from "@/utils/logger";
-import { CustomInput } from "./input";
+import { PasswordInput } from "./input";
 import { ApiType } from "@/types/types";
 import { useMutation } from "@tanstack/react-query";
 import { companyResendOTP } from "@/services/api/api-company";
@@ -12,9 +12,15 @@ import toast from "react-hot-toast";
 
 type OTPInputProps = {
   apiType: ApiType;
+  otpVal: string;
+  onChange: (otp: string) => void;
 };
 
-export const OTPInput: React.FC<OTPInputProps> = ({ apiType }) => {
+export const OTPInput: React.FC<OTPInputProps> = ({
+  apiType,
+  otpVal,
+  onChange,
+}) => {
   const { companyEmail, isLoggedIn: isCompanyLoggedIn } = useContext(
     CompanyContext
   ) as CompanyContextType;
@@ -38,7 +44,12 @@ export const OTPInput: React.FC<OTPInputProps> = ({ apiType }) => {
 
   return (
     <div>
-      <CustomInput label="OTP" placeholder="******" />
+      <PasswordInput
+        label="OTP"
+        placeholder="******"
+        value={otpVal}
+        onChange={(e) => onChange(e.target.value)}
+      />
       <button
         className="text-mPrimary text-sm font-semibold my-2"
         onClick={(e) => {

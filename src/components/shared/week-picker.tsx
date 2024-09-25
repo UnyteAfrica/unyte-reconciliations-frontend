@@ -28,14 +28,14 @@ export const WeekPicker: React.FC<WeekPickerProps> = ({
       renderInput={(props, openCalendar, _) => {
         return (
           <div
-            className="w-[180px]"
+            className="w-[220px]"
             onClick={() => {
               openCalendar();
             }}
           >
             <input
               {...props}
-              className="w-[180px] text-center cursor-pointer"
+              className="w-[220px] text-center cursor-pointer"
               value={
                 displayedDate
                   ? getWeekValue(displayedDate)

@@ -11,7 +11,7 @@ import { UserType } from "@/types/types";
 import { AgentContext } from "@/context/agent.context";
 import { getAgentDetails } from "@/services/api/api-agent";
 import { AgentQueryKeys } from "@/utils/query-keys";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Loader } from "../loader";
 import { LuMenu } from "react-icons/lu";
 import { AiOutlineClose } from "react-icons/ai";
@@ -52,12 +52,20 @@ export const AgentNavbar = () => {
     setIsOpen(false);
   }, [location.pathname]);
 
+  const queryClient = useQueryClient();
+
   const { data: agentDetailsData, isPending: isAgentDetailsLoading } = useQuery(
     {
       queryKey: [AgentQueryKeys.details],
       queryFn: () => getAgentDetails(),
     }
   );
+
+  const logout = () => {
+    clearCredentials(UserType.agent);
+    setIsLoggedIn(false);
+    queryClient.invalidateQueries();
+  };
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -139,10 +147,7 @@ export const AgentNavbar = () => {
 
                       <button
                         className="block text-[#EB5757] font-medium"
-                        onClick={() => {
-                          clearCredentials(UserType.agent);
-                          setIsLoggedIn(false);
-                        }}
+                        onClick={logout}
                       >
                         Sign out
                       </button>
@@ -250,10 +255,7 @@ export const AgentNavbar = () => {
                       <hr />
                       <button
                         className="block px-6 py-4 text-[#EB5757] font-medium"
-                        onClick={() => {
-                          clearCredentials(UserType.agent);
-                          setIsLoggedIn(false);
-                        }}
+                        onClick={logout}
                       >
                         Sign out
                       </button>
