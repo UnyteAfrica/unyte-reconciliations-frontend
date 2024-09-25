@@ -8,7 +8,7 @@ import { twMerge } from "tailwind-merge";
 import { CompanyContext } from "@/context/company.context";
 import { clearCredentials, getCompanyInitials } from "@/utils/utils";
 import { UserType } from "@/types/types";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { CompanyQueryKeys } from "@/utils/query-keys";
 import { getCompanyProfile } from "@/services/api/api-company";
 import { Loader } from "../loader";
@@ -45,6 +45,7 @@ export const CompanyNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { setIsLoggedIn, setCompanyEmail } = useContext(CompanyContext);
+  const queryClient = useQueryClient();
 
   const { data: companyDetailsData, isPending: isCompanyDetailsLoading } =
     useQuery({
@@ -56,6 +57,12 @@ export const CompanyNavbar = () => {
     setIsMobileMenuOpen(false);
     setIsOpen(false);
   }, [location.pathname]);
+
+  const logout = () => {
+    clearCredentials(UserType.agent);
+    setIsLoggedIn(false);
+    queryClient.invalidateQueries();
+  };
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -142,10 +149,7 @@ export const CompanyNavbar = () => {
 
                       <button
                         className="block text-[#EB5757] font-medium"
-                        onClick={() => {
-                          clearCredentials(UserType.agent);
-                          setIsLoggedIn(false);
-                        }}
+                        onClick={logout}
                       >
                         Sign out
                       </button>
@@ -248,10 +252,7 @@ export const CompanyNavbar = () => {
                     </NavLink>
                     <hr />
                     <button
-                      onClick={() => {
-                        clearCredentials(UserType.company);
-                        setIsLoggedIn(false);
-                      }}
+                      onClick={logout}
                       className="block px-6 py-4 text-[#EB5757] font-medium"
                     >
                       Sign out

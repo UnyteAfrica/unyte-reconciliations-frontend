@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
-import { formatToNaira, getWeekValue } from "@/utils/utils";
+import { formatToNaira, getWeekValue, sanitizePremium } from "@/utils/utils";
 
 import { Selector } from "@/components/shared/selector";
 import { PERIODS } from "@/components/shared/page-content";
@@ -19,7 +19,7 @@ import { DateRangePolicy } from "@/types/types";
 
 type PolicyDateMapType = { [key: string]: number };
 
-const dailyChartDataSeries: ApexAxisChartSeries = [
+const defaultChartDataSeries: ApexAxisChartSeries = [
   {
     name: "Policies Sold",
     data: [
@@ -59,7 +59,52 @@ const dailyChartDataSeries: ApexAxisChartSeries = [
   },
 ];
 
-const POLICY_COST = 2000;
+const defaultChartDataOptions: ApexCharts.ApexOptions = {
+  tooltip: {
+    x: {
+      show: true,
+    },
+  },
+  yaxis: {
+    show: true,
+    title: {
+      offsetX: -5,
+      text: "Value of Policies Sold",
+      style: {
+        fontSize: "16px",
+      },
+    },
+  },
+  xaxis: {},
+  chart: {
+    height: 100,
+    type: "bar",
+    fontFamily: "Inter",
+    toolbar: {
+      show: false,
+    },
+  },
+  plotOptions: {
+    bar: {
+      columnWidth: "50%",
+    },
+  },
+  colors: ["#25D366"],
+  dataLabels: {
+    enabled: false,
+  },
+
+  fill: {
+    type: "pattern",
+    colors: ["#25D366"],
+    pattern: {
+      style: "slantedLines",
+      width: 6,
+      height: 6,
+      strokeWidth: 2,
+    },
+  },
+};
 
 export const CompanyOverview: React.FC = () => {
   const [startDay, setStartDay] = useState<Moment>(moment());
@@ -76,83 +121,104 @@ export const CompanyOverview: React.FC = () => {
   const [policyCountMap, setPolicyCountMap] = useState<{
     [key: string]: number;
   }>({});
-  const [chartDataSeries, setChartDataSeries] =
-    useState<ApexAxisChartSeries>(dailyChartDataSeries);
+  const [chartDataSeries, setChartDataSeries] = useState<ApexAxisChartSeries>(
+    defaultChartDataSeries
+  );
+  const [chartDataOptions, setChartDataOptions] =
+    useState<ApexCharts.ApexOptions>(defaultChartDataOptions);
+
   const [totalPolicyValue, setTotalPolicyValue] = useState(0);
+  const [totalPolicyCount, setTotalPolicyCount] = useState(0);
 
-  const chartDataOptions: ApexCharts.ApexOptions = {
-    tooltip: {
-      x: {
+  const {
+    data: dateRangePoliciesData,
+    isPending: isDateRangePoliciesLoading,
+    // error: dateRangePoliciesError,
+  } = useQuery({
+    queryKey: [
+      CompanyQueryKeys.dateRangePolicies,
+      activeStartDate,
+      activeEndDate,
+    ],
+    queryFn: () => getDateRangePolicies(activeStartDate, activeEndDate),
+  });
+
+  useEffect(() => {
+    const newChartDataOptions: ApexCharts.ApexOptions = {
+      tooltip: {
+        x: {
+          show: true,
+          formatter: (num) => {
+            const policyCount = policyCountMap[num.toString()];
+            return `
+              <strong>${policyCount} ${
+              policyCount == 1 ? "Policy" : "Policies"
+            } Sold</strong>
+            `;
+          },
+        },
+        // y: {
+        //   formatter: (num) => {
+        //     console.log("Y Formatter", num);
+        //     return "World";
+        //   },
+        //   title: {
+        //     formatter: (num) => {
+        //       console.log("Y Title Formatter", num);
+        //       return "Foo";
+        //     },
+        //   },
+        // },
+      },
+      yaxis: {
         show: true,
-        formatter: (num) => {
-          const policyCount = policyCountMap[num.toString()];
-          return `
-            <strong>${policyCount} ${
-            policyCount == 1 ? "Policy" : "Policies"
-          } Sold</strong>
-          `;
+        title: {
+          offsetX: -5,
+          text: "Value of Policies Sold",
+          style: {
+            fontSize: "16px",
+          },
         },
       },
-      // y: {
-      //   formatter: (num) => {
-      //     console.log("Y Formatter", num);
-      //     return "World";
-      //   },
-      //   title: {
-      //     formatter: (num) => {
-      //       console.log("Y Title Formatter", num);
-      //       return "Foo";
-      //     },
-      //   },
-      // },
-    },
-    yaxis: {
-      show: true,
-      title: {
-        offsetX: -5,
-        text: "Value of Policies Sold",
-        style: {
-          fontSize: "16px",
+      xaxis: {
+        title: {
+          text: `${period} Period`,
+          style: {
+            fontSize: "16px",
+          },
         },
       },
-    },
-    xaxis: {
-      title: {
-        text: `${period} Period`,
-        style: {
-          fontSize: "16px",
+      chart: {
+        height: 100,
+        type: "bar",
+        fontFamily: "Inter",
+        toolbar: {
+          show: false,
         },
       },
-    },
-    chart: {
-      height: 100,
-      type: "bar",
-      fontFamily: "Inter",
-      toolbar: {
-        show: false,
+      plotOptions: {
+        bar: {
+          columnWidth: "50%",
+        },
       },
-    },
-    plotOptions: {
-      bar: {
-        columnWidth: "50%",
-      },
-    },
-    colors: ["#25D366"],
-    dataLabels: {
-      enabled: false,
-    },
-
-    fill: {
-      type: "pattern",
       colors: ["#25D366"],
-      pattern: {
-        style: "slantedLines",
-        width: 6,
-        height: 6,
-        strokeWidth: 2,
+      dataLabels: {
+        enabled: false,
       },
-    },
-  };
+
+      fill: {
+        type: "pattern",
+        colors: ["#25D366"],
+        pattern: {
+          style: "slantedLines",
+          width: 6,
+          height: 6,
+          strokeWidth: 2,
+        },
+      },
+    };
+    setChartDataOptions(newChartDataOptions);
+  }, [policyCountMap, period]);
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 
@@ -168,15 +234,18 @@ export const CompanyOverview: React.FC = () => {
     ];
     const curr = startDay.clone();
     let total = 0;
+    let policyCount = 0;
 
     const policyDateMap: PolicyDateMapType = {};
     const iPolicyCountMap: PolicyDateMapType = {};
     for (let dateRangePolicy of dateRangePolicies) {
+      let sanitizedPremium = sanitizePremium(dateRangePolicy.premium);
       policyDateMap[dateRangePolicy.date_sold] =
         (policyDateMap[dateRangePolicy.date_sold] ?? 0) +
-        Number(dateRangePolicy.premium);
+        Number(sanitizedPremium ?? 1000);
       iPolicyCountMap[dateRangePolicy.date_sold] =
         (iPolicyCountMap[dateRangePolicy.date_sold] ?? 0) + 1;
+      policyCount++;
     }
     while (!curr.isAfter(endDay)) {
       const x = curr.format("YYYY-MM-DD");
@@ -192,6 +261,7 @@ export const CompanyOverview: React.FC = () => {
     }
 
     setTotalPolicyValue(total);
+    setTotalPolicyCount(policyCount);
     setChartDataSeries(dailyChartSeries);
     setPolicyCountMap(iPolicyCountMap);
   };
@@ -209,13 +279,16 @@ export const CompanyOverview: React.FC = () => {
 
     const policyDateMap: PolicyDateMapType = {};
     const iPolicyCountMap: PolicyDateMapType = {};
+    let policyCount = 0;
     for (let dateRangePolicy of dateRangePolicies) {
       const dateStr = dateRangePolicy.date_sold;
       const date = moment(dateStr, "YYYY-MM-DD");
       const weekVal = getWeekValue(date);
+      let sanitizedPremium = sanitizePremium(dateRangePolicy.premium);
       policyDateMap[weekVal] =
-        (policyDateMap[weekVal] ?? 0) + Number(dateRangePolicy.premium);
+        (policyDateMap[weekVal] ?? 0) + Number(sanitizedPremium ?? 1000);
       iPolicyCountMap[weekVal] = (iPolicyCountMap[weekVal] ?? 0) + 1;
+      policyCount++;
     }
     const curr = startWeek.clone().startOf("week");
     const end = endWeek.clone().endOf("week");
@@ -234,6 +307,7 @@ export const CompanyOverview: React.FC = () => {
       curr.add(1, "week");
     }
     setTotalPolicyValue(total);
+    setTotalPolicyCount(policyCount);
     setChartDataSeries(weeklyChartSeries);
     setPolicyCountMap(iPolicyCountMap);
   };
@@ -248,16 +322,18 @@ export const CompanyOverview: React.FC = () => {
         data: [],
       },
     ];
-
+    let policyCount = 0;
     const policyDateMap: PolicyDateMapType = {};
     const iPolicyCountMap: PolicyDateMapType = {};
     for (let dateRangePolicy of dateRangePolicies) {
       const dateStr = dateRangePolicy.date_sold;
       const date = moment(dateStr, "YYYY-MM-DD");
       const monthVal = date.format("MM/YYYY");
+      let sanitizedPremium = sanitizePremium(dateRangePolicy.premium);
       policyDateMap[monthVal] =
-        (policyDateMap[monthVal] ?? 0) + Number(dateRangePolicy.premium);
+        (policyDateMap[monthVal] ?? 0) + Number(sanitizedPremium ?? 1000);
       iPolicyCountMap[monthVal] = (iPolicyCountMap[monthVal] ?? 0) + 1;
+      policyCount++;
     }
 
     const curr = startMonth.clone();
@@ -275,6 +351,7 @@ export const CompanyOverview: React.FC = () => {
       curr.add(1, "month");
     }
     setTotalPolicyValue(total);
+    setTotalPolicyCount(policyCount);
     setChartDataSeries(monthlyChartSeries);
     setPolicyCountMap(iPolicyCountMap);
   };
@@ -292,13 +369,16 @@ export const CompanyOverview: React.FC = () => {
 
     const policyDateMap: PolicyDateMapType = {};
     const iPolicyCountMap: PolicyDateMapType = {};
+    let policyCount = 0;
     for (let dateRangePolicy of dateRangePolicies) {
       const dateStr = dateRangePolicy.date_sold;
       const date = moment(dateStr, "YYYY-MM-DD");
       const yearVal = date.format("YYYY");
+      let sanitizedPremium = sanitizePremium(dateRangePolicy.premium);
       policyDateMap[yearVal] =
-        (policyDateMap[yearVal] ?? 0) + Number(dateRangePolicy.premium);
+        (policyDateMap[yearVal] ?? 0) + Number(sanitizedPremium ?? 1000);
       iPolicyCountMap[yearVal] = (iPolicyCountMap[yearVal] ?? 0) + 1;
+      policyCount++;
     }
 
     const curr = startYear.clone();
@@ -317,6 +397,7 @@ export const CompanyOverview: React.FC = () => {
       curr.add(1, "year");
     }
     setTotalPolicyValue(total);
+    setTotalPolicyCount(policyCount);
     setChartDataSeries(yearlyChartSeries);
     setPolicyCountMap(iPolicyCountMap);
   };
@@ -340,6 +421,8 @@ export const CompanyOverview: React.FC = () => {
     setActiveStartDate(startYear.clone().startOf("year"));
     setActiveEndDate(endYear.clone().endOf("year"));
   };
+
+  const dateRangePolicies = dateRangePoliciesData?.data;
 
   useEffect(() => {
     switch (period) {
@@ -378,21 +461,7 @@ export const CompanyOverview: React.FC = () => {
     setActiveDay();
   }, [startDay, endDay]);
 
-  const {
-    data: dateRangePoliciesData,
-    isPending: isDateRangePoliciesLoading,
-    // error: dateRangePoliciesError,
-  } = useQuery({
-    queryKey: [
-      CompanyQueryKeys.dateRangePolicies,
-      activeStartDate,
-      activeEndDate,
-    ],
-    queryFn: () => getDateRangePolicies(activeStartDate, activeEndDate),
-  });
-
   useEffect(() => {
-    const dateRangePolicies = dateRangePoliciesData?.data.results;
     switch (period) {
       case PERIODS.DAILY:
         updateDailySeries(dateRangePolicies || []);
@@ -407,7 +476,7 @@ export const CompanyOverview: React.FC = () => {
         updateYearlySeries(dateRangePolicies || []);
         break;
     }
-  }, [dateRangePoliciesData]);
+  }, [dateRangePoliciesData, period]);
 
   return (
     <>
@@ -504,7 +573,7 @@ export const CompanyOverview: React.FC = () => {
                 Number of policies sold
               </em>
               <em className="not-italic block text-[#333] text-xl font-semibold">
-                {Math.floor(totalPolicyValue / POLICY_COST)} policies
+                {totalPolicyCount} policies
               </em>
             </div>
             <div className="mb-8">
@@ -630,7 +699,7 @@ export const CompanyOverview: React.FC = () => {
                 number of policies sold
               </p>
               <p className="text-xl text-[#333333] font-medium">
-                {Math.floor(totalPolicyValue / POLICY_COST)} policies
+                {totalPolicyCount} policies
               </p>
             </div>
             <div className="rounded p-6 border w-[30rem]">
@@ -647,6 +716,7 @@ export const CompanyOverview: React.FC = () => {
               <Loader className="mx-auto h-16 w-16" />
             ) : (
               <Chart
+                key={JSON.stringify(policyCountMap)}
                 options={chartDataOptions}
                 series={chartDataSeries}
                 type="bar"

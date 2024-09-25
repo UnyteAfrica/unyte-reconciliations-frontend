@@ -27,7 +27,7 @@ const formSchema = z.object({
       return z.string().email().safeParse(val).success;
     },
     {
-      message: "Email / GAMP ID Invalid",
+      message: "Email Invalid",
     }
   ),
 
@@ -91,7 +91,7 @@ export const AgentLoginPage = () => {
             </header>
             <div className="space-y-6">
               <CustomInput
-                label="Email / GAMP ID"
+                label="Email"
                 labelClassName="text-sm text-[#333"
                 className="h-[58px] border-[#E0E0E0]"
                 placeholder="johndoe@gmail.com / A034529"
@@ -147,7 +147,7 @@ export const AgentLoginPage = () => {
               </header>
               <div className="space-y-6">
                 <CustomInput
-                  label="Email / GAMP ID"
+                  label="Email"
                   placeholder="johndoe@gmail.com / A034529"
                   error={errors.emailOrGampId?.message?.toString()}
                   {...register("emailOrGampId")}

@@ -1,8 +1,15 @@
 import { LocalStorage } from "@/services/local-storage";
-import { ApiCompanyPolicy, CompanyPolicy, UserType } from "@/types/types";
+import {
+  ApiCompanyPolicy,
+  CompanyPolicy,
+  Policy,
+  UserType,
+} from "@/types/types";
 import { clsx, type ClassValue } from "clsx";
 import { Moment } from "moment";
 import { twMerge } from "tailwind-merge";
+import * as changeCase from "change-case";
+import hashIt from "hash-it";
 
 export const nairaSign = "₦";
 
@@ -23,6 +30,8 @@ export const formatAmount = (amount: number) => {
 
 export const formatToNaira = (amount: number) =>
   nairaSign + formatAmount(amount);
+
+export const addNaira = (amount: string) => nairaSign + amount;
 
 export const clearCredentials = (userType: UserType) => {
   if (userType == UserType.company) {
@@ -89,15 +98,23 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const getWeekValue = (date: Moment) => {
-  date = date.clone().startOf("week");
-  const month = date.format("MMMM");
-  const startOfMonth = date.clone().startOf("month");
+  const startOfWeek = date.clone().startOf("week");
+  const startOfWeekMonthStr = startOfWeek.format("MMMM");
+  const startOfWeekYearStr = startOfWeek.format("YYYY");
+  const startOfMonth = startOfWeek.clone().startOf("month");
 
   const startOfMonthWeek = startOfMonth.week();
-  const currWeek = date.week();
-  const weekInMonth = currWeek - startOfMonthWeek + 1;
+  let currWeek = startOfWeek.week();
+  let weekInMonth = currWeek - startOfMonthWeek + 1;
 
-  return `${month} Week ${weekInMonth}`;
+  //This is where we handle an edge case for the first week of the year.
+  // If the last week of the year goes past week 52, its week value becomes 1
+  if (currWeek == 1) {
+    currWeek = 53;
+    weekInMonth = currWeek - startOfMonthWeek + 1;
+  }
+
+  return `${startOfWeekMonthStr} Week ${weekInMonth} ${startOfWeekYearStr}`;
 };
 
 export const flattenApiPolicy = (
@@ -175,4 +192,31 @@ export const descendingDateComparator = (date1: string, date2: string) => {
   if (day2 < day1) return -1;
 
   return 0;
+};
+
+export const sanitizePremium = (premium: string): string => {
+  const alphaSet = new Set("abcdefghijklmnopqrstuvwxyz");
+  const numSet = new Set("0123456789");
+  const result = [];
+  for (let char of premium) {
+    if (numSet.has(char)) {
+      result.push(char);
+    }
+    if (char == ".") {
+      break;
+    }
+    if (alphaSet.has(char)) {
+      return "";
+    }
+  }
+
+  return result.join("");
+};
+
+export const createPolicyId = (policy: Policy) => {
+  const type = changeCase.snakeCase(policy.name);
+  const name = changeCase.snakeCase(policy.policy_name);
+
+  const hash = hashIt(policy);
+  return `${name}-${type}-${hash}`;
 };

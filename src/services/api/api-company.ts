@@ -234,7 +234,7 @@ export const getPolicies = (page?: number) => {
 };
 
 export const getDateRangePolicies = (startDate: Moment, endDate: Moment) =>
-  axiosInstance.get<PaginationWrapper<DateRangePolicy>>(
+  axiosInstance.get<DateRangePolicy[]>(
     CompanyApiRoutes.getDateRangePolicies(
       startDate.format("YYYY-MM-DD"),
       endDate.format("YYYY-MM-DD")

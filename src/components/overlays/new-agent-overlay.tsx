@@ -14,7 +14,7 @@ import toast from "react-hot-toast";
 import { logger } from "@/utils/logger";
 import { OTPInput } from "../shared/otp-input";
 import { ApiType } from "@/types/types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cx } from "class-variance-authority";
 import { FaFileCsv } from "react-icons/fa";
 import Papa from "papaparse";
@@ -81,6 +81,7 @@ export const NewAgentOverlay: React.FC = () => {
     AddAgentState.TEXT
   );
   const [agentsCSV, setAgentsCSV] = useState<File | null>(null);
+  const [otp, setOtp] = useState("");
 
   const { mutate: mInvite, isPending: isInviteLoading } = useMutation({
     mutationKey: [MutationKeys.companyInviteAgent],
@@ -118,9 +119,25 @@ export const NewAgentOverlay: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(!!agentsCSV);
-  }, [agentsCSV]);
+  const inviteThroughCSV = () => {
+    if (!agentsCSV) {
+      toast.error("CSV was not selected");
+      return;
+    }
+    if (!otp) {
+      toast.error("OTP is required");
+      return;
+    }
+
+    if (otp.length != 6) {
+      toast.error("Invalid OTP");
+      return;
+    }
+    const data = new FormData();
+    data.append("agents_csv", agentsCSV);
+    data.append("otp", otp);
+    mInviteCSV(data);
+  };
 
   return (
     <form
@@ -217,7 +234,11 @@ export const NewAgentOverlay: React.FC = () => {
           />
         </>
       )}
-      <OTPInput apiType={ApiType.Insurer} />
+      <OTPInput
+        otpVal={otp}
+        onChange={(otp) => setOtp(otp)}
+        apiType={ApiType.Insurer}
+      />
       <button
         disabled={addAgentState == AddAgentState.CSV && !!!agentsCSV}
         className={twMerge(
@@ -225,13 +246,7 @@ export const NewAgentOverlay: React.FC = () => {
         )}
         onClick={() => {
           if (addAgentState == AddAgentState.CSV) {
-            if (!agentsCSV) {
-              toast.error("CSV was not selected");
-              return;
-            }
-            const data = new FormData();
-            data.append("agents_csv", agentsCSV);
-            mInviteCSV(data);
+            inviteThroughCSV();
           }
         }}
       >

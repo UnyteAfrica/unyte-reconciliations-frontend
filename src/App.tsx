@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { BrowserComboRoutes, BrowserRoutes } from "./utils/routes";
 import { AgentLoginPage } from "./pages/agent/login.page";
 import { AgentSignupPage } from "./pages/agent/signup.page";
@@ -28,6 +28,10 @@ function App() {
   return (
     <div className="min-h-screen">
       <Routes>
+        <Route
+          path="/"
+          element={<Navigate to={BrowserComboRoutes.companyLogin} />}
+        />
         <Route
           path={BrowserComboRoutes.agentLogin}
           element={<AgentLoginPage />}

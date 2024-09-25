@@ -198,7 +198,7 @@ export const PageContent: React.FC<PageContentProps> = ({
                 <div className="my-6">{pageTable}</div>
                 <Pagination
                   currentPage={page || 1}
-                  itemsCount={totalItems || 56}
+                  itemsCount={totalItems || 10}
                   pageSize={pageCount || 10}
                   onPageChange={onPageChange ? onPageChange : () => {}}
                 />
@@ -209,7 +209,7 @@ export const PageContent: React.FC<PageContentProps> = ({
       )}
       {isMediaQueryMatched && (
         <div
-          className="mx-auto max-w-6xl mt-12 px-6 mb-16"
+          className="mx-auto max-w-7xl mt-12 px-6 mb-16"
           onClick={() => setIsFilterOpen(false)}
         >
           <div className="flex flex-row justify-between items-center mb-10 relative">
@@ -334,7 +334,7 @@ export const PageContent: React.FC<PageContentProps> = ({
               <div className="mb-10">{pageTable}</div>
               <Pagination
                 currentPage={page || 1}
-                itemsCount={totalItems || 56}
+                itemsCount={totalItems || 10}
                 pageSize={pageCount || 10}
                 onPageChange={onPageChange ? onPageChange : () => {}}
               />
