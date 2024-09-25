@@ -11,10 +11,10 @@ import { agentLogin } from "@/services/api/api-agent";
 import { AgentLoginType } from "@/types/request.types";
 import { useContext } from "react";
 import { AgentContext } from "@/context/agent.context";
-import { LocalStorage } from "@/services/local-storage";
 import { Icon } from "@/components/shared/icon";
 import { useMediaQuery } from "@/utils/hooks";
 import { logger } from "@/utils/logger";
+import toast from "react-hot-toast";
 
 const GAMPID_WITHOUT_NAME_LENGTH = 22;
 const formSchema = z.object({
@@ -27,7 +27,7 @@ const formSchema = z.object({
       return z.string().email().safeParse(val).success;
     },
     {
-      message: "Email / GAMP ID Invalid",
+      message: "Email Invalid",
     }
   ),
 
@@ -49,16 +49,14 @@ export const AgentLoginPage = () => {
   });
 
   const navigate = useNavigate();
-  const { setAgentEmail, setIsLoggedIn } = useContext(AgentContext);
+  const { setAgentEmail } = useContext(AgentContext);
 
   const { mutate: mLogin, isPending: isLoginLoading } = useMutation({
     mutationKey: [MutationKeys.agentLogin],
     mutationFn: (data: AgentLoginType) => agentLogin(data),
     onSuccess: (data) => {
       logger.log(data);
-      LocalStorage.setItem("agentAccessToken", data.data.access_token);
-      LocalStorage.setItem("agentRefreshToken", data.data.refresh_token);
-      setIsLoggedIn(true);
+      toast.success("Please enter the OTP sent to your email");
       setAgentEmail(getValues("emailOrGampId"));
       navigate(BrowserComboRoutes.agentVerify);
     },
@@ -93,30 +91,30 @@ export const AgentLoginPage = () => {
             </header>
             <div className="space-y-6">
               <CustomInput
-                label="Email / GAMP ID"
+                label="Email"
                 labelClassName="text-sm text-[#333"
                 className="h-[58px] border-[#E0E0E0]"
                 placeholder="johndoe@gmail.com / A034529"
                 error={errors.emailOrGampId?.message?.toString()}
                 {...register("emailOrGampId")}
               />
-              <PasswordInput
-                placeholder="******"
-                labelClassName="text-sm text-[#333"
-                className="p-2 h-[58px] border-[#E0E0E0]"
-                inputClassname="h-[56px]"
-                error={errors.password?.message?.toString()}
-                {...register("password")}
-              />
               <div>
-                <div className="flex justify-end">
-                  <Link
-                    to={BrowserComboRoutes.agentForgotPassword}
-                    className="text-mPrimary text-sm mb-2 inline-block"
-                  >
-                    Forgotten Password?
-                  </Link>
-                </div>
+                <PasswordInput
+                  placeholder="******"
+                  labelClassName="text-sm text-[#333"
+                  className="p-2 h-[58px] border-[#E0E0E0]"
+                  inputClassname="h-[56px]"
+                  error={errors.password?.message?.toString()}
+                  {...register("password")}
+                />
+                <Link
+                  to={BrowserComboRoutes.agentForgotPassword}
+                  className="text-mPrimary text-sm mt-2 inline-block"
+                >
+                  Forgotten Password?
+                </Link>
+              </div>
+              <div>
                 <button
                   className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                   disabled={isLoginLoading}
@@ -149,25 +147,25 @@ export const AgentLoginPage = () => {
               </header>
               <div className="space-y-6">
                 <CustomInput
-                  label="Email / GAMP ID"
+                  label="Email"
                   placeholder="johndoe@gmail.com / A034529"
                   error={errors.emailOrGampId?.message?.toString()}
                   {...register("emailOrGampId")}
                 />
-                <PasswordInput
-                  placeholder="******"
-                  error={errors.password?.message?.toString()}
-                  {...register("password")}
-                />
                 <div>
-                  <div className="flex justify-end">
-                    <Link
-                      to={BrowserComboRoutes.agentForgotPassword}
-                      className="text-mPrimary mb-2 inline-block"
-                    >
-                      Forgotten Password?
-                    </Link>
-                  </div>
+                  <PasswordInput
+                    placeholder="******"
+                    error={errors.password?.message?.toString()}
+                    {...register("password")}
+                  />
+                  <Link
+                    to={BrowserComboRoutes.agentForgotPassword}
+                    className="text-mPrimary mt-2 inline-block"
+                  >
+                    Forgotten Password?
+                  </Link>
+                </div>
+                <div>
                   <button
                     className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[72px] text-white rounded-2xl"
                     disabled={isLoginLoading}

@@ -38,14 +38,14 @@ exports[`Agent Login Page > renders correctly 1`] = `
               >
                 <label
                   class="mb-2 block text-sm text-[#333"
-                  for="email /GampId"
+                  for="email"
                 >
-                  Email / GAMP ID
+                  Email
                    
                 </label>
                 <input
                   class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
-                  id="email /GampId"
+                  id="email"
                   name="emailOrGampId"
                   placeholder="johndoe@gmail.com / A034529"
                 />
@@ -54,63 +54,61 @@ exports[`Agent Login Page > renders correctly 1`] = `
                 />
               </div>
               <div>
-                <label
-                  class="mb-2 block text-sm text-[#333"
-                  for="password"
-                >
-                  Password
-                </label>
-                <div
-                  class="flex relative items-center w-[100%] border rounded-lg transition duration-300 focus-within:border-black p-2 h-[58px] border-[#E0E0E0]"
-                >
+                <div>
+                  <label
+                    class="mb-2 block text-sm text-[#333"
+                    for="password"
+                  >
+                    Password
+                  </label>
                   <div
-                    class="w-full"
+                    class="flex relative items-center w-[100%] border rounded-lg transition duration-300 focus-within:border-black p-2 h-[58px] border-[#E0E0E0]"
                   >
-                    <input
-                      class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
-                      id="password"
-                      name="password"
-                      placeholder="******"
-                      type="password"
-                      value=""
-                    />
-                    <p
-                      class="text-sm text-[#333]"
-                    />
-                  </div>
-                  <button
-                    class="absolute top-[50%] -translate-y-[50%] right-3"
-                  >
-                    <svg
-                      fill="currentColor"
-                      height="1em"
-                      stroke="currentColor"
-                      stroke-width="0"
-                      viewBox="0 0 576 512"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <div
+                      class="w-full"
                     >
-                      <path
-                        d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"
+                      <input
+                        class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                        id="password"
+                        name="password"
+                        placeholder="******"
+                        type="password"
+                        value=""
                       />
-                    </svg>
-                  </button>
+                      <p
+                        class="text-sm text-[#333]"
+                      />
+                    </div>
+                    <button
+                      class="absolute top-[50%] -translate-y-[50%] right-3"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 576 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <p
+                    class="font-sora text-sm text-[#333]"
+                  />
                 </div>
-                <p
-                  class="font-sora text-sm text-[#333]"
-                />
+                <a
+                  class="text-mPrimary text-sm mt-2 inline-block"
+                  href="/agent/forgot-password"
+                >
+                  Forgotten Password?
+                </a>
               </div>
               <div>
-                <div
-                  class="flex justify-end"
-                >
-                  <a
-                    class="text-mPrimary text-sm mb-2 inline-block"
-                    href="/agent/forgot-password"
-                  >
-                    Forgotten Password?
-                  </a>
-                </div>
                 <button
                   class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                 >
@@ -160,14 +158,14 @@ exports[`Agent Login Page > renders correctly 1`] = `
             >
               <label
                 class="mb-2 block text-sm text-[#333"
-                for="email /GampId"
+                for="email"
               >
-                Email / GAMP ID
+                Email
                  
               </label>
               <input
                 class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
-                id="email /GampId"
+                id="email"
                 name="emailOrGampId"
                 placeholder="johndoe@gmail.com / A034529"
               />
@@ -176,63 +174,61 @@ exports[`Agent Login Page > renders correctly 1`] = `
               />
             </div>
             <div>
-              <label
-                class="mb-2 block text-sm text-[#333"
-                for="password"
-              >
-                Password
-              </label>
-              <div
-                class="flex relative items-center w-[100%] border rounded-lg transition duration-300 focus-within:border-black p-2 h-[58px] border-[#E0E0E0]"
-              >
+              <div>
+                <label
+                  class="mb-2 block text-sm text-[#333"
+                  for="password"
+                >
+                  Password
+                </label>
                 <div
-                  class="w-full"
+                  class="flex relative items-center w-[100%] border rounded-lg transition duration-300 focus-within:border-black p-2 h-[58px] border-[#E0E0E0]"
                 >
-                  <input
-                    class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
-                    id="password"
-                    name="password"
-                    placeholder="******"
-                    type="password"
-                    value=""
-                  />
-                  <p
-                    class="text-sm text-[#333]"
-                  />
-                </div>
-                <button
-                  class="absolute top-[50%] -translate-y-[50%] right-3"
-                >
-                  <svg
-                    fill="currentColor"
-                    height="1em"
-                    stroke="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 576 512"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    class="w-full"
                   >
-                    <path
-                      d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"
+                    <input
+                      class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                      id="password"
+                      name="password"
+                      placeholder="******"
+                      type="password"
+                      value=""
                     />
-                  </svg>
-                </button>
+                    <p
+                      class="text-sm text-[#333]"
+                    />
+                  </div>
+                  <button
+                    class="absolute top-[50%] -translate-y-[50%] right-3"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 576 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <p
+                  class="font-sora text-sm text-[#333]"
+                />
               </div>
-              <p
-                class="font-sora text-sm text-[#333]"
-              />
+              <a
+                class="text-mPrimary text-sm mt-2 inline-block"
+                href="/agent/forgot-password"
+              >
+                Forgotten Password?
+              </a>
             </div>
             <div>
-              <div
-                class="flex justify-end"
-              >
-                <a
-                  class="text-mPrimary text-sm mb-2 inline-block"
-                  href="/agent/forgot-password"
-                >
-                  Forgotten Password?
-                </a>
-              </div>
               <button
                 class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
               >

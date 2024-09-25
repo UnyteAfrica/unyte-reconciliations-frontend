@@ -6,7 +6,10 @@ import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
 import { InviteAgentType } from "@/types/request.types";
 import { Loader } from "../loader";
-import { inviteAgent } from "@/services/api/api-company";
+import {
+  inviteAgent,
+  inviteAgentsThroughCSV,
+} from "@/services/api/api-company";
 import toast from "react-hot-toast";
 import { logger } from "@/utils/logger";
 import { OTPInput } from "../shared/otp-input";
@@ -14,6 +17,8 @@ import { ApiType } from "@/types/types";
 import { useState } from "react";
 import { cx } from "class-variance-authority";
 import { FaFileCsv } from "react-icons/fa";
+import Papa from "papaparse";
+import { twMerge } from "tailwind-merge";
 
 const formSchema = z
   .object({
@@ -75,6 +80,8 @@ export const NewAgentOverlay: React.FC = () => {
   const [addAgentState, setAddAgentState] = useState<AddAgentState>(
     AddAgentState.TEXT
   );
+  const [agentsCSV, setAgentsCSV] = useState<File | null>(null);
+  const [otp, setOtp] = useState("");
 
   const { mutate: mInvite, isPending: isInviteLoading } = useMutation({
     mutationKey: [MutationKeys.companyInviteAgent],
@@ -84,22 +91,52 @@ export const NewAgentOverlay: React.FC = () => {
     },
   });
 
+  const { mutate: mInviteCSV, isPending: isCSVInviteLoading } = useMutation({
+    mutationKey: [MutationKeys.companyInviteAgentCSV],
+    mutationFn: (data: FormData) => inviteAgentsThroughCSV(data),
+    onSuccess: () => {
+      toast.success("Invite emails sent to agents");
+    },
+  });
+
   const onSubmit = ({ agentNames, email }: z.infer<typeof formSchema>) => {
-    const data = {
-      emails: email.split(","),
-      names: agentNames.split(","),
-    };
-    const agents = [];
-    for (let i = 0; i < data.emails.length; i++) {
-      const agent = {
-        names: data.names[i],
-        emails: data.emails[i],
+    if (addAgentState == AddAgentState.TEXT) {
+      const data = {
+        emails: email.split(","),
+        names: agentNames.split(","),
       };
-      agents.push(agent);
+      const agents = [];
+      for (let i = 0; i < data.emails.length; i++) {
+        const agent = {
+          names: data.names[i],
+          emails: data.emails[i],
+        };
+        agents.push(agent);
+      }
+
+      logger.log(agents);
+      mInvite(agents);
+    }
+  };
+
+  const inviteThroughCSV = () => {
+    if (!agentsCSV) {
+      toast.error("CSV was not selected");
+      return;
+    }
+    if (!otp) {
+      toast.error("OTP is required");
+      return;
     }
 
-    logger.log(agents);
-    mInvite(agents);
+    if (otp.length != 6) {
+      toast.error("Invalid OTP");
+      return;
+    }
+    const data = new FormData();
+    data.append("agents_csv", agentsCSV);
+    data.append("otp", otp);
+    mInviteCSV(data);
   };
 
   return (
@@ -123,7 +160,7 @@ export const NewAgentOverlay: React.FC = () => {
             setAddAgentState(AddAgentState.TEXT);
           }}
         >
-          Invite By Text
+          Invite By Email
         </button>
         <button
           className={cx(
@@ -161,7 +198,7 @@ export const NewAgentOverlay: React.FC = () => {
         <>
           <div className=" font-inter flex justify-center items-center"></div>
           <FileInput
-            containerClassName="h-52 my-8 border border-[#ccc] rounded-2xl"
+            containerClassName="h-52 my-8 rounded-2xl"
             innerContent={
               <div className="w-full flex flex-col justify-center items-center">
                 <FaFileCsv className="text-5xl text-mPrimary/[.7] text-center" />
@@ -169,15 +206,55 @@ export const NewAgentOverlay: React.FC = () => {
               </div>
             }
             acceptedFiles=".csv"
-            onFileChange={(e) => {
-              console.log(e);
+            onFileChange={(file) => {
+              Papa.parse<[string, string]>(file, {
+                complete: function (results) {
+                  if (results.data[0].length != 2) {
+                    toast.error(
+                      "The CSV format is invalid. The CSV must have names and emails only"
+                    );
+                    setAgentsCSV(null);
+                    return;
+                  }
+                  if (
+                    results.data[0][0] != "names" ||
+                    results.data[0][1].trim() != "emails"
+                  ) {
+                    toast.error(
+                      "The CSV format is invalid. The CSV must have names and emails only"
+                    );
+                    setAgentsCSV(null);
+                    return;
+                  }
+                  setAgentsCSV(file);
+                },
+                preview: 1,
+              });
             }}
           />
         </>
       )}
-      <OTPInput apiType={ApiType.Insurer} />
-      <button className="block rounded-lg text-white font-medium text-lg bg-mPrimary p-5 w-full  font-poppins text-center mx-auto">
-        {isInviteLoading ? <Loader className="mx-auto" /> : "Invite Agent"}
+      <OTPInput
+        otpVal={otp}
+        onChange={(otp) => setOtp(otp)}
+        apiType={ApiType.Insurer}
+      />
+      <button
+        disabled={addAgentState == AddAgentState.CSV && !!!agentsCSV}
+        className={twMerge(
+          "block rounded-lg text-white font-medium text-lg bg-mPrimary p-5 w-full  font-poppins text-center mx-auto disabled:cursor-not-allowed disabled:bg-mPrimary/[0.4]"
+        )}
+        onClick={() => {
+          if (addAgentState == AddAgentState.CSV) {
+            inviteThroughCSV();
+          }
+        }}
+      >
+        {isInviteLoading || isCSVInviteLoading ? (
+          <Loader className="mx-auto" />
+        ) : (
+          "Invite Agent"
+        )}
       </button>
     </form>
   );

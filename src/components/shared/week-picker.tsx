@@ -7,11 +7,13 @@ import { getWeekValue } from "@/utils/utils";
 type WeekPickerProps = {
   className?: ClassNameValue;
   date?: Moment;
+  displayedDate?: Moment;
 } & ComponentProps<typeof Datetime>;
 
 export const WeekPicker: React.FC<WeekPickerProps> = ({
   className,
   date,
+  displayedDate,
   ...props
 }) => {
   return (
@@ -26,15 +28,19 @@ export const WeekPicker: React.FC<WeekPickerProps> = ({
       renderInput={(props, openCalendar, _) => {
         return (
           <div
-            className="w-[150px]"
+            className="w-[220px]"
             onClick={() => {
               openCalendar();
             }}
           >
             <input
               {...props}
-              className="w-[150px] text-center cursor-pointer"
-              value={getWeekValue(date!)}
+              className="w-[220px] text-center cursor-pointer"
+              value={
+                displayedDate
+                  ? getWeekValue(displayedDate)
+                  : getWeekValue(date!)
+              }
             />
           </div>
         );
@@ -66,6 +72,7 @@ export const RangeWeekPicker: React.FC<RangeWeekPickerProps> = ({
       <WeekPicker
         className="sm:rounded-r-none"
         date={startWeek}
+        displayedDate={startWeek.clone().startOf("week")}
         onChange={onStartWeekChange}
         isValidDate={(currDate) =>
           currDate.isBetween(YEAR_1999, endOfCurrentWeek)

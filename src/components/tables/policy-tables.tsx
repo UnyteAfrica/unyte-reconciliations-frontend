@@ -1,6 +1,6 @@
-import { AgentPolicy, CompanyPolicy } from "@/types/types";
+import { AgentPolicy, Policy } from "@/types/types";
 import { Table } from "../table";
-import { formatToNaira } from "@/utils/utils";
+import { createPolicyId, formatToNaira, sanitizePremium } from "@/utils/utils";
 import { useMediaQuery } from "@/utils/hooks";
 
 type AgentPoliciesTableProps = {
@@ -52,7 +52,7 @@ export const AgentPoliciesTable: React.FC<AgentPoliciesTableProps> = ({
 };
 
 type CompanyPoliciesTableProps = {
-  policies: CompanyPolicy[];
+  policies: Policy[];
 };
 
 export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
@@ -63,37 +63,59 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
   if (!isMediaQueryMatched)
     return (
       <div>
-        {policies.map((policy, idx) => (
-          <div key={idx} className="border-b py-2">
-            <div className="flex justify-between items-center mb-2">
-              <em className="not-italic font-semibold text-[#333]">
-                {policy.policyRef}
-              </em>
-              <em className="not-italic font-semibold text-[#333]">
-                {policy.agentId}
-              </em>
+        {policies.map((policy, idx) => {
+          const sanitizedPremium = sanitizePremium(policy.premium);
+          return (
+            <div key={idx} className="border-b py-2">
+              <div className="flex justify-between items-center mb-2">
+                <em className="not-italic font-semibold text-[#333]">
+                  {createPolicyId(policy)}
+                </em>
+                <em className="not-italic font-semibold text-[#333]">
+                  {policy.agent}
+                </em>
+              </div>
+
+              <div className="flex justify-between items-center">
+                <em className="not-italic text-[#828282]">
+                  {policy.date_sold}
+                </em>
+                <em className="not-italic text-[#828282]">
+                  {sanitizedPremium
+                    ? formatToNaira(Number(sanitizedPremium))
+                    : formatToNaira(1000)}
+                </em>
+              </div>
             </div>
-            <div className="flex justify-between items-center">
-              <em className="not-italic text-[#828282]">{policy.date}</em>
-              <em className="not-italic text-[#828282]">
-                {formatToNaira(policy.price)}
-              </em>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     );
   return (
-    <Table headers={["Policy Ref.", "Policy No.", "Agent ID", "Date", "Price"]}>
-      {policies.map((policy, i) => (
-        <tr key={i} className="border-b font-medium">
-          <td className="p-4 text-center">{policy.policyRef}</td>
-          <td className="p-4 text-center">{policy.policyNo}</td>
-          <td className="p-4 text-center">{policy.agentId}</td>
-          <td className="p-4 text-center">{policy.date}</td>
-          <td className="p-4 text-center">{formatToNaira(policy.price)}</td>
-        </tr>
-      ))}
+    <Table
+      headers={[
+        "Policy ID",
+        "Sales Agent",
+        "Date",
+        "Premium",
+        "Agent's Commission",
+      ]}
+    >
+      {policies.map((policy, i) => {
+        const sanitizedPremium = sanitizePremium(policy.premium);
+        return (
+          <tr key={i} className="border-b font-medium">
+            <td className="p-4 text-center">{createPolicyId(policy)}</td>
+            <td className="p-4 text-center">{policy.agent}</td>
+            <td className="p-4 text-center">{policy.date_sold}</td>
+            <td className="p-4 text-center">
+              {sanitizedPremium
+                ? formatToNaira(Number(sanitizedPremium))
+                : formatToNaira(1000)}
+            </td>
+          </tr>
+        );
+      })}
     </Table>
   );
 };

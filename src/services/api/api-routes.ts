@@ -7,8 +7,14 @@ const BaseRoutes = {
   passwordReset: "/password-reset",
   details: "/details",
   inviteAgent: "/generate-agent-sign-up",
+  inviteAgentsThroughCSV: "/generate-agent-sign-up-csv",
   insurerProfile: "/insurer-profile",
   resetToken: "/refresh-access-token",
+  updateProfilePicture: "/update-profile-picture",
+  agents: "/all-agents",
+  policies: (page: number) => `/view-all-policies?page=${page}`,
+  dateRangePolicies: (startDate: string, endDate: string) =>
+    `/view-all-policies-date-range?start_date=${startDate}&end_date=${endDate}`,
 };
 
 const RouteTypes = {
@@ -26,7 +32,14 @@ export const CompanyApiRoutes = {
   details: RouteTypes.company + BaseRoutes.details,
   profile: RouteTypes.company + BaseRoutes.insurerProfile,
   inviteAgent: RouteTypes.company + BaseRoutes.inviteAgent,
+  inviteAgentsThroughCSV:
+    RouteTypes.company + BaseRoutes.inviteAgentsThroughCSV,
   resetToken: RouteTypes.company + BaseRoutes.resetToken,
+  updateProfilePicture: RouteTypes.company + BaseRoutes.updateProfilePicture,
+  getAllAgents: RouteTypes.company + BaseRoutes.agents,
+  getPolicies: (page: number) => RouteTypes.company + BaseRoutes.policies(page),
+  getDateRangePolicies: (startDate: string, endDate: string) =>
+    RouteTypes.company + BaseRoutes.dateRangePolicies(startDate, endDate),
 };
 
 export const AgentApiRoutes = {

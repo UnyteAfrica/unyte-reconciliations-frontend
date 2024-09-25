@@ -34,12 +34,12 @@ describe("Agent Login Page", () => {
       </BrowserRouter>
     );
 
-    const targetInput = screen.getByLabelText("Email / GAMP ID");
+    const targetInput = screen.getByLabelText("Email");
     await user.click(targetInput);
     await user.keyboard("jgh@");
     const submitButton = screen.getByText("Sign In");
     await user.click(submitButton);
-    const errorMessage = screen.getByText("Email / GAMP ID Invalid");
+    const errorMessage = screen.getByText("Email Invalid");
     expect(errorMessage).toBeVisible();
   });
 

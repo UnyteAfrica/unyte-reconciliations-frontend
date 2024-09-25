@@ -424,7 +424,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
     const fileInputRef = useRef<HTMLInputElement>(null);
     useImperativeHandle(ref, () => fileInputRef.current!, []);
     return (
-      <div className={twMerge("", containerClassName)}>
+      <div className={twMerge("cursor-pointer", containerClassName)}>
         {label ? (
           <>
             <label

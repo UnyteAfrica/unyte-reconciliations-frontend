@@ -11,10 +11,10 @@ import { Loader } from "@/components/loader";
 import { useContext } from "react";
 import { CompanyLoginType } from "@/types/request.types";
 import { CompanyContext } from "@/context/company.context";
-import { LocalStorage } from "@/services/local-storage";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   email: z.string().email("Admin Email is invalid"),
@@ -35,7 +35,7 @@ export const CompanyLoginPage = () => {
     },
   });
 
-  const { setCompanyEmail, setIsLoggedIn } = useContext(CompanyContext);
+  const { setCompanyEmail } = useContext(CompanyContext);
 
   const navigate = useNavigate();
 
@@ -44,9 +44,7 @@ export const CompanyLoginPage = () => {
     mutationFn: (data: CompanyLoginType) => companyLogin(data),
     onSuccess: (data) => {
       logger.log(data);
-      LocalStorage.setItem("companyAccessToken", data.data.access_token);
-      LocalStorage.setItem("companyRefreshToken", data.data.refresh_token);
-      setIsLoggedIn(true);
+      toast.success("Please enter the OTP sent to your email");
       setCompanyEmail(getValues("email"));
       navigate(BrowserComboRoutes.companyVerify);
     },
@@ -83,25 +81,16 @@ export const CompanyLoginPage = () => {
                 error={errors.email?.message?.toString()}
                 {...register("email")}
               />
-              <PasswordInput
-                placeholder="******"
-                labelClassName="text-sm text-[#333"
-                className="p-2 h-[58px] border-[#E0E0E0]"
-                inputClassname="h-[56px]"
-                error={errors.password?.message?.toString()}
-                {...register("password")}
-              />
               <div>
-                <p className="mb-2 text-sm">
-                  Don&apos;t have an account?{" "}
-                  <Link
-                    to={BrowserComboRoutes.companySignup}
-                    className="text-mPrimary"
-                  >
-                    Sign up
-                  </Link>
-                </p>
-                <div className="">
+                <PasswordInput
+                  placeholder="******"
+                  labelClassName="text-sm text-[#333"
+                  className="p-2 h-[58px] border-[#E0E0E0]"
+                  inputClassname="h-[56px]"
+                  error={errors.password?.message?.toString()}
+                  {...register("password")}
+                />
+                <div className="mt-2">
                   <Link
                     to={BrowserComboRoutes.companyForgotPassword}
                     className="text-mPrimary text-sm mb-2 inline-block"
@@ -109,6 +98,8 @@ export const CompanyLoginPage = () => {
                     Forgotten Password?
                   </Link>
                 </div>
+              </div>
+              <div>
                 <button
                   className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                   disabled={isLoginLoading}
@@ -119,6 +110,15 @@ export const CompanyLoginPage = () => {
                     "Sign In"
                   )}
                 </button>
+                <p className="mt-2 text-sm text-center">
+                  Don&apos;t have an account?{" "}
+                  <Link
+                    to={BrowserComboRoutes.companySignup}
+                    className="text-mPrimary"
+                  >
+                    Sign up
+                  </Link>
+                </p>
               </div>
             </div>
           </form>
@@ -145,30 +145,22 @@ export const CompanyLoginPage = () => {
                   error={errors.email?.message?.toString()}
                   {...register("email")}
                 />
-                <PasswordInput
-                  label="Password"
-                  placeholder="******"
-                  error={errors.password?.message?.toString()}
-                  {...register("password")}
-                />
+                <div className="">
+                  <PasswordInput
+                    label="Password"
+                    placeholder="******"
+                    error={errors.password?.message?.toString()}
+                    {...register("password")}
+                  />
+
+                  <Link
+                    to={BrowserComboRoutes.companyForgotPassword}
+                    className="text-mPrimary mt-2 inline-block"
+                  >
+                    Forgotten Password?
+                  </Link>
+                </div>
                 <div>
-                  <p className="mb-2">
-                    Don&apos;t have an account?{" "}
-                    <Link
-                      to={BrowserComboRoutes.companySignup}
-                      className="text-mPrimary"
-                    >
-                      Sign up
-                    </Link>
-                  </p>
-                  <div className="flex justify-end">
-                    <Link
-                      to={BrowserComboRoutes.companyForgotPassword}
-                      className="text-mPrimary mb-2 inline-block"
-                    >
-                      Forgotten Password?
-                    </Link>
-                  </div>
                   <button
                     className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[72px] text-white rounded-2xl"
                     disabled={isLoginLoading}
@@ -179,6 +171,15 @@ export const CompanyLoginPage = () => {
                       "Sign In"
                     )}
                   </button>
+                  <p className="mt-2 text-center">
+                    Don&apos;t have an account?{" "}
+                    <Link
+                      to={BrowserComboRoutes.companySignup}
+                      className="text-mPrimary"
+                    >
+                      Sign up
+                    </Link>
+                  </p>
                 </div>
               </div>
             </form>
