@@ -5,7 +5,6 @@ import { useMediaQuery } from "@/utils/hooks";
 import { createPortal } from "react-dom";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { logger } from "@/utils/logger";
 import { MdOutlineCancel } from "react-icons/md";
 
 type CommissionsTableProps = {

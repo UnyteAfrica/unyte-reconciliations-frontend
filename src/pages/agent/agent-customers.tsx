@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { SearchBar } from "../../components/searchbar";
 import { useMediaQuery } from "@/utils/hooks";
