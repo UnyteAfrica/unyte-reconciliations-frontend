@@ -2,26 +2,26 @@ import { CustomInput, PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { BrowserComboRoutes } from "@/utils/routes";
+import { BrowserRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
-import { companyLogin } from "@/services/api/api-company";
 import { Loader } from "@/components/loader";
 import { useContext } from "react";
-import { CompanyLoginType } from "@/types/request.types";
-import { CompanyContext } from "@/context/company.context";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
 import toast from "react-hot-toast";
+import { AuthContext } from "@/context/auth.context";
+import { LoginType } from "@/types/request.types";
+import { login } from "@/services/api/api-base";
 
 const formSchema = z.object({
-  email: z.string().email("Admin Email is invalid"),
+  email: z.string().email("Email is invalid"),
   password: z.string().min(6, "Password cannot be less than 6 characters"),
 });
 
-export const CompanyLoginPage = () => {
+export const LoginPage = () => {
   const {
     register,
     handleSubmit,
@@ -35,18 +35,19 @@ export const CompanyLoginPage = () => {
     },
   });
 
-  const { setCompanyEmail } = useContext(CompanyContext);
+  const { setEmail } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const { mutate: mLogin, isPending: isLoginLoading } = useMutation({
-    mutationKey: [MutationKeys.companyLogin],
-    mutationFn: (data: CompanyLoginType) => companyLogin(data),
+    mutationKey: [MutationKeys.login],
+    mutationFn: (data: LoginType) => login(data),
     onSuccess: (data) => {
       logger.log(data);
       toast.success("Please enter the OTP sent to your email");
-      setCompanyEmail(getValues("email"));
-      navigate(BrowserComboRoutes.companyVerify);
+      setEmail(getValues("email"));
+      logger.log("hello");
+      navigate(BrowserRoutes.verify);
     },
   });
 
@@ -65,7 +66,7 @@ export const CompanyLoginPage = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <header>
               <p className="mb-2 font-semibold text-[20px] text-center">
-                Company Login
+                Login
               </p>
 
               <p className="mb-6 text-sm text-[#4F4F4F] text-center">
@@ -74,7 +75,7 @@ export const CompanyLoginPage = () => {
             </header>
             <div className="space-y-6">
               <CustomInput
-                label="Admin Email"
+                label="Email"
                 labelClassName="text-sm text-[#333"
                 className="h-[58px] border-[#E0E0E0]"
                 placeholder="johndoe@gmail.com / A034529"
@@ -92,10 +93,10 @@ export const CompanyLoginPage = () => {
                 />
                 <div className="mt-2">
                   <Link
-                    to={BrowserComboRoutes.companyForgotPassword}
+                    to={BrowserRoutes.forgotPassword}
                     className="text-mPrimary text-sm mb-2 inline-block"
                   >
-                    Forgotten Password?
+                    Forgot Password?
                   </Link>
                 </div>
               </div>
@@ -110,7 +111,7 @@ export const CompanyLoginPage = () => {
                     "Sign In"
                   )}
                 </button>
-                <p className="mt-2 text-sm text-center">
+                {/* <p className="mt-2 text-sm text-center">
                   Don&apos;t have an account?{" "}
                   <Link
                     to={BrowserComboRoutes.companySignup}
@@ -118,7 +119,7 @@ export const CompanyLoginPage = () => {
                   >
                     Sign up
                   </Link>
-                </p>
+                </p> */}
               </div>
             </div>
           </form>
@@ -134,13 +135,13 @@ export const CompanyLoginPage = () => {
             >
               <header>
                 <p className="text-center mb-11 font-medium text-[28px]">
-                  Company Login
+                  Login
                 </p>
                 <p className="mb-11 text-xl">Sign in to your account.</p>
               </header>
               <div className="space-y-6">
                 <CustomInput
-                  label="Admin Email"
+                  label="Email"
                   placeholder="johndoe@gmail.com"
                   error={errors.email?.message?.toString()}
                   {...register("email")}
@@ -154,10 +155,10 @@ export const CompanyLoginPage = () => {
                   />
 
                   <Link
-                    to={BrowserComboRoutes.companyForgotPassword}
+                    to={BrowserRoutes.forgotPassword}
                     className="text-mPrimary mt-2 inline-block"
                   >
-                    Forgotten Password?
+                    Forgot Password?
                   </Link>
                 </div>
                 <div>
@@ -171,7 +172,7 @@ export const CompanyLoginPage = () => {
                       "Sign In"
                     )}
                   </button>
-                  <p className="mt-2 text-center">
+                  {/* <p className="mt-2 text-center">
                     Don&apos;t have an account?{" "}
                     <Link
                       to={BrowserComboRoutes.companySignup}
@@ -179,7 +180,7 @@ export const CompanyLoginPage = () => {
                     >
                       Sign up
                     </Link>
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </form>

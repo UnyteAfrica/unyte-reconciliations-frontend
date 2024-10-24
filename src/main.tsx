@@ -19,6 +19,7 @@ import * as changeCase from "change-case";
 
 import { logger } from "./utils/logger.ts";
 import { isPlainObject } from "lodash";
+import { AuthProvider } from "./context/auth.context.tsx";
 
 const ERR_MAP: { [key: string]: string } = {
   business_registration_number: "Company Registration No",
@@ -76,7 +77,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <OverlayContextProvider>
           <CompanyProvider>
             <AgentProvider>
-              <App />
+              <AuthProvider>
+                <App />
+              </AuthProvider>
             </AgentProvider>
           </CompanyProvider>
         </OverlayContextProvider>

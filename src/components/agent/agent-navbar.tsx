@@ -7,15 +7,14 @@ import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 import { clearCredentials, getInitials } from "@/utils/utils";
-import { UserType } from "@/types/types";
-import { AgentContext } from "@/context/agent.context";
-import { getAgentDetails } from "@/services/api/api-agent";
 import { AgentQueryKeys } from "@/utils/query-keys";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Loader } from "../loader";
 import { LuMenu } from "react-icons/lu";
 import { AiOutlineClose } from "react-icons/ai";
 import { useLockScroll, useMediaQuery } from "@/utils/hooks";
+import { getDetails } from "@/services/api/api-base";
+import { AuthContext } from "@/context/auth.context";
 
 type UrlLink = {
   text: string;
@@ -36,8 +35,8 @@ const navLinks: UrlLink[] = [
     url: BrowserComboRoutes.agentDashboard + BrowserRoutes.commissions,
   },
   {
-    text: "Devices",
-    url: BrowserComboRoutes.agentDashboard + BrowserRoutes.devices,
+    text: "Customers",
+    url: BrowserComboRoutes.agentDashboard + BrowserRoutes.customers,
   },
 ];
 
@@ -45,7 +44,7 @@ export const AgentNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { setIsLoggedIn, setAgentEmail } = useContext(AgentContext);
+  const { setIsLoggedIn, setEmail } = useContext(AuthContext);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -57,12 +56,12 @@ export const AgentNavbar = () => {
   const { data: agentDetailsData, isPending: isAgentDetailsLoading } = useQuery(
     {
       queryKey: [AgentQueryKeys.details],
-      queryFn: () => getAgentDetails(),
+      queryFn: () => getDetails(),
     }
   );
 
   const logout = () => {
-    clearCredentials(UserType.agent);
+    clearCredentials();
     setIsLoggedIn(false);
     queryClient.invalidateQueries();
   };
@@ -73,7 +72,7 @@ export const AgentNavbar = () => {
 
   const agentDetails = agentDetailsData?.data;
   useEffect(() => {
-    if (agentDetails) setAgentEmail(agentDetails.email);
+    if (agentDetails) setEmail(agentDetails.email);
   }, [agentDetails]);
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
@@ -83,7 +82,7 @@ export const AgentNavbar = () => {
   return (
     <>
       {!isMediaQueryMatched && (
-        <div className="relative z-30">
+        <div className="relative z-30 bg-[#F8F8F8]">
           <header className="px-5 pt-8 pb-4">
             <LuMenu
               onClick={() => setIsMobileMenuOpen(true)}
@@ -113,10 +112,7 @@ export const AgentNavbar = () => {
                     className={({ isActive }) =>
                       cx(
                         "font-semibold text-lg duration-300",
-                        (isActive ||
-                          location.pathname.includes(
-                            navLink.text.toLowerCase()
-                          )) &&
+                        isActive &&
                           "text-[#25D366] underline underline-offset-[10px] decoration-4"
                       )
                     }
@@ -134,14 +130,14 @@ export const AgentNavbar = () => {
                       <div className="flex items-center mb-6">
                         <div className="rounded-full h-10 w-10 bg-gray-200 text-base flex items-center justify-center mr-2">
                           {getInitials(
-                            agentDetails.first_name,
-                            agentDetails.last_name
+                            agentDetails.first_name ?? "",
+                            agentDetails.last_name ?? ""
                           )}
                         </div>
                         <div className="text-base text-[#333] font-medium">
-                          {agentDetails.first_name +
+                          {(agentDetails.first_name ?? "") +
                             " " +
-                            agentDetails.last_name}
+                            (agentDetails.last_name ?? "")}
                         </div>
                       </div>
 
@@ -206,14 +202,14 @@ export const AgentNavbar = () => {
                       <div className="space-x-2 flex flex-row items-center">
                         <div className="rounded-full h-10 w-10 p-2 bg-gray-200 text-base flex items-center justify-center">
                           {getInitials(
-                            agentDetails.first_name,
-                            agentDetails.last_name
+                            agentDetails.first_name ?? "",
+                            agentDetails.last_name ?? ""
                           )}
                         </div>
                         <span className="text-lg font-semibold hidden min-[1200px]:inline">
-                          {agentDetails.first_name +
+                          {(agentDetails.first_name ?? "") +
                             " " +
-                            agentDetails.last_name}
+                            (agentDetails.last_name ?? "")}
                         </span>{" "}
                         <BiChevronDown
                           className={cx(
@@ -232,14 +228,14 @@ export const AgentNavbar = () => {
                       <div className="px-6 py-4 flex items-center p-2">
                         <div className="rounded-full h-10 w-10 p-2 bg-gray-200 text-base flex items-center justify-center mr-2 font-bold">
                           {getInitials(
-                            agentDetails.first_name,
-                            agentDetails.last_name
+                            agentDetails.first_name ?? "",
+                            agentDetails.last_name ?? ""
                           )}
                         </div>
                         <div className="text-base text-[#333] font-medium">
-                          {agentDetails.first_name +
+                          {(agentDetails.first_name ?? "") +
                             " " +
-                            agentDetails.last_name}
+                            (agentDetails.last_name ?? "")}
                         </div>
                       </div>
                       <hr />

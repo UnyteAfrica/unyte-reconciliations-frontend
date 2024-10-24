@@ -1,18 +1,18 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { CompanyNavbar } from "./company-navbar";
 import { useContext, useEffect } from "react";
-import { CompanyContext } from "@/context/company.context";
-import { BrowserComboRoutes } from "@/utils/routes";
+import { BrowserRoutes } from "@/utils/routes";
 import { LocalStorage } from "@/services/local-storage";
+import { AuthContext } from "@/context/auth.context";
 
 export const CompanyLayout = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(CompanyContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const listener = (e: CustomEvent) => {
-    if (e.detail.key == "companyAccessToken" && e.detail.value == null) {
-      navigate(BrowserComboRoutes.companyLogin);
+    if (e.detail.key == "accessToken" && e.detail.value == null) {
+      navigate(BrowserRoutes.login);
       setIsLoggedIn(false);
     }
   };
@@ -28,7 +28,7 @@ export const CompanyLayout = () => {
   }, []);
 
   useEffect(() => {
-    if (!isLoggedIn) navigate(BrowserComboRoutes.companyLogin);
+    if (!isLoggedIn) navigate(BrowserRoutes.login);
   }, [isLoggedIn]);
 
   return (

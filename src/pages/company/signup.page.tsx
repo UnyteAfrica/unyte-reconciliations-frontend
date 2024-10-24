@@ -2,7 +2,7 @@ import { CustomInput, PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { BrowserComboRoutes } from "@/utils/routes";
+import { BrowserRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
@@ -22,13 +22,9 @@ const formSchema = z
     adminName: z.string().min(3, "Admin name must be 3 or more characters"),
     businessRegNo: z
       .string()
-      .min(5, "Business Reg No must be 5 or more characters"),
+      .min(8, "Business Reg No must be 8 characters")
+      .max(8, "Business Reg No must be 8 characters"),
     adminEmail: z.string().email("The email you entered is invalid"),
-    gampId: z
-      .string()
-      .min(5, "GAMP ID cannot be less than 5 characters")
-      .optional()
-      .or(z.literal("")),
     password: z.string().min(6, "Password cannot be less than 6 characters"),
     confirmPassword: z.string(),
   })
@@ -48,7 +44,6 @@ export const CompanySignupPage = () => {
       adminName: "",
       businessName: "",
       businessRegNo: "",
-      gampId: "",
       adminEmail: "",
       password: "",
       confirmPassword: "",
@@ -63,7 +58,7 @@ export const CompanySignupPage = () => {
     onSuccess: (data) => {
       logger.log(data);
       toast.success("Account created successfully");
-      navigate(BrowserComboRoutes.companyLogin);
+      navigate(BrowserRoutes.login);
     },
   });
 
@@ -73,7 +68,6 @@ export const CompanySignupPage = () => {
       business_name: data.businessName,
       business_registration_number: data.businessRegNo,
       email: data.adminEmail,
-      gampId: data.gampId,
       password: data.password,
     });
   };
@@ -125,15 +119,6 @@ export const CompanySignupPage = () => {
                 error={errors.adminEmail?.message?.toString()}
                 {...register("adminEmail")}
               />
-              <CustomInput
-                label="GAMP ID"
-                optional
-                placeholder="GP-4739349"
-                labelClassName="text-sm text-[#333"
-                className="h-[58px] border-[#E0E0E0]"
-                error={errors.gampId?.message?.toString()}
-                {...register("gampId")}
-              />
 
               <PasswordInput
                 label="Password"
@@ -156,10 +141,7 @@ export const CompanySignupPage = () => {
               <div>
                 <p className="mb-2 text-sm">
                   Already have an account?{" "}
-                  <Link
-                    to={BrowserComboRoutes.companyLogin}
-                    className="text-mPrimary"
-                  >
+                  <Link to={BrowserRoutes.login} className="text-mPrimary">
                     Sign In
                   </Link>
                 </p>
@@ -215,13 +197,6 @@ export const CompanySignupPage = () => {
                   error={errors.adminEmail?.message?.toString()}
                   {...register("adminEmail")}
                 />
-                <CustomInput
-                  label="GAMP ID"
-                  optional
-                  placeholder="GP-4739349"
-                  error={errors.gampId?.message?.toString()}
-                  {...register("gampId")}
-                />
 
                 <PasswordInput
                   label="Password"
@@ -238,10 +213,7 @@ export const CompanySignupPage = () => {
                 <div>
                   <p className="mb-2">
                     Already have an account?{" "}
-                    <Link
-                      to={BrowserComboRoutes.companyLogin}
-                      className="text-mPrimary"
-                    >
+                    <Link to={BrowserRoutes.login} className="text-mPrimary">
                       Sign In
                     </Link>
                   </p>

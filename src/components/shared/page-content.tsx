@@ -13,6 +13,7 @@ import { OverlayContext, OverlayContextType } from "@/context/overlay.context";
 import { useMediaQuery } from "@/utils/hooks";
 import { IoFilterOutline } from "react-icons/io5";
 import { Loader } from "../loader";
+import { AiOutlineRise } from "react-icons/ai";
 
 export const PERIODS = {
   DAILY: "Daily",
@@ -20,6 +21,7 @@ export const PERIODS = {
   MONTHLY: "Monthly",
   YEARLY: "Yearly",
 } as const;
+
 const periods = Object.values(PERIODS);
 export const products = [
   "Comprehensive",
@@ -80,7 +82,7 @@ export const PageContent: React.FC<PageContentProps> = ({
               placeholder={searchbarPlaceholder ?? "Find policy reference"}
               containerClassName="mb-4"
             />
-            {/* <div className="flex w-full">
+            <div className="flex w-full">
               <div className="border border-[#E0E0E0] p-4 rounded-lg flex flex-col grow rounded-r-none">
                 <em className="not-italic text-xs text-[#828282] mb-1">
                   Total Commission
@@ -89,7 +91,7 @@ export const PageContent: React.FC<PageContentProps> = ({
                   {nairaSign}40,000.00
                 </em>
                 <em className="not-italic font-medium text-[10px] text-[#25D366]">
-                  <AiOutlineRise className="inline-block mr-1" />
+                  <AiOutlineRise className="inline-block mr-1 w-3" />
                   Up by 10%
                 </em>
               </div>
@@ -101,11 +103,11 @@ export const PageContent: React.FC<PageContentProps> = ({
                   50 Policies
                 </em>
                 <em className="not-italic font-medium text-[10px] text-[#25D366]">
-                  <AiOutlineRise className="inline-block mr-1" />
+                  <AiOutlineRise className="inline-block mr-1 w-3" />
                   Up by 10%
                 </em>
               </div>
-            </div> */}
+            </div>
           </header>
           <main className="">
             <div className="flex justify-between items-center relative">
@@ -124,8 +126,8 @@ export const PageContent: React.FC<PageContentProps> = ({
                 data-testid="filter"
                 onClick={(e) => e.stopPropagation()}
                 className={cx(
-                  "bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[5000ms] overflow-hidden opacity-0 ",
-                  !isFilterOpen && "max-h-0",
+                  "bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all  overflow-hidden opacity-0 ",
+                  !isFilterOpen && "max-h-0 -z-10",
                   isFilterOpen && "max-h-[500px] opacity-100 overflow-y-auto"
                 )}
               >

@@ -1,3 +1,5 @@
+import { IconType } from "@/components/shared/icon";
+
 export const ClaimStatus = {
   Processing: "Processing",
   Submitted: "Submitted",
@@ -5,6 +7,12 @@ export const ClaimStatus = {
 } as const;
 
 export type ClaimStatusType = keyof typeof ClaimStatus;
+
+export const UserType = {
+  INSURER: "INSURER",
+  AGENT: "AGENT",
+  MERCHANT: "MERCHANT",
+} as const;
 
 export enum ApiType {
   Insurer,
@@ -19,11 +27,6 @@ export type Claim = {
   status: ClaimStatusType;
   estimate: number;
 };
-
-export enum UserType {
-  company,
-  agent,
-}
 
 export type AgentPolicy = {
   policyRef: string;
@@ -58,8 +61,28 @@ export type Commission = {
   policyRef: string;
   policyNo: string;
   product: string;
+  premium: number;
   date: string;
   commission: number;
+};
+
+export type PolicyType = {
+  name: string;
+  description: string;
+  iconType: IconType;
+};
+
+export type Customer = {
+  name: string;
+  phoneNo: string;
+  email: string;
+  activePolicies: CustomerPolicy[];
+  inactivePolicies: CustomerPolicy[];
+};
+
+export type CustomerPolicy = {
+  policyName: string;
+  price: number;
 };
 
 export type DeviceTableEntry = {

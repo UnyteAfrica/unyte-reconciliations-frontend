@@ -1,10 +1,5 @@
 import { LocalStorage } from "@/services/local-storage";
-import {
-  ApiCompanyPolicy,
-  CompanyPolicy,
-  Policy,
-  UserType,
-} from "@/types/types";
+import { ApiCompanyPolicy, CompanyPolicy, Policy } from "@/types/types";
 import { clsx, type ClassValue } from "clsx";
 import { Moment } from "moment";
 import { twMerge } from "tailwind-merge";
@@ -33,15 +28,9 @@ export const formatToNaira = (amount: number) =>
 
 export const addNaira = (amount: string) => nairaSign + amount;
 
-export const clearCredentials = (userType: UserType) => {
-  if (userType == UserType.company) {
-    LocalStorage.removeItem("companyAccessToken");
-    LocalStorage.removeItem("companyRefreshToken");
-  }
-  if (userType == UserType.agent) {
-    LocalStorage.removeItem("agentAccessToken");
-    LocalStorage.removeItem("agentRefreshToken");
-  }
+export const clearCredentials = () => {
+  LocalStorage.removeItem("accessToken");
+  LocalStorage.removeItem("refreshToken");
 };
 
 export const splitQueryParams = (query: string) => {

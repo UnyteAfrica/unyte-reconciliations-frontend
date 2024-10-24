@@ -7,7 +7,7 @@ export const BrowserRoutes = {
   dashboard: "/dashboard",
   policies: "/policies",
   commissions: "/commissions",
-  devices: "/devices",
+  customers: "/customers",
   profile: "/profile",
   claims: "/claims",
   agents: "/agents",
@@ -21,19 +21,11 @@ export const BrowserRoutes = {
 };
 
 export const BrowserComboRoutes = {
-  agentLogin: BrowserRoutes.agent + BrowserRoutes.login,
   agentSignup: BrowserRoutes.agent + BrowserRoutes.signup,
-  agentForgotPassword: BrowserRoutes.agent + BrowserRoutes.forgotPassword,
-  agentResetPassword: BrowserRoutes.agent + BrowserRoutes.resetPassword,
-  agentVerify: BrowserRoutes.agent + BrowserRoutes.verify,
   agentDashboard: BrowserRoutes.agent + BrowserRoutes.dashboard,
   agentOverview:
     BrowserRoutes.agent + BrowserRoutes.dashboard + BrowserRoutes.overview,
-  companyLogin: BrowserRoutes.company + BrowserRoutes.login,
   companySignup: BrowserRoutes.company + BrowserRoutes.signup,
-  companyForgotPassword: BrowserRoutes.company + BrowserRoutes.forgotPassword,
-  companyResetPassword: BrowserRoutes.company + BrowserRoutes.resetPassword,
-  companyVerify: BrowserRoutes.company + BrowserRoutes.verify,
   companyDashboard: BrowserRoutes.company + BrowserRoutes.dashboard,
   companyViewClaim: BrowserRoutes.company + BrowserRoutes.viewClaim,
   companyOverview:

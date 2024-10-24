@@ -2,18 +2,18 @@ import { PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { BrowserComboRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
-import { companyResetPassword } from "@/services/api/api-company";
-import { CompanyPasswordResetType } from "@/types/request.types";
-import toast from "react-hot-toast";
 import { useEffect } from "react";
 import { Loader } from "@/components/loader";
+import toast from "react-hot-toast";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
+import { resetPassword } from "@/services/api/api-base";
+import { PasswordResetType } from "@/types/request.types";
+import { BrowserRoutes } from "@/utils/routes";
 
 const formSchema = z
   .object({
@@ -25,7 +25,7 @@ const formSchema = z
     path: ["confirmPassword"],
   });
 
-export const CompanyResetPasswordPage = () => {
+export const ResetPasswordPage = () => {
   const {
     register,
     handleSubmit,
@@ -38,23 +38,22 @@ export const CompanyResetPasswordPage = () => {
     },
   });
 
-  const { id, token } = useParams();
   const navigate = useNavigate();
 
+  const { id, token } = useParams();
+
   useEffect(() => {
-    if (!id || !token) navigate(BrowserComboRoutes.companyLogin);
+    if (!id || !token) navigate(BrowserRoutes.login);
   }, [id, token]);
 
   const { mutate: mResetPassword, isPending: isResetPasswordLoading } =
     useMutation({
-      mutationKey: [MutationKeys.companyResetPassword],
-      mutationFn: (data: CompanyPasswordResetType) =>
-        companyResetPassword(data),
+      mutationKey: [MutationKeys.agentResetPassword],
+      mutationFn: (data: PasswordResetType) => resetPassword(data),
       onSuccess: (data) => {
-        if (data.status == 200) {
-          toast.success(data.data.message);
-          navigate(BrowserComboRoutes.companyLogin);
-        }
+        logger.log(data);
+        toast.success(data.data.message);
+        navigate(BrowserRoutes.login);
       },
     });
 
@@ -71,7 +70,7 @@ export const CompanyResetPasswordPage = () => {
 
   if (!isMediaQueryMatched)
     return (
-      <div className="px-5 py-10 max-w-[600px] min-h-screen mx-auto flex flex-col">
+      <div className="px-5 py-10 max-w-[600px] min-h-screen mx-auto flex flex-col ">
         <Icon type="logo" className="mb-6 block w-28" />
         <div className="grow" />
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -102,10 +101,7 @@ export const CompanyResetPasswordPage = () => {
             <div>
               <p className="mb-2 text-sm">
                 Already have an account?{" "}
-                <Link
-                  to={BrowserComboRoutes.companyLogin}
-                  className="text-mPrimary"
-                >
+                <Link to={BrowserRoutes.login} className="text-mPrimary">
                   Log In
                 </Link>
               </p>
@@ -154,10 +150,7 @@ export const CompanyResetPasswordPage = () => {
             <div>
               <p className="mb-2">
                 Already have an account?{" "}
-                <Link
-                  to={BrowserComboRoutes.companyLogin}
-                  className="text-mPrimary"
-                >
+                <Link to={BrowserRoutes.login} className="text-mPrimary">
                   Log In
                 </Link>
               </p>

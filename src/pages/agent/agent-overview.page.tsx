@@ -10,6 +10,7 @@ import { RangeWeekPicker } from "@/components/shared/week-picker";
 import { RangeDayPicker } from "@/components/shared/day-picker";
 import { formatToNaira, getWeekValue } from "@/utils/utils";
 import { PERIODS } from "@/components/shared/page-content";
+import { Icon } from "@/components/shared/icon";
 
 const dailyChartDataSeries: ApexAxisChartSeries = [
   {
@@ -350,17 +351,23 @@ export const AgentOverview: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-wrap">
-            <div className="mb-5 mr-8">
-              <em className="not-italic block text-[#4F4F4F] text-xs mb-2">
-                Number of policies sold
+            <div className="mb-5 mr-8 border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-36">
+              <div className="border border-[#25D366] rounded-full mb-4 inline-block p-1">
+                <Icon type="receipt" />
+              </div>
+              <em className="not-italic block text-[#4F4F4F] text-xs mb-1">
+                Policies sold
               </em>
               <em className="not-italic block text-[#333] text-xl font-semibold">
                 {Math.floor(totalPolicyValue / POLICY_COST)} policies
               </em>
             </div>
-            <div className="mb-8">
+            <div className="mb-5 mr-8 border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-36">
+              <div className="border border-[#25D366] rounded-full mb-4 inline-block p-1">
+                <Icon type="dollar" />
+              </div>
               <em className="not-italic block text-[#4F4F4F] text-xs mb-2">
-                Total value of policies sold
+                Sales value
               </em>
               <em className="not-italic block text-[#333] text-xl font-semibold">
                 {formatToNaira(totalPolicyValue)}

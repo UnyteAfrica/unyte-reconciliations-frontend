@@ -1,0 +1,325 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Company Login Page > renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div
+          class="px-5 py-10 max-w-[600px] min-h-screen mx-auto flex flex-col"
+        >
+          <img
+            alt=""
+            class="mb-6 block w-28"
+            src="/src/assets/Icons/UnyteLogo.svg"
+          />
+          <div
+            class="grow"
+          />
+          <form>
+            <header>
+              <p
+                class="mb-2 font-semibold text-[20px] text-center"
+              >
+                Login
+              </p>
+              <p
+                class="mb-6 text-sm text-[#4F4F4F] text-center"
+              >
+                Sign in to your account.
+              </p>
+            </header>
+            <div
+              class="space-y-6"
+            >
+              <div
+                class=""
+              >
+                <label
+                  class="mb-2 block text-sm text-[#333"
+                  for="email"
+                >
+                  Email
+                   
+                </label>
+                <input
+                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                  id="email"
+                  name="email"
+                  placeholder="johndoe@gmail.com / A034529"
+                />
+                <p
+                  class="text-sm text-[#333]"
+                />
+              </div>
+              <div>
+                <div>
+                  <label
+                    class="mb-2 block text-sm text-[#333"
+                    for="password"
+                  >
+                    Password
+                  </label>
+                  <div
+                    class="flex relative items-center w-[100%] border rounded-lg transition duration-300 focus-within:border-black p-2 h-[58px] border-[#E0E0E0]"
+                  >
+                    <div
+                      class="w-full"
+                    >
+                      <input
+                        class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                        id="password"
+                        name="password"
+                        placeholder="******"
+                        type="password"
+                        value=""
+                      />
+                      <p
+                        class="text-sm text-[#333]"
+                      />
+                    </div>
+                    <button
+                      class="absolute top-[50%] -translate-y-[50%] right-3"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 576 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <p
+                    class="font-sora text-sm text-[#333]"
+                  />
+                </div>
+                <div
+                  class="mt-2"
+                >
+                  <a
+                    class="text-mPrimary text-sm mb-2 inline-block"
+                    href="/forgot-password"
+                  >
+                    Forgot Password?
+                  </a>
+                </div>
+              </div>
+              <div>
+                <button
+                  class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
+                >
+                  Sign In
+                </button>
+              </div>
+            </div>
+          </form>
+          <div
+            class="grow"
+          />
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        class="px-5 py-10 max-w-[600px] min-h-screen mx-auto flex flex-col"
+      >
+        <img
+          alt=""
+          class="mb-6 block w-28"
+          src="/src/assets/Icons/UnyteLogo.svg"
+        />
+        <div
+          class="grow"
+        />
+        <form>
+          <header>
+            <p
+              class="mb-2 font-semibold text-[20px] text-center"
+            >
+              Login
+            </p>
+            <p
+              class="mb-6 text-sm text-[#4F4F4F] text-center"
+            >
+              Sign in to your account.
+            </p>
+          </header>
+          <div
+            class="space-y-6"
+          >
+            <div
+              class=""
+            >
+              <label
+                class="mb-2 block text-sm text-[#333"
+                for="email"
+              >
+                Email
+                 
+              </label>
+              <input
+                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                id="email"
+                name="email"
+                placeholder="johndoe@gmail.com / A034529"
+              />
+              <p
+                class="text-sm text-[#333]"
+              />
+            </div>
+            <div>
+              <div>
+                <label
+                  class="mb-2 block text-sm text-[#333"
+                  for="password"
+                >
+                  Password
+                </label>
+                <div
+                  class="flex relative items-center w-[100%] border rounded-lg transition duration-300 focus-within:border-black p-2 h-[58px] border-[#E0E0E0]"
+                >
+                  <div
+                    class="w-full"
+                  >
+                    <input
+                      class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                      id="password"
+                      name="password"
+                      placeholder="******"
+                      type="password"
+                      value=""
+                    />
+                    <p
+                      class="text-sm text-[#333]"
+                    />
+                  </div>
+                  <button
+                    class="absolute top-[50%] -translate-y-[50%] right-3"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 576 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <p
+                  class="font-sora text-sm text-[#333]"
+                />
+              </div>
+              <div
+                class="mt-2"
+              >
+                <a
+                  class="text-mPrimary text-sm mb-2 inline-block"
+                  href="/forgot-password"
+                >
+                  Forgot Password?
+                </a>
+              </div>
+            </div>
+            <div>
+              <button
+                class="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
+              >
+                Sign In
+              </button>
+            </div>
+          </div>
+        </form>
+        <div
+          class="grow"
+        />
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+  "user": {
+    "clear": [Function],
+    "click": [Function],
+    "copy": [Function],
+    "cut": [Function],
+    "dblClick": [Function],
+    "deselectOptions": [Function],
+    "hover": [Function],
+    "keyboard": [Function],
+    "paste": [Function],
+    "pointer": [Function],
+    "selectOptions": [Function],
+    "setup": [Function],
+    "tab": [Function],
+    "tripleClick": [Function],
+    "type": [Function],
+    "unhover": [Function],
+    "upload": [Function],
+  },
+}
+`;
