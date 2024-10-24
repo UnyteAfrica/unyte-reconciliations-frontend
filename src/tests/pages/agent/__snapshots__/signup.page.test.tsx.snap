@@ -343,7 +343,7 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                    
                   <a
                     class="text-mPrimary"
-                    href="/agent/login"
+                    href="/login"
                   >
                     Sign In
                   </a>
@@ -694,7 +694,7 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                  
                 <a
                   class="text-mPrimary"
-                  href="/agent/login"
+                  href="/login"
                 >
                   Sign In
                 </a>

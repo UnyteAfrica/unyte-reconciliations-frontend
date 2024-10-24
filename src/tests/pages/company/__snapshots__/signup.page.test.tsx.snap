@@ -110,31 +110,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                   class="text-sm text-[#333]"
                 />
               </div>
-              <div
-                class=""
-              >
-                <label
-                  class="mb-2 block text-sm text-[#333"
-                  for="gampId"
-                >
-                  GAMP ID
-                   
-                  <span
-                    class="not-italic text-sm text-[#333]"
-                  >
-                    (optional)
-                  </span>
-                </label>
-                <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
-                  id="gampId"
-                  name="gampId"
-                  placeholder="GP-4739349"
-                />
-                <p
-                  class="text-sm text-[#333]"
-                />
-              </div>
               <div>
                 <label
                   class="mb-2 block text-sm text-[#333"
@@ -237,7 +212,7 @@ exports[`Company Signup Page > renders correctly 1`] = `
                    
                   <a
                     class="text-mPrimary"
-                    href="/company/login"
+                    href="/login"
                   >
                     Sign In
                   </a>
@@ -360,31 +335,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                 class="text-sm text-[#333]"
               />
             </div>
-            <div
-              class=""
-            >
-              <label
-                class="mb-2 block text-sm text-[#333"
-                for="gampId"
-              >
-                GAMP ID
-                 
-                <span
-                  class="not-italic text-sm text-[#333]"
-                >
-                  (optional)
-                </span>
-              </label>
-              <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
-                id="gampId"
-                name="gampId"
-                placeholder="GP-4739349"
-              />
-              <p
-                class="text-sm text-[#333]"
-              />
-            </div>
             <div>
               <label
                 class="mb-2 block text-sm text-[#333"
@@ -487,7 +437,7 @@ exports[`Company Signup Page > renders correctly 1`] = `
                  
                 <a
                   class="text-mPrimary"
-                  href="/company/login"
+                  href="/login"
                 >
                   Sign In
                 </a>

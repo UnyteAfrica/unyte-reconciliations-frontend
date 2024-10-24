@@ -3,10 +3,12 @@
 exports[`Agent Policies > renders correctly 1`] = `
 {
   "asFragment": [Function],
-  "baseElement": <body>
+  "baseElement": <body
+    style="overflow: unset;"
+  >
     <div>
       <div
-        class="px-5 py-6 max-w-[850px] mx-auto"
+        class="px-5 py-6 max-w-[850px] mx-auto bg-[#F8F8F8]"
       >
         <header
           class="mb-7"
@@ -16,496 +18,756 @@ exports[`Agent Policies > renders correctly 1`] = `
           >
             Policies
           </h1>
-          <div
-            class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
-          >
-            <img
-              alt="search icon"
-              class="block mr-2 w-7 h-7"
-              src="/src/assets/Icons/SearchIcon.svg"
-            />
-            <input
-              class="bg-transparent py-2 text-opacity-20"
-              placeholder="Find policy reference"
-              type="search"
-              value=""
-            />
-          </div>
+          <p>
+            Choose any of our available policies to sell to potential customers
+          </p>
         </header>
         <main
-          class=""
+          class="space-y-4"
         >
           <div
-            class="flex justify-between items-center relative"
+            class="bg-white rounded-2xl p-4 cursor-pointer"
           >
-            <h2
-              class="font-medium"
-            >
-              Activity
-            </h2>
-            <button
-              class="bg-[#25D366] rounded-full p-2 px-4 text-white"
-            >
-              <svg
-                class="inline-block mr-1"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 512 512"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32 144h448M112 256h288M208 368h96"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="32"
-                />
-              </svg>
-              Filter
-            </button>
             <div
-              class="bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[5000ms] overflow-hidden opacity-0  max-h-0"
-              data-testid="filter"
+              class="flex mb-2"
             >
-              <div>
-                <label
-                  class="mb-2 inline-block"
-                >
-                  Period Range
-                </label>
-                <div
-                  class="relative w-full"
-                >
-                  <button
-                    class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
-                  >
-                    <div
-                      class="space-x-2 flex flex-row items-center justify-between"
-                    >
-                      <span
-                        class="text-base"
-                        title="selectBtn"
-                      >
-                        Daily
-                      </span>
-                      <svg
-                        fill="currentColor"
-                        height="1em"
-                        stroke="currentColor"
-                        stroke-width="0"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
-                        />
-                      </svg>
-                    </div>
-                  </button>
-                  <div
-                    class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
-                  >
-                    <button
-                      class="w-full font-inter py-4 font-semibold"
-                    >
-                      Daily
-                    </button>
-                    <hr />
-                    <button
-                      class="w-full font-inter py-4 font-semibold"
-                    >
-                      Weekly
-                    </button>
-                    <hr />
-                    <button
-                      class="w-full font-inter py-4 font-semibold"
-                    >
-                      Monthly
-                    </button>
-                    <hr />
-                    <button
-                      class="w-full font-inter py-4 font-semibold"
-                    >
-                      Yearly
-                    </button>
-                    <hr />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <label
-                  class="mb-2 inline-block"
-                >
-                  Custom Date Range
-                </label>
-                <div
-                  class="w-full"
-                >
-                  <button
-                    class="px-4 py-2 border rounded-md relative font-semibold w-full block"
-                  >
-                    November 13, 2023
-                    <input
-                      class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
-                      placeholder="date"
-                      type="date"
-                      value="2023-11-13"
-                    />
-                  </button>
-                  <button
-                    class="px-4 py-2 border rounded-md relative font-semibold w-full"
-                  >
-                    November 13, 2023
-                    <input
-                      class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
-                      placeholder="date"
-                      type="date"
-                      value="2023-11-13"
-                    />
-                  </button>
-                </div>
-              </div>
               <div
-                class=""
+                class="bg-[#C8FFC6] h-8 w-8 rounded-full mr-2 flex justify-center items-center shrink-0"
               >
-                <label
-                  class="text-[#333] mb-2 block text-base"
-                  for="policyNo"
-                >
-                  Policy No.
-                   
-                </label>
-                <input
-                  class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
-                  id="policyNo"
-                  placeholder="#A023457"
+                <img
+                  alt=""
+                  class=""
+                  src="/src/assets/Icons/health-insurance.svg"
                 />
+              </div>
+              <div>
+                <h3
+                  class="not-italic text-sm font-medium inline-block mb-1 text-[#101323]"
+                >
+                  Health Insurance
+                </h3>
                 <p
-                  class="text-sm text-[#333]"
-                />
-              </div>
-              <div>
-                <label
-                  class="mb-2 inline-block"
+                  class="text-[#667085] text-xs"
                 >
-                  Select Product(s)
-                </label>
-                <div
-                  class="relative w-full"
-                >
-                  <button
-                    class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
-                  >
-                    <div
-                      class="space-x-2 flex flex-row items-center justify-between"
-                    >
-                      <span
-                        class="text-base"
-                        title="selectBtn"
-                      >
-                        Comprehensive
-                      </span>
-                      <svg
-                        fill="currentColor"
-                        height="1em"
-                        stroke="currentColor"
-                        stroke-width="0"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
-                        />
-                      </svg>
-                    </div>
-                  </button>
-                  <div
-                    class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
-                  >
-                    <button
-                      class="w-full font-inter py-4 font-semibold"
-                    >
-                      Comprehensive
-                    </button>
-                    <hr />
-                    <button
-                      class="w-full font-inter py-4 font-semibold"
-                    >
-                      Credit Life
-                    </button>
-                    <hr />
-                    <button
-                      class="w-full font-inter py-4 font-semibold"
-                    >
-                      Card Protect
-                    </button>
-                    <hr />
-                    <button
-                      class="w-full font-inter py-4 font-semibold"
-                    >
-                      Student
-                    </button>
-                    <hr />
-                    <button
-                      class="w-full font-inter py-4 font-semibold"
-                    >
-                      Travel
-                    </button>
-                    <hr />
-                    <button
-                      class="w-full font-inter py-4 font-semibold"
-                    >
-                      Device
-                    </button>
-                    <hr />
-                  </div>
-                </div>
+                  Covers medical expenses, such as doctor's visits, hospital stays, and prescription drugs.
+                </p>
               </div>
-              <div
-                class=""
+            </div>
+            <div
+              class="flex justify-between"
+            >
+              <button
+                class="w-[48%] text-white text-sm font-medium bg-[#25D366] rounded-full py-[6px]"
               >
-                <label
-                  class="text-[#333] mb-2 block text-base"
-                  for="amount"
-                >
-                  Amount
-                   
-                </label>
-                <input
-                  class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
-                  id="amount"
-                  placeholder="₦"
-                />
-                <p
-                  class="text-sm text-[#333]"
-                />
-              </div>
-              <div
-                class="flex ml-auto"
+                Sell Policy
+              </button>
+              <button
+                class="w-[48%] text-black text-sm font-medium bg-[#F9FAFB] rounded-full py-[6px]"
               >
-                <button
-                  class="bg-white border rounded-md w-[90px] inline-block mr-4 py-2 ml-auto"
-                >
-                  Cancel
-                </button>
-                <button
-                  class="bg-mPrimary text-white w-[115px] rounded-md py-2"
-                >
-                  Apply Filter
-                </button>
-              </div>
+                View Policy
+              </button>
             </div>
           </div>
           <div
-            class="my-6"
+            class="bg-white rounded-2xl p-4 cursor-pointer"
           >
-            <div>
+            <div
+              class="flex mb-2"
+            >
               <div
-                class="border-b py-2"
+                class="bg-[#C8FFC6] h-8 w-8 rounded-full mr-2 flex justify-center items-center shrink-0"
               >
-                <div
-                  class="flex justify-between items-center mb-2"
-                >
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    #WP62F3E8F93
-                  </em>
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    Comprehensive
-                  </em>
-                </div>
-                <div
-                  class="flex justify-between items-center"
-                >
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    May 7, 2023
-                  </em>
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    ₦40,000
-                  </em>
-                </div>
+                <img
+                  alt=""
+                  class=""
+                  src="/src/assets/Icons/motor-insurance.svg"
+                />
               </div>
+              <div>
+                <h3
+                  class="not-italic text-sm font-medium inline-block mb-1 text-[#101323]"
+                >
+                  Comprehensive Motor Insurance
+                </h3>
+                <p
+                  class="text-[#667085] text-xs"
+                >
+                  With motor insurance you get to cover damages caused by accidents or theft involving a vehicle.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex justify-between"
+            >
+              <button
+                class="w-[48%] text-white text-sm font-medium bg-[#25D366] rounded-full py-[6px]"
+              >
+                Sell Policy
+              </button>
+              <button
+                class="w-[48%] text-black text-sm font-medium bg-[#F9FAFB] rounded-full py-[6px]"
+              >
+                View Policy
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-2xl p-4 cursor-pointer"
+          >
+            <div
+              class="flex mb-2"
+            >
               <div
-                class="border-b py-2"
+                class="bg-[#C8FFC6] h-8 w-8 rounded-full mr-2 flex justify-center items-center shrink-0"
               >
-                <div
-                  class="flex justify-between items-center mb-2"
-                >
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    #WP62F3E8F93
-                  </em>
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    Credit Life
-                  </em>
-                </div>
-                <div
-                  class="flex justify-between items-center"
-                >
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    May 7, 2023
-                  </em>
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    ₦40,000
-                  </em>
-                </div>
+                <img
+                  alt=""
+                  class=""
+                  src="/src/assets/Icons/travel-insurance.svg"
+                />
               </div>
+              <div>
+                <h3
+                  class="not-italic text-sm font-medium inline-block mb-1 text-[#101323]"
+                >
+                  Travel Insurance
+                </h3>
+                <p
+                  class="text-[#667085] text-xs"
+                >
+                  Travel insurance protects you against unexpected events while traveling, like trip cancellations, lost luggage etc.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex justify-between"
+            >
+              <button
+                class="w-[48%] text-white text-sm font-medium bg-[#25D366] rounded-full py-[6px]"
+              >
+                Sell Policy
+              </button>
+              <button
+                class="w-[48%] text-black text-sm font-medium bg-[#F9FAFB] rounded-full py-[6px]"
+              >
+                View Policy
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-2xl p-4 cursor-pointer"
+          >
+            <div
+              class="flex mb-2"
+            >
               <div
-                class="border-b py-2"
+                class="bg-[#C8FFC6] h-8 w-8 rounded-full mr-2 flex justify-center items-center shrink-0"
               >
-                <div
-                  class="flex justify-between items-center mb-2"
-                >
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    #WP62F3E8F93
-                  </em>
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    Card Protect
-                  </em>
-                </div>
-                <div
-                  class="flex justify-between items-center"
-                >
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    May 7, 2023
-                  </em>
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    ₦40,000
-                  </em>
-                </div>
+                <img
+                  alt=""
+                  class=""
+                  src="/src/assets/Icons/device-insurance.svg"
+                />
               </div>
-              <div
-                class="border-b py-2"
+              <div>
+                <h3
+                  class="not-italic text-sm font-medium inline-block mb-1 text-[#101323]"
+                >
+                  Device Insurance
+                </h3>
+                <p
+                  class="text-[#667085] text-xs"
+                >
+                  Device insurance covers your device against unexpected events that lead to damage of parts of the phone
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex justify-between"
+            >
+              <button
+                class="w-[48%] text-white text-sm font-medium bg-[#25D366] rounded-full py-[6px]"
               >
-                <div
-                  class="flex justify-between items-center mb-2"
-                >
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    #WP62F3E8F93
-                  </em>
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    Student
-                  </em>
-                </div>
-                <div
-                  class="flex justify-between items-center"
-                >
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    May 7, 2023
-                  </em>
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    ₦40,000
-                  </em>
-                </div>
-              </div>
-              <div
-                class="border-b py-2"
+                Sell Policy
+              </button>
+              <button
+                class="w-[48%] text-black text-sm font-medium bg-[#F9FAFB] rounded-full py-[6px]"
               >
-                <div
-                  class="flex justify-between items-center mb-2"
-                >
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    #WP62F3E8F93
-                  </em>
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    Travel
-                  </em>
-                </div>
-                <div
-                  class="flex justify-between items-center"
-                >
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    May 7, 2023
-                  </em>
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    ₦40,000
-                  </em>
-                </div>
-              </div>
-              <div
-                class="border-b py-2"
-              >
-                <div
-                  class="flex justify-between items-center mb-2"
-                >
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    #WP62F3E8F93
-                  </em>
-                  <em
-                    class="not-italic font-semibold text-[#333]"
-                  >
-                    Device
-                  </em>
-                </div>
-                <div
-                  class="flex justify-between items-center"
-                >
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    May 7, 2023
-                  </em>
-                  <em
-                    class="not-italic text-[#828282]"
-                  >
-                    ₦40,000
-                  </em>
-                </div>
-              </div>
+                View Policy
+              </button>
             </div>
           </div>
         </main>
       </div>
     </div>
+    <div
+      class="z-50 h-screen w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
+    >
+      <div
+        class="flex justify-between items-center mb-4"
+      >
+        <button>
+          <svg
+            class="text-2xl"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 256 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+            />
+          </svg>
+        </button>
+        <div
+          class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%] transition"
+        />
+        <div
+          class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%]"
+        />
+      </div>
+      <header
+        class="mb-4"
+      >
+        <h4
+          class="font-semibold mb-2"
+        >
+          Sell 
+          Health Insurance
+        </h4>
+        <em
+          class="not-italic text-sm text-[#4F4F4F]"
+        >
+          Enter customer's personal details
+        </em>
+      </header>
+      <div>
+        <div
+          class="space-y-6"
+        >
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sFullName"
+            >
+              Customer's Full Name
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sFullName"
+              placeholder="John Doe"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sDateOfBirth"
+            >
+              Customer's Date of Birth
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sDateOfBirth"
+              placeholder="DD/MM/YYYY"
+              type="date"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sPhoneNumber"
+            >
+              Customer's Phone Number
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sPhoneNumber"
+              placeholder="08035892001"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sEmailAddress"
+            >
+              Customer's Email Address
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sEmailAddress"
+              placeholder="mail@mail.com"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="grow"
+      />
+      <button
+        class="w-full bg-[#25D366] py-4 text-lg font-medium rounded-lg text-white"
+      >
+        Continue
+      </button>
+      <em
+        class="block text-center not-italic text-xs mt-10"
+      >
+        Powered by Unyte Africa
+      </em>
+    </div>
+    <div
+      class="z-50 h-screen w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
+    >
+      <div
+        class="flex justify-between items-center mb-4"
+      >
+        <button>
+          <svg
+            class="text-2xl"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 256 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+            />
+          </svg>
+        </button>
+        <div
+          class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%] transition"
+        />
+        <div
+          class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%]"
+        />
+      </div>
+      <header
+        class="mb-4"
+      >
+        <h4
+          class="font-semibold mb-2"
+        >
+          Sell 
+          Comprehensive Motor Insurance
+        </h4>
+        <em
+          class="not-italic text-sm text-[#4F4F4F]"
+        >
+          Enter customer's personal details
+        </em>
+      </header>
+      <div>
+        <div
+          class="space-y-6"
+        >
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sFullName"
+            >
+              Customer's Full Name
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sFullName"
+              placeholder="John Doe"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sDateOfBirth"
+            >
+              Customer's Date of Birth
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sDateOfBirth"
+              placeholder="DD/MM/YYYY"
+              type="date"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sPhoneNumber"
+            >
+              Customer's Phone Number
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sPhoneNumber"
+              placeholder="08035892001"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sEmailAddress"
+            >
+              Customer's Email Address
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sEmailAddress"
+              placeholder="mail@mail.com"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="grow"
+      />
+      <button
+        class="w-full bg-[#25D366] py-4 text-lg font-medium rounded-lg text-white"
+      >
+        Continue
+      </button>
+      <em
+        class="block text-center not-italic text-xs mt-10"
+      >
+        Powered by Unyte Africa
+      </em>
+    </div>
+    <div
+      class="z-50 h-screen w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
+    >
+      <div
+        class="flex justify-between items-center mb-4"
+      >
+        <button>
+          <svg
+            class="text-2xl"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 256 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+            />
+          </svg>
+        </button>
+        <div
+          class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%] transition"
+        />
+        <div
+          class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%]"
+        />
+      </div>
+      <header
+        class="mb-4"
+      >
+        <h4
+          class="font-semibold mb-2"
+        >
+          Sell 
+          Travel Insurance
+        </h4>
+        <em
+          class="not-italic text-sm text-[#4F4F4F]"
+        >
+          Enter customer's personal details
+        </em>
+      </header>
+      <div>
+        <div
+          class="space-y-6"
+        >
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sFullName"
+            >
+              Customer's Full Name
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sFullName"
+              placeholder="John Doe"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sDateOfBirth"
+            >
+              Customer's Date of Birth
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sDateOfBirth"
+              placeholder="DD/MM/YYYY"
+              type="date"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sPhoneNumber"
+            >
+              Customer's Phone Number
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sPhoneNumber"
+              placeholder="08035892001"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sEmailAddress"
+            >
+              Customer's Email Address
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sEmailAddress"
+              placeholder="mail@mail.com"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="grow"
+      />
+      <button
+        class="w-full bg-[#25D366] py-4 text-lg font-medium rounded-lg text-white"
+      >
+        Continue
+      </button>
+      <em
+        class="block text-center not-italic text-xs mt-10"
+      >
+        Powered by Unyte Africa
+      </em>
+    </div>
+    <div
+      class="z-50 h-screen w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
+    >
+      <div
+        class="flex justify-between items-center mb-4"
+      >
+        <button>
+          <svg
+            class="text-2xl"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 256 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+            />
+          </svg>
+        </button>
+        <div
+          class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%] transition"
+        />
+        <div
+          class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%]"
+        />
+      </div>
+      <header
+        class="mb-4"
+      >
+        <h4
+          class="font-semibold mb-2"
+        >
+          Sell 
+          Device Insurance
+        </h4>
+        <em
+          class="not-italic text-sm text-[#4F4F4F]"
+        >
+          Enter customer's personal details
+        </em>
+      </header>
+      <div>
+        <div
+          class="space-y-6"
+        >
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sFullName"
+            >
+              Customer's Full Name
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sFullName"
+              placeholder="John Doe"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sDateOfBirth"
+            >
+              Customer's Date of Birth
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sDateOfBirth"
+              placeholder="DD/MM/YYYY"
+              type="date"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sPhoneNumber"
+            >
+              Customer's Phone Number
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sPhoneNumber"
+              placeholder="08035892001"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+          <div
+            class=""
+          >
+            <label
+              class="text-[#333] mb-2 block text-sm"
+              for="customer'sEmailAddress"
+            >
+              Customer's Email Address
+               
+            </label>
+            <input
+              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              id="customer'sEmailAddress"
+              placeholder="mail@mail.com"
+            />
+            <p
+              class="text-sm text-[#333]"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="grow"
+      />
+      <button
+        class="w-full bg-[#25D366] py-4 text-lg font-medium rounded-lg text-white"
+      >
+        Continue
+      </button>
+      <em
+        class="block text-center not-italic text-xs mt-10"
+      >
+        Powered by Unyte Africa
+      </em>
+    </div>
   </body>,
   "container": <div>
     <div
-      class="px-5 py-6 max-w-[850px] mx-auto"
+      class="px-5 py-6 max-w-[850px] mx-auto bg-[#F8F8F8]"
     >
       <header
         class="mb-7"
@@ -515,487 +777,183 @@ exports[`Agent Policies > renders correctly 1`] = `
         >
           Policies
         </h1>
-        <div
-          class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
-        >
-          <img
-            alt="search icon"
-            class="block mr-2 w-7 h-7"
-            src="/src/assets/Icons/SearchIcon.svg"
-          />
-          <input
-            class="bg-transparent py-2 text-opacity-20"
-            placeholder="Find policy reference"
-            type="search"
-            value=""
-          />
-        </div>
+        <p>
+          Choose any of our available policies to sell to potential customers
+        </p>
       </header>
       <main
-        class=""
+        class="space-y-4"
       >
         <div
-          class="flex justify-between items-center relative"
+          class="bg-white rounded-2xl p-4 cursor-pointer"
         >
-          <h2
-            class="font-medium"
-          >
-            Activity
-          </h2>
-          <button
-            class="bg-[#25D366] rounded-full p-2 px-4 text-white"
-          >
-            <svg
-              class="inline-block mr-1"
-              fill="currentColor"
-              height="1em"
-              stroke="currentColor"
-              stroke-width="0"
-              viewBox="0 0 512 512"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M32 144h448M112 256h288M208 368h96"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="32"
-              />
-            </svg>
-            Filter
-          </button>
           <div
-            class="bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[5000ms] overflow-hidden opacity-0  max-h-0"
-            data-testid="filter"
+            class="flex mb-2"
           >
-            <div>
-              <label
-                class="mb-2 inline-block"
-              >
-                Period Range
-              </label>
-              <div
-                class="relative w-full"
-              >
-                <button
-                  class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
-                >
-                  <div
-                    class="space-x-2 flex flex-row items-center justify-between"
-                  >
-                    <span
-                      class="text-base"
-                      title="selectBtn"
-                    >
-                      Daily
-                    </span>
-                    <svg
-                      fill="currentColor"
-                      height="1em"
-                      stroke="currentColor"
-                      stroke-width="0"
-                      viewBox="0 0 24 24"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
-                      />
-                    </svg>
-                  </div>
-                </button>
-                <div
-                  class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
-                >
-                  <button
-                    class="w-full font-inter py-4 font-semibold"
-                  >
-                    Daily
-                  </button>
-                  <hr />
-                  <button
-                    class="w-full font-inter py-4 font-semibold"
-                  >
-                    Weekly
-                  </button>
-                  <hr />
-                  <button
-                    class="w-full font-inter py-4 font-semibold"
-                  >
-                    Monthly
-                  </button>
-                  <hr />
-                  <button
-                    class="w-full font-inter py-4 font-semibold"
-                  >
-                    Yearly
-                  </button>
-                  <hr />
-                </div>
-              </div>
-            </div>
-            <div>
-              <label
-                class="mb-2 inline-block"
-              >
-                Custom Date Range
-              </label>
-              <div
-                class="w-full"
-              >
-                <button
-                  class="px-4 py-2 border rounded-md relative font-semibold w-full block"
-                >
-                  November 13, 2023
-                  <input
-                    class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
-                    placeholder="date"
-                    type="date"
-                    value="2023-11-13"
-                  />
-                </button>
-                <button
-                  class="px-4 py-2 border rounded-md relative font-semibold w-full"
-                >
-                  November 13, 2023
-                  <input
-                    class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
-                    placeholder="date"
-                    type="date"
-                    value="2023-11-13"
-                  />
-                </button>
-              </div>
-            </div>
             <div
-              class=""
+              class="bg-[#C8FFC6] h-8 w-8 rounded-full mr-2 flex justify-center items-center shrink-0"
             >
-              <label
-                class="text-[#333] mb-2 block text-base"
-                for="policyNo"
-              >
-                Policy No.
-                 
-              </label>
-              <input
-                class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
-                id="policyNo"
-                placeholder="#A023457"
+              <img
+                alt=""
+                class=""
+                src="/src/assets/Icons/health-insurance.svg"
               />
+            </div>
+            <div>
+              <h3
+                class="not-italic text-sm font-medium inline-block mb-1 text-[#101323]"
+              >
+                Health Insurance
+              </h3>
               <p
-                class="text-sm text-[#333]"
-              />
-            </div>
-            <div>
-              <label
-                class="mb-2 inline-block"
+                class="text-[#667085] text-xs"
               >
-                Select Product(s)
-              </label>
-              <div
-                class="relative w-full"
-              >
-                <button
-                  class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
-                >
-                  <div
-                    class="space-x-2 flex flex-row items-center justify-between"
-                  >
-                    <span
-                      class="text-base"
-                      title="selectBtn"
-                    >
-                      Comprehensive
-                    </span>
-                    <svg
-                      fill="currentColor"
-                      height="1em"
-                      stroke="currentColor"
-                      stroke-width="0"
-                      viewBox="0 0 24 24"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
-                      />
-                    </svg>
-                  </div>
-                </button>
-                <div
-                  class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
-                >
-                  <button
-                    class="w-full font-inter py-4 font-semibold"
-                  >
-                    Comprehensive
-                  </button>
-                  <hr />
-                  <button
-                    class="w-full font-inter py-4 font-semibold"
-                  >
-                    Credit Life
-                  </button>
-                  <hr />
-                  <button
-                    class="w-full font-inter py-4 font-semibold"
-                  >
-                    Card Protect
-                  </button>
-                  <hr />
-                  <button
-                    class="w-full font-inter py-4 font-semibold"
-                  >
-                    Student
-                  </button>
-                  <hr />
-                  <button
-                    class="w-full font-inter py-4 font-semibold"
-                  >
-                    Travel
-                  </button>
-                  <hr />
-                  <button
-                    class="w-full font-inter py-4 font-semibold"
-                  >
-                    Device
-                  </button>
-                  <hr />
-                </div>
-              </div>
+                Covers medical expenses, such as doctor's visits, hospital stays, and prescription drugs.
+              </p>
             </div>
-            <div
-              class=""
+          </div>
+          <div
+            class="flex justify-between"
+          >
+            <button
+              class="w-[48%] text-white text-sm font-medium bg-[#25D366] rounded-full py-[6px]"
             >
-              <label
-                class="text-[#333] mb-2 block text-base"
-                for="amount"
-              >
-                Amount
-                 
-              </label>
-              <input
-                class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
-                id="amount"
-                placeholder="₦"
-              />
-              <p
-                class="text-sm text-[#333]"
-              />
-            </div>
-            <div
-              class="flex ml-auto"
+              Sell Policy
+            </button>
+            <button
+              class="w-[48%] text-black text-sm font-medium bg-[#F9FAFB] rounded-full py-[6px]"
             >
-              <button
-                class="bg-white border rounded-md w-[90px] inline-block mr-4 py-2 ml-auto"
-              >
-                Cancel
-              </button>
-              <button
-                class="bg-mPrimary text-white w-[115px] rounded-md py-2"
-              >
-                Apply Filter
-              </button>
-            </div>
+              View Policy
+            </button>
           </div>
         </div>
         <div
-          class="my-6"
+          class="bg-white rounded-2xl p-4 cursor-pointer"
         >
-          <div>
+          <div
+            class="flex mb-2"
+          >
             <div
-              class="border-b py-2"
+              class="bg-[#C8FFC6] h-8 w-8 rounded-full mr-2 flex justify-center items-center shrink-0"
             >
-              <div
-                class="flex justify-between items-center mb-2"
-              >
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  #WP62F3E8F93
-                </em>
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  Comprehensive
-                </em>
-              </div>
-              <div
-                class="flex justify-between items-center"
-              >
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  May 7, 2023
-                </em>
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  ₦40,000
-                </em>
-              </div>
+              <img
+                alt=""
+                class=""
+                src="/src/assets/Icons/motor-insurance.svg"
+              />
             </div>
+            <div>
+              <h3
+                class="not-italic text-sm font-medium inline-block mb-1 text-[#101323]"
+              >
+                Comprehensive Motor Insurance
+              </h3>
+              <p
+                class="text-[#667085] text-xs"
+              >
+                With motor insurance you get to cover damages caused by accidents or theft involving a vehicle.
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex justify-between"
+          >
+            <button
+              class="w-[48%] text-white text-sm font-medium bg-[#25D366] rounded-full py-[6px]"
+            >
+              Sell Policy
+            </button>
+            <button
+              class="w-[48%] text-black text-sm font-medium bg-[#F9FAFB] rounded-full py-[6px]"
+            >
+              View Policy
+            </button>
+          </div>
+        </div>
+        <div
+          class="bg-white rounded-2xl p-4 cursor-pointer"
+        >
+          <div
+            class="flex mb-2"
+          >
             <div
-              class="border-b py-2"
+              class="bg-[#C8FFC6] h-8 w-8 rounded-full mr-2 flex justify-center items-center shrink-0"
             >
-              <div
-                class="flex justify-between items-center mb-2"
-              >
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  #WP62F3E8F93
-                </em>
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  Credit Life
-                </em>
-              </div>
-              <div
-                class="flex justify-between items-center"
-              >
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  May 7, 2023
-                </em>
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  ₦40,000
-                </em>
-              </div>
+              <img
+                alt=""
+                class=""
+                src="/src/assets/Icons/travel-insurance.svg"
+              />
             </div>
+            <div>
+              <h3
+                class="not-italic text-sm font-medium inline-block mb-1 text-[#101323]"
+              >
+                Travel Insurance
+              </h3>
+              <p
+                class="text-[#667085] text-xs"
+              >
+                Travel insurance protects you against unexpected events while traveling, like trip cancellations, lost luggage etc.
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex justify-between"
+          >
+            <button
+              class="w-[48%] text-white text-sm font-medium bg-[#25D366] rounded-full py-[6px]"
+            >
+              Sell Policy
+            </button>
+            <button
+              class="w-[48%] text-black text-sm font-medium bg-[#F9FAFB] rounded-full py-[6px]"
+            >
+              View Policy
+            </button>
+          </div>
+        </div>
+        <div
+          class="bg-white rounded-2xl p-4 cursor-pointer"
+        >
+          <div
+            class="flex mb-2"
+          >
             <div
-              class="border-b py-2"
+              class="bg-[#C8FFC6] h-8 w-8 rounded-full mr-2 flex justify-center items-center shrink-0"
             >
-              <div
-                class="flex justify-between items-center mb-2"
-              >
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  #WP62F3E8F93
-                </em>
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  Card Protect
-                </em>
-              </div>
-              <div
-                class="flex justify-between items-center"
-              >
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  May 7, 2023
-                </em>
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  ₦40,000
-                </em>
-              </div>
+              <img
+                alt=""
+                class=""
+                src="/src/assets/Icons/device-insurance.svg"
+              />
             </div>
-            <div
-              class="border-b py-2"
+            <div>
+              <h3
+                class="not-italic text-sm font-medium inline-block mb-1 text-[#101323]"
+              >
+                Device Insurance
+              </h3>
+              <p
+                class="text-[#667085] text-xs"
+              >
+                Device insurance covers your device against unexpected events that lead to damage of parts of the phone
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex justify-between"
+          >
+            <button
+              class="w-[48%] text-white text-sm font-medium bg-[#25D366] rounded-full py-[6px]"
             >
-              <div
-                class="flex justify-between items-center mb-2"
-              >
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  #WP62F3E8F93
-                </em>
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  Student
-                </em>
-              </div>
-              <div
-                class="flex justify-between items-center"
-              >
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  May 7, 2023
-                </em>
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  ₦40,000
-                </em>
-              </div>
-            </div>
-            <div
-              class="border-b py-2"
+              Sell Policy
+            </button>
+            <button
+              class="w-[48%] text-black text-sm font-medium bg-[#F9FAFB] rounded-full py-[6px]"
             >
-              <div
-                class="flex justify-between items-center mb-2"
-              >
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  #WP62F3E8F93
-                </em>
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  Travel
-                </em>
-              </div>
-              <div
-                class="flex justify-between items-center"
-              >
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  May 7, 2023
-                </em>
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  ₦40,000
-                </em>
-              </div>
-            </div>
-            <div
-              class="border-b py-2"
-            >
-              <div
-                class="flex justify-between items-center mb-2"
-              >
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  #WP62F3E8F93
-                </em>
-                <em
-                  class="not-italic font-semibold text-[#333]"
-                >
-                  Device
-                </em>
-              </div>
-              <div
-                class="flex justify-between items-center"
-              >
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  May 7, 2023
-                </em>
-                <em
-                  class="not-italic text-[#828282]"
-                >
-                  ₦40,000
-                </em>
-              </div>
-            </div>
+              View Policy
+            </button>
           </div>
         </div>
       </main>

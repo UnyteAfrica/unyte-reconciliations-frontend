@@ -2,7 +2,7 @@ import { CustomInput, PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BrowserComboRoutes } from "@/utils/routes";
+import { BrowserRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
@@ -77,7 +77,7 @@ export const AgentSignupPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!inviteCode) navigate(BrowserComboRoutes.agentLogin);
+    if (!inviteCode) navigate(BrowserRoutes.login);
   }, []);
 
   const { mutate: mSignup, isPending: isSignupLoading } = useMutation({
@@ -86,7 +86,7 @@ export const AgentSignupPage = () => {
     onSuccess: (data) => {
       const message = data.data.message;
       toast.success(message);
-      navigate(BrowserComboRoutes.agentLogin);
+      navigate(BrowserRoutes.login);
     },
   });
 
@@ -243,10 +243,7 @@ export const AgentSignupPage = () => {
                 </button>
                 <p className="text-center">
                   Already have an account?{" "}
-                  <Link
-                    to={BrowserComboRoutes.agentLogin}
-                    className="text-mPrimary"
-                  >
+                  <Link to={BrowserRoutes.login} className="text-mPrimary">
                     Sign In
                   </Link>
                 </p>
@@ -348,10 +345,7 @@ export const AgentSignupPage = () => {
                 <div>
                   <p className="mb-2">
                     Already have an account?{" "}
-                    <Link
-                      to={BrowserComboRoutes.agentLogin}
-                      className="text-mPrimary"
-                    >
+                    <Link to={BrowserRoutes.login} className="text-mPrimary">
                       Sign In
                     </Link>
                   </p>

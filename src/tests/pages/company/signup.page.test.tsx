@@ -58,7 +58,7 @@ describe("Company Signup Page", () => {
     const submitButton = screen.getByText("Sign Up");
     await user.click(submitButton);
     const errorMessage = screen.getByText(
-      "Business Reg No must be 5 or more characters"
+      "Business Reg No must be 8 characters"
     );
     expect(errorMessage).toBeVisible();
   });
@@ -94,24 +94,6 @@ describe("Company Signup Page", () => {
     const submitButton = screen.getByText("Sign Up");
     await user.click(submitButton);
     const errorMessage = screen.getByText("The email you entered is invalid");
-    expect(errorMessage).toBeVisible();
-  });
-
-  it("should validate gamp id", async () => {
-    const { user } = setup(
-      <BrowserRouter>
-        <CompanySignupPage />
-      </BrowserRouter>
-    );
-
-    const targetInput = screen.getByLabelText("GAMP ID (optional)");
-    await user.click(targetInput);
-    await user.keyboard("gamp");
-    const submitButton = screen.getByText("Sign Up");
-    await user.click(submitButton);
-    const errorMessage = screen.getByText(
-      "GAMP ID cannot be less than 5 characters"
-    );
     expect(errorMessage).toBeVisible();
   });
 

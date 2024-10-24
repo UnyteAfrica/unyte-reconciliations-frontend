@@ -5,16 +5,15 @@ import { Icon } from "../shared/icon";
 import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
-import { CompanyContext } from "@/context/company.context";
 import { clearCredentials, getCompanyInitials } from "@/utils/utils";
-import { UserType } from "@/types/types";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { CompanyQueryKeys } from "@/utils/query-keys";
-import { getCompanyProfile } from "@/services/api/api-company";
 import { Loader } from "../loader";
 import { useLockScroll, useMediaQuery } from "@/utils/hooks";
 import { LuMenu } from "react-icons/lu";
 import { AiOutlineClose } from "react-icons/ai";
+import { getProfile } from "@/services/api/api-base";
+import { AuthContext } from "@/context/auth.context";
 
 type UrlLink = {
   text: string;
@@ -44,13 +43,13 @@ export const CompanyNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { setIsLoggedIn, setCompanyEmail } = useContext(CompanyContext);
+  const { setIsLoggedIn, setEmail } = useContext(AuthContext);
   const queryClient = useQueryClient();
 
   const { data: companyDetailsData, isPending: isCompanyDetailsLoading } =
     useQuery({
       queryKey: [CompanyQueryKeys.profile],
-      queryFn: () => getCompanyProfile(),
+      queryFn: () => getProfile(),
     });
 
   useEffect(() => {
@@ -59,7 +58,7 @@ export const CompanyNavbar = () => {
   }, [location.pathname]);
 
   const logout = () => {
-    clearCredentials(UserType.agent);
+    clearCredentials();
     setIsLoggedIn(false);
     queryClient.invalidateQueries();
   };
@@ -71,7 +70,7 @@ export const CompanyNavbar = () => {
   const companyDetails = companyDetailsData?.data;
 
   useEffect(() => {
-    if (companyDetails) setCompanyEmail(companyDetails.email);
+    if (companyDetails) setEmail(companyDetails.email);
   }, [companyDetails]);
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
@@ -209,7 +208,7 @@ export const CompanyNavbar = () => {
                     <div className="space-x-2 flex flex-row items-center">
                       {!!companyDetails.profile_image ? (
                         <img
-                          className="rounded-full h-10 w-10"
+                          className="rounded-full h-10 w-10 object-cover"
                           src={companyDetails.profile_image}
                           alt=""
                         />

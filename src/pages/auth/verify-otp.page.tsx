@@ -5,23 +5,24 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
-import { agentResendOTP, agentVerifyOTP } from "@/services/api/api-agent";
-import { AgentVerifyOTPType } from "@/types/request.types";
 import { useContext, useEffect } from "react";
-import { AgentContext } from "@/context/agent.context";
 import { Loader } from "@/components/loader";
-import { BrowserComboRoutes } from "@/utils/routes";
+import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import toast from "react-hot-toast";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
 import { LocalStorage } from "@/services/local-storage";
+import { VerifyOTPType } from "@/types/request.types";
+import { resendOTP, verifyOTP } from "@/services/api/api-base";
+import { AuthContext } from "@/context/auth.context";
+import { UserType } from "@/types/types";
 
 const formSchema = z.object({
   otp: z.string().min(6, "OTP cannot be less than 6 characters"),
 });
 
-export const AgentVerifyOTPPage = () => {
+export const VerifyOTPPage = () => {
   const {
     register,
     handleSubmit,
@@ -34,29 +35,40 @@ export const AgentVerifyOTPPage = () => {
   });
 
   const navigate = useNavigate();
-  const { agentEmail, setAgentEmail, setIsLoggedIn } = useContext(AgentContext);
+  const { email, setEmail, setIsLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
-    if (!agentEmail) navigate(BrowserComboRoutes.agentLogin);
-  }, [agentEmail]);
+    if (!email) navigate(BrowserRoutes.login);
+  }, [email]);
 
   const { mutate: mVerifyOTP, isPending: isVerificationLoading } = useMutation({
     mutationKey: [MutationKeys.agentVerify],
-    mutationFn: (data: AgentVerifyOTPType) => agentVerifyOTP(data),
+    mutationFn: (data: VerifyOTPType) => verifyOTP(data),
     onSuccess: (data) => {
       logger.log(data);
       toast.success("OTP verified");
-      LocalStorage.setItem("agentAccessToken", data.data.access_token);
-      LocalStorage.setItem("agentRefreshToken", data.data.refresh_token);
+      LocalStorage.setItem("accessToken", data.data.access_token);
+      LocalStorage.setItem("refreshToken", data.data.refresh_token);
       setIsLoggedIn(true);
-      navigate(BrowserComboRoutes.agentOverview);
-      setAgentEmail("");
+      setEmail("");
+      // navigate(BrowserComboRoutes.agentOverview);
+      switch (data.data.USER_TYPE) {
+        case UserType.INSURER:
+          navigate(BrowserComboRoutes.companyOverview);
+          break;
+        case UserType.AGENT:
+          navigate(BrowserComboRoutes.agentOverview);
+          break;
+        case UserType.MERCHANT:
+          navigate(BrowserComboRoutes.agentOverview);
+          break;
+      }
     },
   });
 
   const { mutate: mResendOTP, isPending: isResendLoading } = useMutation({
     mutationKey: [MutationKeys.agentResendOTP],
-    mutationFn: (email: string) => agentResendOTP(email),
+    mutationFn: (email: string) => resendOTP(email),
     onSuccess: (data) => {
       logger.log(data);
       toast.success(data.data.message);
@@ -66,7 +78,7 @@ export const AgentVerifyOTPPage = () => {
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     logger.log(data);
     mVerifyOTP({
-      email: agentEmail,
+      email: email,
       otp: data.otp,
     });
   };
@@ -100,7 +112,7 @@ export const AgentVerifyOTPPage = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  mResendOTP(agentEmail);
+                  mResendOTP(email);
                 }}
                 disabled={isResendLoading}
               >
@@ -153,7 +165,7 @@ export const AgentVerifyOTPPage = () => {
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    mResendOTP(agentEmail);
+                    mResendOTP(email);
                   }}
                   disabled={isResendLoading}
                 >

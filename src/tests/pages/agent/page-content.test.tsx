@@ -19,14 +19,16 @@ const commissions: Commission[] = [
     policyNo: "123jkf5402",
     product: "Travel",
     date: "May 7, 2023",
-    commission: 40000,
+    premium: 15000,
+    commission: 4000,
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
     product: "Device",
     date: "May 7, 2023",
-    commission: 40000,
+    premium: 20000,
+    commission: 1500,
   },
 ];
 

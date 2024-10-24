@@ -1,10 +1,8 @@
 import { Loader } from "@/components/loader";
 import { EditableProfileImage } from "@/components/shared/editable-image";
 import { CustomInput } from "@/components/shared/input";
-import {
-  getCompanyProfile,
-  updateCompanyProfilePicture,
-} from "@/services/api/api-company";
+import { getProfile } from "@/services/api/api-base";
+import { updateCompanyProfilePicture } from "@/services/api/api-company";
 import { CompanyQueryKeys } from "@/utils/query-keys";
 import { getCompanyInitials } from "@/utils/utils";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -20,7 +18,7 @@ export const CompanyProfile = () => {
   const { data: companyDetailsData, isPending: isCompanyDetailsLoading } =
     useQuery({
       queryKey: [CompanyQueryKeys.profile],
-      queryFn: () => getCompanyProfile(),
+      queryFn: () => getProfile(),
     });
 
   const { mutate: updateProfilePicture, isPending: isUpdatingProfilePicture } =

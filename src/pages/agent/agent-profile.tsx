@@ -1,6 +1,6 @@
 import { Loader } from "@/components/loader";
 import { CustomInput } from "@/components/shared/input";
-import { getAgentDetails } from "@/services/api/api-agent";
+import { getDetails } from "@/services/api/api-base";
 import { AgentQueryKeys } from "@/utils/query-keys";
 import { getInitials } from "@/utils/utils";
 import { useQuery } from "@tanstack/react-query";
@@ -16,7 +16,7 @@ export const AgentProfile = () => {
   const { data: agentDetailsData, isPending: isAgentDetailsLoading } = useQuery(
     {
       queryKey: [AgentQueryKeys.details],
-      queryFn: () => getAgentDetails(),
+      queryFn: () => getDetails(),
     }
   );
 

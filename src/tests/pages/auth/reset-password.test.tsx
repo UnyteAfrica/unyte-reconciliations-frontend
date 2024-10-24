@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import React from "react";
-import { CompanyResetPasswordPage } from "@/pages/company/reset-password";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ResetPasswordPage } from "@/pages/auth/reset-password";
 
 function setup(reactNode: React.ReactNode) {
   const queryClient = new QueryClient();
@@ -21,7 +21,7 @@ describe("Company Reset Password Page", () => {
   it("renders correctly", () => {
     const tree = setup(
       <BrowserRouter>
-        <CompanyResetPasswordPage />
+        <ResetPasswordPage />
       </BrowserRouter>
     );
     expect(tree).toMatchSnapshot();
@@ -30,7 +30,7 @@ describe("Company Reset Password Page", () => {
   it("should validate password", async () => {
     const { user } = setup(
       <BrowserRouter>
-        <CompanyResetPasswordPage />
+        <ResetPasswordPage />
       </BrowserRouter>
     );
 
@@ -48,7 +48,7 @@ describe("Company Reset Password Page", () => {
   it("should validate that both passwords are the same", async () => {
     const { user } = setup(
       <BrowserRouter>
-        <CompanyResetPasswordPage />
+        <ResetPasswordPage />
       </BrowserRouter>
     );
 
