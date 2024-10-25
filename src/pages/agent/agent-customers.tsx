@@ -118,7 +118,7 @@ const CustomerCard: React.FC<{ customer: Customer }> = ({ customer }) => {
           <em className="not-italic text-sm">{customer.name}</em>
           <em className="not-italic text-xs text-[#4F4F4F] flex items-center">
             <IoIosCall />
-            <span className="underline">{customer.phoneNo}</span>
+            <span className="">{customer.phoneNo}</span>
           </em>
         </div>
         <FaAngleRight className="text-xl" />
@@ -151,7 +151,7 @@ export const CustomerInfo: React.FC<{
   return (
     <div
       className={twMerge(
-        "z-50 h-screen w-screen fixed top-0 left-0 bg-white py-10 px-6 overflow-y-auto transition translate-x-full",
+        "z-50 h-dvh w-screen fixed top-0 left-0 bg-white py-10 px-6 overflow-y-auto transition translate-x-full",
         isOpen && "translate-x-0"
       )}
     >

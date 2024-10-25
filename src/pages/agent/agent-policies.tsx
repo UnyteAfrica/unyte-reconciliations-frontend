@@ -125,7 +125,7 @@ const BuyPolicyForm: React.FC<{
   return (
     <div
       className={twMerge(
-        "z-50 h-screen w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto",
+        "z-50 h-dvh w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto",
         isOpen && "translate-x-0 opacity-100"
       )}
     >
@@ -180,7 +180,6 @@ const BuyPolicyForm: React.FC<{
                   labelClassName="text-sm"
                   className="h-14 border-[#e0e0e0] text-sm"
                   placeholder="DD/MM/YYYY"
-                  type="date"
                 />
                 <CustomInput
                   label="Customer's Phone Number"
@@ -208,8 +207,7 @@ const BuyPolicyForm: React.FC<{
                   label="Duration of the trip"
                   labelClassName="text-sm"
                   className="h-14 border-[#e0e0e0] text-sm"
-                  placeholder="DD/MM/YYYY"
-                  type="date"
+                  placeholder="10 Days"
                 />
                 <CustomInput
                   label="Purpose of the trip"
@@ -233,7 +231,7 @@ const BuyPolicyForm: React.FC<{
               </div>
             )}
           </div>
-          <div className="grow" />
+          <div className="grow min-h-10" />
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -261,7 +259,7 @@ const PolicyPayment = () => {
   return (
     <div className="py-6 bg-white">
       <div className="w-full bg-[#C8FFC6] flex justify-center items-center mb-3 py-6 rounded-lg">
-        <Icon type="travel" className="" />
+        <Icon type="travel" className="w-[100px] h-[100px]" />
       </div>
       <div className="py-[10px] mx-auto w-[165px] bg-[#101323] flex justify-center items-center rounded-full mb-3">
         <Icon type="whiteReceipt" className="mr-1 inline-block" />

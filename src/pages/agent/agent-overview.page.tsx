@@ -261,10 +261,12 @@ export const AgentOverview: React.FC = () => {
     updateDailySeries();
   }, [startDay, endDay]);
 
+  const policyCount = Math.floor(totalPolicyValue / POLICY_COST);
+
   return (
     <>
       {!isMediaQueryMatched && (
-        <div className="px-5 py-6 max-w-[850px] mx-auto">
+        <div className="px-5 py-6 max-w-[850px] mx-auto bg-[#F8F8F8]">
           <div className="flex flex-row justify-between items-center mb-10">
             <h1 className="text-3xl text-[#333333] font-semibold">Overview</h1>
           </div>
@@ -350,8 +352,8 @@ export const AgentOverview: React.FC = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-wrap">
-            <div className="mb-5 mr-8 border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-36">
+          <div className="flex">
+            <div className="mb-5 mr-4 border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-[48%] max-w-[165px]">
               <div className="border border-[#25D366] rounded-full mb-4 inline-block p-1">
                 <Icon type="receipt" />
               </div>
@@ -359,10 +361,10 @@ export const AgentOverview: React.FC = () => {
                 Policies sold
               </em>
               <em className="not-italic block text-[#333] text-xl font-semibold">
-                {Math.floor(totalPolicyValue / POLICY_COST)} policies
+                {policyCount ?? 1} {policyCount <= 1 ? "policy" : "policies"}
               </em>
             </div>
-            <div className="mb-5 mr-8 border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-36">
+            <div className="mb-5 border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-[48%] max-w-[165px]">
               <div className="border border-[#25D366] rounded-full mb-4 inline-block p-1">
                 <Icon type="dollar" />
               </div>

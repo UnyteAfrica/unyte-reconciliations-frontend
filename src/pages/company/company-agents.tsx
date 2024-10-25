@@ -10,6 +10,8 @@ import { getAllAgents } from "@/services/api/api-company";
 import { ApiCompanyAgent } from "@/types/types";
 import { PAGE_COUNT } from "@/utils/constants";
 
+const faker = true;
+
 export const CompanyAgents = () => {
   const { isNewAgentOverlayOpened } = useContext(
     OverlayContext
@@ -26,6 +28,22 @@ export const CompanyAgents = () => {
 
   const [page, setPage] = useState(1);
 
+  if (faker)
+    return (
+      <>
+        {isNewAgentOverlayOpened && (
+          <Overlay>
+            <NewAgentOverlay />
+          </Overlay>
+        )}
+        <PageContent
+          title="Policies"
+          pageTable={<AgentsTable agents={[]} />}
+          isLoading={false}
+          hasNewAgent
+        />
+      </>
+    );
   if (isLoadingAgents)
     return (
       <PageContent

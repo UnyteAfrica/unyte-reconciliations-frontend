@@ -68,7 +68,7 @@ const CommissionCard: React.FC<CommissionCardProps> = ({ commission }) => {
       {createPortal(
         <div
           className={twMerge(
-            "h-screen w-screen bg-black/30 fixed inset-0 transition ",
+            "h-dvh w-screen bg-black/30 fixed inset-0 transition ",
             isShowingBottomSheet && "z-50 opacity-100 translate-y-0",
             !isShowingBottomSheet && "-z-20 opacity-0 translate-y-[100%]"
           )}

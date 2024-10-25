@@ -4,7 +4,6 @@ import { axiosInstance } from "./api-base";
 
 export const agentSignup = ({
   accountNo,
-  agent_gampID,
   bvn,
   email,
   firstName,
@@ -24,7 +23,6 @@ export const agentSignup = ({
       email: email,
       bank_account: accountNo,
       bvn,
-      agent_gampID,
       password,
     },
     {

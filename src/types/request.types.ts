@@ -15,7 +15,6 @@ export type AgentSignupType = {
   bankName: string;
   accountNo: string;
   bvn: string;
-  agent_gampID: string;
   password: string;
   companyInviteCode: string;
 };

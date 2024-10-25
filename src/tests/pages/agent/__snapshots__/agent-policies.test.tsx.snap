@@ -201,7 +201,7 @@ exports[`Agent Policies > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="z-50 h-screen w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
+      class="z-50 h-dvh w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
     >
       <div
         class="flex justify-between items-center mb-4"
@@ -281,7 +281,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
-              type="date"
             />
             <p
               class="text-sm text-[#333]"
@@ -328,7 +327,7 @@ exports[`Agent Policies > renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="grow"
+        class="grow min-h-10"
       />
       <button
         class="w-full bg-[#25D366] py-4 text-lg font-medium rounded-lg text-white"
@@ -342,7 +341,7 @@ exports[`Agent Policies > renders correctly 1`] = `
       </em>
     </div>
     <div
-      class="z-50 h-screen w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
+      class="z-50 h-dvh w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
     >
       <div
         class="flex justify-between items-center mb-4"
@@ -422,7 +421,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
-              type="date"
             />
             <p
               class="text-sm text-[#333]"
@@ -469,7 +467,7 @@ exports[`Agent Policies > renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="grow"
+        class="grow min-h-10"
       />
       <button
         class="w-full bg-[#25D366] py-4 text-lg font-medium rounded-lg text-white"
@@ -483,7 +481,7 @@ exports[`Agent Policies > renders correctly 1`] = `
       </em>
     </div>
     <div
-      class="z-50 h-screen w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
+      class="z-50 h-dvh w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
     >
       <div
         class="flex justify-between items-center mb-4"
@@ -563,7 +561,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
-              type="date"
             />
             <p
               class="text-sm text-[#333]"
@@ -610,7 +607,7 @@ exports[`Agent Policies > renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="grow"
+        class="grow min-h-10"
       />
       <button
         class="w-full bg-[#25D366] py-4 text-lg font-medium rounded-lg text-white"
@@ -624,7 +621,7 @@ exports[`Agent Policies > renders correctly 1`] = `
       </em>
     </div>
     <div
-      class="z-50 h-screen w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
+      class="z-50 h-dvh w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto"
     >
       <div
         class="flex justify-between items-center mb-4"
@@ -704,7 +701,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
-              type="date"
             />
             <p
               class="text-sm text-[#333]"
@@ -751,7 +747,7 @@ exports[`Agent Policies > renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="grow"
+        class="grow min-h-10"
       />
       <button
         class="w-full bg-[#25D366] py-4 text-lg font-medium rounded-lg text-white"
