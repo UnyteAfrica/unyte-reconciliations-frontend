@@ -96,7 +96,7 @@ export const AgentNavbar = () => {
               isMobileMenuOpen && "translate-x-0"
             )}
           >
-            <nav className="h-screen bg-white w-[300px] relative px-5 py-10 flex flex-col justify-between">
+            <nav className="h-dvh bg-white w-[300px] relative px-5 py-10 flex flex-col justify-between">
               <div className="flex justify-between items-center">
                 <Icon type="logo" className="block" />
                 <AiOutlineClose
@@ -153,7 +153,7 @@ export const AgentNavbar = () => {
               </div>
             </nav>
             <div
-              className="grow bg-black/20 h-screen"
+              className="grow bg-black/20 h-dvh"
               onClick={() => setIsMobileMenuOpen(false)}
             />
           </div>
