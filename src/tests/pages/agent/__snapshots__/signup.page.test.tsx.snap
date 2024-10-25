@@ -211,31 +211,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   class="text-sm text-[#333]"
                 />
               </div>
-              <div
-                class=""
-              >
-                <label
-                  class="mb-2 block text-sm text-[#333"
-                  for="gampId"
-                >
-                  GAMP ID
-                   
-                  <span
-                    class="not-italic text-sm text-[#333]"
-                  >
-                    (optional)
-                  </span>
-                </label>
-                <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
-                  id="gampId"
-                  name="gampId"
-                  placeholder="A034529"
-                />
-                <p
-                  class="text-sm text-[#333]"
-                />
-              </div>
               <div>
                 <label
                   class="mb-2 block text-sm text-[#333"
@@ -557,31 +532,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 id="companyId"
                 placeholder="A034529"
                 value=""
-              />
-              <p
-                class="text-sm text-[#333]"
-              />
-            </div>
-            <div
-              class=""
-            >
-              <label
-                class="mb-2 block text-sm text-[#333"
-                for="gampId"
-              >
-                GAMP ID
-                 
-                <span
-                  class="not-italic text-sm text-[#333]"
-                >
-                  (optional)
-                </span>
-              </label>
-              <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
-                id="gampId"
-                name="gampId"
-                placeholder="A034529"
               />
               <p
                 class="text-sm text-[#333]"
