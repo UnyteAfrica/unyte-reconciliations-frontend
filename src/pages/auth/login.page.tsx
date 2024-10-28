@@ -65,11 +65,9 @@ export const LoginPage = () => {
           <div className="grow" />
           <form onSubmit={handleSubmit(onSubmit)}>
             <header>
-              <p className="mb-2 font-semibold text-[20px] text-center">
-                Login
-              </p>
+              <p className="mb-2 font-semibold text-[20px]">Login</p>
 
-              <p className="mb-6 text-sm text-[#4F4F4F] text-center">
+              <p className="mb-6 text-sm text-[#4F4F4F]">
                 Sign in to your account.
               </p>
             </header>
@@ -78,7 +76,7 @@ export const LoginPage = () => {
                 label="Email"
                 labelClassName="text-sm text-[#333"
                 className="h-[58px] border-[#E0E0E0]"
-                placeholder="johndoe@gmail.com / A034529"
+                placeholder="johndoe@gmail.com"
                 error={errors.email?.message?.toString()}
                 {...register("email")}
               />

@@ -8,7 +8,7 @@ exports[`Agent Policies > renders correctly 1`] = `
   >
     <div>
       <div
-        class="px-5 py-6 max-w-[850px] mx-auto bg-[#F8F8F8]"
+        class="px-5 pb-6 max-w-[850px] mx-auto bg-[#F8F8F8]"
       >
         <header
           class="mb-7"
@@ -207,20 +207,11 @@ exports[`Agent Policies > renders correctly 1`] = `
         class="flex justify-between items-center mb-4"
       >
         <button>
-          <svg
-            class="text-2xl"
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            stroke-width="0"
-            viewBox="0 0 256 512"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-            />
-          </svg>
+          <img
+            alt=""
+            class=""
+            src="/src/assets/Icons/arrow-back.svg"
+          />
         </button>
         <div
           class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%] transition"
@@ -347,20 +338,11 @@ exports[`Agent Policies > renders correctly 1`] = `
         class="flex justify-between items-center mb-4"
       >
         <button>
-          <svg
-            class="text-2xl"
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            stroke-width="0"
-            viewBox="0 0 256 512"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-            />
-          </svg>
+          <img
+            alt=""
+            class=""
+            src="/src/assets/Icons/arrow-back.svg"
+          />
         </button>
         <div
           class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%] transition"
@@ -487,20 +469,11 @@ exports[`Agent Policies > renders correctly 1`] = `
         class="flex justify-between items-center mb-4"
       >
         <button>
-          <svg
-            class="text-2xl"
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            stroke-width="0"
-            viewBox="0 0 256 512"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-            />
-          </svg>
+          <img
+            alt=""
+            class=""
+            src="/src/assets/Icons/arrow-back.svg"
+          />
         </button>
         <div
           class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%] transition"
@@ -627,20 +600,11 @@ exports[`Agent Policies > renders correctly 1`] = `
         class="flex justify-between items-center mb-4"
       >
         <button>
-          <svg
-            class="text-2xl"
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            stroke-width="0"
-            viewBox="0 0 256 512"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
-            />
-          </svg>
+          <img
+            alt=""
+            class=""
+            src="/src/assets/Icons/arrow-back.svg"
+          />
         </button>
         <div
           class="bg-[#D9D9D9] rounded-full h-[6px] w-[40%] transition"
@@ -763,7 +727,7 @@ exports[`Agent Policies > renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="px-5 py-6 max-w-[850px] mx-auto bg-[#F8F8F8]"
+      class="px-5 pb-6 max-w-[850px] mx-auto bg-[#F8F8F8]"
     >
       <header
         class="mb-7"
