@@ -6,26 +6,26 @@ exports[`Devices > renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="px-5 py-6 max-w-[850px] mx-auto"
+        class="px-5 pb-10 max-w-[850px] mx-auto"
       >
         <header
-          class="mb-7"
+          class="mb-8"
         >
           <h1
-            class="font-semibold text-2xl mb-5"
+            class="font-semibold text-2xl mb-6"
           >
             Devices
           </h1>
           <div
-            class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
+            class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-6 border-2 border-[#E0E0E0] h-10"
           >
             <img
               alt="search icon"
-              class="block mr-2 w-7 h-7"
+              class="block mr-2 w-[18px] h-[18px]"
               src="/src/assets/Icons/SearchIcon.svg"
             />
             <input
-              class="bg-transparent py-2 text-opacity-20"
+              class="bg-transparent text-opacity-20 outline-none w-full text-sm font-medium py-3"
               placeholder="Find policy reference"
               type="search"
               value=""
@@ -115,7 +115,7 @@ exports[`Devices > renders correctly 1`] = `
               Activity
             </h2>
             <button
-              class="bg-[#25D366] rounded-full p-2 px-4 text-white"
+              class="bg-[#25D366] rounded-full py-1 text-white text-xs w-[62px]"
             >
               <svg
                 class="inline-block mr-1"
@@ -373,7 +373,7 @@ exports[`Devices > renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="my-6"
+            class="my-4 mb-10"
           >
             <div>
               <div
@@ -704,26 +704,26 @@ exports[`Devices > renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="px-5 py-6 max-w-[850px] mx-auto"
+      class="px-5 pb-10 max-w-[850px] mx-auto"
     >
       <header
-        class="mb-7"
+        class="mb-8"
       >
         <h1
-          class="font-semibold text-2xl mb-5"
+          class="font-semibold text-2xl mb-6"
         >
           Devices
         </h1>
         <div
-          class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
+          class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-6 border-2 border-[#E0E0E0] h-10"
         >
           <img
             alt="search icon"
-            class="block mr-2 w-7 h-7"
+            class="block mr-2 w-[18px] h-[18px]"
             src="/src/assets/Icons/SearchIcon.svg"
           />
           <input
-            class="bg-transparent py-2 text-opacity-20"
+            class="bg-transparent text-opacity-20 outline-none w-full text-sm font-medium py-3"
             placeholder="Find policy reference"
             type="search"
             value=""
@@ -813,7 +813,7 @@ exports[`Devices > renders correctly 1`] = `
             Activity
           </h2>
           <button
-            class="bg-[#25D366] rounded-full p-2 px-4 text-white"
+            class="bg-[#25D366] rounded-full py-1 text-white text-xs w-[62px]"
           >
             <svg
               class="inline-block mr-1"
@@ -1071,7 +1071,7 @@ exports[`Devices > renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="my-6"
+          class="my-4 mb-10"
         >
           <div>
             <div

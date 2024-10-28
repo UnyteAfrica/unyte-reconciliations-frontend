@@ -6,7 +6,6 @@ import { PolicyType } from "@/types/types";
 import { createPortal } from "react-dom";
 
 import { Icon } from "@/components/shared/icon";
-import { FaAngleLeft } from "react-icons/fa";
 import { CustomInput } from "@/components/shared/input";
 import { twMerge } from "tailwind-merge";
 import { MdOutlineFileUpload } from "react-icons/md";
@@ -44,7 +43,7 @@ export const AgentPolicies = () => {
   return (
     <>
       {!isMediaQueryMatched && (
-        <div className="px-5 py-6 max-w-[850px] mx-auto bg-[#F8F8F8]">
+        <div className="px-5 pb-6 max-w-[850px] mx-auto bg-[#F8F8F8]">
           <header className="mb-7">
             <h1 className="font-semibold text-2xl mb-5">Policies</h1>
             <p>
@@ -143,7 +142,7 @@ const BuyPolicyForm: React.FC<{
             }
           }}
         >
-          <FaAngleLeft className="text-2xl" />
+          <Icon type="arrowBack" className="" />
         </button>
         {!isSubmitted && (
           <>

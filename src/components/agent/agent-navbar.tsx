@@ -79,16 +79,31 @@ export const AgentNavbar = () => {
 
   useLockScroll(isMobileMenuOpen);
 
+  useEffect(() => {
+    console.log(location.pathname);
+  }, [location.pathname]);
+
+  const requiresGreyBackground =
+    location.pathname ==
+      BrowserComboRoutes.agentDashboard + BrowserRoutes.policies ||
+    location.pathname ==
+      BrowserComboRoutes.agentDashboard + BrowserRoutes.customers;
+
   return (
     <>
       {!isMediaQueryMatched && (
-        <div className="relative z-30 bg-[#F8F8F8]">
-          <header className="px-5 pt-8 pb-4">
+        <div
+          className={twMerge(
+            "relative z-30",
+            requiresGreyBackground && "bg-[#F8F8F8]"
+          )}
+        >
+          <header className="px-5 pt-10 pb-4">
             <LuMenu
               onClick={() => setIsMobileMenuOpen(true)}
-              className="w-8 h-8 block mb-5"
+              size={32}
+              className="block"
             />
-            <Icon type="logo" className="block" />
           </header>
           <div
             className={twMerge(
@@ -263,7 +278,6 @@ export const AgentNavbar = () => {
           </div>
         </>
       )}
-      <hr />
     </>
   );
 };

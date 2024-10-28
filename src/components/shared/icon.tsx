@@ -12,6 +12,10 @@ import verified from "@/assets/Icons/verified.svg";
 import qr from "@/assets/Icons/qr.svg";
 import travel from "@/assets/Icons/travel.svg";
 import whiteReceipt from "@/assets/Icons/white-receipt.svg";
+import arrowBack from "@/assets/Icons/arrow-back.svg";
+import close from "@/assets/Icons/close.svg";
+import call from "@/assets/Icons/call.svg";
+import arrowForward from "@/assets/Icons/arrow-forward.svg";
 
 export const iconTypes = {
   logo,
@@ -25,6 +29,10 @@ export const iconTypes = {
   qr,
   travel,
   whiteReceipt,
+  arrowBack,
+  close,
+  call,
+  arrowForward,
 };
 
 export type IconType = keyof typeof iconTypes;

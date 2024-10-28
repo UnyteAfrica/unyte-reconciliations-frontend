@@ -73,14 +73,15 @@ export const PageContent: React.FC<PageContentProps> = ({
     <>
       {!isMediaQueryMatched && (
         <div
-          className="px-5 py-6 max-w-[850px] mx-auto"
+          className="px-5 pb-10 max-w-[850px] mx-auto"
           onClick={() => setIsFilterOpen(false)}
         >
-          <header className="mb-7">
-            <h1 className="font-semibold text-2xl mb-5">{title}</h1>
+          <header className="mb-8">
+            <h1 className="font-semibold text-2xl mb-6">{title}</h1>
             <SearchBar
               placeholder={searchbarPlaceholder ?? "Find policy reference"}
-              containerClassName="mb-4"
+              containerClassName="mb-6 border-2 border-[#E0E0E0] h-10"
+              className="text-sm font-medium py-3"
             />
             <div className="flex w-full">
               <div className="border border-[#E0E0E0] p-4 rounded-lg flex flex-col grow rounded-r-none">
@@ -113,7 +114,7 @@ export const PageContent: React.FC<PageContentProps> = ({
             <div className="flex justify-between items-center relative">
               <h2 className="font-medium">Activity</h2>
               <button
-                className="bg-[#25D366] rounded-full p-2 px-4 text-white"
+                className="bg-[#25D366] rounded-full py-1 text-white text-xs w-[62px]"
                 onClick={(e) => {
                   e.stopPropagation();
                   setIsFilterOpen((isFilterOpen) => !isFilterOpen);
@@ -197,7 +198,7 @@ export const PageContent: React.FC<PageContentProps> = ({
               </p>
             ) : (
               <>
-                <div className="my-6">{pageTable}</div>
+                <div className="my-4 mb-10">{pageTable}</div>
                 <Pagination
                   currentPage={page || 1}
                   itemsCount={totalItems || 10}

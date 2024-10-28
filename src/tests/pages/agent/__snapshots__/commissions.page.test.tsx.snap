@@ -6,27 +6,27 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="px-5 py-6 max-w-[850px] mx-auto"
+        class="px-5 pb-10 max-w-[850px] mx-auto"
       >
         <header
-          class="mb-7"
+          class="mb-8"
         >
           <h1
-            class="font-semibold text-2xl mb-5"
+            class="font-semibold text-2xl mb-6"
           >
             Commissions
           </h1>
           <div
-            class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
+            class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-6 border-2 border-[#E0E0E0] h-10"
           >
             <img
               alt="search icon"
-              class="block mr-2 w-7 h-7"
+              class="block mr-2 w-[18px] h-[18px]"
               src="/src/assets/Icons/SearchIcon.svg"
             />
             <input
-              class="bg-transparent py-2 text-opacity-20"
-              placeholder="Find policy reference"
+              class="bg-transparent text-opacity-20 outline-none w-full text-sm font-medium py-3"
+              placeholder="Find policy name"
               type="search"
               value=""
             />
@@ -115,7 +115,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               Activity
             </h2>
             <button
-              class="bg-[#25D366] rounded-full p-2 px-4 text-white"
+              class="bg-[#25D366] rounded-full py-1 text-white text-xs w-[62px]"
             >
               <svg
                 class="inline-block mr-1"
@@ -373,15 +373,17 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="my-6"
+            class="my-4 mb-10"
           >
-            <div>
+            <div
+              class="space-y-6"
+            >
               <div
-                class="border-b py-2"
+                class="border-b pb-2"
               >
                 <div>
                   <div
-                    class="flex justify-between items-center mb-2"
+                    class="flex justify-between items-center mb-1"
                   >
                     <em
                       class="not-italic font-semibold text-sm text-[#333]"
@@ -412,11 +414,11 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="border-b py-2"
+                class="border-b pb-2"
               >
                 <div>
                   <div
-                    class="flex justify-between items-center mb-2"
+                    class="flex justify-between items-center mb-1"
                   >
                     <em
                       class="not-italic font-semibold text-sm text-[#333]"
@@ -447,11 +449,11 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="border-b py-2"
+                class="border-b pb-2"
               >
                 <div>
                   <div
-                    class="flex justify-between items-center mb-2"
+                    class="flex justify-between items-center mb-1"
                   >
                     <em
                       class="not-italic font-semibold text-sm text-[#333]"
@@ -482,11 +484,221 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="border-b py-2"
+                class="border-b pb-2"
               >
                 <div>
                   <div
-                    class="flex justify-between items-center mb-2"
+                    class="flex justify-between items-center mb-1"
+                  >
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      Comprehensive
+                    </em>
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      ₦50,000
+                    </em>
+                  </div>
+                  <div
+                    class="flex justify-between items-center"
+                  >
+                    <em
+                      class="not-italic text-sm text-[#828282]"
+                    >
+                      May 7, 2023
+                    </em>
+                    <em
+                      class="not-italic font-medium text-sm text-[#4F4F4F]"
+                    >
+                      Commission: 
+                      ₦40,000
+                    </em>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="border-b pb-2"
+              >
+                <div>
+                  <div
+                    class="flex justify-between items-center mb-1"
+                  >
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      Credit Life
+                    </em>
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      ₦50,000
+                    </em>
+                  </div>
+                  <div
+                    class="flex justify-between items-center"
+                  >
+                    <em
+                      class="not-italic text-sm text-[#828282]"
+                    >
+                      May 7, 2023
+                    </em>
+                    <em
+                      class="not-italic font-medium text-sm text-[#4F4F4F]"
+                    >
+                      Commission: 
+                      ₦40,000
+                    </em>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="border-b pb-2"
+              >
+                <div>
+                  <div
+                    class="flex justify-between items-center mb-1"
+                  >
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      Card Protect
+                    </em>
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      ₦50,000
+                    </em>
+                  </div>
+                  <div
+                    class="flex justify-between items-center"
+                  >
+                    <em
+                      class="not-italic text-sm text-[#828282]"
+                    >
+                      May 7, 2023
+                    </em>
+                    <em
+                      class="not-italic font-medium text-sm text-[#4F4F4F]"
+                    >
+                      Commission: 
+                      ₦40,000
+                    </em>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="border-b pb-2"
+              >
+                <div>
+                  <div
+                    class="flex justify-between items-center mb-1"
+                  >
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      Comprehensive
+                    </em>
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      ₦50,000
+                    </em>
+                  </div>
+                  <div
+                    class="flex justify-between items-center"
+                  >
+                    <em
+                      class="not-italic text-sm text-[#828282]"
+                    >
+                      May 7, 2023
+                    </em>
+                    <em
+                      class="not-italic font-medium text-sm text-[#4F4F4F]"
+                    >
+                      Commission: 
+                      ₦40,000
+                    </em>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="border-b pb-2"
+              >
+                <div>
+                  <div
+                    class="flex justify-between items-center mb-1"
+                  >
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      Credit Life
+                    </em>
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      ₦50,000
+                    </em>
+                  </div>
+                  <div
+                    class="flex justify-between items-center"
+                  >
+                    <em
+                      class="not-italic text-sm text-[#828282]"
+                    >
+                      May 7, 2023
+                    </em>
+                    <em
+                      class="not-italic font-medium text-sm text-[#4F4F4F]"
+                    >
+                      Commission: 
+                      ₦40,000
+                    </em>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="border-b pb-2"
+              >
+                <div>
+                  <div
+                    class="flex justify-between items-center mb-1"
+                  >
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      Card Protect
+                    </em>
+                    <em
+                      class="not-italic font-semibold text-sm text-[#333]"
+                    >
+                      ₦50,000
+                    </em>
+                  </div>
+                  <div
+                    class="flex justify-between items-center"
+                  >
+                    <em
+                      class="not-italic text-sm text-[#828282]"
+                    >
+                      May 7, 2023
+                    </em>
+                    <em
+                      class="not-italic font-medium text-sm text-[#4F4F4F]"
+                    >
+                      Commission: 
+                      ₦40,000
+                    </em>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="border-b pb-2"
+              >
+                <div>
+                  <div
+                    class="flex justify-between items-center mb-1"
                   >
                     <em
                       class="not-italic font-semibold text-sm text-[#333]"
@@ -516,77 +728,57 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
                   </div>
                 </div>
               </div>
-              <div
-                class="border-b py-2"
-              >
-                <div>
-                  <div
-                    class="flex justify-between items-center mb-2"
-                  >
-                    <em
-                      class="not-italic font-semibold text-sm text-[#333]"
-                    >
-                      Travel
-                    </em>
-                    <em
-                      class="not-italic font-semibold text-sm text-[#333]"
-                    >
-                      ₦50,000
-                    </em>
-                  </div>
-                  <div
-                    class="flex justify-between items-center"
-                  >
-                    <em
-                      class="not-italic text-sm text-[#828282]"
-                    >
-                      May 7, 2023
-                    </em>
-                    <em
-                      class="not-italic font-medium text-sm text-[#4F4F4F]"
-                    >
-                      Commission: 
-                      ₦40,000
-                    </em>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="border-b py-2"
-              >
-                <div>
-                  <div
-                    class="flex justify-between items-center mb-2"
-                  >
-                    <em
-                      class="not-italic font-semibold text-sm text-[#333]"
-                    >
-                      Device
-                    </em>
-                    <em
-                      class="not-italic font-semibold text-sm text-[#333]"
-                    >
-                      ₦50,000
-                    </em>
-                  </div>
-                  <div
-                    class="flex justify-between items-center"
-                  >
-                    <em
-                      class="not-italic text-sm text-[#828282]"
-                    >
-                      May 7, 2023
-                    </em>
-                    <em
-                      class="not-italic font-medium text-sm text-[#4F4F4F]"
-                    >
-                      Commission: 
-                      ₦40,000
-                    </em>
-                  </div>
-                </div>
-              </div>
             </div>
+          </div>
+          <div
+            class="mt-8 mx-auto w-[280px] flex items-center justify-center"
+          >
+            <button
+              class="flex items-center text-xs mr-4 disabled:text-[#ccc]"
+              disabled=""
+            >
+              <svg
+                class="inline-block mr-3 "
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 320 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+                />
+              </svg>
+              Previous
+            </button>
+            <div
+              class="bg-[#F2F2F2] px-6 py-2 rounded-lg text-xs w-[90px] h-[29px] flex justify-center items-center"
+            >
+              1
+              /
+              2
+            </div>
+            <button
+              class="flex items-center text-xs ml-4 disabled:text-[#ccc]"
+            >
+              Next
+              <svg
+                class="inline-block ml-3"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 320 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                />
+              </svg>
+            </button>
           </div>
         </main>
       </div>
@@ -609,30 +801,18 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               More Information
             </h2>
             <button>
-              <svg
+              <img
+                alt=""
                 class="w-6 h-6"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h24v24H0V0z"
-                  fill="none"
-                  opacity=".87"
-                />
-                <path
-                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"
-                />
-              </svg>
+                src="/src/assets/Icons/close.svg"
+              />
             </button>
           </header>
-          <div>
+          <div
+            class="space-y-4"
+          >
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -646,7 +826,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -660,7 +840,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -674,7 +854,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -688,15 +868,15 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md justify-between items-center"
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
             >
               <div
-                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center"
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
               >
                 C
               </div>
               <div
-                class="flex flex-col"
+                class="flex flex-col grow"
               >
                 <em
                   class="not-italic text-sm"
@@ -710,10 +890,10 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
                 </em>
               </div>
               <div
-                class="bg-[#222] flex items-center py-1 px-2 rounded-sm"
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
               >
                 <div
-                  class="w-4 h-4 bg-[#25D366] rounded-full mr-1"
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
                 />
                 <em
                   class="not-italic text-white text-sm"
@@ -723,6 +903,11 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </div>
             </div>
           </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
         </div>
       </div>
     </div>
@@ -744,30 +929,18 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               More Information
             </h2>
             <button>
-              <svg
+              <img
+                alt=""
                 class="w-6 h-6"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h24v24H0V0z"
-                  fill="none"
-                  opacity=".87"
-                />
-                <path
-                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"
-                />
-              </svg>
+                src="/src/assets/Icons/close.svg"
+              />
             </button>
           </header>
-          <div>
+          <div
+            class="space-y-4"
+          >
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -781,7 +954,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -795,7 +968,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -809,7 +982,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -823,15 +996,15 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md justify-between items-center"
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
             >
               <div
-                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center"
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
               >
                 C
               </div>
               <div
-                class="flex flex-col"
+                class="flex flex-col grow"
               >
                 <em
                   class="not-italic text-sm"
@@ -845,10 +1018,10 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
                 </em>
               </div>
               <div
-                class="bg-[#222] flex items-center py-1 px-2 rounded-sm"
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
               >
                 <div
-                  class="w-4 h-4 bg-[#25D366] rounded-full mr-1"
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
                 />
                 <em
                   class="not-italic text-white text-sm"
@@ -858,6 +1031,11 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </div>
             </div>
           </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
         </div>
       </div>
     </div>
@@ -879,30 +1057,18 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               More Information
             </h2>
             <button>
-              <svg
+              <img
+                alt=""
                 class="w-6 h-6"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h24v24H0V0z"
-                  fill="none"
-                  opacity=".87"
-                />
-                <path
-                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"
-                />
-              </svg>
+                src="/src/assets/Icons/close.svg"
+              />
             </button>
           </header>
-          <div>
+          <div
+            class="space-y-4"
+          >
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -916,7 +1082,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -930,7 +1096,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -944,7 +1110,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -958,15 +1124,15 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md justify-between items-center"
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
             >
               <div
-                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center"
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
               >
                 C
               </div>
               <div
-                class="flex flex-col"
+                class="flex flex-col grow"
               >
                 <em
                   class="not-italic text-sm"
@@ -980,10 +1146,10 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
                 </em>
               </div>
               <div
-                class="bg-[#222] flex items-center py-1 px-2 rounded-sm"
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
               >
                 <div
-                  class="w-4 h-4 bg-[#25D366] rounded-full mr-1"
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
                 />
                 <em
                   class="not-italic text-white text-sm"
@@ -993,6 +1159,11 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </div>
             </div>
           </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
         </div>
       </div>
     </div>
@@ -1014,30 +1185,18 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               More Information
             </h2>
             <button>
-              <svg
+              <img
+                alt=""
                 class="w-6 h-6"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h24v24H0V0z"
-                  fill="none"
-                  opacity=".87"
-                />
-                <path
-                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"
-                />
-              </svg>
+                src="/src/assets/Icons/close.svg"
+              />
             </button>
           </header>
-          <div>
+          <div
+            class="space-y-4"
+          >
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1051,7 +1210,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1065,7 +1224,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1079,7 +1238,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1093,15 +1252,15 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md justify-between items-center"
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
             >
               <div
-                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center"
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
               >
                 C
               </div>
               <div
-                class="flex flex-col"
+                class="flex flex-col grow"
               >
                 <em
                   class="not-italic text-sm"
@@ -1115,10 +1274,10 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
                 </em>
               </div>
               <div
-                class="bg-[#222] flex items-center py-1 px-2 rounded-sm"
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
               >
                 <div
-                  class="w-4 h-4 bg-[#25D366] rounded-full mr-1"
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
                 />
                 <em
                   class="not-italic text-white text-sm"
@@ -1128,6 +1287,11 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </div>
             </div>
           </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
         </div>
       </div>
     </div>
@@ -1149,30 +1313,18 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               More Information
             </h2>
             <button>
-              <svg
+              <img
+                alt=""
                 class="w-6 h-6"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h24v24H0V0z"
-                  fill="none"
-                  opacity=".87"
-                />
-                <path
-                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"
-                />
-              </svg>
+                src="/src/assets/Icons/close.svg"
+              />
             </button>
           </header>
-          <div>
+          <div
+            class="space-y-4"
+          >
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1186,7 +1338,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1200,7 +1352,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1214,7 +1366,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1228,15 +1380,15 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md justify-between items-center"
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
             >
               <div
-                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center"
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
               >
                 C
               </div>
               <div
-                class="flex flex-col"
+                class="flex flex-col grow"
               >
                 <em
                   class="not-italic text-sm"
@@ -1250,10 +1402,10 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
                 </em>
               </div>
               <div
-                class="bg-[#222] flex items-center py-1 px-2 rounded-sm"
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
               >
                 <div
-                  class="w-4 h-4 bg-[#25D366] rounded-full mr-1"
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
                 />
                 <em
                   class="not-italic text-white text-sm"
@@ -1263,6 +1415,11 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </div>
             </div>
           </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
         </div>
       </div>
     </div>
@@ -1284,30 +1441,18 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               More Information
             </h2>
             <button>
-              <svg
+              <img
+                alt=""
                 class="w-6 h-6"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h24v24H0V0z"
-                  fill="none"
-                  opacity=".87"
-                />
-                <path
-                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"
-                />
-              </svg>
+                src="/src/assets/Icons/close.svg"
+              />
             </button>
           </header>
-          <div>
+          <div
+            class="space-y-4"
+          >
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1321,7 +1466,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1335,7 +1480,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1349,7 +1494,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -1363,15 +1508,15 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md justify-between items-center"
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
             >
               <div
-                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center"
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
               >
                 C
               </div>
               <div
-                class="flex flex-col"
+                class="flex flex-col grow"
               >
                 <em
                   class="not-italic text-sm"
@@ -1385,10 +1530,10 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
                 </em>
               </div>
               <div
-                class="bg-[#222] flex items-center py-1 px-2 rounded-sm"
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
               >
                 <div
-                  class="w-4 h-4 bg-[#25D366] rounded-full mr-1"
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
                 />
                 <em
                   class="not-italic text-white text-sm"
@@ -1398,33 +1543,550 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </div>
             </div>
           </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="h-dvh w-screen bg-black/30 fixed inset-0 transition -z-20 opacity-0 translate-y-[100%]"
+    >
+      <div
+        class="bg-white w-screen absolute bottom-0 rounded-t-2xl transition"
+      >
+        <div
+          class="p-6"
+        >
+          <header
+            class="flex justify-between items-center mb-6"
+          >
+            <h2
+              class="font-semibold text-xl"
+            >
+              More Information
+            </h2>
+            <button>
+              <img
+                alt=""
+                class="w-6 h-6"
+                src="/src/assets/Icons/close.svg"
+              />
+            </button>
+          </header>
+          <div
+            class="space-y-4"
+          >
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Policy Type
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                Health Insurance
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Amount
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                ₦50,000
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Commission
+              </em>
+              <em
+                class="not-italic font-medium text-white bg-[#25D366] p-1 px-2 rounded-lg text-sm"
+              >
+                ₦5,000
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Date Purchased
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                21 Jun 2024
+              </em>
+            </div>
+            <div
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
+            >
+              <div
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
+              >
+                C
+              </div>
+              <div
+                class="flex flex-col grow"
+              >
+                <em
+                  class="not-italic text-sm"
+                >
+                  John Doe
+                </em>
+                <em
+                  class="not-italic text-xs text-[#4F4F4F]"
+                >
+                  +23456789012
+                </em>
+              </div>
+              <div
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
+              >
+                <div
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
+                />
+                <em
+                  class="not-italic text-white text-sm"
+                >
+                  Recurring Policy
+                </em>
+              </div>
+            </div>
+          </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="h-dvh w-screen bg-black/30 fixed inset-0 transition -z-20 opacity-0 translate-y-[100%]"
+    >
+      <div
+        class="bg-white w-screen absolute bottom-0 rounded-t-2xl transition"
+      >
+        <div
+          class="p-6"
+        >
+          <header
+            class="flex justify-between items-center mb-6"
+          >
+            <h2
+              class="font-semibold text-xl"
+            >
+              More Information
+            </h2>
+            <button>
+              <img
+                alt=""
+                class="w-6 h-6"
+                src="/src/assets/Icons/close.svg"
+              />
+            </button>
+          </header>
+          <div
+            class="space-y-4"
+          >
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Policy Type
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                Health Insurance
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Amount
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                ₦50,000
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Commission
+              </em>
+              <em
+                class="not-italic font-medium text-white bg-[#25D366] p-1 px-2 rounded-lg text-sm"
+              >
+                ₦5,000
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Date Purchased
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                21 Jun 2024
+              </em>
+            </div>
+            <div
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
+            >
+              <div
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
+              >
+                C
+              </div>
+              <div
+                class="flex flex-col grow"
+              >
+                <em
+                  class="not-italic text-sm"
+                >
+                  John Doe
+                </em>
+                <em
+                  class="not-italic text-xs text-[#4F4F4F]"
+                >
+                  +23456789012
+                </em>
+              </div>
+              <div
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
+              >
+                <div
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
+                />
+                <em
+                  class="not-italic text-white text-sm"
+                >
+                  Recurring Policy
+                </em>
+              </div>
+            </div>
+          </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="h-dvh w-screen bg-black/30 fixed inset-0 transition -z-20 opacity-0 translate-y-[100%]"
+    >
+      <div
+        class="bg-white w-screen absolute bottom-0 rounded-t-2xl transition"
+      >
+        <div
+          class="p-6"
+        >
+          <header
+            class="flex justify-between items-center mb-6"
+          >
+            <h2
+              class="font-semibold text-xl"
+            >
+              More Information
+            </h2>
+            <button>
+              <img
+                alt=""
+                class="w-6 h-6"
+                src="/src/assets/Icons/close.svg"
+              />
+            </button>
+          </header>
+          <div
+            class="space-y-4"
+          >
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Policy Type
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                Health Insurance
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Amount
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                ₦50,000
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Commission
+              </em>
+              <em
+                class="not-italic font-medium text-white bg-[#25D366] p-1 px-2 rounded-lg text-sm"
+              >
+                ₦5,000
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Date Purchased
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                21 Jun 2024
+              </em>
+            </div>
+            <div
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
+            >
+              <div
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
+              >
+                C
+              </div>
+              <div
+                class="flex flex-col grow"
+              >
+                <em
+                  class="not-italic text-sm"
+                >
+                  John Doe
+                </em>
+                <em
+                  class="not-italic text-xs text-[#4F4F4F]"
+                >
+                  +23456789012
+                </em>
+              </div>
+              <div
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
+              >
+                <div
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
+                />
+                <em
+                  class="not-italic text-white text-sm"
+                >
+                  Recurring Policy
+                </em>
+              </div>
+            </div>
+          </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="h-dvh w-screen bg-black/30 fixed inset-0 transition -z-20 opacity-0 translate-y-[100%]"
+    >
+      <div
+        class="bg-white w-screen absolute bottom-0 rounded-t-2xl transition"
+      >
+        <div
+          class="p-6"
+        >
+          <header
+            class="flex justify-between items-center mb-6"
+          >
+            <h2
+              class="font-semibold text-xl"
+            >
+              More Information
+            </h2>
+            <button>
+              <img
+                alt=""
+                class="w-6 h-6"
+                src="/src/assets/Icons/close.svg"
+              />
+            </button>
+          </header>
+          <div
+            class="space-y-4"
+          >
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Policy Type
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                Health Insurance
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Amount
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                ₦50,000
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Commission
+              </em>
+              <em
+                class="not-italic font-medium text-white bg-[#25D366] p-1 px-2 rounded-lg text-sm"
+              >
+                ₦5,000
+              </em>
+            </div>
+            <div
+              class="flex justify-between items-center pb-2 border-b border-dotted"
+            >
+              <em
+                class="not-italic text-[#333] text-sm"
+              >
+                Date Purchased
+              </em>
+              <em
+                class="not-italic font-medium text-[#333] text-sm"
+              >
+                21 Jun 2024
+              </em>
+            </div>
+            <div
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
+            >
+              <div
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
+              >
+                C
+              </div>
+              <div
+                class="flex flex-col grow"
+              >
+                <em
+                  class="not-italic text-sm"
+                >
+                  John Doe
+                </em>
+                <em
+                  class="not-italic text-xs text-[#4F4F4F]"
+                >
+                  +23456789012
+                </em>
+              </div>
+              <div
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
+              >
+                <div
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
+                />
+                <em
+                  class="not-italic text-white text-sm"
+                >
+                  Recurring Policy
+                </em>
+              </div>
+            </div>
+          </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="px-5 py-6 max-w-[850px] mx-auto"
+      class="px-5 pb-10 max-w-[850px] mx-auto"
     >
       <header
-        class="mb-7"
+        class="mb-8"
       >
         <h1
-          class="font-semibold text-2xl mb-5"
+          class="font-semibold text-2xl mb-6"
         >
           Commissions
         </h1>
         <div
-          class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
+          class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-6 border-2 border-[#E0E0E0] h-10"
         >
           <img
             alt="search icon"
-            class="block mr-2 w-7 h-7"
+            class="block mr-2 w-[18px] h-[18px]"
             src="/src/assets/Icons/SearchIcon.svg"
           />
           <input
-            class="bg-transparent py-2 text-opacity-20"
-            placeholder="Find policy reference"
+            class="bg-transparent text-opacity-20 outline-none w-full text-sm font-medium py-3"
+            placeholder="Find policy name"
             type="search"
             value=""
           />
@@ -1513,7 +2175,7 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
             Activity
           </h2>
           <button
-            class="bg-[#25D366] rounded-full p-2 px-4 text-white"
+            class="bg-[#25D366] rounded-full py-1 text-white text-xs w-[62px]"
           >
             <svg
               class="inline-block mr-1"
@@ -1771,15 +2433,17 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="my-6"
+          class="my-4 mb-10"
         >
-          <div>
+          <div
+            class="space-y-6"
+          >
             <div
-              class="border-b py-2"
+              class="border-b pb-2"
             >
               <div>
                 <div
-                  class="flex justify-between items-center mb-2"
+                  class="flex justify-between items-center mb-1"
                 >
                   <em
                     class="not-italic font-semibold text-sm text-[#333]"
@@ -1810,11 +2474,11 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="border-b py-2"
+              class="border-b pb-2"
             >
               <div>
                 <div
-                  class="flex justify-between items-center mb-2"
+                  class="flex justify-between items-center mb-1"
                 >
                   <em
                     class="not-italic font-semibold text-sm text-[#333]"
@@ -1845,11 +2509,11 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="border-b py-2"
+              class="border-b pb-2"
             >
               <div>
                 <div
-                  class="flex justify-between items-center mb-2"
+                  class="flex justify-between items-center mb-1"
                 >
                   <em
                     class="not-italic font-semibold text-sm text-[#333]"
@@ -1880,11 +2544,221 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="border-b py-2"
+              class="border-b pb-2"
             >
               <div>
                 <div
-                  class="flex justify-between items-center mb-2"
+                  class="flex justify-between items-center mb-1"
+                >
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    Comprehensive
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    ₦50,000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-sm text-[#828282]"
+                  >
+                    May 7, 2023
+                  </em>
+                  <em
+                    class="not-italic font-medium text-sm text-[#4F4F4F]"
+                  >
+                    Commission: 
+                    ₦40,000
+                  </em>
+                </div>
+              </div>
+            </div>
+            <div
+              class="border-b pb-2"
+            >
+              <div>
+                <div
+                  class="flex justify-between items-center mb-1"
+                >
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    Credit Life
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    ₦50,000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-sm text-[#828282]"
+                  >
+                    May 7, 2023
+                  </em>
+                  <em
+                    class="not-italic font-medium text-sm text-[#4F4F4F]"
+                  >
+                    Commission: 
+                    ₦40,000
+                  </em>
+                </div>
+              </div>
+            </div>
+            <div
+              class="border-b pb-2"
+            >
+              <div>
+                <div
+                  class="flex justify-between items-center mb-1"
+                >
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    Card Protect
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    ₦50,000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-sm text-[#828282]"
+                  >
+                    May 7, 2023
+                  </em>
+                  <em
+                    class="not-italic font-medium text-sm text-[#4F4F4F]"
+                  >
+                    Commission: 
+                    ₦40,000
+                  </em>
+                </div>
+              </div>
+            </div>
+            <div
+              class="border-b pb-2"
+            >
+              <div>
+                <div
+                  class="flex justify-between items-center mb-1"
+                >
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    Comprehensive
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    ₦50,000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-sm text-[#828282]"
+                  >
+                    May 7, 2023
+                  </em>
+                  <em
+                    class="not-italic font-medium text-sm text-[#4F4F4F]"
+                  >
+                    Commission: 
+                    ₦40,000
+                  </em>
+                </div>
+              </div>
+            </div>
+            <div
+              class="border-b pb-2"
+            >
+              <div>
+                <div
+                  class="flex justify-between items-center mb-1"
+                >
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    Credit Life
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    ₦50,000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-sm text-[#828282]"
+                  >
+                    May 7, 2023
+                  </em>
+                  <em
+                    class="not-italic font-medium text-sm text-[#4F4F4F]"
+                  >
+                    Commission: 
+                    ₦40,000
+                  </em>
+                </div>
+              </div>
+            </div>
+            <div
+              class="border-b pb-2"
+            >
+              <div>
+                <div
+                  class="flex justify-between items-center mb-1"
+                >
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    Card Protect
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-sm text-[#333]"
+                  >
+                    ₦50,000
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-sm text-[#828282]"
+                  >
+                    May 7, 2023
+                  </em>
+                  <em
+                    class="not-italic font-medium text-sm text-[#4F4F4F]"
+                  >
+                    Commission: 
+                    ₦40,000
+                  </em>
+                </div>
+              </div>
+            </div>
+            <div
+              class="border-b pb-2"
+            >
+              <div>
+                <div
+                  class="flex justify-between items-center mb-1"
                 >
                   <em
                     class="not-italic font-semibold text-sm text-[#333]"
@@ -1914,77 +2788,57 @@ exports[`Agent Commissions Page > renders correctly 1`] = `
                 </div>
               </div>
             </div>
-            <div
-              class="border-b py-2"
-            >
-              <div>
-                <div
-                  class="flex justify-between items-center mb-2"
-                >
-                  <em
-                    class="not-italic font-semibold text-sm text-[#333]"
-                  >
-                    Travel
-                  </em>
-                  <em
-                    class="not-italic font-semibold text-sm text-[#333]"
-                  >
-                    ₦50,000
-                  </em>
-                </div>
-                <div
-                  class="flex justify-between items-center"
-                >
-                  <em
-                    class="not-italic text-sm text-[#828282]"
-                  >
-                    May 7, 2023
-                  </em>
-                  <em
-                    class="not-italic font-medium text-sm text-[#4F4F4F]"
-                  >
-                    Commission: 
-                    ₦40,000
-                  </em>
-                </div>
-              </div>
-            </div>
-            <div
-              class="border-b py-2"
-            >
-              <div>
-                <div
-                  class="flex justify-between items-center mb-2"
-                >
-                  <em
-                    class="not-italic font-semibold text-sm text-[#333]"
-                  >
-                    Device
-                  </em>
-                  <em
-                    class="not-italic font-semibold text-sm text-[#333]"
-                  >
-                    ₦50,000
-                  </em>
-                </div>
-                <div
-                  class="flex justify-between items-center"
-                >
-                  <em
-                    class="not-italic text-sm text-[#828282]"
-                  >
-                    May 7, 2023
-                  </em>
-                  <em
-                    class="not-italic font-medium text-sm text-[#4F4F4F]"
-                  >
-                    Commission: 
-                    ₦40,000
-                  </em>
-                </div>
-              </div>
-            </div>
           </div>
+        </div>
+        <div
+          class="mt-8 mx-auto w-[280px] flex items-center justify-center"
+        >
+          <button
+            class="flex items-center text-xs mr-4 disabled:text-[#ccc]"
+            disabled=""
+          >
+            <svg
+              class="inline-block mr-3 "
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 320 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+              />
+            </svg>
+            Previous
+          </button>
+          <div
+            class="bg-[#F2F2F2] px-6 py-2 rounded-lg text-xs w-[90px] h-[29px] flex justify-center items-center"
+          >
+            1
+            /
+            2
+          </div>
+          <button
+            class="flex items-center text-xs ml-4 disabled:text-[#ccc]"
+          >
+            Next
+            <svg
+              class="inline-block ml-3"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 320 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+              />
+            </svg>
+          </button>
         </div>
       </main>
     </div>

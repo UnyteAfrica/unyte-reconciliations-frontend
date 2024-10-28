@@ -2,12 +2,13 @@ import { useState } from "react";
 
 import { SearchBar } from "../../components/searchbar";
 import { useMediaQuery } from "@/utils/hooks";
-import { FaAngleDown, FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
 import { Customer } from "@/types/types";
-import { IoIosCall } from "react-icons/io";
+
 import { formatToNaira, getCompanyInitials } from "@/utils/utils";
 import { createPortal } from "react-dom";
 import { twMerge } from "tailwind-merge";
+import { Icon } from "@/components/shared/icon";
 
 const customers: Customer[] = [
   {
@@ -65,18 +66,19 @@ export const AgentCustomers = () => {
   return (
     <>
       {!isMediaQueryMatched && (
-        <div className="px-5 py-6 max-w-[850px] mx-auto bg-[#F8F8F8]">
-          <header className="mb-7">
-            <h1 className="font-semibold text-2xl mb-5">Customers</h1>
+        <div className="px-5 pb-10 max-w-[850px] mx-auto bg-[#F8F8F8]">
+          <header className="mb-4">
+            <h1 className="font-semibold text-2xl mb-6">Customers</h1>
             <SearchBar
-              placeholder={"Find customer"}
-              containerClassName="mb-4"
+              placeholder="Find customer"
+              containerClassName="mb-4 border-2 border-[#E0E0E0] h-10"
+              className="text-sm font-medium py-3"
             />
             <div className="flex items-center">
               <button className="bg-[#333] rounded-lg text-white py-2 px-3 text-xs font-semibold mr-2">
                 All customers
               </button>
-              <button className="flex items-center bg-[#F2F2F2] rounded-lg text-[#828282] font-semibold text-xs py-2 px-3">
+              <button className="flex items-center bg-[#F2F2F2] rounded-lg text-[#828282] font-semibold text-xs py-2 px-3 border-2 border-[#e0e0e0]">
                 Policy bought <FaAngleDown className="ml-[6px]" />{" "}
               </button>
             </div>
@@ -115,13 +117,21 @@ const CustomerCard: React.FC<{ customer: Customer }> = ({ customer }) => {
           {getCompanyInitials(customer.name)}
         </div>
         <div className="flex flex-col grow">
-          <em className="not-italic text-sm">{customer.name}</em>
-          <em className="not-italic text-xs text-[#4F4F4F] flex items-center">
-            <IoIosCall />
-            <span className="">{customer.phoneNo}</span>
+          <em className="not-italic text-sm inline-block mb-[2px]">
+            {customer.name}
           </em>
+          <a
+            className="not-italic text-xs text-[#4F4F4F] self-start inline"
+            href={`tel:${customer.phoneNo}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Icon type="call" className="w-[14px] h-[14px] inline-block mr-1" />
+            <span className="border-b border-[#4F4F4F]">
+              {customer.phoneNo}
+            </span>
+          </a>
         </div>
-        <FaAngleRight className="text-xl" />
+        <Icon type="arrowForward" className="w-4 h-4" />
       </div>
       <div className="text-[#4F4F4F] space-y-2 mt-3">
         <h2 className="text-sm">Policies</h2>
@@ -151,19 +161,22 @@ export const CustomerInfo: React.FC<{
   return (
     <div
       className={twMerge(
-        "z-50 h-dvh w-screen fixed top-0 left-0 bg-white py-10 px-6 overflow-y-auto transition translate-x-full",
+        "z-50 h-dvh w-screen fixed top-0 left-0 bg-white py-10 overflow-y-auto transition translate-x-full",
         isOpen && "translate-x-0"
       )}
     >
-      <FaAngleLeft
-        className="text-2xl mb-6"
+      <button
         onClick={(e) => {
           e.stopPropagation();
           onClose();
         }}
-      />
-      <h3 className="font-semibold mb-6">Customer Info</h3>
-      <div className="space-y-4">
+        className="mb-6 ml-6"
+      >
+        <Icon type="arrowBack" className="" />
+      </button>
+
+      <h3 className="font-semibold mb-6 ml-6">Customer Info</h3>
+      <div className="space-y-4 mb-4 px-6">
         <div className="flex flex-col">
           <em className="not-italic text-sm text-[#4F4F4F] mb-1">
             Customer Name
@@ -176,21 +189,27 @@ export const CustomerInfo: React.FC<{
           <em className="not-italic text-sm text-[#4F4F4F] mb-1">
             Phone Number
           </em>
-          <em className="not-italic font-medium text-sm text-[#333]">
+          <a
+            className="not-italic font-medium text-sm text-[#333] self-start border-b border-[#333]"
+            href={`tel:${customer.phoneNo}`}
+          >
             {customer.phoneNo}{" "}
-          </em>
+          </a>
         </div>
         <div className="flex flex-col">
           <em className="not-italic text-sm text-[#4F4F4F] mb-1">
             Email Address
           </em>
-          <em className="not-italic font-medium text-sm text-[#333]">
+          <a
+            className="not-italic font-medium text-sm text-[#333] self-start border-b border-[#333]"
+            href={`mailto:${customer.email}`}
+          >
             {customer.email}{" "}
-          </em>
+          </a>
         </div>
       </div>
-      <div className="bg-[#ccc]" />
-      <div className="mt-4 mb-14">
+      <div className="bg-[#F7F7F7] h-4 w-full" />
+      <div className="my-4 px-6">
         <div className="mb-4">
           <h3 className="font-semibold mb-2">Active Policies</h3>
           <div className="border rounded-lg border-[#E0E0E0] p-4 space-y-4 min-h-[82px]">
@@ -227,22 +246,25 @@ export const CustomerInfo: React.FC<{
                 </div>
               ))
             ) : (
-              <em className="not-italic font-medium text-sm">
+              <em className="not-italic font-medium text-sm text-[#333]">
                 No inactive policies
               </em>
             )}
           </div>
         </div>
       </div>
-      <a
-        href={`tel:${customer.phoneNo}`}
-        className="bg-[#25D366] text-white text-lg font-medium rounded-lg w-full py-4 block text-center mb-4"
-      >
-        Call Customer
-      </a>
-      <a className="border border-[#FF1F1F] rounded-lg text-[#FF1F1F] w-full py-4 block text-center">
-        Delete Customer
-      </a>
+      <div className="bg-[#F7F7F7] h-4 w-full mb-6" />
+      <div className="px-6">
+        <a
+          href={`tel:${customer.phoneNo}`}
+          className="bg-[#25D366] text-white text-lg font-medium rounded-lg w-full py-4 block text-center mb-4"
+        >
+          Call Customer
+        </a>
+        <a className="border border-[#FF1F1F] rounded-lg text-[#FF1F1F] w-full py-4 block text-center">
+          Delete Customer
+        </a>
+      </div>
     </div>
   );
 };

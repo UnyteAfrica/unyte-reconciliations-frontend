@@ -20,12 +20,12 @@ exports[`Company Login Page > renders correctly 1`] = `
           <form>
             <header>
               <p
-                class="mb-2 font-semibold text-[20px] text-center"
+                class="mb-2 font-semibold text-[20px]"
               >
                 Login
               </p>
               <p
-                class="mb-6 text-sm text-[#4F4F4F] text-center"
+                class="mb-6 text-sm text-[#4F4F4F]"
               >
                 Sign in to your account.
               </p>
@@ -47,7 +47,7 @@ exports[`Company Login Page > renders correctly 1`] = `
                   class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
                   id="email"
                   name="email"
-                  placeholder="johndoe@gmail.com / A034529"
+                  placeholder="johndoe@gmail.com"
                 />
                 <p
                   class="text-sm text-[#333]"
@@ -144,12 +144,12 @@ exports[`Company Login Page > renders correctly 1`] = `
         <form>
           <header>
             <p
-              class="mb-2 font-semibold text-[20px] text-center"
+              class="mb-2 font-semibold text-[20px]"
             >
               Login
             </p>
             <p
-              class="mb-6 text-sm text-[#4F4F4F] text-center"
+              class="mb-6 text-sm text-[#4F4F4F]"
             >
               Sign in to your account.
             </p>
@@ -171,7 +171,7 @@ exports[`Company Login Page > renders correctly 1`] = `
                 class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
                 id="email"
                 name="email"
-                placeholder="johndoe@gmail.com / A034529"
+                placeholder="johndoe@gmail.com"
               />
               <p
                 class="text-sm text-[#333]"

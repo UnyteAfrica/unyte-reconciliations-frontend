@@ -76,6 +76,7 @@ export const AgentOverview: React.FC = () => {
         text: "Value of Policies Sold",
         style: {
           fontSize: "16px",
+          fontWeight: "500",
         },
       },
     },
@@ -84,6 +85,7 @@ export const AgentOverview: React.FC = () => {
         text: `${period} Period`,
         style: {
           fontSize: "16px",
+          fontWeight: "500",
         },
       },
     },
@@ -266,17 +268,18 @@ export const AgentOverview: React.FC = () => {
   return (
     <>
       {!isMediaQueryMatched && (
-        <div className="px-5 py-6 max-w-[850px] mx-auto bg-[#F8F8F8]">
-          <div className="flex flex-row justify-between items-center mb-10">
-            <h1 className="text-3xl text-[#333333] font-semibold">Overview</h1>
-          </div>
-          <div className="my-8 w-[200px] sm:w-auto sm:flex sm:space-x-4">
+        <div className="pb-6 max-w-[850px] mx-auto">
+          <div className="px-6 flex flex-row justify-between items-center mb-6">
+            <h1 className="text-2xl font-semibold">Overview</h1>
             <Selector
               options={Object.values(PERIODS)}
               value={period}
               onChange={(val) => setPeriod(val)}
-              containerClassName="mb-4 sm:mb-0"
+              containerClassName=""
             />
+          </div>
+          {/* <div className="my-8 w-[200px] sm:w-auto sm:flex sm:space-x-4">
+           
             <div className="flex">
               {period == PERIODS.YEARLY ? (
                 <RangeYearPicker
@@ -351,9 +354,9 @@ export const AgentOverview: React.FC = () => {
                 <></>
               )}
             </div>
-          </div>
-          <div className="flex">
-            <div className="mb-5 mr-4 border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-[48%] max-w-[165px]">
+          </div> */}
+          <div className="flex bg-[#F9FAFB] px-6 py-8">
+            <div className="mr-4 border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-[48%] max-w-[165px]">
               <div className="border border-[#25D366] rounded-full mb-4 inline-block p-1">
                 <Icon type="receipt" />
               </div>
@@ -364,7 +367,7 @@ export const AgentOverview: React.FC = () => {
                 {policyCount ?? 1} {policyCount <= 1 ? "policy" : "policies"}
               </em>
             </div>
-            <div className="mb-5 border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-[48%] max-w-[165px]">
+            <div className="border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-[48%] max-w-[165px]">
               <div className="border border-[#25D366] rounded-full mb-4 inline-block p-1">
                 <Icon type="dollar" />
               </div>
@@ -376,8 +379,7 @@ export const AgentOverview: React.FC = () => {
               </em>
             </div>
           </div>
-          <hr />
-          <div className="mt-10">
+          <div className="mt-6 px-6">
             {/* <p className="text-sm text-[#4F4F4F] mb-4">
               Showing data for the month of{" "}
               <span className="font-semibold text-[#333]">September</span>

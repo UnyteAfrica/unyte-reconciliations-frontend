@@ -6,26 +6,26 @@ exports[`Page Content > renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="px-5 py-6 max-w-[850px] mx-auto"
+        class="px-5 pb-10 max-w-[850px] mx-auto"
       >
         <header
-          class="mb-7"
+          class="mb-8"
         >
           <h1
-            class="font-semibold text-2xl mb-5"
+            class="font-semibold text-2xl mb-6"
           >
             Commissions
           </h1>
           <div
-            class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
+            class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-6 border-2 border-[#E0E0E0] h-10"
           >
             <img
               alt="search icon"
-              class="block mr-2 w-7 h-7"
+              class="block mr-2 w-[18px] h-[18px]"
               src="/src/assets/Icons/SearchIcon.svg"
             />
             <input
-              class="bg-transparent py-2 text-opacity-20"
+              class="bg-transparent text-opacity-20 outline-none w-full text-sm font-medium py-3"
               placeholder="Find policy reference"
               type="search"
               value=""
@@ -115,7 +115,7 @@ exports[`Page Content > renders correctly 1`] = `
               Activity
             </h2>
             <button
-              class="bg-[#25D366] rounded-full p-2 px-4 text-white"
+              class="bg-[#25D366] rounded-full py-1 text-white text-xs w-[62px]"
             >
               <svg
                 class="inline-block mr-1"
@@ -373,15 +373,17 @@ exports[`Page Content > renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="my-6"
+            class="my-4 mb-10"
           >
-            <div>
+            <div
+              class="space-y-6"
+            >
               <div
-                class="border-b py-2"
+                class="border-b pb-2"
               >
                 <div>
                   <div
-                    class="flex justify-between items-center mb-2"
+                    class="flex justify-between items-center mb-1"
                   >
                     <em
                       class="not-italic font-semibold text-sm text-[#333]"
@@ -412,11 +414,11 @@ exports[`Page Content > renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="border-b py-2"
+                class="border-b pb-2"
               >
                 <div>
                   <div
-                    class="flex justify-between items-center mb-2"
+                    class="flex justify-between items-center mb-1"
                   >
                     <em
                       class="not-italic font-semibold text-sm text-[#333]"
@@ -469,30 +471,18 @@ exports[`Page Content > renders correctly 1`] = `
               More Information
             </h2>
             <button>
-              <svg
+              <img
+                alt=""
                 class="w-6 h-6"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h24v24H0V0z"
-                  fill="none"
-                  opacity=".87"
-                />
-                <path
-                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"
-                />
-              </svg>
+                src="/src/assets/Icons/close.svg"
+              />
             </button>
           </header>
-          <div>
+          <div
+            class="space-y-4"
+          >
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -506,7 +496,7 @@ exports[`Page Content > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -520,7 +510,7 @@ exports[`Page Content > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -534,7 +524,7 @@ exports[`Page Content > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -548,15 +538,15 @@ exports[`Page Content > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md justify-between items-center"
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
             >
               <div
-                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center"
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
               >
                 C
               </div>
               <div
-                class="flex flex-col"
+                class="flex flex-col grow"
               >
                 <em
                   class="not-italic text-sm"
@@ -570,10 +560,10 @@ exports[`Page Content > renders correctly 1`] = `
                 </em>
               </div>
               <div
-                class="bg-[#222] flex items-center py-1 px-2 rounded-sm"
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
               >
                 <div
-                  class="w-4 h-4 bg-[#25D366] rounded-full mr-1"
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
                 />
                 <em
                   class="not-italic text-white text-sm"
@@ -583,6 +573,11 @@ exports[`Page Content > renders correctly 1`] = `
               </div>
             </div>
           </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
         </div>
       </div>
     </div>
@@ -604,30 +599,18 @@ exports[`Page Content > renders correctly 1`] = `
               More Information
             </h2>
             <button>
-              <svg
+              <img
+                alt=""
                 class="w-6 h-6"
-                fill="currentColor"
-                height="1em"
-                stroke="currentColor"
-                stroke-width="0"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h24v24H0V0z"
-                  fill="none"
-                  opacity=".87"
-                />
-                <path
-                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"
-                />
-              </svg>
+                src="/src/assets/Icons/close.svg"
+              />
             </button>
           </header>
-          <div>
+          <div
+            class="space-y-4"
+          >
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -641,7 +624,7 @@ exports[`Page Content > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -655,7 +638,7 @@ exports[`Page Content > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -669,7 +652,7 @@ exports[`Page Content > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex justify-between items-center mb-2 py-2 border-b border-dotted"
+              class="flex justify-between items-center pb-2 border-b border-dotted"
             >
               <em
                 class="not-italic text-[#333] text-sm"
@@ -683,15 +666,15 @@ exports[`Page Content > renders correctly 1`] = `
               </em>
             </div>
             <div
-              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md justify-between items-center"
+              class="flex mt-2 bg-[#F9FAFB] p-4 rounded-md items-center"
             >
               <div
-                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center"
+                class="bg-[#F5A623] w-10 h-10 rounded-full text-white shrink-0 flex justify-center items-center mr-2"
               >
                 C
               </div>
               <div
-                class="flex flex-col"
+                class="flex flex-col grow"
               >
                 <em
                   class="not-italic text-sm"
@@ -705,10 +688,10 @@ exports[`Page Content > renders correctly 1`] = `
                 </em>
               </div>
               <div
-                class="bg-[#222] flex items-center py-1 px-2 rounded-sm"
+                class="bg-[#222] flex items-center py-1 px-2 rounded-sm h-6"
               >
                 <div
-                  class="w-4 h-4 bg-[#25D366] rounded-full mr-1"
+                  class="w-2 h-2 bg-[#25D366] rounded-full mr-[3px]"
                 />
                 <em
                   class="not-italic text-white text-sm"
@@ -718,32 +701,37 @@ exports[`Page Content > renders correctly 1`] = `
               </div>
             </div>
           </div>
+          <button
+            class="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+          >
+            Done
+          </button>
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="px-5 py-6 max-w-[850px] mx-auto"
+      class="px-5 pb-10 max-w-[850px] mx-auto"
     >
       <header
-        class="mb-7"
+        class="mb-8"
       >
         <h1
-          class="font-semibold text-2xl mb-5"
+          class="font-semibold text-2xl mb-6"
         >
           Commissions
         </h1>
         <div
-          class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-4"
+          class="relative bg-[#F2F2F2] rounded-lg placeholder:text-[#828282] px-4 py-3 flex items-center mb-6 border-2 border-[#E0E0E0] h-10"
         >
           <img
             alt="search icon"
-            class="block mr-2 w-7 h-7"
+            class="block mr-2 w-[18px] h-[18px]"
             src="/src/assets/Icons/SearchIcon.svg"
           />
           <input
-            class="bg-transparent py-2 text-opacity-20"
+            class="bg-transparent text-opacity-20 outline-none w-full text-sm font-medium py-3"
             placeholder="Find policy reference"
             type="search"
             value=""
@@ -833,7 +821,7 @@ exports[`Page Content > renders correctly 1`] = `
             Activity
           </h2>
           <button
-            class="bg-[#25D366] rounded-full p-2 px-4 text-white"
+            class="bg-[#25D366] rounded-full py-1 text-white text-xs w-[62px]"
           >
             <svg
               class="inline-block mr-1"
@@ -1091,15 +1079,17 @@ exports[`Page Content > renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="my-6"
+          class="my-4 mb-10"
         >
-          <div>
+          <div
+            class="space-y-6"
+          >
             <div
-              class="border-b py-2"
+              class="border-b pb-2"
             >
               <div>
                 <div
-                  class="flex justify-between items-center mb-2"
+                  class="flex justify-between items-center mb-1"
                 >
                   <em
                     class="not-italic font-semibold text-sm text-[#333]"
@@ -1130,11 +1120,11 @@ exports[`Page Content > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="border-b py-2"
+              class="border-b pb-2"
             >
               <div>
                 <div
-                  class="flex justify-between items-center mb-2"
+                  class="flex justify-between items-center mb-1"
                 >
                   <em
                     class="not-italic font-semibold text-sm text-[#333]"
