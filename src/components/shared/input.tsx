@@ -114,9 +114,12 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
           placeholder={placeholder}
           {...rest}
         />
-        <p className={twMerge("text-sm text-[#333]", errorClassName)}>
-          {error && error}
-        </p>
+        {!!error && (
+          <p className={twMerge("text-sm text-[#333]", errorClassName)}>
+            {error}
+          </p>
+        )}
+
         {/* {after && after} */}
       </div>
     );

@@ -10,6 +10,8 @@ import { CustomInput } from "@/components/shared/input";
 import { twMerge } from "tailwind-merge";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { formatToNaira } from "@/utils/utils";
+import { SlidingButton } from "@/components/shared/sliding-button";
+import toast from "react-hot-toast";
 
 const policyTypes: PolicyType[] = [
   {
@@ -301,9 +303,7 @@ const PolicyPayment = () => {
       </div>
       <em className="block mb-4 uppercase text-center not-italic">or</em>
       <Icon type="qr" className="mb-8 mx-auto" />
-      <button className="w-full bg-[#25D366] py-4 text-lg font-medium rounded-lg text-white">
-        Sliding button to confirm
-      </button>
+      <SlidingButton onSlide={() => toast.success("Policy Sold")} />
     </div>
   );
 };

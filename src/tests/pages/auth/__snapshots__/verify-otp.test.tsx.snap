@@ -48,9 +48,6 @@ exports[`Company Verify OTP Page > renders correctly 1`] = `
                     type="password"
                     value=""
                   />
-                  <p
-                    class="text-sm text-[#333]"
-                  />
                 </div>
                 <button
                   class="absolute top-[50%] -translate-y-[50%] right-3"
@@ -137,9 +134,6 @@ exports[`Company Verify OTP Page > renders correctly 1`] = `
                   placeholder="******"
                   type="password"
                   value=""
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <button

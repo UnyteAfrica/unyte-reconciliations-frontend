@@ -46,9 +46,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   name="firstName"
                   placeholder="John"
                 />
-                <p
-                  class="text-sm text-[#333]"
-                />
               </div>
               <div
                 class=""
@@ -65,9 +62,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   id="middleName"
                   name="middleName"
                   placeholder="Janet"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -86,9 +80,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   name="lastName"
                   placeholder="Doe"
                 />
-                <p
-                  class="text-sm text-[#333]"
-                />
               </div>
               <div
                 class=""
@@ -105,9 +96,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   id="homeAddress"
                   name="homeAddress"
                   placeholder="2, Sizwe Street"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -126,9 +114,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   name="email"
                   placeholder="johndoe@gmail.com"
                 />
-                <p
-                  class="text-sm text-[#333]"
-                />
               </div>
               <div
                 class=""
@@ -145,9 +130,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   id="bankName"
                   name="bankName"
                   placeholder="Access Bank"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -166,9 +148,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   name="accountNo"
                   placeholder="1234567890"
                 />
-                <p
-                  class="text-sm text-[#333]"
-                />
               </div>
               <div
                 class=""
@@ -185,9 +164,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   id="bvn"
                   name="bvn"
                   placeholder="12345678901"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -206,9 +182,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   id="companyId"
                   placeholder="A034529"
                   value=""
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div>
@@ -231,9 +204,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                       placeholder="******"
                       type="password"
                       value=""
-                    />
-                    <p
-                      class="text-sm text-[#333]"
                     />
                   </div>
                   <button
@@ -278,9 +248,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                       placeholder="******"
                       type="password"
                       value=""
-                    />
-                    <p
-                      class="text-sm text-[#333]"
                     />
                   </div>
                   <button
@@ -372,9 +339,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 name="firstName"
                 placeholder="John"
               />
-              <p
-                class="text-sm text-[#333]"
-              />
             </div>
             <div
               class=""
@@ -391,9 +355,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 id="middleName"
                 name="middleName"
                 placeholder="Janet"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -412,9 +373,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 name="lastName"
                 placeholder="Doe"
               />
-              <p
-                class="text-sm text-[#333]"
-              />
             </div>
             <div
               class=""
@@ -431,9 +389,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 id="homeAddress"
                 name="homeAddress"
                 placeholder="2, Sizwe Street"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -452,9 +407,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 name="email"
                 placeholder="johndoe@gmail.com"
               />
-              <p
-                class="text-sm text-[#333]"
-              />
             </div>
             <div
               class=""
@@ -471,9 +423,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 id="bankName"
                 name="bankName"
                 placeholder="Access Bank"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -492,9 +441,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 name="accountNo"
                 placeholder="1234567890"
               />
-              <p
-                class="text-sm text-[#333]"
-              />
             </div>
             <div
               class=""
@@ -511,9 +457,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 id="bvn"
                 name="bvn"
                 placeholder="12345678901"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -532,9 +475,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                 id="companyId"
                 placeholder="A034529"
                 value=""
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div>
@@ -557,9 +497,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                     placeholder="******"
                     type="password"
                     value=""
-                  />
-                  <p
-                    class="text-sm text-[#333]"
                   />
                 </div>
                 <button
@@ -604,9 +541,6 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                     placeholder="******"
                     type="password"
                     value=""
-                  />
-                  <p
-                    class="text-sm text-[#333]"
                   />
                 </div>
                 <button

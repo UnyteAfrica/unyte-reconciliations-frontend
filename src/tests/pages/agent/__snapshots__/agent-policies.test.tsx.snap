@@ -254,9 +254,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               id="customer'sFullName"
               placeholder="John Doe"
             />
-            <p
-              class="text-sm text-[#333]"
-            />
           </div>
           <div
             class=""
@@ -272,9 +269,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
-            />
-            <p
-              class="text-sm text-[#333]"
             />
           </div>
           <div
@@ -292,9 +286,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               id="customer'sPhoneNumber"
               placeholder="08035892001"
             />
-            <p
-              class="text-sm text-[#333]"
-            />
           </div>
           <div
             class=""
@@ -310,9 +301,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sEmailAddress"
               placeholder="mail@mail.com"
-            />
-            <p
-              class="text-sm text-[#333]"
             />
           </div>
         </div>
@@ -385,9 +373,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               id="customer'sFullName"
               placeholder="John Doe"
             />
-            <p
-              class="text-sm text-[#333]"
-            />
           </div>
           <div
             class=""
@@ -403,9 +388,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
-            />
-            <p
-              class="text-sm text-[#333]"
             />
           </div>
           <div
@@ -423,9 +405,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               id="customer'sPhoneNumber"
               placeholder="08035892001"
             />
-            <p
-              class="text-sm text-[#333]"
-            />
           </div>
           <div
             class=""
@@ -441,9 +420,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sEmailAddress"
               placeholder="mail@mail.com"
-            />
-            <p
-              class="text-sm text-[#333]"
             />
           </div>
         </div>
@@ -516,9 +492,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               id="customer'sFullName"
               placeholder="John Doe"
             />
-            <p
-              class="text-sm text-[#333]"
-            />
           </div>
           <div
             class=""
@@ -534,9 +507,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
-            />
-            <p
-              class="text-sm text-[#333]"
             />
           </div>
           <div
@@ -554,9 +524,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               id="customer'sPhoneNumber"
               placeholder="08035892001"
             />
-            <p
-              class="text-sm text-[#333]"
-            />
           </div>
           <div
             class=""
@@ -572,9 +539,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sEmailAddress"
               placeholder="mail@mail.com"
-            />
-            <p
-              class="text-sm text-[#333]"
             />
           </div>
         </div>
@@ -647,9 +611,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               id="customer'sFullName"
               placeholder="John Doe"
             />
-            <p
-              class="text-sm text-[#333]"
-            />
           </div>
           <div
             class=""
@@ -665,9 +626,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
-            />
-            <p
-              class="text-sm text-[#333]"
             />
           </div>
           <div
@@ -685,9 +643,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               id="customer'sPhoneNumber"
               placeholder="08035892001"
             />
-            <p
-              class="text-sm text-[#333]"
-            />
           </div>
           <div
             class=""
@@ -703,9 +658,6 @@ exports[`Agent Policies > renders correctly 1`] = `
               class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
               id="customer'sEmailAddress"
               placeholder="mail@mail.com"
-            />
-            <p
-              class="text-sm text-[#333]"
             />
           </div>
         </div>
