@@ -58,9 +58,8 @@ describe("Page Content", () => {
     const filterBtn = screen.getByText("Filter");
     await user.click(filterBtn);
     const filterBox = screen.getByTestId("filter");
-
-    expect(filterBox).toHaveClass("max-h-[500px]");
-    expect(filterBox).not.toHaveClass("max-h-0");
+    expect(filterBox).toBeVisible();
+    expect(filterBox).toHaveClass("isOpened");
   });
 
   it("should close filter menu when it the user clicks outside it", async () => {
@@ -80,7 +79,6 @@ describe("Page Content", () => {
     await user.click(commissionsText);
     const filterBox = screen.getByTestId("filter");
 
-    expect(filterBox).toHaveClass("max-h-0");
-    expect(filterBox).not.toHaveClass("max-h-[500px]");
+    expect(filterBox).not.toHaveClass("isOpened");
   });
 });

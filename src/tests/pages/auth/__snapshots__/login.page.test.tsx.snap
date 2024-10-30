@@ -49,9 +49,6 @@ exports[`Company Login Page > renders correctly 1`] = `
                   name="email"
                   placeholder="johndoe@gmail.com"
                 />
-                <p
-                  class="text-sm text-[#333]"
-                />
               </div>
               <div>
                 <div>
@@ -74,9 +71,6 @@ exports[`Company Login Page > renders correctly 1`] = `
                         placeholder="******"
                         type="password"
                         value=""
-                      />
-                      <p
-                        class="text-sm text-[#333]"
                       />
                     </div>
                     <button
@@ -173,9 +167,6 @@ exports[`Company Login Page > renders correctly 1`] = `
                 name="email"
                 placeholder="johndoe@gmail.com"
               />
-              <p
-                class="text-sm text-[#333]"
-              />
             </div>
             <div>
               <div>
@@ -198,9 +189,6 @@ exports[`Company Login Page > renders correctly 1`] = `
                       placeholder="******"
                       type="password"
                       value=""
-                    />
-                    <p
-                      class="text-sm text-[#333]"
                     />
                   </div>
                   <button

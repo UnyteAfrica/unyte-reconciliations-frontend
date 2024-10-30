@@ -46,9 +46,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                   name="businessName"
                   placeholder="John Doe Ltd"
                 />
-                <p
-                  class="text-sm text-[#333]"
-                />
               </div>
               <div
                 class=""
@@ -65,9 +62,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                   id="companyRegistrationNo"
                   name="businessRegNo"
                   placeholder="A034529"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -86,9 +80,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                   name="adminName"
                   placeholder="John Doe"
                 />
-                <p
-                  class="text-sm text-[#333]"
-                />
               </div>
               <div
                 class=""
@@ -105,9 +96,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                   id="adminEmail"
                   name="adminEmail"
                   placeholder="insurancefirm@company.com"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div>
@@ -130,9 +118,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                       placeholder="******"
                       type="password"
                       value=""
-                    />
-                    <p
-                      class="text-sm text-[#333]"
                     />
                   </div>
                   <button
@@ -177,9 +162,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                       placeholder="******"
                       type="password"
                       value=""
-                    />
-                    <p
-                      class="text-sm text-[#333]"
                     />
                   </div>
                   <button
@@ -271,9 +253,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                 name="businessName"
                 placeholder="John Doe Ltd"
               />
-              <p
-                class="text-sm text-[#333]"
-              />
             </div>
             <div
               class=""
@@ -290,9 +269,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                 id="companyRegistrationNo"
                 name="businessRegNo"
                 placeholder="A034529"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -311,9 +287,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                 name="adminName"
                 placeholder="John Doe"
               />
-              <p
-                class="text-sm text-[#333]"
-              />
             </div>
             <div
               class=""
@@ -330,9 +303,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                 id="adminEmail"
                 name="adminEmail"
                 placeholder="insurancefirm@company.com"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div>
@@ -355,9 +325,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                     placeholder="******"
                     type="password"
                     value=""
-                  />
-                  <p
-                    class="text-sm text-[#333]"
                   />
                 </div>
                 <button
@@ -402,9 +369,6 @@ exports[`Company Signup Page > renders correctly 1`] = `
                     placeholder="******"
                     type="password"
                     value=""
-                  />
-                  <p
-                    class="text-sm text-[#333]"
                   />
                 </div>
                 <button

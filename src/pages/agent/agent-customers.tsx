@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { SearchBar } from "../../components/searchbar";
 import { useMediaQuery } from "@/utils/hooks";
@@ -9,6 +9,7 @@ import { formatToNaira, getCompanyInitials } from "@/utils/utils";
 import { createPortal } from "react-dom";
 import { twMerge } from "tailwind-merge";
 import { Icon } from "@/components/shared/icon";
+import { CheckboxInput } from "@/components/shared/checkbox-input";
 
 const customers: Customer[] = [
   {
@@ -61,25 +62,89 @@ const customers: Customer[] = [
   },
 ];
 
+const policyTypes = [
+  "Health Insurance",
+  "Motor Insurance",
+  "Life Insurance",
+  "Device Insurance",
+];
+
 export const AgentCustomers = () => {
   const { isMediaQueryMatched } = useMediaQuery(1024);
+  const [isFilterOpened, setIsFilterOpened] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const [policySelected, setPolicySelected] = useState<{
+    [key: string]: boolean;
+  }>({});
+
+  useEffect(() => {
+    const policySelectedObj: { [key: string]: boolean } = {};
+    for (let policyType of policyTypes) {
+      policySelectedObj[policyType] = false;
+    }
+    setPolicySelected(policySelectedObj);
+  }, []);
+
+  const getPolicyFiltersText = () => {
+    let text = "";
+    let count = 0;
+    let hasTakenFirst = false;
+
+    for (let policyType in policySelected) {
+      if (policySelected[policyType]) {
+        if (!hasTakenFirst) {
+          text += policyType;
+          count--;
+        }
+        hasTakenFirst = true;
+        count++;
+      }
+    }
+    if (count > 0) text += ` + ${count}`;
+
+    return text;
+  };
+
+  const policyFilters = getPolicyFiltersText();
+
   return (
     <>
       {!isMediaQueryMatched && (
         <div className="px-5 pb-10 max-w-[850px] mx-auto bg-[#F8F8F8]">
+          {createPortal(
+            <PolicyFilterBottomSheet
+              isOpen={isFilterOpened}
+              onClose={() => setIsFilterOpened(false)}
+              policySelected={policySelected}
+              selectPolicyType={(policyType, value) =>
+                setPolicySelected((policySelected) => {
+                  const clone = { ...policySelected };
+                  clone[policyType] = value;
+                  return clone;
+                })
+              }
+            />,
+            document.body
+          )}
           <header className="mb-4">
             <h1 className="font-semibold text-2xl mb-6">Customers</h1>
             <SearchBar
               placeholder="Find customer"
               containerClassName="mb-4 border-2 border-[#E0E0E0] h-10"
               className="text-sm font-medium py-3"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
             />
             <div className="flex items-center">
               <button className="bg-[#333] rounded-lg text-white py-2 px-3 text-xs font-semibold mr-2">
-                All customers
+                {searchText ? `Searching for "${searchText}"` : "All customers"}
               </button>
-              <button className="flex items-center bg-[#F2F2F2] rounded-lg text-[#828282] font-semibold text-xs py-2 px-3 border-2 border-[#e0e0e0]">
-                Policy bought <FaAngleDown className="ml-[6px]" />{" "}
+              <button
+                className="flex items-center bg-[#F2F2F2] rounded-lg text-[#828282] font-semibold text-xs py-2 px-3 border-2 border-[#e0e0e0]"
+                onClick={() => setIsFilterOpened(true)}
+              >
+                {policyFilters ? policyFilters : "Policy bought"}
+                <FaAngleDown className="ml-[6px]" />{" "}
               </button>
             </div>
           </header>
@@ -264,6 +329,68 @@ export const CustomerInfo: React.FC<{
         <a className="border border-[#FF1F1F] rounded-lg text-[#FF1F1F] w-full py-4 block text-center">
           Delete Customer
         </a>
+      </div>
+    </div>
+  );
+};
+
+type PolicyFilterBottomSheetProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  policySelected: { [key: string]: boolean };
+  selectPolicyType: (policyType: string, value: boolean) => void;
+};
+
+const PolicyFilterBottomSheet: React.FC<PolicyFilterBottomSheetProps> = ({
+  isOpen,
+  onClose,
+  policySelected,
+  selectPolicyType,
+}) => {
+  return (
+    <div
+      className={twMerge(
+        "h-dvh w-screen bg-black/30 fixed inset-0 transition ",
+        isOpen && "z-50 opacity-100 translate-y-0",
+        !isOpen && "-z-20 opacity-0 translate-y-[100%]"
+      )}
+      onClick={onClose}
+    >
+      <div
+        className={twMerge(
+          "bg-white w-screen absolute bottom-0 rounded-t-2xl transition"
+          // isShowingBottomSheet && "translate-y-0"
+        )}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <div className="p-6">
+          <header className="flex justify-between items-center mb-6">
+            <h2 className="font-semibold text-xl">Filter Customers</h2>
+            <button onClick={onClose}>
+              <Icon type="close" className="w-6 h-6" />
+            </button>
+          </header>
+          <div className="space-y-4">
+            {policyTypes.map((policyType, idx) => (
+              <CheckboxInput
+                key={idx}
+                label={policyType}
+                onClick={() => selectPolicyType(policyType, true)}
+                onChange={(e) => selectPolicyType(policyType, e.target.checked)}
+                checked={policySelected[policyType]}
+                name="claim-status"
+              />
+            ))}
+          </div>
+          <button
+            className="bg-[#25D366] text-white font-medium text-lg py-[18px] w-full rounded-lg mt-10"
+            onClick={onClose}
+          >
+            Done
+          </button>
+        </div>
       </div>
     </div>
   );

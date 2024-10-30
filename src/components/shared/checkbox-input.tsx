@@ -1,9 +1,10 @@
 import camelcase from "camelcase";
 import { cx } from "class-variance-authority";
 import { ChangeEventHandler, MouseEventHandler } from "react";
+import { FaCheck } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
 
-type RadioInputProps = {
+type CheckboxInputProps = {
   label: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
   onChange: ChangeEventHandler<HTMLInputElement>;
@@ -11,7 +12,7 @@ type RadioInputProps = {
   checked: boolean;
 };
 
-export const RadioInput: React.FC<RadioInputProps> = ({
+export const CheckboxInput: React.FC<CheckboxInputProps> = ({
   label,
   checked,
   name,
@@ -23,7 +24,7 @@ export const RadioInput: React.FC<RadioInputProps> = ({
       <div className="mr-2 flex justify-center items-center">
         <input
           id={camelcase(label)}
-          type="radio"
+          type="checkbox"
           name={name}
           className={cx("w-5 h-5", checked && "hidden")}
           onChange={onChange}
@@ -31,12 +32,12 @@ export const RadioInput: React.FC<RadioInputProps> = ({
         />
         <div
           className={twMerge(
-            "bg-white border border-mPrimary rounded-full hidden justify-center items-center w-5 h-5",
+            "bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]",
             checked && "flex"
           )}
           onClick={onClick}
         >
-          <div className="w-[12px] h-[12px] bg-mPrimary rounded-full" />
+          <FaCheck className="absolute -top-1 left-[2px] text-2xl text-mPrimary" />
         </div>
       </div>
       <label htmlFor={camelcase(label)}>{label}</label>
