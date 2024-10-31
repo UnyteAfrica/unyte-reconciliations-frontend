@@ -237,7 +237,7 @@ export const AgentSignupPage = () => {
       )}
 
       {isMediaQueryMatched && (
-        <div className="justify-center items-center  bg-[#f5f5f5] min-h-screen flex">
+        <div className="justify-center items-center  bg-[#f5f5f5] min-h-dvh flex">
           <div className="p-10 bg-white w-[720px] overflow-y-auto h-[750px] rounded-2xl">
             <form
               onSubmit={handleSubmit(onSubmit)}

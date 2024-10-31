@@ -12,7 +12,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Loader } from "../loader";
 import { LuMenu } from "react-icons/lu";
 import { AiOutlineClose } from "react-icons/ai";
-import { useLockScroll, useMediaQuery } from "@/utils/hooks";
+import { useMediaQuery } from "@/utils/hooks";
 import { getDetails } from "@/services/api/api-base";
 import { AuthContext } from "@/context/auth.context";
 
@@ -77,8 +77,6 @@ export const AgentNavbar = () => {
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 
-  useLockScroll(isMobileMenuOpen);
-
   useEffect(() => {
     console.log(location.pathname);
   }, [location.pathname]);
@@ -107,7 +105,7 @@ export const AgentNavbar = () => {
           </header>
           <div
             className={twMerge(
-              "absolute top-0 left-0 flex w-full transition duration-300 -translate-x-[100%]",
+              "fixed top-0 left-0 flex w-full transition duration-300 -translate-x-[100%]",
               isMobileMenuOpen && "translate-x-0"
             )}
           >

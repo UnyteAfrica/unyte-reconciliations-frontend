@@ -136,11 +136,20 @@ export const AgentCustomers = () => {
               onChange={(e) => setSearchText(e.target.value)}
             />
             <div className="flex items-center">
-              <button className="bg-[#333] rounded-lg text-white py-2 px-3 text-xs font-semibold mr-2">
+              <button
+                className={twMerge(
+                  "bg-[#F2F2F2] text-[#828282] rounded-lg py-2 px-3 text-xs font-semibold transition mr-2 border-2 border-[#e0e0e0]",
+                  (searchText || !policyFilters) &&
+                    "bg-[#333] text-white border-none"
+                )}
+              >
                 {searchText ? `Searching for "${searchText}"` : "All customers"}
               </button>
               <button
-                className="flex items-center bg-[#F2F2F2] rounded-lg text-[#828282] font-semibold text-xs py-2 px-3 border-2 border-[#e0e0e0]"
+                className={twMerge(
+                  "flex items-center bg-[#F2F2F2] rounded-lg text-[#828282] font-semibold text-xs py-2 px-3 border-2 border-[#e0e0e0] transition",
+                  policyFilters && "bg-[#333] text-white border-none"
+                )}
                 onClick={() => setIsFilterOpened(true)}
               >
                 {policyFilters ? policyFilters : "Policy bought"}
@@ -377,7 +386,9 @@ const PolicyFilterBottomSheet: React.FC<PolicyFilterBottomSheetProps> = ({
               <CheckboxInput
                 key={idx}
                 label={policyType}
-                onClick={() => selectPolicyType(policyType, true)}
+                onClick={() =>
+                  selectPolicyType(policyType, !policySelected[policyType])
+                }
                 onChange={(e) => selectPolicyType(policyType, e.target.checked)}
                 checked={policySelected[policyType]}
                 name="claim-status"

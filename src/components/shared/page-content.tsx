@@ -379,7 +379,7 @@ const PageFilter: React.FC<PageFilterProps> = ({
             >
               <div className="w-full inline-block max-w-[200px]">
                 <DateInput
-                  containerClassName="font-semibold w-full block"
+                  containerClassName="font-semibold w-full block mb-1"
                   date={startDate}
                   onDateChange={(date) => setStartDate(date)}
                 />
