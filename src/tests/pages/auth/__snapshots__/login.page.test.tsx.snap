@@ -7,11 +7,11 @@ exports[`Company Login Page > renders correctly 1`] = `
     <div>
       <div>
         <div
-          class="px-5 py-10 max-w-[600px] min-h-screen mx-auto flex flex-col"
+          class="px-5 py-10 max-w-[600px] min-h-svh mx-auto flex flex-col"
         >
           <img
             alt=""
-            class="mb-6 block w-28"
+            class="block w-28"
             src="/src/assets/Icons/UnyteLogo.svg"
           />
           <div
@@ -125,11 +125,11 @@ exports[`Company Login Page > renders correctly 1`] = `
   "container": <div>
     <div>
       <div
-        class="px-5 py-10 max-w-[600px] min-h-screen mx-auto flex flex-col"
+        class="px-5 py-10 max-w-[600px] min-h-svh mx-auto flex flex-col"
       >
         <img
           alt=""
-          class="mb-6 block w-28"
+          class="block w-28"
           src="/src/assets/Icons/UnyteLogo.svg"
         />
         <div

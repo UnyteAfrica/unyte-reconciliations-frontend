@@ -87,7 +87,7 @@ export const VerifyOTPPage = () => {
 
   if (!isMediaQueryMatched)
     return (
-      <div className="px-5 py-10 max-w-[600px] mx-auto min-h-screen flex flex-col">
+      <div className="px-5 py-10 max-w-[600px] mx-auto min-h-svh flex flex-col">
         <Icon type="logo" className="mb-6 block w-28" />
         <div className="grow" />
         <form onSubmit={handleSubmit(onSubmit)}>

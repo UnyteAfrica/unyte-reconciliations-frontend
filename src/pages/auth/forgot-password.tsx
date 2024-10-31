@@ -48,7 +48,7 @@ export const ForgotPasswordPage = () => {
 
   if (!isMediaQueryMatched)
     return (
-      <div className="px-5 py-10 max-w-[600px] min-h-screen mx-auto flex flex-col ">
+      <div className="px-5 py-10 max-w-[600px] min-h-svh mx-auto flex flex-col ">
         <Icon type="logo" className="mb-6 block w-28" />
         <div className="grow" />
         <form onSubmit={handleSubmit(onSubmit)}>

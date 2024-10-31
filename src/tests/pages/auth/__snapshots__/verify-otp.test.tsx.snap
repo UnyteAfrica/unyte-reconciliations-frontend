@@ -6,7 +6,7 @@ exports[`Company Verify OTP Page > renders correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="px-5 py-10 max-w-[600px] mx-auto min-h-screen flex flex-col"
+        class="px-5 py-10 max-w-[600px] mx-auto min-h-svh flex flex-col"
       >
         <img
           alt=""
@@ -93,7 +93,7 @@ exports[`Company Verify OTP Page > renders correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="px-5 py-10 max-w-[600px] mx-auto min-h-screen flex flex-col"
+      class="px-5 py-10 max-w-[600px] mx-auto min-h-svh flex flex-col"
     >
       <img
         alt=""

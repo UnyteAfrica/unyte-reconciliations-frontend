@@ -246,7 +246,7 @@ exports[`Completed Claims > renders correctly 1`] = `
                         class="w-full inline-block max-w-[200px]"
                       >
                         <button
-                          class="px-4 py-2 border rounded-md relative font-semibold w-full block"
+                          class="px-4 py-2 border rounded-md relative font-semibold w-full block mb-1"
                         >
                           November 13, 2023
                           <input
@@ -787,7 +787,7 @@ exports[`Completed Claims > renders correctly 1`] = `
                       class="w-full inline-block max-w-[200px]"
                     >
                       <button
-                        class="px-4 py-2 border rounded-md relative font-semibold w-full block"
+                        class="px-4 py-2 border rounded-md relative font-semibold w-full block mb-1"
                       >
                         November 13, 2023
                         <input
