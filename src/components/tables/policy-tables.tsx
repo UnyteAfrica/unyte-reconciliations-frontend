@@ -1,4 +1,4 @@
-import { AgentPolicy, Policy } from "@/types/types";
+import { AgentPolicy, InsurerPolicy, Policy, SoldPolicy } from "@/types/types";
 import { Table } from "../table";
 import { createPolicyId, formatToNaira, sanitizePremium } from "@/utils/utils";
 import { useMediaQuery } from "@/utils/hooks";
@@ -113,6 +113,120 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
                 ? formatToNaira(Number(sanitizedPremium))
                 : formatToNaira(1000)}
             </td>
+          </tr>
+        );
+      })}
+    </Table>
+  );
+};
+
+type InsurerPoliciesTableProps = {
+  policies: InsurerPolicy[];
+};
+
+export const InsurerPoliciesTable: React.FC<InsurerPoliciesTableProps> = ({
+  policies,
+}) => {
+  const { isMediaQueryMatched } = useMediaQuery(1024);
+
+  if (!isMediaQueryMatched)
+    return (
+      <div>
+        {policies.map((policy, idx) => {
+          return (
+            <div key={idx} className="border-b py-2">
+              <div className="flex justify-between items-center mb-2">
+                <em className="not-italic font-semibold text-[#333]">
+                  {policy.policyType}
+                </em>
+                <em className="not-italic font-semibold text-[#333]">
+                  {policy.policyNo}
+                </em>
+              </div>
+
+              <div className="flex justify-between items-center">
+                <em className="not-italic text-[#828282]">{policy.date}</em>
+                <em className="not-italic text-[#828282]">
+                  {formatToNaira(policy.premium)}
+                </em>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  return (
+    <Table
+      headers={["Policy Type", "Policy Number", "Insurer", "Date", "Premium"]}
+    >
+      {policies.map((policy, i) => {
+        return (
+          <tr key={i} className="border-b font-medium">
+            <td className="p-4 text-center">{policy.policyType}</td>
+            <td className="p-4 text-center">{policy.policyNo}</td>
+            <td className="p-4 text-center">{policy.insurer}</td>
+            <td className="p-4 text-center">{policy.date}</td>
+            <td className="p-4 text-center">{formatToNaira(policy.premium)}</td>
+          </tr>
+        );
+      })}
+    </Table>
+  );
+};
+
+type SoldPoliciesTableProps = {
+  policies: SoldPolicy[];
+};
+
+export const SoldPoliciesTable: React.FC<SoldPoliciesTableProps> = ({
+  policies,
+}) => {
+  const { isMediaQueryMatched } = useMediaQuery(1024);
+
+  if (!isMediaQueryMatched)
+    return (
+      <div>
+        {policies.map((policy, idx) => {
+          return (
+            <div key={idx} className="border-b py-2">
+              <div className="flex justify-between items-center mb-2">
+                <em className="not-italic font-semibold text-[#333]">
+                  {policy.policyType}
+                </em>
+                <em className="not-italic font-semibold text-[#333]">
+                  {policy.policyNo}
+                </em>
+              </div>
+
+              <div className="flex justify-between items-center">
+                <em className="not-italic text-[#828282]">{policy.date}</em>
+                <em className="not-italic text-[#828282]">
+                  {formatToNaira(policy.premium)}
+                </em>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  return (
+    <Table
+      headers={[
+        "Policy Type",
+        "Policy Number",
+        "User Email",
+        "Date",
+        "Premium",
+      ]}
+    >
+      {policies.map((policy, i) => {
+        return (
+          <tr key={i} className="border-b font-medium">
+            <td className="p-4 text-center">{policy.policyType}</td>
+            <td className="p-4 text-center">{policy.policyNo}</td>
+            <td className="p-4 text-center">{policy.userEmail}</td>
+            <td className="p-4 text-center">{policy.date}</td>
+            <td className="p-4 text-center">{formatToNaira(policy.premium)}</td>
           </tr>
         );
       })}

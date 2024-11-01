@@ -163,7 +163,7 @@ export const PageContent: React.FC<PageContentProps> = ({
       )}
       {isMediaQueryMatched && (
         <div
-          className="mx-auto max-w-7xl mt-12 px-6 mb-16"
+          className="mx-auto max-w-6xl mt-12 mb-16"
           onClick={() => setIsFilterOpen(false)}
         >
           <div className="flex flex-row justify-between items-center mb-10 relative">

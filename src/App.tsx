@@ -19,6 +19,12 @@ import { VerifyOTPPage } from "./pages/auth/verify-otp.page";
 import { AgentCustomers } from "./pages/agent/agent-customers";
 import { Commissions } from "./pages/agent/commissions";
 import { AgentPolicies } from "./pages/agent/agent-policies";
+import { MerchantSignupPage } from "./pages/merchant/signup.page";
+import { MerchantLayout } from "./components/merchant/merchant-layout";
+import { MerchantOverview } from "./pages/merchant/merchant-overview";
+import { MerchantClaims } from "./pages/merchant/merchant-claims";
+import { MerchantPolicies } from "./pages/merchant/merchant-policies";
+import { MerchantProfile } from "./pages/merchant/merchant-profile";
 
 function App() {
   return (
@@ -42,6 +48,10 @@ function App() {
         <Route
           path={BrowserComboRoutes.companySignup}
           element={<CompanySignupPage />}
+        />
+        <Route
+          path={BrowserComboRoutes.merchantSignup}
+          element={<MerchantSignupPage />}
         />
 
         <Route
@@ -97,6 +107,32 @@ function App() {
           <Route
             path={BrowserRoutes.agents.substring(1)}
             element={<CompanyAgents />}
+          />
+        </Route>
+        <Route
+          path={BrowserComboRoutes.merchantDashboard}
+          element={<MerchantLayout />}
+        >
+          <Route
+            path={BrowserRoutes.overview.substring(1)}
+            element={<MerchantOverview />}
+          />
+          <Route
+            path={BrowserRoutes.policies.substring(1) + BrowserRoutes.wildcard}
+            element={<MerchantPolicies />}
+          />
+
+          <Route
+            path={BrowserRoutes.claims.substring(1) + BrowserRoutes.wildcard}
+            element={<MerchantClaims />}
+          />
+          <Route
+            path={BrowserRoutes.profile.substring(1)}
+            element={<MerchantProfile />}
+          />
+          <Route
+            path={BrowserRoutes.viewClaim.substring(1)}
+            element={<ViewClaimsPage />}
           />
         </Route>
       </Routes>

@@ -2,8 +2,8 @@ import { NavLink, Route, Routes } from "react-router-dom";
 import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";
 import { useMediaQuery } from "@/utils/hooks";
-import { InsurerPendingClaims } from "@/components/company/pending-claims";
-import { InsurerCompletedClaims } from "@/components/company/completed-claims";
+import { MerchantPendingClaims } from "@/components/merchant/pending-claims";
+import { MerchantCompletedClaims } from "@/components/merchant/completed-claims";
 
 type UrlLink = {
   text: string;
@@ -13,15 +13,15 @@ type UrlLink = {
 const links: UrlLink[] = [
   {
     text: "Pending Claims",
-    url: BrowserComboRoutes.pendingCompanyClaims,
+    url: BrowserComboRoutes.pendingMerchantClaims,
   },
   {
     text: "Completed Claims",
-    url: BrowserComboRoutes.completedCompanyClaims,
+    url: BrowserComboRoutes.completedMerchantClaims,
   },
 ];
 
-export const CompanyClaims = () => {
+export const MerchantClaims = () => {
   const { isMediaQueryMatched } = useMediaQuery(1024);
   return (
     <div>
@@ -46,7 +46,7 @@ export const CompanyClaims = () => {
         </div>
       )}
       {isMediaQueryMatched && (
-        <div className="flex flex-row space-x-8 my-10 pb-[7px] mx-auto max-w-6xl px-6 mt-12 mb-16">
+        <div className="flex flex-row space-x-8 my-4 pb-[7px] mx-auto max-w-6xl">
           {links.map((link, idx) => (
             <NavLink
               key={idx}
@@ -70,11 +70,11 @@ export const CompanyClaims = () => {
         <Routes>
           <Route
             path={BrowserRoutes.pending.substring(1)}
-            element={<InsurerPendingClaims />}
+            element={<MerchantPendingClaims />}
           />
           <Route
             path={BrowserRoutes.completed.substring(1)}
-            element={<InsurerCompletedClaims />}
+            element={<MerchantCompletedClaims />}
           />
         </Routes>
       </div>

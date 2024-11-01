@@ -5,6 +5,10 @@ export type CompanySignupType = {
   email: string;
   password: string;
 };
+export type MerchantSignupType = {
+  email: string;
+  password: string;
+};
 
 export type AgentSignupType = {
   firstName: string;

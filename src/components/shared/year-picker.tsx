@@ -62,7 +62,7 @@ export const RangeYearPicker: React.FC<RangeYearPickerProps> = ({
   onEndYearChange,
 }) => {
   return (
-    <div className="flex flex-col min-[450px]:flex-row">
+    <div className="flex justify-between w-full max-w-[140px] lg:max-w-[400px]">
       <YearPicker
         className="sm:rounded-r-none"
         date={startYear}

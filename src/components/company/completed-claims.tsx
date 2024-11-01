@@ -4,7 +4,7 @@ import { Claim, ClaimStatus } from "@/types/types";
 import { useState } from "react";
 import { PAGE_COUNT } from "@/utils/constants";
 
-export const CompletedClaims = () => {
+export const InsurerCompletedClaims = () => {
   const [page, setPage] = useState(1);
   const claims: Claim[] = [
     {

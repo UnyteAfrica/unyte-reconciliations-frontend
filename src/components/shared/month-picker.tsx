@@ -62,7 +62,7 @@ export const RangeMonthPicker: React.FC<RangeMonthPickerProps> = ({
   onEndMonthChange,
 }) => {
   return (
-    <div className="flex flex-col min-[450px]:flex-row">
+    <div className="flex justify-between w-full max-w-[250px] lg:max-w-[400px]">
       <MonthPicker
         className="sm:rounded-r-none"
         date={startMonth}
