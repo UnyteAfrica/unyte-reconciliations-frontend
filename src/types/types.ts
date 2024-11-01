@@ -138,3 +138,14 @@ export type Policy = {
   policy_name: string;
   premium: string;
 };
+
+export type BasePolicy = {
+  policyType: string;
+  policyNo: string;
+  date: string;
+  premium: number;
+};
+
+export type InsurerPolicy = BasePolicy & { insurer: string };
+
+export type SoldPolicy = BasePolicy & { userEmail: string };

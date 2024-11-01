@@ -2,8 +2,8 @@ import { NavLink, Route, Routes } from "react-router-dom";
 import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";
 import { useMediaQuery } from "@/utils/hooks";
-import { InsurerPendingClaims } from "@/components/company/pending-claims";
-import { InsurerCompletedClaims } from "@/components/company/completed-claims";
+import { MerchantInsurerPolicies } from "@/components/merchant/insurer-policies";
+import { MerchantSoldPolicies } from "@/components/merchant/sold-policies";
 
 type UrlLink = {
   text: string;
@@ -12,16 +12,16 @@ type UrlLink = {
 
 const links: UrlLink[] = [
   {
-    text: "Pending Claims",
-    url: BrowserComboRoutes.pendingCompanyClaims,
+    text: "Insurer Policies",
+    url: BrowserComboRoutes.merchantInsurerPolicies,
   },
   {
-    text: "Completed Claims",
-    url: BrowserComboRoutes.completedCompanyClaims,
+    text: "Sold Policies",
+    url: BrowserComboRoutes.merchantSoldPolicies,
   },
 ];
 
-export const CompanyClaims = () => {
+export const MerchantPolicies = () => {
   const { isMediaQueryMatched } = useMediaQuery(1024);
   return (
     <div>
@@ -46,7 +46,7 @@ export const CompanyClaims = () => {
         </div>
       )}
       {isMediaQueryMatched && (
-        <div className="flex flex-row space-x-8 my-10 pb-[7px] mx-auto max-w-6xl px-6 mt-12 mb-16">
+        <div className="flex flex-row space-x-8 pb-[7px] mx-auto max-w-6xl  my-4">
           {links.map((link, idx) => (
             <NavLink
               key={idx}
@@ -69,12 +69,12 @@ export const CompanyClaims = () => {
       <div>
         <Routes>
           <Route
-            path={BrowserRoutes.pending.substring(1)}
-            element={<InsurerPendingClaims />}
+            path={BrowserRoutes.insurer.substring(1)}
+            element={<MerchantInsurerPolicies />}
           />
           <Route
-            path={BrowserRoutes.completed.substring(1)}
-            element={<InsurerCompletedClaims />}
+            path={BrowserRoutes.sold.substring(1)}
+            element={<MerchantSoldPolicies />}
           />
         </Routes>
       </div>

@@ -7,11 +7,13 @@ import Datetime from "react-datetime";
 type DayPickerProps = {
   className?: ClassNameValue;
   date?: Moment;
+  isCondensed?: boolean;
 } & ComponentProps<typeof Datetime>;
 
 export const DayPicker: React.FC<DayPickerProps> = ({
   className,
   date,
+  isCondensed = false,
   ...props
 }) => {
   return (
@@ -26,15 +28,18 @@ export const DayPicker: React.FC<DayPickerProps> = ({
       renderInput={(props, openCalendar, _) => {
         return (
           <div
-            className="w-[180px]"
             onClick={() => {
               openCalendar();
             }}
           >
             <input
               {...props}
-              className="w-[180px] text-center cursor-pointer"
-              value={date?.format("MMMM DD, YYYY")}
+              className={twMerge("text-center cursor-pointer w-full")}
+              value={
+                isCondensed
+                  ? date?.format("DD-MM-YYYY")
+                  : date?.format("MMMM DD, YYYY")
+              }
             />
           </div>
         );
@@ -48,9 +53,9 @@ const YEAR_1999 = moment("2000");
 const endOfCurrentDay = moment().endOf("day");
 
 type RangeDayPickerProps = {
-  className?: ClassNameValue;
   startDay?: Moment;
   endDay?: Moment;
+  isCondensed?: boolean;
   onStartDayChange?: ((value: moment.Moment | string) => void) | undefined;
   onEndDayChange?: ((value: moment.Moment | string) => void) | undefined;
 } & ComponentProps<typeof Datetime>;
@@ -60,21 +65,24 @@ export const RangeDayPicker: React.FC<RangeDayPickerProps> = ({
   endDay,
   onStartDayChange,
   onEndDayChange,
+  isCondensed = false,
 }) => {
   return (
-    <div className="flex flex-col min-[450px]:flex-row">
+    <div className="flex justify-between w-full max-w-[300px] lg:max-w-[365px]">
       <DayPicker
-        className="sm:rounded-r-none"
+        className={twMerge("w-[48%] lg:rounded-r-none lg:w-1/2")}
         date={startDay}
         onChange={onStartDayChange}
+        isCondensed={isCondensed}
         isValidDate={(currDate) =>
           currDate.isAfter(YEAR_1999) && currDate.isBefore(endOfCurrentDay)
         }
       />
       <DayPicker
-        className="sm:rounded-l-none"
+        className={twMerge("w-[48%] lg:rounded-l-none lg:w-1/2")}
         date={endDay}
         onChange={onEndDayChange}
+        isCondensed={isCondensed}
         isValidDate={(currDate: Moment) =>
           currDate.endOf("day").isAfter(startDay) &&
           currDate.startOf("day").isBefore(endOfCurrentDay)

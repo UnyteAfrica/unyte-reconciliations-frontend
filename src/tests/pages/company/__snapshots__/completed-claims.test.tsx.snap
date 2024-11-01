@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Completed Claims > renders correctly 1`] = `
+exports[`Insurer Completed Claims > renders correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>

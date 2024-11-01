@@ -86,9 +86,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const getWeekValue = (date: Moment) => {
+export const getWeekValue = (date: Moment, isCondensed: boolean = false) => {
   const startOfWeek = date.clone().startOf("week");
-  const startOfWeekMonthStr = startOfWeek.format("MMMM");
+  const startOfWeekMonthStr = isCondensed
+    ? startOfWeek.format("MM")
+    : startOfWeek.format("MMMM");
   const startOfWeekYearStr = startOfWeek.format("YYYY");
   const startOfMonth = startOfWeek.clone().startOf("month");
 
@@ -103,7 +105,9 @@ export const getWeekValue = (date: Moment) => {
     weekInMonth = currWeek - startOfMonthWeek + 1;
   }
 
-  return `${startOfWeekMonthStr} Week ${weekInMonth} ${startOfWeekYearStr}`;
+  return isCondensed
+    ? `Wk ${weekInMonth} ${startOfWeekMonthStr}/${startOfWeekYearStr}`
+    : `${startOfWeekMonthStr} Week ${weekInMonth} ${startOfWeekYearStr}`;
 };
 
 export const flattenApiPolicy = (

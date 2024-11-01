@@ -3,10 +3,13 @@ export const BrowserRoutes = {
   signup: "/sign-up",
   agent: "/agent",
   company: "/company",
+  merchant: "/merchant",
   overview: "/overview",
   dashboard: "/dashboard",
   policies: "/policies",
   commissions: "/commissions",
+  insurer: "/insurer",
+  sold: "/sold",
   customers: "/customers",
   profile: "/profile",
   claims: "/claims",
@@ -40,4 +43,29 @@ export const BrowserComboRoutes = {
     BrowserRoutes.dashboard +
     BrowserRoutes.claims +
     BrowserRoutes.completed,
+  merchantSignup: BrowserRoutes.merchant + BrowserRoutes.signup,
+  merchantDashboard: BrowserRoutes.merchant + BrowserRoutes.dashboard,
+  merchantViewClaim: BrowserRoutes.merchant + BrowserRoutes.viewClaim,
+  merchantOverview:
+    BrowserRoutes.merchant + BrowserRoutes.dashboard + BrowserRoutes.overview,
+  pendingMerchantClaims:
+    BrowserRoutes.merchant +
+    BrowserRoutes.dashboard +
+    BrowserRoutes.claims +
+    BrowserRoutes.pending,
+  completedMerchantClaims:
+    BrowserRoutes.merchant +
+    BrowserRoutes.dashboard +
+    BrowserRoutes.claims +
+    BrowserRoutes.completed,
+  merchantInsurerPolicies:
+    BrowserRoutes.merchant +
+    BrowserRoutes.dashboard +
+    BrowserRoutes.policies +
+    BrowserRoutes.insurer,
+  merchantSoldPolicies:
+    BrowserRoutes.merchant +
+    BrowserRoutes.dashboard +
+    BrowserRoutes.policies +
+    BrowserRoutes.sold,
 };

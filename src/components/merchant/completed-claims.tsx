@@ -4,7 +4,7 @@ import { Claim, ClaimStatus } from "@/types/types";
 import { useState } from "react";
 import { PAGE_COUNT } from "@/utils/constants";
 
-export const InsurerPendingClaims = () => {
+export const MerchantCompletedClaims = () => {
   const [page, setPage] = useState(1);
   const claims: Claim[] = [
     {
@@ -12,7 +12,7 @@ export const InsurerPendingClaims = () => {
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: ClaimStatus.Processing,
+      status: ClaimStatus.Completed,
       estimate: 40000,
     },
     {
@@ -20,7 +20,7 @@ export const InsurerPendingClaims = () => {
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: ClaimStatus.Submitted,
+      status: ClaimStatus.Completed,
       estimate: 40000,
     },
     {
@@ -28,7 +28,7 @@ export const InsurerPendingClaims = () => {
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: ClaimStatus.Processing,
+      status: ClaimStatus.Completed,
       estimate: 40000,
     },
     {
@@ -36,7 +36,7 @@ export const InsurerPendingClaims = () => {
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: ClaimStatus.Processing,
+      status: ClaimStatus.Completed,
       estimate: 40000,
     },
     {
@@ -44,14 +44,13 @@ export const InsurerPendingClaims = () => {
       email: "samloco@gmail.com",
       date: "May 7, 2023",
       insurer: "AXA mansard",
-      status: ClaimStatus.Submitted,
+      status: ClaimStatus.Completed,
       estimate: 40000,
     },
   ];
-
   return (
     <PageContent
-      title="Pending Claims"
+      title="Completed Claims"
       pageTable={<ClaimsTable claims={claims} />}
       page={page}
       pageCount={PAGE_COUNT}

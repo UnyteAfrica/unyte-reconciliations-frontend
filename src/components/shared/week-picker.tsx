@@ -8,12 +8,14 @@ type WeekPickerProps = {
   className?: ClassNameValue;
   date?: Moment;
   displayedDate?: Moment;
+  isCondensed?: boolean;
 } & ComponentProps<typeof Datetime>;
 
 export const WeekPicker: React.FC<WeekPickerProps> = ({
   className,
   date,
   displayedDate,
+  isCondensed,
   ...props
 }) => {
   return (
@@ -28,18 +30,17 @@ export const WeekPicker: React.FC<WeekPickerProps> = ({
       renderInput={(props, openCalendar, _) => {
         return (
           <div
-            className="w-[220px]"
             onClick={() => {
               openCalendar();
             }}
           >
             <input
               {...props}
-              className="w-[220px] text-center cursor-pointer"
+              className="w-full text-center cursor-pointer"
               value={
                 displayedDate
-                  ? getWeekValue(displayedDate)
-                  : getWeekValue(date!)
+                  ? getWeekValue(displayedDate, isCondensed)
+                  : getWeekValue(date!, isCondensed)
               }
             />
           </div>
@@ -57,6 +58,7 @@ type RangeWeekPickerProps = {
   className?: ClassNameValue;
   startWeek: Moment;
   endWeek: Moment;
+  isCondensed?: boolean;
   onStartWeekChange?: ((value: moment.Moment | string) => void) | undefined;
   onEndWeekChange?: ((value: moment.Moment | string) => void) | undefined;
 } & ComponentProps<typeof Datetime>;
@@ -64,14 +66,16 @@ type RangeWeekPickerProps = {
 export const RangeWeekPicker: React.FC<RangeWeekPickerProps> = ({
   startWeek,
   endWeek,
+  isCondensed,
   onStartWeekChange,
   onEndWeekChange,
 }) => {
   return (
-    <div className="flex flex-col min-[450px]:flex-row">
+    <div className="flex justify-between w-full max-w-[300px] lg:max-w-[400px]">
       <WeekPicker
-        className="sm:rounded-r-none"
+        className={twMerge("w-[48%] lg:rounded-r-none lg:w-1/2")}
         date={startWeek}
+        isCondensed={isCondensed}
         displayedDate={startWeek.clone().startOf("week")}
         onChange={onStartWeekChange}
         isValidDate={(currDate) =>
@@ -79,8 +83,9 @@ export const RangeWeekPicker: React.FC<RangeWeekPickerProps> = ({
         }
       />
       <WeekPicker
-        className="sm:rounded-l-none"
+        className={twMerge("w-[48%] lg:rounded-l-none lg:w-1/2")}
         date={endWeek}
+        isCondensed={isCondensed}
         onChange={onEndWeekChange}
         isValidDate={(currDate: Moment) =>
           currDate.isBetween(

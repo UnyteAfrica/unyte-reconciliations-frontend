@@ -7,7 +7,7 @@ import { cx } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 import { clearCredentials, getCompanyInitials } from "@/utils/utils";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { CompanyQueryKeys } from "@/utils/query-keys";
+import { MerchantQueryKeys } from "@/utils/query-keys";
 import { Loader } from "../loader";
 import { useLockScroll, useMediaQuery } from "@/utils/hooks";
 import { LuMenu } from "react-icons/lu";
@@ -23,32 +23,28 @@ type UrlLink = {
 const navLinks: UrlLink[] = [
   {
     text: "Overview",
-    url: BrowserComboRoutes.companyDashboard + BrowserRoutes.overview,
+    url: BrowserComboRoutes.merchantDashboard + BrowserRoutes.overview,
   },
   {
     text: "Policies",
-    url: BrowserComboRoutes.companyDashboard + BrowserRoutes.policies,
+    url: BrowserComboRoutes.merchantInsurerPolicies,
   },
   {
     text: "Claims",
-    url: BrowserComboRoutes.pendingCompanyClaims,
-  },
-  {
-    text: "Agents",
-    url: BrowserComboRoutes.companyDashboard + BrowserRoutes.agents,
+    url: BrowserComboRoutes.pendingMerchantClaims,
   },
 ];
 
-export const CompanyNavbar = () => {
+export const MerchantNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { setIsLoggedIn, setEmail } = useContext(AuthContext);
   const queryClient = useQueryClient();
 
-  const { data: companyDetailsData, isPending: isCompanyDetailsLoading } =
+  const { data: merchantDetailsData, isPending: isMerchantDetailsLoading } =
     useQuery({
-      queryKey: [CompanyQueryKeys.profile],
+      queryKey: [MerchantQueryKeys.profile],
       queryFn: () => getProfile(),
     });
 
@@ -67,11 +63,11 @@ export const CompanyNavbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const companyDetails = companyDetailsData?.data;
+  const merchantDetails = merchantDetailsData?.data;
 
   useEffect(() => {
-    if (companyDetails) setEmail(companyDetails.email);
-  }, [companyDetails]);
+    if (merchantDetails) setEmail(merchantDetails.email);
+  }, [merchantDetails]);
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 
@@ -90,7 +86,7 @@ export const CompanyNavbar = () => {
           </header>
           <div
             className={twMerge(
-              "absolute top-0 left-0 flex w-full transition duration-300 -translate-x-[100%]",
+              "fixed top-0 left-0 flex w-full transition duration-300 -translate-x-[100%]",
               isMobileMenuOpen && "translate-x-0"
             )}
           >
@@ -123,26 +119,26 @@ export const CompanyNavbar = () => {
                 ))}
               </div>
               <div>
-                {isCompanyDetailsLoading ? (
+                {isMerchantDetailsLoading ? (
                   <Loader />
                 ) : (
-                  !!companyDetails && (
+                  !!merchantDetails && (
                     <div id="profile">
                       <div className="flex items-center mb-6">
-                        {!!companyDetails.profile_image ? (
+                        {!!merchantDetails.profile_image ? (
                           <img
                             className="h-10 w-10 object-cover inline-block mr-2 rounded-full"
-                            src={companyDetails.profile_image}
+                            src={merchantDetails.profile_image}
                             alt=""
                           />
                         ) : (
                           <div className="rounded-full h-10 w-10 bg-gray-200 text-base flex items-center justify-center mr-2">
-                            {getCompanyInitials(companyDetails.business_name)}
+                            {getCompanyInitials(merchantDetails.business_name)}
                           </div>
                         )}
 
                         <div className="text-base text-[#333] font-medium">
-                          {companyDetails.business_name}
+                          {merchantDetails.business_name}
                         </div>
                       </div>
 
@@ -195,10 +191,10 @@ export const CompanyNavbar = () => {
             })}
           </div>
 
-          {isCompanyDetailsLoading ? (
+          {isMerchantDetailsLoading ? (
             <Loader />
           ) : (
-            !!companyDetails && (
+            !!merchantDetails && (
               <div id="profile">
                 <div className="relative">
                   <button
@@ -206,19 +202,19 @@ export const CompanyNavbar = () => {
                     onClick={toggleDropdown}
                   >
                     <div className="space-x-2 flex flex-row items-center">
-                      {!!companyDetails.profile_image ? (
+                      {!!merchantDetails.profile_image ? (
                         <img
                           className="rounded-full h-10 w-10 object-cover"
-                          src={companyDetails.profile_image}
+                          src={merchantDetails.profile_image}
                           alt=""
                         />
                       ) : (
                         <div className="rounded-full h-10 w-10 p-2 bg-gray-200 text-base flex items-center justify-center">
-                          {getCompanyInitials(companyDetails.business_name)}
+                          {getCompanyInitials(merchantDetails.business_name)}
                         </div>
                       )}
                       <span className="text-lg font-semibold hidden min-[1200px]:inline">
-                        {companyDetails.business_name}
+                        {merchantDetails.business_name}
                       </span>{" "}
                       <BiChevronDown
                         className={cx(
@@ -236,13 +232,13 @@ export const CompanyNavbar = () => {
                   >
                     <div className="px-6 py-4 flex items-center p-2">
                       <span className="text-base text-[#333] font-medium">
-                        {companyDetails.business_name}
+                        {merchantDetails.business_name}
                       </span>
                     </div>
                     <hr />
                     <NavLink
                       to={
-                        BrowserComboRoutes.companyDashboard +
+                        BrowserComboRoutes.merchantDashboard +
                         BrowserRoutes.profile
                       }
                       className="block px-6 py-4 text-[#333] font-medium"
@@ -263,8 +259,6 @@ export const CompanyNavbar = () => {
           )}
         </div>
       )}
-
-      <hr />
     </>
   );
 };
