@@ -26,7 +26,7 @@ export const MerchantClaims = () => {
   return (
     <div>
       {!isMediaQueryMatched && (
-        <div className="flex flex-row px-5 py-6 my-4 border-[#333] space-x-4 mx-auto">
+        <div className="flex flex-row px-5 pb-6 border-[#333] space-x-4 mx-auto">
           {links.map((link, idx) => (
             <NavLink
               key={idx}
@@ -46,7 +46,7 @@ export const MerchantClaims = () => {
         </div>
       )}
       {isMediaQueryMatched && (
-        <div className="flex flex-row space-x-8 my-4 pb-[7px] mx-auto max-w-6xl">
+        <div className="flex flex-row space-x-8 mb-4 mt-10 pb-[7px] mx-auto max-w-6xl border-b border-[#E0E0E0]">
           {links.map((link, idx) => (
             <NavLink
               key={idx}

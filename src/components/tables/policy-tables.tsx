@@ -145,7 +145,7 @@ export const InsurerPoliciesTable: React.FC<InsurerPoliciesTableProps> = ({
               </div>
 
               <div className="flex justify-between items-center">
-                <em className="not-italic text-[#828282]">{policy.date}</em>
+                <em className="not-italic text-[#828282]">{policy.insurer}</em>
                 <em className="not-italic text-[#828282]">
                   {formatToNaira(policy.premium)}
                 </em>
@@ -156,16 +156,13 @@ export const InsurerPoliciesTable: React.FC<InsurerPoliciesTableProps> = ({
       </div>
     );
   return (
-    <Table
-      headers={["Policy Type", "Policy Number", "Insurer", "Date", "Premium"]}
-    >
+    <Table headers={["Policy Type", "Policy Number", "Insurer", "Premium"]}>
       {policies.map((policy, i) => {
         return (
           <tr key={i} className="border-b font-medium">
             <td className="p-4 text-center">{policy.policyType}</td>
             <td className="p-4 text-center">{policy.policyNo}</td>
             <td className="p-4 text-center">{policy.insurer}</td>
-            <td className="p-4 text-center">{policy.date}</td>
             <td className="p-4 text-center">{formatToNaira(policy.premium)}</td>
           </tr>
         );

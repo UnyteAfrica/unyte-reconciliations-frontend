@@ -16,6 +16,7 @@ import arrowBack from "@/assets/Icons/arrow-back.svg";
 import close from "@/assets/Icons/close.svg";
 import call from "@/assets/Icons/call.svg";
 import arrowForward from "@/assets/Icons/arrow-forward.svg";
+import mail from "@/assets/Icons/mail.svg";
 
 export const iconTypes = {
   logo,
@@ -33,6 +34,7 @@ export const iconTypes = {
   close,
   call,
   arrowForward,
+  mail,
 };
 
 export type IconType = keyof typeof iconTypes;

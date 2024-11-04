@@ -47,6 +47,7 @@ export const MerchantInsurerPolicies = () => {
   return (
     <PageContent
       title="Insurer Policies"
+      searchbarPlaceholder="Find policy type"
       pageTable={<InsurerPoliciesTable policies={policies} />}
       page={page}
       pageCount={PAGE_COUNT}
