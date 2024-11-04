@@ -52,6 +52,7 @@ export const MerchantPendingClaims = () => {
   return (
     <PageContent
       title="Pending Claims"
+      searchbarPlaceholder="Find policy number"
       pageTable={<ClaimsTable claims={claims} />}
       page={page}
       pageCount={PAGE_COUNT}

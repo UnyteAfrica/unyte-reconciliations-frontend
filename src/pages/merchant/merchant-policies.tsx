@@ -26,7 +26,7 @@ export const MerchantPolicies = () => {
   return (
     <div>
       {!isMediaQueryMatched && (
-        <div className="flex flex-row px-5 py-6 my-4 border-[#333] space-x-4 mx-auto">
+        <div className="flex flex-row px-5 pb-6 border-[#333] space-x-4 mx-auto">
           {links.map((link, idx) => (
             <NavLink
               key={idx}
@@ -46,7 +46,7 @@ export const MerchantPolicies = () => {
         </div>
       )}
       {isMediaQueryMatched && (
-        <div className="flex flex-row space-x-8 pb-[7px] mx-auto max-w-6xl  my-4">
+        <div className="flex flex-row space-x-8 pb-[7px] mx-auto max-w-6xl mb-4 mt-10 border-b border-[#E0E0E0]">
           {links.map((link, idx) => (
             <NavLink
               key={idx}

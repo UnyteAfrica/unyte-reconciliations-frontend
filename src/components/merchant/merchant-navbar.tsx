@@ -163,7 +163,7 @@ export const MerchantNavbar = () => {
       {isMediaQueryMatched && (
         <div
           id="navbar-container"
-          className="flex justify-between items-center p-6 px-0 mx-auto max-w-6xl"
+          className="flex justify-between items-center py-4 mx-auto max-w-6xl border-b border-[#EFEFEF]"
         >
           <div>
             <Icon className="shrink-0" type="logo" alt="unyte logo" />
@@ -181,7 +181,7 @@ export const MerchantNavbar = () => {
                         location.pathname.includes(
                           navLink.text.toLowerCase()
                         )) &&
-                        "text-[#25D366] underline underline-offset-[30px] decoration-4"
+                        "text-[#25D366] underline underline-offset-[35px] decoration-4"
                     )
                   }
                 >
@@ -196,7 +196,13 @@ export const MerchantNavbar = () => {
           ) : (
             !!merchantDetails && (
               <div id="profile">
-                <div className="relative">
+                <div className="relative flex items-center">
+                  <a
+                    href="mailto:tech@unyte.africa"
+                    className="w-10 h-10 flex justify-center items-center rounded-full bg-[#F4F4F4]"
+                  >
+                    <Icon type="mail" className="w-4 h-4" />
+                  </a>
                   <button
                     className="px-4 py-2 text-[#333333] rounded-md"
                     onClick={toggleDropdown}

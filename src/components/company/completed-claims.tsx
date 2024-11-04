@@ -51,6 +51,7 @@ export const InsurerCompletedClaims = () => {
   return (
     <PageContent
       title="Completed Claims"
+      searchbarPlaceholder="Find policy number"
       pageTable={<ClaimsTable claims={claims} />}
       page={page}
       pageCount={PAGE_COUNT}
