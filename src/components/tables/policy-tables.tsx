@@ -1,6 +1,11 @@
-import { AgentPolicy, InsurerPolicy, Policy, SoldPolicy } from "@/types/types";
+import {
+  AgentPolicy,
+  BasePolicy,
+  MerchantInsurerPolicy,
+  MerchantSoldPolicy,
+} from "@/types/types";
 import { Table } from "../table";
-import { createPolicyId, formatToNaira, sanitizePremium } from "@/utils/utils";
+import { formatToNaira } from "@/utils/utils";
 import { useMediaQuery } from "@/utils/hooks";
 
 type AgentPoliciesTableProps = {
@@ -52,7 +57,7 @@ export const AgentPoliciesTable: React.FC<AgentPoliciesTableProps> = ({
 };
 
 type CompanyPoliciesTableProps = {
-  policies: Policy[];
+  policies: BasePolicy[];
 };
 
 export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
@@ -64,26 +69,21 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
     return (
       <div>
         {policies.map((policy, idx) => {
-          const sanitizedPremium = sanitizePremium(policy.premium);
           return (
             <div key={idx} className="border-b py-2">
               <div className="flex justify-between items-center mb-2">
                 <em className="not-italic font-semibold text-[#333]">
-                  {createPolicyId(policy)}
+                  {policy.policyType}
                 </em>
                 <em className="not-italic font-semibold text-[#333]">
-                  {policy.agent}
+                  {policy.policyNo}
                 </em>
               </div>
 
               <div className="flex justify-between items-center">
+                <em className="not-italic text-[#828282]">{policy.date}</em>
                 <em className="not-italic text-[#828282]">
-                  {policy.date_sold}
-                </em>
-                <em className="not-italic text-[#828282]">
-                  {sanitizedPremium
-                    ? formatToNaira(Number(sanitizedPremium))
-                    : formatToNaira(1000)}
+                  {formatToNaira(policy.premium)}
                 </em>
               </div>
             </div>
@@ -92,27 +92,14 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
       </div>
     );
   return (
-    <Table
-      headers={[
-        "Policy ID",
-        "Sales Agent",
-        "Date",
-        "Premium",
-        "Agent's Commission",
-      ]}
-    >
+    <Table headers={["Policy Type", "Policy Number", "Date", "Price"]}>
       {policies.map((policy, i) => {
-        const sanitizedPremium = sanitizePremium(policy.premium);
         return (
           <tr key={i} className="border-b font-medium">
-            <td className="p-4 text-center">{createPolicyId(policy)}</td>
-            <td className="p-4 text-center">{policy.agent}</td>
-            <td className="p-4 text-center">{policy.date_sold}</td>
-            <td className="p-4 text-center">
-              {sanitizedPremium
-                ? formatToNaira(Number(sanitizedPremium))
-                : formatToNaira(1000)}
-            </td>
+            <td className="p-4 text-center">{policy.policyType}</td>
+            <td className="p-4 text-center">{policy.policyNo}</td>
+            <td className="p-4 text-center">{policy.date}</td>
+            <td className="p-4 text-center">{formatToNaira(policy.premium)}</td>
           </tr>
         );
       })}
@@ -120,13 +107,13 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
   );
 };
 
-type InsurerPoliciesTableProps = {
-  policies: InsurerPolicy[];
+type MerchantInsurerPoliciesTableProps = {
+  policies: MerchantInsurerPolicy[];
 };
 
-export const InsurerPoliciesTable: React.FC<InsurerPoliciesTableProps> = ({
-  policies,
-}) => {
+export const MerchantInsurerPoliciesTable: React.FC<
+  MerchantInsurerPoliciesTableProps
+> = ({ policies }) => {
   const { isMediaQueryMatched } = useMediaQuery(1024);
 
   if (!isMediaQueryMatched)
@@ -171,13 +158,13 @@ export const InsurerPoliciesTable: React.FC<InsurerPoliciesTableProps> = ({
   );
 };
 
-type SoldPoliciesTableProps = {
-  policies: SoldPolicy[];
+type MerchantSoldPoliciesTableProps = {
+  policies: MerchantSoldPolicy[];
 };
 
-export const SoldPoliciesTable: React.FC<SoldPoliciesTableProps> = ({
-  policies,
-}) => {
+export const MerchantSoldPoliciesTable: React.FC<
+  MerchantSoldPoliciesTableProps
+> = ({ policies }) => {
   const { isMediaQueryMatched } = useMediaQuery(1024);
 
   if (!isMediaQueryMatched)

@@ -1,57 +1,74 @@
 import { PageContent } from "@/components/shared/page-content";
 import { ClaimsTable } from "../tables/claims-table";
-import { Claim, ClaimStatus } from "@/types/types";
+import { BaseClaim, ClaimStatus } from "@/types/types";
 import { useState } from "react";
 import { PAGE_COUNT } from "@/utils/constants";
 
 export const InsurerPendingClaims = () => {
   const [page, setPage] = useState(1);
-  const claims: Claim[] = [
+  const claims: BaseClaim[] = [
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
-      insurer: "AXA mansard",
-      status: ClaimStatus.Processing,
-      estimate: 40000,
-    },
-    {
-      policyNo: "123jkf5402",
-      email: "samloco@gmail.com",
-      date: "May 7, 2023",
-      insurer: "AXA mansard",
+      claimType: "Accidental Damage",
       status: ClaimStatus.Submitted,
-      estimate: 40000,
     },
     {
       policyNo: "123jkf5402",
       email: "samloco@gmail.com",
       date: "May 7, 2023",
-      insurer: "AXA mansard",
-      status: ClaimStatus.Processing,
-      estimate: 40000,
-    },
-    {
-      policyNo: "123jkf5402",
-      email: "samloco@gmail.com",
-      date: "May 7, 2023",
-      insurer: "AXA mansard",
-      status: ClaimStatus.Processing,
-      estimate: 40000,
-    },
-    {
-      policyNo: "123jkf5402",
-      email: "samloco@gmail.com",
-      date: "May 7, 2023",
-      insurer: "AXA mansard",
+      claimType: "Lost Luggage",
       status: ClaimStatus.Submitted,
-      estimate: 40000,
+    },
+    {
+      policyNo: "123jkf5402",
+      email: "samloco@gmail.com",
+      date: "May 7, 2023",
+      claimType: "Medications",
+      status: ClaimStatus.Processing,
+    },
+    {
+      policyNo: "123jkf5402",
+      email: "samloco@gmail.com",
+      date: "May 7, 2023",
+      claimType: "Accidental Damage",
+      status: ClaimStatus.Processing,
+    },
+    {
+      policyNo: "123jkf5402",
+      email: "samloco@gmail.com",
+      date: "May 7, 2023",
+      claimType: "Lost Luggage",
+      status: ClaimStatus.Submitted,
+    },
+    {
+      policyNo: "123jkf5402",
+      email: "samloco@gmail.com",
+      date: "May 7, 2023",
+      claimType: "Lost Luggage",
+      status: ClaimStatus.Submitted,
+    },
+    {
+      policyNo: "123jkf5402",
+      email: "samloco@gmail.com",
+      date: "May 7, 2023",
+      claimType: "Accidental Damage",
+      status: ClaimStatus.Submitted,
+    },
+    {
+      policyNo: "123jkf5402",
+      email: "samloco@gmail.com",
+      date: "May 7, 2023",
+      claimType: "Lost Luggage",
+      status: ClaimStatus.Processing,
     },
   ];
 
   return (
     <PageContent
       title="Pending Claims"
+      searchbarPlaceholder="Find policy number"
       pageTable={<ClaimsTable claims={claims} />}
       page={page}
       pageCount={PAGE_COUNT}

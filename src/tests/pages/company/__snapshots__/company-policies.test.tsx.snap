@@ -360,7 +360,7 @@ exports[`Company Policies > renders correctly 1`] = `
                          
                       </label>
                       <input
-                        class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold max-w-[200px]"
+                        class="block font-sora w-full border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold max-w-[200px]"
                         id="amount"
                         placeholder="₦"
                       />
@@ -376,8 +376,171 @@ exports[`Company Policies > renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="loader mx-auto w-16 h-16 mt-20"
-          />
+            class="my-4 mb-10"
+          >
+            <div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    Health Insurance
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    123jkf5402
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    May 7, 2023
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    ₦50,000
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    Health Insurance
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    123jkf5402
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    May 7, 2023
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    ₦40,000
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    Health Insurance
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    123jkf5402
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    May 7, 2023
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    ₦40,000
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    Health Insurance
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    123jkf5402
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    May 7, 2023
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    ₦40,000
+                  </em>
+                </div>
+              </div>
+              <div
+                class="border-b py-2"
+              >
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    Health Insurance
+                  </em>
+                  <em
+                    class="not-italic font-semibold text-[#333]"
+                  >
+                    123jkf5402
+                  </em>
+                </div>
+                <div
+                  class="flex justify-between items-center"
+                >
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    May 7, 2023
+                  </em>
+                  <em
+                    class="not-italic text-[#828282]"
+                  >
+                    ₦40,000
+                  </em>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </div>
@@ -738,7 +901,7 @@ exports[`Company Policies > renders correctly 1`] = `
                        
                     </label>
                     <input
-                      class="block font-sora w-full border rounded-lg outline-none focus:border-black px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold max-w-[200px]"
+                      class="block font-sora w-full border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold max-w-[200px]"
                       id="amount"
                       placeholder="₦"
                     />
@@ -754,8 +917,171 @@ exports[`Company Policies > renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="loader mx-auto w-16 h-16 mt-20"
-        />
+          class="my-4 mb-10"
+        >
+          <div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  Health Insurance
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  123jkf5402
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  May 7, 2023
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  ₦50,000
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  Health Insurance
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  123jkf5402
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  May 7, 2023
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  ₦40,000
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  Health Insurance
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  123jkf5402
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  May 7, 2023
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  ₦40,000
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  Health Insurance
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  123jkf5402
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  May 7, 2023
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  ₦40,000
+                </em>
+              </div>
+            </div>
+            <div
+              class="border-b py-2"
+            >
+              <div
+                class="flex justify-between items-center mb-2"
+              >
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  Health Insurance
+                </em>
+                <em
+                  class="not-italic font-semibold text-[#333]"
+                >
+                  123jkf5402
+                </em>
+              </div>
+              <div
+                class="flex justify-between items-center"
+              >
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  May 7, 2023
+                </em>
+                <em
+                  class="not-italic text-[#828282]"
+                >
+                  ₦40,000
+                </em>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   </div>,

@@ -568,7 +568,7 @@ export const CompanyOverview: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-wrap">
-            <div className="mb-5 mr-8">
+            <div className="mb-5 w-full max-w-[200px]">
               <em className="not-italic block text-[#4F4F4F] text-xs mb-2">
                 Number of policies sold
               </em>
@@ -576,12 +576,20 @@ export const CompanyOverview: React.FC = () => {
                 {totalPolicyCount} policies
               </em>
             </div>
-            <div className="mb-8">
+            <div className="mb-5 w-full max-w-[200px]">
               <em className="not-italic block text-[#4F4F4F] text-xs mb-2">
                 Total value of policies sold
               </em>
               <em className="not-italic block text-[#333] text-xl font-semibold">
                 {formatToNaira(totalPolicyValue)}
+              </em>
+            </div>
+            <div className="mb-8 w-full max-w-[200px]">
+              <em className="not-italic block text-[#4F4F4F] text-xs mb-2">
+                Best performing policy
+              </em>
+              <em className="not-italic block text-[#333] text-xl font-semibold">
+                Health insurance
               </em>
             </div>
           </div>
@@ -694,7 +702,7 @@ export const CompanyOverview: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-row justify-between items-center mb-24">
-            <div className="rounded p-6 border w-[30rem]">
+            <div className="rounded p-6 border w-[22rem]">
               <p className="text-sm text-[#4F4F4F] mb-8 uppercase">
                 number of policies sold
               </p>
@@ -702,12 +710,20 @@ export const CompanyOverview: React.FC = () => {
                 {totalPolicyCount} policies
               </p>
             </div>
-            <div className="rounded p-6 border w-[30rem]">
+            <div className="rounded p-6 border w-[22rem]">
               <p className="text-sm text-[#4F4F4F] mb-8 uppercase">
                 total value of policies
               </p>
               <p className="text-xl text-[#333333] font-medium">
                 {formatToNaira(totalPolicyValue)}
+              </p>
+            </div>
+            <div className="rounded p-6 border w-[22rem]">
+              <p className="text-sm text-[#4F4F4F] mb-8 uppercase">
+                Best performing policy
+              </p>
+              <p className="text-xl text-[#333333] font-medium">
+                Health Insurance
               </p>
             </div>
           </div>

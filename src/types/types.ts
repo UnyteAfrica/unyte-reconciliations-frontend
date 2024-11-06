@@ -6,7 +6,13 @@ export const ClaimStatus = {
   Completed: "Completed",
 } as const;
 
+export const AgentStatus = {
+  Active: "Active",
+  Inactive: "Inactive",
+} as const;
+
 export type ClaimStatusType = keyof typeof ClaimStatus;
+export type AgentStatusType = keyof typeof AgentStatus;
 
 export const UserType = {
   INSURER: "INSURER",
@@ -19,14 +25,15 @@ export enum ApiType {
   Agent,
 }
 
-export type Claim = {
+export type BaseClaim = {
   policyNo: string;
   email: string;
   date: string;
-  insurer: string;
+  claimType: string;
   status: ClaimStatusType;
-  estimate: number;
 };
+
+export type Claim = BaseClaim & { estimate: number };
 
 export type AgentPolicy = {
   policyRef: string;
@@ -99,8 +106,10 @@ export type Agent = {
   id: string;
   name: string;
   email: string;
+  dateAdded: string;
   commissions: number;
   policiesSold: number;
+  agentStatus: AgentStatusType;
 };
 
 export type ApiCompanyAgent = {
@@ -146,6 +155,6 @@ export type BasePolicy = {
   premium: number;
 };
 
-export type InsurerPolicy = BasePolicy & { insurer: string };
+export type MerchantInsurerPolicy = BasePolicy & { insurer: string };
 
-export type SoldPolicy = BasePolicy & { userEmail: string };
+export type MerchantSoldPolicy = BasePolicy & { userEmail: string };

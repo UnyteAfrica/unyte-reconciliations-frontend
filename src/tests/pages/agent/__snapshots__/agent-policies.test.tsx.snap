@@ -250,7 +250,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sFullName"
               placeholder="John Doe"
             />
@@ -266,7 +266,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
             />
@@ -282,7 +282,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sPhoneNumber"
               placeholder="08035892001"
             />
@@ -298,7 +298,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sEmailAddress"
               placeholder="mail@mail.com"
             />
@@ -369,7 +369,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sFullName"
               placeholder="John Doe"
             />
@@ -385,7 +385,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
             />
@@ -401,7 +401,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sPhoneNumber"
               placeholder="08035892001"
             />
@@ -417,7 +417,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sEmailAddress"
               placeholder="mail@mail.com"
             />
@@ -488,7 +488,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sFullName"
               placeholder="John Doe"
             />
@@ -504,7 +504,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
             />
@@ -520,7 +520,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sPhoneNumber"
               placeholder="08035892001"
             />
@@ -536,7 +536,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sEmailAddress"
               placeholder="mail@mail.com"
             />
@@ -607,7 +607,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sFullName"
               placeholder="John Doe"
             />
@@ -623,7 +623,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sDateOfBirth"
               placeholder="DD/MM/YYYY"
             />
@@ -639,7 +639,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sPhoneNumber"
               placeholder="08035892001"
             />
@@ -655,7 +655,7 @@ exports[`Agent Policies > renders correctly 1`] = `
                
             </label>
             <input
-              class="block font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-14 border-[#e0e0e0] text-sm"
+              class="block font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-14 border-[#e0e0e0] text-sm"
               id="customer'sEmailAddress"
               placeholder="mail@mail.com"
             />

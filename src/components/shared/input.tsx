@@ -106,7 +106,7 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
         <input
           ref={ref}
           className={twMerge(
-            "block text-lg font-sora w-full px-3 py-[16px] h-[72px] border border-[#424242] rounded-lg outline-none focus:border-black",
+            "block text-lg font-sora w-full px-3 py-[16px] h-[72px] border transition border-black/30 rounded-lg outline-none  focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)]",
             className
           )}
           id={inputId}
@@ -276,7 +276,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
 
         <div
           className={twMerge(
-            "flex relative items-center w-[100%] border border-[#424242] rounded-lg  transition duration-300 focus-within:border-black",
+            "flex relative items-center w-[100%] border border-black/30 rounded-lg  transition duration-300 focus-within:border-black",
             className
           )}
         >

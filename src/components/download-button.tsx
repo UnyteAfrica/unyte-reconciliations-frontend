@@ -1,13 +1,18 @@
 import { saveAs } from "file-saver";
 import { BiDownload } from "react-icons/bi";
+import { twMerge } from "tailwind-merge";
 
 type DataType = { [key: string]: string }[];
 
 type DownloadButtonProps = {
   data: DataType;
+  className?: string;
 };
 
-export const DownloadButton: React.FC<DownloadButtonProps> = ({ data }) => {
+export const DownloadButton: React.FC<DownloadButtonProps> = ({
+  data,
+  className,
+}) => {
   // Convert data (array of objects) to CSV format
   const convertToCSV = (data: DataType) => {
     const csvRows = [];
@@ -32,8 +37,11 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({ data }) => {
   };
 
   return (
-    <button onClick={handleDownload} className="bg-[#25D366] rounded">
-      <div className="space-x-2 flex flex-row items-center px-4 py-2 text-white">
+    <button
+      onClick={handleDownload}
+      className={twMerge("bg-[#25D366] rounded text-white", className)}
+    >
+      <div className="space-x-2 flex flex-row items-center px-4 py-2 ">
         <span className="text-base">Download</span>
         <BiDownload />
       </div>

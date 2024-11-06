@@ -44,7 +44,7 @@ exports[`Company Login Page > renders correctly 1`] = `
                    
                 </label>
                 <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                  class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                   id="email"
                   name="email"
                   placeholder="johndoe@gmail.com"
@@ -65,7 +65,7 @@ exports[`Company Login Page > renders correctly 1`] = `
                       class="w-full"
                     >
                       <input
-                        class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                        class="block text-lg font-sora px-3 py-[16px] transition border-black/30 rounded-lg outline-none autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
                         id="password"
                         name="password"
                         placeholder="******"
@@ -162,7 +162,7 @@ exports[`Company Login Page > renders correctly 1`] = `
                  
               </label>
               <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                 id="email"
                 name="email"
                 placeholder="johndoe@gmail.com"
@@ -183,7 +183,7 @@ exports[`Company Login Page > renders correctly 1`] = `
                     class="w-full"
                   >
                     <input
-                      class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                      class="block text-lg font-sora px-3 py-[16px] transition border-black/30 rounded-lg outline-none autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
                       id="password"
                       name="password"
                       placeholder="******"
