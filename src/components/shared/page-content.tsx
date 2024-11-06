@@ -16,8 +16,6 @@ import { Loader } from "../loader";
 import { AiOutlineRise } from "react-icons/ai";
 import { Icon } from "./icon";
 import { twMerge } from "tailwind-merge";
-import { createPortal } from "react-dom";
-import { SideModal } from "./side-modal";
 
 export const PERIODS = {
   DAILY: "Daily",
@@ -77,6 +75,8 @@ export const PageContent: React.FC<PageContentProps> = ({
   ) as OverlayContextType;
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
+
+  if (isMediaQueryMatched == undefined) return <></>;
 
   return (
     <>

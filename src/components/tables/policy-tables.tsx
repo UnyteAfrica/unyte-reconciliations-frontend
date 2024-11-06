@@ -3,10 +3,9 @@ import {
   BasePolicy,
   MerchantInsurerPolicy,
   MerchantSoldPolicy,
-  Policy,
 } from "@/types/types";
 import { Table } from "../table";
-import { createPolicyId, formatToNaira, sanitizePremium } from "@/utils/utils";
+import { formatToNaira } from "@/utils/utils";
 import { useMediaQuery } from "@/utils/hooks";
 
 type AgentPoliciesTableProps = {

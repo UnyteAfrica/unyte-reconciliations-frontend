@@ -41,7 +41,7 @@ exports[`Company Verify OTP Page > renders correctly 1`] = `
                   class="w-full"
                 >
                   <input
-                    class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                    class="block text-lg font-sora px-3 py-[16px] transition border-black/30 rounded-lg outline-none autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
                     id="otp"
                     name="otp"
                     placeholder="******"
@@ -128,7 +128,7 @@ exports[`Company Verify OTP Page > renders correctly 1`] = `
                 class="w-full"
               >
                 <input
-                  class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                  class="block text-lg font-sora px-3 py-[16px] transition border-black/30 rounded-lg outline-none autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
                   id="otp"
                   name="otp"
                   placeholder="******"

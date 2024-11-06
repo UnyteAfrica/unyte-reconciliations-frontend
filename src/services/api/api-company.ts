@@ -5,7 +5,6 @@ import {
   BasePolicy,
   DateRangePolicy,
   PaginationWrapper,
-  Policy,
 } from "@/types/types";
 import { Moment } from "moment";
 import { axiosInstance } from "./api-base";

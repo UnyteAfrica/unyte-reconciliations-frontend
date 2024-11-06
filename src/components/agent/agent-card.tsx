@@ -1,6 +1,6 @@
 import { Agent, AgentStatus } from "@/types/types";
 import { Icon } from "../shared/icon";
-import { formatToNaira, getCompanyInitials, getInitials } from "@/utils/utils";
+import { formatToNaira, getCompanyInitials } from "@/utils/utils";
 import { twMerge } from "tailwind-merge";
 
 export const AgentCard: React.FC<{ agent: Agent; onClose?: () => void }> = ({

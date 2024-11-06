@@ -15,9 +15,9 @@ export const useLockScroll = (control: boolean) => {
 };
 
 export const useMediaQuery: (minPx: number) => {
-  isMediaQueryMatched: boolean;
+  isMediaQueryMatched: boolean | undefined;
 } = (minPx) => {
-  const [isMediaQueryMatched, setIsMediaQueryMatched] = useState(false);
+  const [isMediaQueryMatched, setIsMediaQueryMatched] = useState<boolean>();
   const hasSetInitially = useRef(false);
 
   useEffect(() => {
