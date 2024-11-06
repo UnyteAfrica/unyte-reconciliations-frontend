@@ -74,14 +74,12 @@ export const MerchantProfile = () => {
         <div className="space-y-4 w-full max-w-[600px]">
           <CustomInput
             value={merchantDetails.business_name}
-            placeholder="Dro Corp"
             className="cursor-not-allowed caret-white"
             label="Business Name"
             onClick={handleInfoClick}
           />
           <CustomInput
             value={merchantDetails.email}
-            placeholder="johndoe@gmail.com"
             label="Email"
             className="cursor-not-allowed caret-white"
             onClick={handleInfoClick}

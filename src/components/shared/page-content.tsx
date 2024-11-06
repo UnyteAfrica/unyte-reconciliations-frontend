@@ -16,6 +16,8 @@ import { Loader } from "../loader";
 import { AiOutlineRise } from "react-icons/ai";
 import { Icon } from "./icon";
 import { twMerge } from "tailwind-merge";
+import { createPortal } from "react-dom";
+import { SideModal } from "./side-modal";
 
 export const PERIODS = {
   DAILY: "Daily",
@@ -45,6 +47,8 @@ type PageContentProps = {
   onPageChange?: (page: number) => void;
   totalItems?: number;
   pageCount?: number;
+  filterClassName?: string;
+  downloadClassName?: string;
 };
 
 export const PageContent: React.FC<PageContentProps> = ({
@@ -58,6 +62,8 @@ export const PageContent: React.FC<PageContentProps> = ({
   page,
   pageCount,
   totalItems,
+  filterClassName,
+  downloadClassName,
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [period, setPeriod] = useState<string>(periods[0]);
@@ -177,8 +183,32 @@ export const PageContent: React.FC<PageContentProps> = ({
               placeholder={searchbarPlaceholder ?? "Find policy reference"}
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
+              containerClassName="w-[332px] h-10 border border-[#e0e0e0] transition focus-within:border-[#333]"
             />
             <div id="dates" className="flex flex-row items-center space-x-3">
+              <button
+                className="text-[#333333]"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsFilterOpen((isFilterOpen) => !isFilterOpen);
+                }}
+              >
+                <div
+                  className={twMerge(
+                    "space-x-2 flex flex-row items-center px-4 py-2 rounded border border-[#E0E0E0] bg-white text-[#4F4F4F] text-sm font-semibold",
+                    filterClassName
+                  )}
+                >
+                  <span className="text-base">Filter</span>
+                  <BiChevronDown
+                    className={cx(
+                      "transition-all duration-300",
+                      isFilterOpen && "rotate-180"
+                    )}
+                  />
+                </div>
+              </button>
+              <DownloadButton className={downloadClassName} data={[]} />
               {hasNewAgent && (
                 <button
                   className="text-[#333333]"
@@ -193,25 +223,6 @@ export const PageContent: React.FC<PageContentProps> = ({
                   </div>
                 </button>
               )}
-
-              <button
-                className="text-[#333333]"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsFilterOpen((isFilterOpen) => !isFilterOpen);
-                }}
-              >
-                <div className="space-x-2 flex flex-row items-center bg-[#828282] px-4 py-2 rounded text-white">
-                  <span className="text-base">Filter</span>
-                  <BiChevronDown
-                    className={cx(
-                      "transition-all duration-300",
-                      isFilterOpen && "rotate-180"
-                    )}
-                  />
-                </div>
-              </button>
-              <DownloadButton data={[]} />
             </div>
             <div
               data-testid="filter"

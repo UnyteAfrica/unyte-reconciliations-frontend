@@ -125,7 +125,7 @@ export const LoginPage = () => {
         </div>
       )}
       {isMediaQueryMatched && (
-        <div className="flex justify-center items-center  bg-[#f5f5f5] min-h-screen">
+        <div className="flex justify-center items-center  bg-[#E9FCE8] min-h-screen">
           <div className="p-10 bg-white flex justify-center items-center w-[700px] h-[700px] rounded-2xl">
             <form
               onSubmit={handleSubmit(onSubmit)}

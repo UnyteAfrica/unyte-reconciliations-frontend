@@ -163,7 +163,7 @@ export const MerchantNavbar = () => {
       {isMediaQueryMatched && (
         <div
           id="navbar-container"
-          className="flex justify-between items-center py-4 mx-auto max-w-6xl border-b border-[#EFEFEF]"
+          className="flex justify-between items-center py-4 mx-auto h-[87px] max-w-6xl border-b border-[#EFEFEF]"
         >
           <div>
             <Icon className="shrink-0" type="logo" alt="unyte logo" />

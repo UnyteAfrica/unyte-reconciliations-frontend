@@ -1,12 +1,12 @@
 import { PageContent } from "@/components/shared/page-content";
-import { InsurerPolicy } from "@/types/types";
 import { useState } from "react";
 import { PAGE_COUNT } from "@/utils/constants";
-import { InsurerPoliciesTable } from "../tables/policy-tables";
+import { MerchantInsurerPoliciesTable } from "../tables/policy-tables";
+import { MerchantInsurerPolicy } from "@/types/types";
 
 export const MerchantInsurerPolicies = () => {
   const [page, setPage] = useState(1);
-  const policies: InsurerPolicy[] = [
+  const policies: MerchantInsurerPolicy[] = [
     {
       policyNo: "123jkf5402",
       policyType: "Health Insurance",
@@ -48,7 +48,7 @@ export const MerchantInsurerPolicies = () => {
     <PageContent
       title="Insurer Policies"
       searchbarPlaceholder="Find policy type"
-      pageTable={<InsurerPoliciesTable policies={policies} />}
+      pageTable={<MerchantInsurerPoliciesTable policies={policies} />}
       page={page}
       pageCount={PAGE_COUNT}
       totalItems={2}

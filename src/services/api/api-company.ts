@@ -2,6 +2,7 @@ import { CompanyApiRoutes } from "./api-routes";
 import { CompanySignupType, InviteAgentType } from "@/types/request.types";
 import {
   ApiCompanyAgent,
+  BasePolicy,
   DateRangePolicy,
   PaginationWrapper,
   Policy,
@@ -61,7 +62,7 @@ export const inviteAgentsThroughCSV = (data: FormData) => {
 };
 
 export const getPolicies = (page?: number) => {
-  return axiosInstance.get<PaginationWrapper<Policy>>(
+  return axiosInstance.get<PaginationWrapper<BasePolicy>>(
     CompanyApiRoutes.getPolicies(page || 1)
   );
 };

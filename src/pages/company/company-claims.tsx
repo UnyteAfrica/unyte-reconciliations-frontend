@@ -46,7 +46,7 @@ export const CompanyClaims = () => {
         </div>
       )}
       {isMediaQueryMatched && (
-        <div className="flex flex-row space-x-8 my-10 pb-[7px] mx-auto max-w-6xl px-6 mt-12 mb-16">
+        <div className="flex flex-row space-x-8 mb-4 mt-10 pb-[7px] mx-auto max-w-6xl border-b border-[#E0E0E0]">
           {links.map((link, idx) => (
             <NavLink
               key={idx}
