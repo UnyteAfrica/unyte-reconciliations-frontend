@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import React from "react";
-import { CompanyVerifyOTPPage } from "@/pages/company/verify-otp.page";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ForgotPasswordPage } from "@/pages/auth/forgot-password";
 
 function setup(reactNode: React.ReactNode) {
   const queryClient = new QueryClient();
@@ -17,31 +17,29 @@ function setup(reactNode: React.ReactNode) {
   };
 }
 
-describe("Company Verify OTP Page", () => {
+describe("Forgot Password Page", () => {
   it("renders correctly", () => {
     const tree = setup(
       <BrowserRouter>
-        <CompanyVerifyOTPPage />
+        <ForgotPasswordPage />
       </BrowserRouter>
     );
     expect(tree).toMatchSnapshot();
   });
 
-  it("should validate OTP", async () => {
+  it("should validate email", async () => {
     const { user } = setup(
       <BrowserRouter>
-        <CompanyVerifyOTPPage />
+        <ForgotPasswordPage />
       </BrowserRouter>
     );
 
-    const otpInput = screen.getByLabelText("OTP");
-    await user.click(otpInput);
-    await user.keyboard("2244");
-    const submitButton = screen.getByText("Verify");
+    const emailInput = screen.getByLabelText("Email");
+    await user.click(emailInput);
+    await user.keyboard("johndoe");
+    const submitButton = screen.getByText("Reset Password");
     await user.click(submitButton);
-    const errorMessage = screen.getByText(
-      "OTP cannot be less than 6 characters"
-    );
+    const errorMessage = screen.getByText("Invalid email entered");
     expect(errorMessage).toBeVisible();
   });
 });

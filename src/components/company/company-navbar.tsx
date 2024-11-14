@@ -5,16 +5,15 @@ import { Icon } from "../shared/icon";
 import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
-import { CompanyContext } from "@/context/company.context";
 import { clearCredentials, getCompanyInitials } from "@/utils/utils";
-import { UserType } from "@/types/types";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { CompanyQueryKeys } from "@/utils/query-keys";
-import { getCompanyProfile } from "@/services/api/api-company";
 import { Loader } from "../loader";
 import { useLockScroll, useMediaQuery } from "@/utils/hooks";
 import { LuMenu } from "react-icons/lu";
 import { AiOutlineClose } from "react-icons/ai";
+import { getProfile } from "@/services/api/api-base";
+import { AuthContext } from "@/context/auth.context";
 
 type UrlLink = {
   text: string;
@@ -44,13 +43,13 @@ export const CompanyNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { setIsLoggedIn, setCompanyEmail } = useContext(CompanyContext);
+  const { setIsLoggedIn, setEmail } = useContext(AuthContext);
   const queryClient = useQueryClient();
 
   const { data: companyDetailsData, isPending: isCompanyDetailsLoading } =
     useQuery({
       queryKey: [CompanyQueryKeys.profile],
-      queryFn: () => getCompanyProfile(),
+      queryFn: () => getProfile(),
     });
 
   useEffect(() => {
@@ -59,7 +58,7 @@ export const CompanyNavbar = () => {
   }, [location.pathname]);
 
   const logout = () => {
-    clearCredentials(UserType.agent);
+    clearCredentials();
     setIsLoggedIn(false);
     queryClient.invalidateQueries();
   };
@@ -71,7 +70,7 @@ export const CompanyNavbar = () => {
   const companyDetails = companyDetailsData?.data;
 
   useEffect(() => {
-    if (companyDetails) setCompanyEmail(companyDetails.email);
+    if (companyDetails) setEmail(companyDetails.email);
   }, [companyDetails]);
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
@@ -82,12 +81,12 @@ export const CompanyNavbar = () => {
     <>
       {!isMediaQueryMatched && (
         <div className="relative z-30">
-          <header className="px-5 pt-8 pb-4">
+          <header className="px-5 pt-10 pb-4">
             <LuMenu
               onClick={() => setIsMobileMenuOpen(true)}
-              className="w-8 h-8 block mb-5"
+              size={32}
+              className="block"
             />
-            <Icon type="logo" className="block" />
           </header>
           <div
             className={twMerge(
@@ -95,7 +94,7 @@ export const CompanyNavbar = () => {
               isMobileMenuOpen && "translate-x-0"
             )}
           >
-            <nav className="h-screen bg-white w-[300px] relative px-5 py-10 flex flex-col justify-between">
+            <nav className="h-dvh bg-white w-[300px] relative px-5 py-10 flex flex-col justify-between">
               <div className="flex justify-between items-center">
                 <Icon type="logo" className="block" />
                 <AiOutlineClose
@@ -159,7 +158,7 @@ export const CompanyNavbar = () => {
               </div>
             </nav>
             <div
-              className="grow bg-black/20 h-screen"
+              className="grow bg-black/20 h-dvh"
               onClick={() => setIsMobileMenuOpen(false)}
             />
           </div>
@@ -209,7 +208,7 @@ export const CompanyNavbar = () => {
                     <div className="space-x-2 flex flex-row items-center">
                       {!!companyDetails.profile_image ? (
                         <img
-                          className="rounded-full h-10 w-10"
+                          className="rounded-full h-10 w-10 object-cover"
                           src={companyDetails.profile_image}
                           alt=""
                         />

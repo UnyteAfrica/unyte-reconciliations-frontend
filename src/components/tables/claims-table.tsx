@@ -1,11 +1,10 @@
 import { cx } from "class-variance-authority";
-import { Claim, ClaimStatus } from "../../types/types";
+import { BaseClaim, ClaimStatus } from "../../types/types";
 import { Table } from "../table";
-import { formatToNaira } from "@/utils/utils";
 import { useMediaQuery } from "@/utils/hooks";
 
 type ClaimsTableProps = {
-  claims: Claim[];
+  claims: BaseClaim[];
 };
 
 export const ClaimsTable: React.FC<ClaimsTableProps> = ({ claims }) => {
@@ -21,11 +20,11 @@ export const ClaimsTable: React.FC<ClaimsTableProps> = ({ claims }) => {
                 {claim.email}
               </em>
               <em className="not-italic font-semibold text-[#333]">
-                {claim.estimate}
+                {claim.policyNo}
               </em>
             </div>
             <div className="flex justify-between items-center">
-              <em className="not-italic text-[#828282]">{claim.policyNo}</em>
+              <em className="not-italic text-[#828282]">{claim.claimType}</em>
               <em className="not-italic text-[#828282]">{claim.status}</em>
             </div>
           </div>
@@ -36,12 +35,11 @@ export const ClaimsTable: React.FC<ClaimsTableProps> = ({ claims }) => {
   return (
     <Table
       headers={[
-        "Policy No.",
+        "Policy Number",
         "User Email",
         "Date Created",
-        "Insurer",
         "Status",
-        "Bill estimate",
+        "Claim Type",
       ]}
     >
       {claims.map((claim, i) => (
@@ -49,7 +47,6 @@ export const ClaimsTable: React.FC<ClaimsTableProps> = ({ claims }) => {
           <td className="p-4 text-center">{claim.policyNo}</td>
           <td className="p-4 text-center">{claim.email}</td>
           <td className="p-4 text-center">{claim.date}</td>
-          <td className="p-4 text-center">{claim.insurer}</td>
           <td className="p-4 text-center">
             <div
               className={cx(
@@ -65,7 +62,7 @@ export const ClaimsTable: React.FC<ClaimsTableProps> = ({ claims }) => {
               {claim.status}
             </div>
           </td>
-          <td className="p-4 text-center"> {formatToNaira(claim.estimate)}</td>
+          <td className="p-4 text-center"> {claim.claimType}</td>
         </tr>
       ))}
     </Table>

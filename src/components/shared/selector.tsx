@@ -32,9 +32,10 @@ export const Selector: React.FC<SelectorProps> = ({
     <div className={cx("relative", containerClassName)} ref={containerRef}>
       <button
         className="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
-        onClick={() =>
-          setIsSelectorMenuOpen((isSelectorMenuOpen) => !isSelectorMenuOpen)
-        }
+        onClick={() => {
+          console.log("yes");
+          setIsSelectorMenuOpen((isSelectorMenuOpen) => !isSelectorMenuOpen);
+        }}
       >
         <div className="space-x-2 flex flex-row items-center justify-between">
           <span
@@ -43,7 +44,16 @@ export const Selector: React.FC<SelectorProps> = ({
           >
             {value}
           </span>
-          {isSelectorMenuOpen ? <BiChevronUp /> : <BiChevronDown />}
+          {isSelectorMenuOpen ? (
+            <BiChevronUp />
+          ) : (
+            <BiChevronDown
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsSelectorMenuOpen(true);
+              }}
+            />
+          )}
         </div>
       </button>
       <div
@@ -57,6 +67,7 @@ export const Selector: React.FC<SelectorProps> = ({
             <button
               className="w-full font-inter py-4 font-semibold"
               onClick={() => {
+                console.log("yes222");
                 setIsSelectorMenuOpen(false);
                 onChange(option);
               }}

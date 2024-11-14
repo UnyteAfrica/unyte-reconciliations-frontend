@@ -10,6 +10,7 @@ import { RangeWeekPicker } from "@/components/shared/week-picker";
 import { RangeDayPicker } from "@/components/shared/day-picker";
 import { formatToNaira, getWeekValue } from "@/utils/utils";
 import { PERIODS } from "@/components/shared/page-content";
+import { Icon } from "@/components/shared/icon";
 
 const dailyChartDataSeries: ApexAxisChartSeries = [
   {
@@ -75,6 +76,7 @@ export const AgentOverview: React.FC = () => {
         text: "Value of Policies Sold",
         style: {
           fontSize: "16px",
+          fontWeight: "500",
         },
       },
     },
@@ -83,6 +85,7 @@ export const AgentOverview: React.FC = () => {
         text: `${period} Period`,
         style: {
           fontSize: "16px",
+          fontWeight: "500",
         },
       },
     },
@@ -260,20 +263,23 @@ export const AgentOverview: React.FC = () => {
     updateDailySeries();
   }, [startDay, endDay]);
 
+  const policyCount = Math.floor(totalPolicyValue / POLICY_COST);
+
   return (
     <>
       {!isMediaQueryMatched && (
-        <div className="px-5 py-6 max-w-[850px] mx-auto">
-          <div className="flex flex-row justify-between items-center mb-10">
-            <h1 className="text-3xl text-[#333333] font-semibold">Overview</h1>
-          </div>
-          <div className="my-8 w-[200px] sm:w-auto sm:flex sm:space-x-4">
+        <div className="pb-6 max-w-[850px] mx-auto">
+          <div className="px-6 flex flex-row justify-between items-center mb-6">
+            <h1 className="text-2xl font-semibold">Overview</h1>
             <Selector
               options={Object.values(PERIODS)}
               value={period}
               onChange={(val) => setPeriod(val)}
-              containerClassName="mb-4 sm:mb-0"
+              containerClassName=""
             />
+          </div>
+          {/* <div className="my-8 w-[200px] sm:w-auto sm:flex sm:space-x-4">
+           
             <div className="flex">
               {period == PERIODS.YEARLY ? (
                 <RangeYearPicker
@@ -348,27 +354,32 @@ export const AgentOverview: React.FC = () => {
                 <></>
               )}
             </div>
-          </div>
-          <div className="flex flex-wrap">
-            <div className="mb-5 mr-8">
-              <em className="not-italic block text-[#4F4F4F] text-xs mb-2">
-                Number of policies sold
+          </div> */}
+          <div className="flex bg-[#F9FAFB] px-6 py-8">
+            <div className="mr-4 border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-[48%] max-w-[165px]">
+              <div className="border border-[#25D366] rounded-full mb-4 inline-block p-1">
+                <Icon type="receipt" />
+              </div>
+              <em className="not-italic block text-[#4F4F4F] text-xs mb-1">
+                Policies sold
               </em>
               <em className="not-italic block text-[#333] text-xl font-semibold">
-                {Math.floor(totalPolicyValue / POLICY_COST)} policies
+                {policyCount ?? 1} {policyCount <= 1 ? "policy" : "policies"}
               </em>
             </div>
-            <div className="mb-8">
+            <div className="border border-[#7EE0A3]/[0.5] rounded-2xl p-4 w-[48%] max-w-[165px]">
+              <div className="border border-[#25D366] rounded-full mb-4 inline-block p-1">
+                <Icon type="dollar" />
+              </div>
               <em className="not-italic block text-[#4F4F4F] text-xs mb-2">
-                Total value of policies sold
+                Sales value
               </em>
               <em className="not-italic block text-[#333] text-xl font-semibold">
                 {formatToNaira(totalPolicyValue)}
               </em>
             </div>
           </div>
-          <hr />
-          <div className="mt-10">
+          <div className="mt-6 px-6">
             {/* <p className="text-sm text-[#4F4F4F] mb-4">
               Showing data for the month of{" "}
               <span className="font-semibold text-[#333]">September</span>

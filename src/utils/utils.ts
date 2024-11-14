@@ -1,10 +1,5 @@
 import { LocalStorage } from "@/services/local-storage";
-import {
-  ApiCompanyPolicy,
-  CompanyPolicy,
-  Policy,
-  UserType,
-} from "@/types/types";
+import { ApiCompanyPolicy, CompanyPolicy, Policy } from "@/types/types";
 import { clsx, type ClassValue } from "clsx";
 import { Moment } from "moment";
 import { twMerge } from "tailwind-merge";
@@ -33,15 +28,9 @@ export const formatToNaira = (amount: number) =>
 
 export const addNaira = (amount: string) => nairaSign + amount;
 
-export const clearCredentials = (userType: UserType) => {
-  if (userType == UserType.company) {
-    LocalStorage.removeItem("companyAccessToken");
-    LocalStorage.removeItem("companyRefreshToken");
-  }
-  if (userType == UserType.agent) {
-    LocalStorage.removeItem("agentAccessToken");
-    LocalStorage.removeItem("agentRefreshToken");
-  }
+export const clearCredentials = () => {
+  LocalStorage.removeItem("accessToken");
+  LocalStorage.removeItem("refreshToken");
 };
 
 export const splitQueryParams = (query: string) => {
@@ -97,9 +86,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const getWeekValue = (date: Moment) => {
+export const getWeekValue = (date: Moment, isCondensed: boolean = false) => {
   const startOfWeek = date.clone().startOf("week");
-  const startOfWeekMonthStr = startOfWeek.format("MMMM");
+  const startOfWeekMonthStr = isCondensed
+    ? startOfWeek.format("MM")
+    : startOfWeek.format("MMMM");
   const startOfWeekYearStr = startOfWeek.format("YYYY");
   const startOfMonth = startOfWeek.clone().startOf("month");
 
@@ -114,7 +105,9 @@ export const getWeekValue = (date: Moment) => {
     weekInMonth = currWeek - startOfMonthWeek + 1;
   }
 
-  return `${startOfWeekMonthStr} Week ${weekInMonth} ${startOfWeekYearStr}`;
+  return isCondensed
+    ? `Wk ${weekInMonth} ${startOfWeekMonthStr}/${startOfWeekYearStr}`
+    : `${startOfWeekMonthStr} Week ${weekInMonth} ${startOfWeekYearStr}`;
 };
 
 export const flattenApiPolicy = (

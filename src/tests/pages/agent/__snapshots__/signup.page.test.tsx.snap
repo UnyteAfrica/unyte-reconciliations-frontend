@@ -41,13 +41,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                    
                 </label>
                 <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                  class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                   id="firstName"
                   name="firstName"
                   placeholder="John"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -61,13 +58,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                    
                 </label>
                 <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                  class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                   id="middleName"
                   name="middleName"
                   placeholder="Janet"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -81,13 +75,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                    
                 </label>
                 <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                  class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                   id="lastName"
                   name="lastName"
                   placeholder="Doe"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -101,13 +92,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                    
                 </label>
                 <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                  class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                   id="homeAddress"
                   name="homeAddress"
                   placeholder="2, Sizwe Street"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -121,13 +109,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                    
                 </label>
                 <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                  class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                   id="email"
                   name="email"
                   placeholder="johndoe@gmail.com"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -141,13 +126,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                    
                 </label>
                 <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                  class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                   id="bankName"
                   name="bankName"
                   placeholder="Access Bank"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -161,13 +143,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                    
                 </label>
                 <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                  class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                   id="accountNo"
                   name="accountNo"
                   placeholder="1234567890"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -181,13 +160,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                    
                 </label>
                 <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                  class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                   id="bvn"
                   name="bvn"
                   placeholder="12345678901"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div
@@ -201,39 +177,11 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                    
                 </label>
                 <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                  class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                   disabled=""
                   id="companyId"
                   placeholder="A034529"
                   value=""
-                />
-                <p
-                  class="text-sm text-[#333]"
-                />
-              </div>
-              <div
-                class=""
-              >
-                <label
-                  class="mb-2 block text-sm text-[#333"
-                  for="gampId"
-                >
-                  GAMP ID
-                   
-                  <span
-                    class="not-italic text-sm text-[#333]"
-                  >
-                    (optional)
-                  </span>
-                </label>
-                <input
-                  class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
-                  id="gampId"
-                  name="gampId"
-                  placeholder="A034529"
-                />
-                <p
-                  class="text-sm text-[#333]"
                 />
               </div>
               <div>
@@ -250,15 +198,12 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                     class="w-full"
                   >
                     <input
-                      class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                      class="block text-lg font-sora px-3 py-[16px] transition border-black/30 rounded-lg outline-none autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
                       id="password"
                       name="password"
                       placeholder="******"
                       type="password"
                       value=""
-                    />
-                    <p
-                      class="text-sm text-[#333]"
                     />
                   </div>
                   <button
@@ -297,15 +242,12 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                     class="w-full"
                   >
                     <input
-                      class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                      class="block text-lg font-sora px-3 py-[16px] transition border-black/30 rounded-lg outline-none autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
                       id="confirmPassword"
                       name="confirmPassword"
                       placeholder="******"
                       type="password"
                       value=""
-                    />
-                    <p
-                      class="text-sm text-[#333]"
                     />
                   </div>
                   <button
@@ -343,7 +285,7 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                    
                   <a
                     class="text-mPrimary"
-                    href="/agent/login"
+                    href="/login"
                   >
                     Sign In
                   </a>
@@ -392,13 +334,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                  
               </label>
               <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                 id="firstName"
                 name="firstName"
                 placeholder="John"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -412,13 +351,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                  
               </label>
               <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                 id="middleName"
                 name="middleName"
                 placeholder="Janet"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -432,13 +368,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                  
               </label>
               <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                 id="lastName"
                 name="lastName"
                 placeholder="Doe"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -452,13 +385,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                  
               </label>
               <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                 id="homeAddress"
                 name="homeAddress"
                 placeholder="2, Sizwe Street"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -472,13 +402,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                  
               </label>
               <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                 id="email"
                 name="email"
                 placeholder="johndoe@gmail.com"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -492,13 +419,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                  
               </label>
               <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                 id="bankName"
                 name="bankName"
                 placeholder="Access Bank"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -512,13 +436,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                  
               </label>
               <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                 id="accountNo"
                 name="accountNo"
                 placeholder="1234567890"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -532,13 +453,10 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                  
               </label>
               <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                 id="bvn"
                 name="bvn"
                 placeholder="12345678901"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div
@@ -552,39 +470,11 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                  
               </label>
               <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
+                class="block text-lg font-sora w-full px-3 py-[16px] border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] h-[58px] border-[#E0E0E0]"
                 disabled=""
                 id="companyId"
                 placeholder="A034529"
                 value=""
-              />
-              <p
-                class="text-sm text-[#333]"
-              />
-            </div>
-            <div
-              class=""
-            >
-              <label
-                class="mb-2 block text-sm text-[#333"
-                for="gampId"
-              >
-                GAMP ID
-                 
-                <span
-                  class="not-italic text-sm text-[#333]"
-                >
-                  (optional)
-                </span>
-              </label>
-              <input
-                class="block text-lg font-sora w-full px-3 py-[16px] border rounded-lg outline-none focus:border-black h-[58px] border-[#E0E0E0]"
-                id="gampId"
-                name="gampId"
-                placeholder="A034529"
-              />
-              <p
-                class="text-sm text-[#333]"
               />
             </div>
             <div>
@@ -601,15 +491,12 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   class="w-full"
                 >
                   <input
-                    class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                    class="block text-lg font-sora px-3 py-[16px] transition border-black/30 rounded-lg outline-none autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
                     id="password"
                     name="password"
                     placeholder="******"
                     type="password"
                     value=""
-                  />
-                  <p
-                    class="text-sm text-[#333]"
                   />
                 </div>
                 <button
@@ -648,15 +535,12 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                   class="w-full"
                 >
                   <input
-                    class="block text-lg font-sora px-3 py-[16px] border-[#424242] rounded-lg outline-none mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
+                    class="block text-lg font-sora px-3 py-[16px] transition border-black/30 rounded-lg outline-none autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] mb-0 border-0 w-[90%] focus:border-transparent focus:border-b-0 h-[56px]"
                     id="confirmPassword"
                     name="confirmPassword"
                     placeholder="******"
                     type="password"
                     value=""
-                  />
-                  <p
-                    class="text-sm text-[#333]"
                   />
                 </div>
                 <button
@@ -694,7 +578,7 @@ exports[`Agent Signup Page > renders correctly 1`] = `
                  
                 <a
                   class="text-mPrimary"
-                  href="/agent/login"
+                  href="/login"
                 >
                   Sign In
                 </a>

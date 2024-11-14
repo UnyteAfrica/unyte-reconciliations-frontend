@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 
 type RadioInputProps = {
   label: string;
-  onClick: MouseEventHandler<HTMLDivElement>;
+  onClick?: MouseEventHandler<HTMLDivElement>;
   onChange: ChangeEventHandler<HTMLInputElement>;
   name: string;
   checked: boolean;

@@ -3,11 +3,14 @@ export const BrowserRoutes = {
   signup: "/sign-up",
   agent: "/agent",
   company: "/company",
+  merchant: "/merchant",
   overview: "/overview",
   dashboard: "/dashboard",
   policies: "/policies",
   commissions: "/commissions",
-  devices: "/devices",
+  insurer: "/insurer",
+  sold: "/sold",
+  customers: "/customers",
   profile: "/profile",
   claims: "/claims",
   agents: "/agents",
@@ -21,19 +24,11 @@ export const BrowserRoutes = {
 };
 
 export const BrowserComboRoutes = {
-  agentLogin: BrowserRoutes.agent + BrowserRoutes.login,
   agentSignup: BrowserRoutes.agent + BrowserRoutes.signup,
-  agentForgotPassword: BrowserRoutes.agent + BrowserRoutes.forgotPassword,
-  agentResetPassword: BrowserRoutes.agent + BrowserRoutes.resetPassword,
-  agentVerify: BrowserRoutes.agent + BrowserRoutes.verify,
   agentDashboard: BrowserRoutes.agent + BrowserRoutes.dashboard,
   agentOverview:
     BrowserRoutes.agent + BrowserRoutes.dashboard + BrowserRoutes.overview,
-  companyLogin: BrowserRoutes.company + BrowserRoutes.login,
   companySignup: BrowserRoutes.company + BrowserRoutes.signup,
-  companyForgotPassword: BrowserRoutes.company + BrowserRoutes.forgotPassword,
-  companyResetPassword: BrowserRoutes.company + BrowserRoutes.resetPassword,
-  companyVerify: BrowserRoutes.company + BrowserRoutes.verify,
   companyDashboard: BrowserRoutes.company + BrowserRoutes.dashboard,
   companyViewClaim: BrowserRoutes.company + BrowserRoutes.viewClaim,
   companyOverview:
@@ -48,4 +43,29 @@ export const BrowserComboRoutes = {
     BrowserRoutes.dashboard +
     BrowserRoutes.claims +
     BrowserRoutes.completed,
+  merchantSignup: BrowserRoutes.merchant + BrowserRoutes.signup,
+  merchantDashboard: BrowserRoutes.merchant + BrowserRoutes.dashboard,
+  merchantViewClaim: BrowserRoutes.merchant + BrowserRoutes.viewClaim,
+  merchantOverview:
+    BrowserRoutes.merchant + BrowserRoutes.dashboard + BrowserRoutes.overview,
+  pendingMerchantClaims:
+    BrowserRoutes.merchant +
+    BrowserRoutes.dashboard +
+    BrowserRoutes.claims +
+    BrowserRoutes.pending,
+  completedMerchantClaims:
+    BrowserRoutes.merchant +
+    BrowserRoutes.dashboard +
+    BrowserRoutes.claims +
+    BrowserRoutes.completed,
+  merchantInsurerPolicies:
+    BrowserRoutes.merchant +
+    BrowserRoutes.dashboard +
+    BrowserRoutes.policies +
+    BrowserRoutes.insurer,
+  merchantSoldPolicies:
+    BrowserRoutes.merchant +
+    BrowserRoutes.dashboard +
+    BrowserRoutes.policies +
+    BrowserRoutes.sold,
 };

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import SearchIcon from "../assets/Icons/SearchIcon.svg";
 import { twMerge } from "tailwind-merge";
 
@@ -7,14 +5,17 @@ type SearchBarProps = {
   placeholder: string;
   className?: string;
   containerClassName?: string;
+  value: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
 export const SearchBar: React.FC<SearchBarProps> = ({
   placeholder,
   className,
   containerClassName,
+  value,
+  onChange,
 }) => {
-  const [value, setValue] = useState("");
   return (
     <div
       className={twMerge(
@@ -22,13 +23,20 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         containerClassName
       )}
     >
-      <img src={SearchIcon} alt="search icon" className="block mr-2 w-7 h-7" />
+      <img
+        src={SearchIcon}
+        alt="search icon"
+        className="block mr-2 w-[18px] h-[18px]"
+      />
       <input
         type="search"
-        onChange={(e) => setValue(e.target.value)}
+        onChange={onChange}
         value={value}
         placeholder={placeholder}
-        className={twMerge("bg-transparent py-2 text-opacity-20", className)}
+        className={twMerge(
+          "bg-transparent py-2 text-opacity-20 outline-none w-full",
+          className
+        )}
       />
     </div>
   );

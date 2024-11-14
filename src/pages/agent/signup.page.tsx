@@ -2,7 +2,7 @@ import { CustomInput, PasswordInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BrowserComboRoutes } from "@/utils/routes";
+import { BrowserRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
@@ -27,11 +27,6 @@ const formSchema = z
       .string()
       .min(10, "Home Address cannot be less than 10 characters"),
     email: z.string().email("Invalid email entered"),
-    gampId: z
-      .string()
-      .min(5, "GAMP ID cannot be less than 5 characters")
-      .optional()
-      .or(z.literal("")),
     bvn: z
       .string()
       .min(11, "BVN must be 11 characters")
@@ -65,7 +60,6 @@ export const AgentSignupPage = () => {
       bvn: "",
       accountNo: "",
       bankName: "",
-      gampId: "",
       password: "",
       confirmPassword: "",
     },
@@ -77,7 +71,7 @@ export const AgentSignupPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!inviteCode) navigate(BrowserComboRoutes.agentLogin);
+    if (!inviteCode) navigate(BrowserRoutes.login);
   }, []);
 
   const { mutate: mSignup, isPending: isSignupLoading } = useMutation({
@@ -86,7 +80,7 @@ export const AgentSignupPage = () => {
     onSuccess: (data) => {
       const message = data.data.message;
       toast.success(message);
-      navigate(BrowserComboRoutes.agentLogin);
+      navigate(BrowserRoutes.login);
     },
   });
 
@@ -102,7 +96,6 @@ export const AgentSignupPage = () => {
       lastName,
       middleName,
       password,
-      gampId,
     } = data;
     mSignup({
       accountNo,
@@ -114,7 +107,6 @@ export const AgentSignupPage = () => {
       homeAddress,
       lastName,
       middleName,
-      agent_gampID: gampId ?? "",
       companyInviteCode: inviteCode!,
     });
   };
@@ -207,15 +199,6 @@ export const AgentSignupPage = () => {
                 value={inviteCode!}
               />
 
-              <CustomInput
-                label="GAMP ID"
-                optional
-                labelClassName="text-sm text-[#333"
-                className="h-[58px] border-[#E0E0E0]"
-                placeholder="A034529"
-                error={errors.gampId?.message?.toString()}
-                {...register("gampId")}
-              />
               <PasswordInput
                 label="Password"
                 placeholder="******"
@@ -243,10 +226,7 @@ export const AgentSignupPage = () => {
                 </button>
                 <p className="text-center">
                   Already have an account?{" "}
-                  <Link
-                    to={BrowserComboRoutes.agentLogin}
-                    className="text-mPrimary"
-                  >
+                  <Link to={BrowserRoutes.login} className="text-mPrimary">
                     Sign In
                   </Link>
                 </p>
@@ -257,7 +237,7 @@ export const AgentSignupPage = () => {
       )}
 
       {isMediaQueryMatched && (
-        <div className="justify-center items-center  bg-[#f5f5f5] min-h-screen flex">
+        <div className="justify-center items-center  bg-[#f5f5f5] min-h-dvh flex">
           <div className="p-10 bg-white w-[720px] overflow-y-auto h-[750px] rounded-2xl">
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -326,13 +306,7 @@ export const AgentSignupPage = () => {
                   placeholder="A034529"
                   value={inviteCode!}
                 />
-                <CustomInput
-                  label="GAMP ID"
-                  optional
-                  placeholder="A034529"
-                  error={errors.gampId?.message?.toString()}
-                  {...register("gampId")}
-                />
+
                 <PasswordInput
                   label="Password"
                   placeholder="******"
@@ -348,10 +322,7 @@ export const AgentSignupPage = () => {
                 <div>
                   <p className="mb-2">
                     Already have an account?{" "}
-                    <Link
-                      to={BrowserComboRoutes.agentLogin}
-                      className="text-mPrimary"
-                    >
+                    <Link to={BrowserRoutes.login} className="text-mPrimary">
                       Sign In
                     </Link>
                   </p>

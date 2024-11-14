@@ -166,24 +166,6 @@ describe("Agent Signup Page", () => {
     expect(errorMessage).toBeVisible();
   });
 
-  it("should validate GAMP ID", async () => {
-    const { user } = setup(
-      <BrowserRouter>
-        <AgentSignupPage />
-      </BrowserRouter>
-    );
-
-    const gampIdInput = screen.getByLabelText("GAMP ID (optional)");
-    await user.click(gampIdInput);
-    await user.keyboard("A099");
-    const submitButton = screen.getByText("Sign Up");
-    await user.click(submitButton);
-    const errorMessage = screen.getByText(
-      "GAMP ID cannot be less than 5 characters"
-    );
-    expect(errorMessage).toBeVisible();
-  });
-
   it("should validate password", async () => {
     const { user } = setup(
       <BrowserRouter>

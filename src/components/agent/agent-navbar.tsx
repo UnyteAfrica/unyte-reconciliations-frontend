@@ -7,15 +7,14 @@ import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
 import { cx } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 import { clearCredentials, getInitials } from "@/utils/utils";
-import { UserType } from "@/types/types";
-import { AgentContext } from "@/context/agent.context";
-import { getAgentDetails } from "@/services/api/api-agent";
 import { AgentQueryKeys } from "@/utils/query-keys";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Loader } from "../loader";
 import { LuMenu } from "react-icons/lu";
 import { AiOutlineClose } from "react-icons/ai";
-import { useLockScroll, useMediaQuery } from "@/utils/hooks";
+import { useMediaQuery } from "@/utils/hooks";
+import { getDetails } from "@/services/api/api-base";
+import { AuthContext } from "@/context/auth.context";
 
 type UrlLink = {
   text: string;
@@ -36,8 +35,8 @@ const navLinks: UrlLink[] = [
     url: BrowserComboRoutes.agentDashboard + BrowserRoutes.commissions,
   },
   {
-    text: "Devices",
-    url: BrowserComboRoutes.agentDashboard + BrowserRoutes.devices,
+    text: "Customers",
+    url: BrowserComboRoutes.agentDashboard + BrowserRoutes.customers,
   },
 ];
 
@@ -45,7 +44,7 @@ export const AgentNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { setIsLoggedIn, setAgentEmail } = useContext(AgentContext);
+  const { setIsLoggedIn, setEmail } = useContext(AuthContext);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -57,12 +56,12 @@ export const AgentNavbar = () => {
   const { data: agentDetailsData, isPending: isAgentDetailsLoading } = useQuery(
     {
       queryKey: [AgentQueryKeys.details],
-      queryFn: () => getAgentDetails(),
+      queryFn: () => getDetails(),
     }
   );
 
   const logout = () => {
-    clearCredentials(UserType.agent);
+    clearCredentials();
     setIsLoggedIn(false);
     queryClient.invalidateQueries();
   };
@@ -73,31 +72,44 @@ export const AgentNavbar = () => {
 
   const agentDetails = agentDetailsData?.data;
   useEffect(() => {
-    if (agentDetails) setAgentEmail(agentDetails.email);
+    if (agentDetails) setEmail(agentDetails.email);
   }, [agentDetails]);
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 
-  useLockScroll(isMobileMenuOpen);
+  useEffect(() => {
+    console.log(location.pathname);
+  }, [location.pathname]);
+
+  const requiresGreyBackground =
+    location.pathname ==
+      BrowserComboRoutes.agentDashboard + BrowserRoutes.policies ||
+    location.pathname ==
+      BrowserComboRoutes.agentDashboard + BrowserRoutes.customers;
 
   return (
     <>
       {!isMediaQueryMatched && (
-        <div className="relative z-30">
-          <header className="px-5 pt-8 pb-4">
+        <div
+          className={twMerge(
+            "relative z-30",
+            requiresGreyBackground && "bg-[#F8F8F8]"
+          )}
+        >
+          <header className="px-5 pt-10 pb-4">
             <LuMenu
               onClick={() => setIsMobileMenuOpen(true)}
-              className="w-8 h-8 block mb-5"
+              size={32}
+              className="block"
             />
-            <Icon type="logo" className="block" />
           </header>
           <div
             className={twMerge(
-              "absolute top-0 left-0 flex w-full transition duration-300 -translate-x-[100%]",
+              "fixed top-0 left-0 flex w-full transition duration-300 -translate-x-[100%]",
               isMobileMenuOpen && "translate-x-0"
             )}
           >
-            <nav className="h-screen bg-white w-[300px] relative px-5 py-10 flex flex-col justify-between">
+            <nav className="h-dvh bg-white w-[300px] relative px-5 py-10 flex flex-col justify-between">
               <div className="flex justify-between items-center">
                 <Icon type="logo" className="block" />
                 <AiOutlineClose
@@ -113,10 +125,7 @@ export const AgentNavbar = () => {
                     className={({ isActive }) =>
                       cx(
                         "font-semibold text-lg duration-300",
-                        (isActive ||
-                          location.pathname.includes(
-                            navLink.text.toLowerCase()
-                          )) &&
+                        isActive &&
                           "text-[#25D366] underline underline-offset-[10px] decoration-4"
                       )
                     }
@@ -134,14 +143,14 @@ export const AgentNavbar = () => {
                       <div className="flex items-center mb-6">
                         <div className="rounded-full h-10 w-10 bg-gray-200 text-base flex items-center justify-center mr-2">
                           {getInitials(
-                            agentDetails.first_name,
-                            agentDetails.last_name
+                            agentDetails.first_name ?? "",
+                            agentDetails.last_name ?? ""
                           )}
                         </div>
                         <div className="text-base text-[#333] font-medium">
-                          {agentDetails.first_name +
+                          {(agentDetails.first_name ?? "") +
                             " " +
-                            agentDetails.last_name}
+                            (agentDetails.last_name ?? "")}
                         </div>
                       </div>
 
@@ -157,7 +166,7 @@ export const AgentNavbar = () => {
               </div>
             </nav>
             <div
-              className="grow bg-black/20 h-screen"
+              className="grow bg-black/20 h-dvh"
               onClick={() => setIsMobileMenuOpen(false)}
             />
           </div>
@@ -206,14 +215,14 @@ export const AgentNavbar = () => {
                       <div className="space-x-2 flex flex-row items-center">
                         <div className="rounded-full h-10 w-10 p-2 bg-gray-200 text-base flex items-center justify-center">
                           {getInitials(
-                            agentDetails.first_name,
-                            agentDetails.last_name
+                            agentDetails.first_name ?? "",
+                            agentDetails.last_name ?? ""
                           )}
                         </div>
                         <span className="text-lg font-semibold hidden min-[1200px]:inline">
-                          {agentDetails.first_name +
+                          {(agentDetails.first_name ?? "") +
                             " " +
-                            agentDetails.last_name}
+                            (agentDetails.last_name ?? "")}
                         </span>{" "}
                         <BiChevronDown
                           className={cx(
@@ -232,14 +241,14 @@ export const AgentNavbar = () => {
                       <div className="px-6 py-4 flex items-center p-2">
                         <div className="rounded-full h-10 w-10 p-2 bg-gray-200 text-base flex items-center justify-center mr-2 font-bold">
                           {getInitials(
-                            agentDetails.first_name,
-                            agentDetails.last_name
+                            agentDetails.first_name ?? "",
+                            agentDetails.last_name ?? ""
                           )}
                         </div>
                         <div className="text-base text-[#333] font-medium">
-                          {agentDetails.first_name +
+                          {(agentDetails.first_name ?? "") +
                             " " +
-                            agentDetails.last_name}
+                            (agentDetails.last_name ?? "")}
                         </div>
                       </div>
                       <hr />
@@ -267,7 +276,6 @@ export const AgentNavbar = () => {
           </div>
         </>
       )}
-      <hr />
     </>
   );
 };

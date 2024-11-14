@@ -25,20 +25,20 @@ export const Pagination: React.FC<PaginationProps> = ({
   return (
     <>
       {!isMediaQueryMatched && (
-        <div className="mt-8 mx-auto w-[280px] flex items-center justify-between">
+        <div className="mt-8 mx-auto w-[280px] flex items-center justify-center">
           <button
-            className="flex items-center disabled:text-[#ccc]"
+            className="flex items-center text-xs mr-4 disabled:text-[#ccc]"
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage == 1}
           >
-            <FaChevronLeft className="inline-block mr-3" />
+            <FaChevronLeft className="inline-block mr-3 " />
             Previous
           </button>
-          <div className="bg-[#F2F2F2] px-6 py-2 rounded-lg">
+          <div className="bg-[#F2F2F2] px-6 py-2 rounded-lg text-xs w-[90px] h-[29px] flex justify-center items-center">
             {currentPage}/{pagesCount}
           </div>
           <button
-            className="flex items-center disabled:text-[#ccc]"
+            className="flex items-center text-xs ml-4 disabled:text-[#ccc]"
             disabled={currentPage == pagesCount}
             onClick={() => onPageChange(currentPage + 1)}
           >

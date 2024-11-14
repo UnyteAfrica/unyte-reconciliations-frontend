@@ -2,22 +2,22 @@ import { CustomInput } from "@/components/shared/input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { BrowserComboRoutes } from "@/utils/routes";
+import { BrowserRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
-import { agentForgotPassword } from "@/services/api/api-agent";
 import { Loader } from "@/components/loader";
 import toast from "react-hot-toast";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
+import { forgotPassword } from "@/services/api/api-base";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email entered"),
 });
 
-export const AgentForgotPasswordPage = () => {
+export const ForgotPasswordPage = () => {
   const {
     register,
     handleSubmit,
@@ -32,7 +32,7 @@ export const AgentForgotPasswordPage = () => {
   const { mutate: mForgotPassword, isPending: isLoadingForgotPassword } =
     useMutation({
       mutationKey: [MutationKeys.agentForgotPassword],
-      mutationFn: (email: string) => agentForgotPassword(email),
+      mutationFn: (email: string) => forgotPassword(email),
       onSuccess: (data) => {
         logger.log(data);
         toast.success(data.data.message);
@@ -48,7 +48,7 @@ export const AgentForgotPasswordPage = () => {
 
   if (!isMediaQueryMatched)
     return (
-      <div className="px-5 py-10 max-w-[600px] min-h-screen mx-auto flex flex-col ">
+      <div className="px-5 py-10 max-w-[600px] min-h-svh mx-auto flex flex-col ">
         <Icon type="logo" className="mb-6 block w-28" />
         <div className="grow" />
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -69,10 +69,7 @@ export const AgentForgotPasswordPage = () => {
             <div>
               <p className="mb-2 text-sm">
                 Already have an account?{" "}
-                <Link
-                  to={BrowserComboRoutes.agentLogin}
-                  className="text-mPrimary"
-                >
+                <Link to={BrowserRoutes.login} className="text-mPrimary">
                   Log In
                 </Link>
               </p>
@@ -115,10 +112,7 @@ export const AgentForgotPasswordPage = () => {
             <div>
               <p className="mb-2">
                 Already have an account?{" "}
-                <Link
-                  to={BrowserComboRoutes.agentLogin}
-                  className="text-mPrimary"
-                >
+                <Link to={BrowserRoutes.login} className="text-mPrimary">
                   Log In
                 </Link>
               </p>

@@ -13,7 +13,6 @@ import {
 import toast from "react-hot-toast";
 import { logger } from "@/utils/logger";
 import { OTPInput } from "../shared/otp-input";
-import { ApiType } from "@/types/types";
 import { useState } from "react";
 import { cx } from "class-variance-authority";
 import { FaFileCsv } from "react-icons/fa";
@@ -234,11 +233,7 @@ export const NewAgentOverlay: React.FC = () => {
           />
         </>
       )}
-      <OTPInput
-        otpVal={otp}
-        onChange={(otp) => setOtp(otp)}
-        apiType={ApiType.Insurer}
-      />
+      <OTPInput otpVal={otp} onChange={(otp) => setOtp(otp)} />
       <button
         disabled={addAgentState == AddAgentState.CSV && !!!agentsCSV}
         className={twMerge(

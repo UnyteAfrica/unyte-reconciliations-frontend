@@ -24,7 +24,7 @@ export const Overlay: React.FC<PropsWithChildren<{ className?: string }>> = ({
   return (
     <div
       className={twMerge(
-        "bg-[#080202]/[.40] h-screen w-screen flex justify-center items-center fixed top-0 left-0 z-40",
+        "bg-[#080202]/[.40] h-dvh w-screen flex justify-center items-center fixed top-0 left-0 z-40",
         className
       )}
       onClick={handleClose}

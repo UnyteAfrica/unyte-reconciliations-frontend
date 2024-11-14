@@ -13,6 +13,9 @@ import { OverlayContext, OverlayContextType } from "@/context/overlay.context";
 import { useMediaQuery } from "@/utils/hooks";
 import { IoFilterOutline } from "react-icons/io5";
 import { Loader } from "../loader";
+import { AiOutlineRise } from "react-icons/ai";
+import { Icon } from "./icon";
+import { twMerge } from "tailwind-merge";
 
 export const PERIODS = {
   DAILY: "Daily",
@@ -20,6 +23,7 @@ export const PERIODS = {
   MONTHLY: "Monthly",
   YEARLY: "Yearly",
 } as const;
+
 const periods = Object.values(PERIODS);
 export const products = [
   "Comprehensive",
@@ -41,6 +45,8 @@ type PageContentProps = {
   onPageChange?: (page: number) => void;
   totalItems?: number;
   pageCount?: number;
+  filterClassName?: string;
+  downloadClassName?: string;
 };
 
 export const PageContent: React.FC<PageContentProps> = ({
@@ -54,12 +60,15 @@ export const PageContent: React.FC<PageContentProps> = ({
   page,
   pageCount,
   totalItems,
+  filterClassName,
+  downloadClassName,
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [period, setPeriod] = useState<string>(periods[0]);
   const [product, setProduct] = useState<string>(products[0]);
   const [startDate, setStartDate] = useState(new Date(1699885840400));
   const [endDate, setEndDate] = useState(new Date(1699885870400));
+  const [searchText, setSearchText] = useState("");
 
   const { setNewAgentOverlayOpened } = useContext(
     OverlayContext
@@ -67,20 +76,25 @@ export const PageContent: React.FC<PageContentProps> = ({
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 
+  if (isMediaQueryMatched == undefined) return <></>;
+
   return (
     <>
       {!isMediaQueryMatched && (
         <div
-          className="px-5 py-6 max-w-[850px] mx-auto"
+          className="px-5 pb-10 max-w-[850px] mx-auto"
           onClick={() => setIsFilterOpen(false)}
         >
-          <header className="mb-7">
-            <h1 className="font-semibold text-2xl mb-5">{title}</h1>
+          <header className="mb-8">
+            <h1 className="font-semibold text-2xl mb-6">{title}</h1>
             <SearchBar
               placeholder={searchbarPlaceholder ?? "Find policy reference"}
-              containerClassName="mb-4"
+              containerClassName="mb-6 border-2 border-[#E0E0E0] h-10"
+              className="text-sm font-medium py-3"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
             />
-            {/* <div className="flex w-full">
+            <div className="flex w-full">
               <div className="border border-[#E0E0E0] p-4 rounded-lg flex flex-col grow rounded-r-none">
                 <em className="not-italic text-xs text-[#828282] mb-1">
                   Total Commission
@@ -89,7 +103,7 @@ export const PageContent: React.FC<PageContentProps> = ({
                   {nairaSign}40,000.00
                 </em>
                 <em className="not-italic font-medium text-[10px] text-[#25D366]">
-                  <AiOutlineRise className="inline-block mr-1" />
+                  <AiOutlineRise className="inline-block mr-1 w-3" />
                   Up by 10%
                 </em>
               </div>
@@ -101,17 +115,17 @@ export const PageContent: React.FC<PageContentProps> = ({
                   50 Policies
                 </em>
                 <em className="not-italic font-medium text-[10px] text-[#25D366]">
-                  <AiOutlineRise className="inline-block mr-1" />
+                  <AiOutlineRise className="inline-block mr-1 w-3" />
                   Up by 10%
                 </em>
               </div>
-            </div> */}
+            </div>
           </header>
           <main className="">
             <div className="flex justify-between items-center relative">
               <h2 className="font-medium">Activity</h2>
               <button
-                className="bg-[#25D366] rounded-full p-2 px-4 text-white"
+                className="bg-[#25D366] rounded-full py-1 text-white text-xs w-[62px]"
                 onClick={(e) => {
                   e.stopPropagation();
                   setIsFilterOpen((isFilterOpen) => !isFilterOpen);
@@ -120,72 +134,18 @@ export const PageContent: React.FC<PageContentProps> = ({
                 <IoFilterOutline className="inline-block mr-1" />
                 Filter
               </button>
-              <div
-                data-testid="filter"
-                onClick={(e) => e.stopPropagation()}
-                className={cx(
-                  "bg-white px-5 py-10 absolute top-[50px] w-[250px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all duration-[5000ms] overflow-hidden opacity-0 ",
-                  !isFilterOpen && "max-h-0",
-                  isFilterOpen && "max-h-[500px] opacity-100 overflow-y-auto"
-                )}
-              >
-                <WithLabel label="Period Range">
-                  <Selector
-                    options={periods}
-                    containerClassName="w-full"
-                    value={period}
-                    onChange={(val) => setPeriod(val)}
-                  />
-                </WithLabel>
-                <WithLabel label="Custom Date Range">
-                  <div className="w-full">
-                    <DateInput
-                      containerClassName="font-semibold w-full block"
-                      date={startDate}
-                      onDateChange={(date) => setStartDate(date)}
-                    />
-                    <DateInput
-                      containerClassName="font-semibold w-full"
-                      date={endDate}
-                      onDateChange={(date) => setEndDate(date)}
-                    />
-                  </div>
-                </WithLabel>
-                <CustomInput
-                  className="px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
-                  label="Policy No."
-                  labelClassName="text-base"
-                  placeholder="#A023457"
-                />
-                <WithLabel label="Select Product(s)">
-                  <Selector
-                    options={products}
-                    containerClassName="w-full"
-                    value={product}
-                    onChange={(val) => setProduct(val)}
-                  />
-                </WithLabel>
-                <CustomInput
-                  className="px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold"
-                  label="Amount"
-                  labelClassName="text-base"
-                  placeholder={nairaSign}
-                />
-                <div className="flex ml-auto">
-                  <button
-                    className="bg-white border rounded-md w-[90px] inline-block mr-4 py-2 ml-auto"
-                    onClick={() => setIsFilterOpen(false)}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    className="bg-mPrimary text-white w-[115px] rounded-md py-2"
-                    onClick={() => setIsFilterOpen(false)}
-                  >
-                    Apply Filter
-                  </button>
-                </div>
-              </div>
+              <PageFilter
+                isFilterOpen={isFilterOpen}
+                onClose={() => setIsFilterOpen(false)}
+                period={period}
+                product={product}
+                startDate={startDate}
+                endDate={endDate}
+                setPeriod={setPeriod}
+                setProduct={setProduct}
+                setEndDate={setEndDate}
+                setStartDate={setStartDate}
+              />
             </div>
             {isLoading ? (
               <Loader className="mx-auto w-16 h-16 mt-20" />
@@ -195,7 +155,7 @@ export const PageContent: React.FC<PageContentProps> = ({
               </p>
             ) : (
               <>
-                <div className="my-6">{pageTable}</div>
+                <div className="my-4 mb-10">{pageTable}</div>
                 <Pagination
                   currentPage={page || 1}
                   itemsCount={totalItems || 10}
@@ -209,7 +169,7 @@ export const PageContent: React.FC<PageContentProps> = ({
       )}
       {isMediaQueryMatched && (
         <div
-          className="mx-auto max-w-7xl mt-12 px-6 mb-16"
+          className="mx-auto max-w-6xl mt-12 mb-16"
           onClick={() => setIsFilterOpen(false)}
         >
           <div className="flex flex-row justify-between items-center mb-10 relative">
@@ -221,8 +181,34 @@ export const PageContent: React.FC<PageContentProps> = ({
             </span>
             <SearchBar
               placeholder={searchbarPlaceholder ?? "Find policy reference"}
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              containerClassName="w-[332px] h-10 border border-[#e0e0e0] transition focus-within:border-[#333]"
             />
             <div id="dates" className="flex flex-row items-center space-x-3">
+              <button
+                className="text-[#333333]"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsFilterOpen((isFilterOpen) => !isFilterOpen);
+                }}
+              >
+                <div
+                  className={twMerge(
+                    "space-x-2 flex flex-row items-center px-4 py-2 rounded border border-[#E0E0E0] bg-white text-[#4F4F4F] text-sm font-semibold",
+                    filterClassName
+                  )}
+                >
+                  <span className="text-base">Filter</span>
+                  <BiChevronDown
+                    className={cx(
+                      "transition-all duration-300",
+                      isFilterOpen && "rotate-180"
+                    )}
+                  />
+                </div>
+              </button>
+              <DownloadButton className={downloadClassName} data={[]} />
               {hasNewAgent && (
                 <button
                   className="text-[#333333]"
@@ -237,25 +223,6 @@ export const PageContent: React.FC<PageContentProps> = ({
                   </div>
                 </button>
               )}
-
-              <button
-                className="text-[#333333]"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsFilterOpen((isFilterOpen) => !isFilterOpen);
-                }}
-              >
-                <div className="space-x-2 flex flex-row items-center bg-[#828282] px-4 py-2 rounded text-white">
-                  <span className="text-base">Filter</span>
-                  <BiChevronDown
-                    className={cx(
-                      "transition-all duration-300",
-                      isFilterOpen && "rotate-180"
-                    )}
-                  />
-                </div>
-              </button>
-              <DownloadButton data={[]} />
             </div>
             <div
               data-testid="filter"
@@ -343,5 +310,132 @@ export const PageContent: React.FC<PageContentProps> = ({
         </div>
       )}
     </>
+  );
+};
+
+type PageFilterProps = {
+  isFilterOpen: boolean;
+  onClose: () => void;
+  period: string;
+  product: string;
+  startDate: Date;
+  endDate: Date;
+  setPeriod: (period: string) => void;
+  setProduct: (product: string) => void;
+  setStartDate: (startDate: Date) => void;
+  setEndDate: (endDate: Date) => void;
+};
+
+const PageFilter: React.FC<PageFilterProps> = ({
+  isFilterOpen,
+  onClose,
+  period,
+  setPeriod,
+  product,
+  setProduct,
+  startDate,
+  setStartDate,
+  endDate,
+  setEndDate,
+}) => {
+  return (
+    <div
+      className={twMerge(
+        "h-dvh w-screen bg-black/30 fixed inset-0 transition",
+        isFilterOpen && "z-50 opacity-100 translate-y-0",
+        !isFilterOpen && "-z-20 opacity-0 translate-y-[100%]"
+      )}
+      onClick={onClose}
+    >
+      <div
+        className={twMerge(
+          "bg-white w-screen absolute bottom-0 rounded-t-2xl transition"
+          // isShowingBottomSheet && "translate-y-0"
+        )}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <div className="p-6">
+          <header className="flex justify-between items-center mb-6">
+            <h2 className="font-semibold text-xl">Filter Commissions</h2>
+            <button onClick={onClose}>
+              <Icon type="close" className="w-6 h-6" />
+            </button>
+          </header>
+          <div
+            data-testid="filter"
+            onClick={(e) => e.stopPropagation()}
+            className={cx(
+              "bg-white rounded-lg space-y-6 transition-all",
+              isFilterOpen && "isOpened"
+            )}
+          >
+            <WithLabel
+              className="flex justify-between items-center w-full"
+              label="Period Range"
+              labelClassName="mb-0"
+            >
+              <Selector
+                options={periods}
+                containerClassName="w-full inline-block max-w-[200px]"
+                value={period}
+                onChange={(val) => setPeriod(val)}
+              />
+            </WithLabel>
+            <WithLabel
+              className="flex justify-between items-center w-full"
+              labelClassName="mb-0"
+              label="Custom Date Range"
+            >
+              <div className="w-full inline-block max-w-[200px]">
+                <DateInput
+                  containerClassName="font-semibold w-full block mb-1"
+                  date={startDate}
+                  onDateChange={(date) => setStartDate(date)}
+                />
+                <DateInput
+                  containerClassName="font-semibold w-full"
+                  date={endDate}
+                  onDateChange={(date) => setEndDate(date)}
+                />
+              </div>
+            </WithLabel>
+            {/* <CustomInput
+              className="px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold max-w-[200px]"
+              label="Policy No."
+              labelClassName="text-base"
+              containerClassName="flex justify-between items-center w-full"
+              placeholder="#A023457"
+            /> */}
+            <WithLabel
+              className="flex justify-between items-center w-full"
+              labelClassName="mb-0"
+              label="Select Product(s)"
+            >
+              <Selector
+                options={products}
+                containerClassName="w-full max-w-[200px]"
+                value={product}
+                onChange={(val) => setProduct(val)}
+              />
+            </WithLabel>
+            <CustomInput
+              className="px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold max-w-[200px]"
+              label="Amount"
+              labelClassName="text-base"
+              containerClassName="flex justify-between items-center w-full"
+              placeholder={nairaSign}
+            />
+            <button
+              className="bg-mPrimary text-white w-full rounded-md py-2"
+              onClick={onClose}
+            >
+              Apply Filter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };

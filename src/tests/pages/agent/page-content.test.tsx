@@ -19,14 +19,16 @@ const commissions: Commission[] = [
     policyNo: "123jkf5402",
     product: "Travel",
     date: "May 7, 2023",
-    commission: 40000,
+    premium: 15000,
+    commission: 4000,
   },
   {
     policyRef: "#WP62F3E8F93",
     policyNo: "123jkf5402",
     product: "Device",
     date: "May 7, 2023",
-    commission: 40000,
+    premium: 20000,
+    commission: 1500,
   },
 ];
 
@@ -56,9 +58,8 @@ describe("Page Content", () => {
     const filterBtn = screen.getByText("Filter");
     await user.click(filterBtn);
     const filterBox = screen.getByTestId("filter");
-
-    expect(filterBox).toHaveClass("max-h-[500px]");
-    expect(filterBox).not.toHaveClass("max-h-0");
+    expect(filterBox).toBeVisible();
+    expect(filterBox).toHaveClass("isOpened");
   });
 
   it("should close filter menu when it the user clicks outside it", async () => {
@@ -78,7 +79,6 @@ describe("Page Content", () => {
     await user.click(commissionsText);
     const filterBox = screen.getByTestId("filter");
 
-    expect(filterBox).toHaveClass("max-h-0");
-    expect(filterBox).not.toHaveClass("max-h-[500px]");
+    expect(filterBox).not.toHaveClass("isOpened");
   });
 });

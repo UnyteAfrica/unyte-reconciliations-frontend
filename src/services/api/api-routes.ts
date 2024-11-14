@@ -4,11 +4,11 @@ const BaseRoutes = {
   verify: "/verify-otp",
   newOTP: "/new-otp",
   forgotPassword: "/forgot-password",
-  passwordReset: "/password-reset",
-  details: "/details",
+  passwordReset: "/reset-password",
+  details: "/user-details",
   inviteAgent: "/generate-agent-sign-up",
   inviteAgentsThroughCSV: "/generate-agent-sign-up-csv",
-  insurerProfile: "/insurer-profile",
+  profile: "/user-profile",
   resetToken: "/refresh-access-token",
   updateProfilePicture: "/update-profile-picture",
   agents: "/all-agents",
@@ -20,21 +20,26 @@ const BaseRoutes = {
 const RouteTypes = {
   company: "insurer",
   agent: "agent",
+  user: "user",
+};
+
+export const AuthApiRoutes = {
+  login: RouteTypes.user + BaseRoutes.login,
+  verifyOTP: RouteTypes.user + BaseRoutes.verify,
+  resendOTP: RouteTypes.user + BaseRoutes.newOTP,
+  forgotPassword: RouteTypes.user + BaseRoutes.forgotPassword,
+  resetPassword: RouteTypes.user + BaseRoutes.passwordReset,
+  resetToken: RouteTypes.user + BaseRoutes.resetToken,
+  profile: RouteTypes.user + BaseRoutes.profile,
+  details: RouteTypes.user + BaseRoutes.details,
 };
 
 export const CompanyApiRoutes = {
   signup: RouteTypes.company + BaseRoutes.signup,
-  login: RouteTypes.company + BaseRoutes.login,
-  verifyOTP: RouteTypes.company + BaseRoutes.verify,
-  resendOTP: RouteTypes.company + BaseRoutes.newOTP,
-  forgotPassword: RouteTypes.company + BaseRoutes.forgotPassword,
-  resetPassword: RouteTypes.company + BaseRoutes.passwordReset,
-  details: RouteTypes.company + BaseRoutes.details,
-  profile: RouteTypes.company + BaseRoutes.insurerProfile,
   inviteAgent: RouteTypes.company + BaseRoutes.inviteAgent,
   inviteAgentsThroughCSV:
     RouteTypes.company + BaseRoutes.inviteAgentsThroughCSV,
-  resetToken: RouteTypes.company + BaseRoutes.resetToken,
+
   updateProfilePicture: RouteTypes.company + BaseRoutes.updateProfilePicture,
   getAllAgents: RouteTypes.company + BaseRoutes.agents,
   getPolicies: (page: number) => RouteTypes.company + BaseRoutes.policies(page),
@@ -44,33 +49,15 @@ export const CompanyApiRoutes = {
 
 export const AgentApiRoutes = {
   signup: RouteTypes.agent + BaseRoutes.signup,
-  login: RouteTypes.agent + BaseRoutes.login,
-  verifyOTP: RouteTypes.agent + BaseRoutes.verify,
-  resendOTP: RouteTypes.agent + BaseRoutes.newOTP,
-  forgotPassword: RouteTypes.agent + BaseRoutes.forgotPassword,
-  resetPassword: RouteTypes.agent + BaseRoutes.passwordReset,
-  details: RouteTypes.agent + BaseRoutes.details,
-  profile: RouteTypes.agent + BaseRoutes.insurerProfile,
-  inviteAgent: RouteTypes.agent + BaseRoutes.inviteAgent,
-  resetToken: RouteTypes.agent + BaseRoutes.resetToken,
 };
 
-export const COMPANY_UNPROTECTED_ROUTES = [
+export const UNPROTECTED_ROUTES = [
   CompanyApiRoutes.signup,
-  CompanyApiRoutes.login,
-  CompanyApiRoutes.verifyOTP,
-  CompanyApiRoutes.resendOTP,
-  CompanyApiRoutes.forgotPassword,
-  CompanyApiRoutes.resetPassword,
-  CompanyApiRoutes.resetToken,
-];
-
-export const AGENT_UNPROTECTED_ROUTES = [
   AgentApiRoutes.signup,
-  AgentApiRoutes.login,
-  AgentApiRoutes.verifyOTP,
-  AgentApiRoutes.resendOTP,
-  AgentApiRoutes.forgotPassword,
-  AgentApiRoutes.resetPassword,
-  AgentApiRoutes.resetToken,
+  AuthApiRoutes.login,
+  AuthApiRoutes.verifyOTP,
+  AuthApiRoutes.resendOTP,
+  AuthApiRoutes.forgotPassword,
+  AuthApiRoutes.resetPassword,
+  AuthApiRoutes.resetToken,
 ];

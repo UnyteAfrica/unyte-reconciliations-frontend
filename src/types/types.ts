@@ -1,29 +1,39 @@
+import { IconType } from "@/components/shared/icon";
+
 export const ClaimStatus = {
   Processing: "Processing",
   Submitted: "Submitted",
   Completed: "Completed",
 } as const;
 
+export const AgentStatus = {
+  Active: "Active",
+  Inactive: "Inactive",
+} as const;
+
 export type ClaimStatusType = keyof typeof ClaimStatus;
+export type AgentStatusType = keyof typeof AgentStatus;
+
+export const UserType = {
+  INSURER: "INSURER",
+  AGENT: "AGENT",
+  MERCHANT: "MERCHANT",
+} as const;
 
 export enum ApiType {
   Insurer,
   Agent,
 }
 
-export type Claim = {
+export type BaseClaim = {
   policyNo: string;
   email: string;
   date: string;
-  insurer: string;
+  claimType: string;
   status: ClaimStatusType;
-  estimate: number;
 };
 
-export enum UserType {
-  company,
-  agent,
-}
+export type Claim = BaseClaim & { estimate: number };
 
 export type AgentPolicy = {
   policyRef: string;
@@ -58,8 +68,28 @@ export type Commission = {
   policyRef: string;
   policyNo: string;
   product: string;
+  premium: number;
   date: string;
   commission: number;
+};
+
+export type PolicyType = {
+  name: string;
+  description: string;
+  iconType: IconType;
+};
+
+export type Customer = {
+  name: string;
+  phoneNo: string;
+  email: string;
+  activePolicies: CustomerPolicy[];
+  inactivePolicies: CustomerPolicy[];
+};
+
+export type CustomerPolicy = {
+  policyName: string;
+  price: number;
 };
 
 export type DeviceTableEntry = {
@@ -76,8 +106,10 @@ export type Agent = {
   id: string;
   name: string;
   email: string;
+  dateAdded: string;
   commissions: number;
   policiesSold: number;
+  agentStatus: AgentStatusType;
 };
 
 export type ApiCompanyAgent = {
@@ -115,3 +147,14 @@ export type Policy = {
   policy_name: string;
   premium: string;
 };
+
+export type BasePolicy = {
+  policyType: string;
+  policyNo: string;
+  date: string;
+  premium: number;
+};
+
+export type MerchantInsurerPolicy = BasePolicy & { insurer: string };
+
+export type MerchantSoldPolicy = BasePolicy & { userEmail: string };
