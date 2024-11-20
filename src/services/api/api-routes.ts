@@ -2,7 +2,7 @@ const BaseRoutes = {
   signup: "/sign-up",
   login: "/sign-in",
   verify: "/verify-otp",
-  newOTP: "/new-otp",
+  newOTP: "/request-new-otp",
   forgotPassword: "/forgot-password",
   passwordReset: "/reset-password",
   details: "/user-details",
@@ -11,6 +11,7 @@ const BaseRoutes = {
   profile: "/user-profile",
   resetToken: "/refresh-access-token",
   updateProfilePicture: "/update-profile-picture",
+  dashboard: "/dashboard",
   agents: "/all-agents",
   policies: (page: number) => `/view-all-policies?page=${page}`,
   dateRangePolicies: (startDate: string, endDate: string) =>
@@ -21,6 +22,7 @@ const RouteTypes = {
   company: "insurer",
   agent: "agent",
   user: "user",
+  merchant: "merchants",
 };
 
 export const AuthApiRoutes = {
@@ -32,6 +34,17 @@ export const AuthApiRoutes = {
   resetToken: RouteTypes.user + BaseRoutes.resetToken,
   profile: RouteTypes.user + BaseRoutes.profile,
   details: RouteTypes.user + BaseRoutes.details,
+};
+
+export const CompanyDashboardApiRoutes = {
+  policies: (insurerId: string, page?: number) =>
+    BaseRoutes.dashboard +
+    RouteTypes.company +
+    `/${insurerId}` +
+    BaseRoutes.policies +
+    page
+      ? `?page=${page}`
+      : "",
 };
 
 export const CompanyApiRoutes = {
@@ -49,6 +62,10 @@ export const CompanyApiRoutes = {
 
 export const AgentApiRoutes = {
   signup: RouteTypes.agent + BaseRoutes.signup,
+};
+
+export const MerchantApiRoutes = {
+  signup: RouteTypes.merchant + BaseRoutes.signup,
 };
 
 export const UNPROTECTED_ROUTES = [

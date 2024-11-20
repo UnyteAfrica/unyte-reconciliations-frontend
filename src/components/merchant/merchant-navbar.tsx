@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { BiChevronDown } from "react-icons/bi";
 import { Icon } from "../shared/icon";
 import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
@@ -12,7 +12,7 @@ import { Loader } from "../loader";
 import { useLockScroll, useMediaQuery } from "@/utils/hooks";
 import { LuMenu } from "react-icons/lu";
 import { AiOutlineClose } from "react-icons/ai";
-import { getProfile } from "@/services/api/api-base";
+import { getDetails } from "@/services/api/api-base";
 import { AuthContext } from "@/context/auth.context";
 
 type UrlLink = {
@@ -44,8 +44,8 @@ export const MerchantNavbar = () => {
 
   const { data: merchantDetailsData, isPending: isMerchantDetailsLoading } =
     useQuery({
-      queryKey: [MerchantQueryKeys.profile],
-      queryFn: () => getProfile(),
+      queryKey: [MerchantQueryKeys.details],
+      queryFn: () => getDetails(),
     });
 
   useEffect(() => {
@@ -124,7 +124,13 @@ export const MerchantNavbar = () => {
                 ) : (
                   !!merchantDetails && (
                     <div id="profile">
-                      <div className="flex items-center mb-6">
+                      <Link
+                        to={
+                          BrowserComboRoutes.merchantDashboard +
+                          BrowserRoutes.profile
+                        }
+                        className="flex items-center mb-6"
+                      >
                         {!!merchantDetails.profile_image ? (
                           <img
                             className="h-10 w-10 object-cover inline-block mr-2 rounded-full"
@@ -133,14 +139,14 @@ export const MerchantNavbar = () => {
                           />
                         ) : (
                           <div className="rounded-full h-10 w-10 bg-gray-200 text-base flex items-center justify-center mr-2">
-                            {getCompanyInitials(merchantDetails.business_name)}
+                            {getCompanyInitials(merchantDetails.merchant_name)}
                           </div>
                         )}
 
                         <div className="text-base text-[#333] font-medium">
-                          {merchantDetails.business_name}
+                          {merchantDetails.merchant_name}
                         </div>
-                      </div>
+                      </Link>
 
                       <button
                         className="block text-[#EB5757] font-medium"
@@ -216,11 +222,11 @@ export const MerchantNavbar = () => {
                         />
                       ) : (
                         <div className="rounded-full h-10 w-10 p-2 bg-gray-200 text-base flex items-center justify-center">
-                          {getCompanyInitials(merchantDetails.business_name)}
+                          {getCompanyInitials(merchantDetails.merchant_name)}
                         </div>
                       )}
                       <span className="text-lg font-semibold hidden min-[1200px]:inline">
-                        {merchantDetails.business_name}
+                        {merchantDetails.merchant_name}
                       </span>{" "}
                       <BiChevronDown
                         className={cx(
@@ -238,7 +244,7 @@ export const MerchantNavbar = () => {
                   >
                     <div className="px-6 py-4 flex items-center p-2">
                       <span className="text-base text-[#333] font-medium">
-                        {merchantDetails.business_name}
+                        {merchantDetails.merchant_name}
                       </span>
                     </div>
                     <hr />

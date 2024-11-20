@@ -102,6 +102,7 @@ export const LoginPage = () => {
                 <button
                   className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                   disabled={isLoginLoading}
+                  id="submit"
                 >
                   {isLoginLoading ? (
                     <Loader className="mx-auto h-6 w-6" />

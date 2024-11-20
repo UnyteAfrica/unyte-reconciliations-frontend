@@ -6,7 +6,9 @@ export type CompanySignupType = {
   password: string;
 };
 export type MerchantSignupType = {
-  email: string;
+  merchantName: string;
+  merchantEmail: string;
+  shortCode: string;
   password: string;
 };
 

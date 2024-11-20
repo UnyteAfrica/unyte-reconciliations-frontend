@@ -49,18 +49,22 @@ export const VerifyOTPPage = () => {
       toast.success("OTP verified");
       LocalStorage.setItem("accessToken", data.data.access_token);
       LocalStorage.setItem("refreshToken", data.data.refresh_token);
+      LocalStorage.setItem("userType", data.data.USER_TYPE);
       setIsLoggedIn(true);
       setEmail("");
       // navigate(BrowserComboRoutes.agentOverview);
       switch (data.data.USER_TYPE) {
         case UserType.INSURER:
           navigate(BrowserComboRoutes.companyOverview);
+          LocalStorage.setItem("uid", data.data.INSURER_ID);
           break;
         case UserType.AGENT:
           navigate(BrowserComboRoutes.agentOverview);
+          LocalStorage.setItem("uid", data.data.AGENT_ID);
           break;
         case UserType.MERCHANT:
-          navigate(BrowserComboRoutes.agentOverview);
+          navigate(BrowserComboRoutes.merchantOverview);
+          LocalStorage.setItem("uid", data.data.MERCHANT_ID);
           break;
       }
     },
@@ -107,21 +111,21 @@ export const VerifyOTPPage = () => {
               {...register("otp")}
             />
             <div>
-              <button
+              <div
                 className="text-mPrimary mb-2"
                 onClick={(e) => {
+                  if (isResendLoading) return;
                   e.preventDefault();
                   e.stopPropagation();
                   mResendOTP(email);
                 }}
-                disabled={isResendLoading}
               >
                 {isResendLoading ? (
                   <Loader className="mx-auto" />
                 ) : (
                   "Resend OTP"
                 )}
-              </button>
+              </div>
               <button
                 className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[58px] text-white rounded-2xl"
                 disabled={isVerificationLoading}
@@ -163,11 +167,11 @@ export const VerifyOTPPage = () => {
                 <button
                   className="text-mPrimary mb-2"
                   onClick={(e) => {
+                    if (isResendLoading) return;
                     e.preventDefault();
                     e.stopPropagation();
                     mResendOTP(email);
                   }}
-                  disabled={isResendLoading}
                 >
                   {isResendLoading ? (
                     <Loader className="mx-auto" />

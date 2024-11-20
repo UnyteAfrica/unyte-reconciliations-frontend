@@ -6,6 +6,7 @@ import { getPolicies } from "@/services/api/api-company";
 import { useState } from "react";
 import { PAGE_COUNT } from "@/utils/constants";
 import { BasePolicy } from "@/types/types";
+import { LocalStorage } from "@/services/local-storage";
 
 const faker = true;
 const policies: BasePolicy[] = [
@@ -43,13 +44,14 @@ const policies: BasePolicy[] = [
 
 export const CompanyPolicies = () => {
   const [page, setPage] = useState(1);
+  const uid = LocalStorage.getItem("uid");
   const {
     isPending: isLoadingPolicies,
     data: policiesData,
     error: policiesError,
   } = useQuery({
     queryKey: [CompanyQueryKeys.policies, page],
-    queryFn: () => getPolicies(page),
+    queryFn: () => getPolicies(uid ?? "", page),
   });
 
   if (faker)
