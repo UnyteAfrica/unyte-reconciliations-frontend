@@ -255,7 +255,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
     } = props;
     const [isPasswordShown, setIsPasswordShown] = useState(false);
 
-    const togglePasswordShown: MouseEventHandler<HTMLButtonElement> = (e) => {
+    const togglePasswordShown: MouseEventHandler<HTMLDivElement> = (e) => {
       e.preventDefault();
       setIsPasswordShown((oldIsPasswordShown) => !oldIsPasswordShown);
     };
@@ -295,7 +295,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             {...rest}
           />
 
-          <button
+          <div
             onClick={togglePasswordShown}
             className={cx(
               "absolute top-[50%] -translate-y-[50%] right-3",
@@ -304,7 +304,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             )}
           >
             <FaRegEye width={20} height={20} />
-          </button>
+          </div>
         </div>
         <p className="font-sora text-sm text-[#333]">{error && error}</p>
       </div>

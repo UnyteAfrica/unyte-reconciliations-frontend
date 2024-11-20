@@ -1,8 +1,7 @@
 import { Loader } from "@/components/loader";
 import { EditableProfileImage } from "@/components/shared/editable-image";
 import { CustomInput } from "@/components/shared/input";
-import { getProfile } from "@/services/api/api-base";
-import { updateCompanyProfilePicture } from "@/services/api/api-company";
+import { getDetails } from "@/services/api/api-base";
 import { MerchantQueryKeys } from "@/utils/query-keys";
 import { getCompanyInitials } from "@/utils/utils";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -17,18 +16,30 @@ import toast from "react-hot-toast";
 export const MerchantProfile = () => {
   const { data: merchantDetailsData, isPending: ismerchantDetailsLoading } =
     useQuery({
-      queryKey: [MerchantQueryKeys.profile],
-      queryFn: () => getProfile(),
+      queryKey: [MerchantQueryKeys.details],
+      queryFn: () => getDetails(),
     });
 
-  const { mutate: updateProfilePicture, isPending: isUpdatingProfilePicture } =
-    useMutation({
-      mutationFn: (data: FormData) => updateCompanyProfilePicture(data),
-      onSuccess: () =>
-        queryClient.invalidateQueries({
-          queryKey: [MerchantQueryKeys.profile],
-        }),
-    });
+  const {
+    mutate: updateProfilePicture,
+    isPending: isUpdatingProfilePicture,
+    error: updatingProfilePictureError,
+  } = useMutation({
+    mutationFn: (data: FormData) => {
+      return new Promise((res, rej) => {
+        const faker = 1;
+        if (faker) {
+          rej({ message: "An error occurred. Please try again" });
+        } else {
+          res(data);
+        }
+      });
+    },
+    onSuccess: () =>
+      queryClient.invalidateQueries({
+        queryKey: [MerchantQueryKeys.details],
+      }),
+  });
 
   const queryClient = useQueryClient();
 
@@ -59,9 +70,10 @@ export const MerchantProfile = () => {
         </div>
         <EditableProfileImage
           extImageUrl={merchantDetails.profile_image}
-          initials={getCompanyInitials(merchantDetails.business_name)}
+          initials={getCompanyInitials(merchantDetails.merchant_name)}
           isLoading={isUpdatingProfilePicture}
           onImageChange={handleImageChange}
+          error={updatingProfilePictureError?.message}
         />
       </section>
       <section className="w-full lg:flex">
@@ -73,16 +85,18 @@ export const MerchantProfile = () => {
         </div>
         <div className="space-y-4 w-full max-w-[600px]">
           <CustomInput
-            value={merchantDetails.business_name}
+            value={merchantDetails.merchant_name}
             className="cursor-not-allowed caret-white"
             label="Business Name"
             onClick={handleInfoClick}
+            readOnly
           />
           <CustomInput
             value={merchantDetails.email}
             label="Email"
             className="cursor-not-allowed caret-white"
             onClick={handleInfoClick}
+            readOnly
           />
           {/* <CustomInput placeholder="07031234567" label="Phone Number" /> */}
         </div>

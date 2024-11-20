@@ -78,7 +78,6 @@ export const SlidingButton: React.FC<SlidingButtonProps> = ({ onSlide }) => {
   }, []);
 
   useEffect(() => {
-    console.log({ isComplete });
     if (isComplete) {
       onSlide();
     }

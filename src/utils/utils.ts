@@ -31,6 +31,8 @@ export const addNaira = (amount: string) => nairaSign + amount;
 export const clearCredentials = () => {
   LocalStorage.removeItem("accessToken");
   LocalStorage.removeItem("refreshToken");
+  LocalStorage.removeItem("uid");
+  LocalStorage.removeItem("userType");
 };
 
 export const splitQueryParams = (query: string) => {

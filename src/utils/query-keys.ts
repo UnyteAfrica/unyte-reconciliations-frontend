@@ -13,5 +13,6 @@ export const AgentQueryKeys = {
 
 export const MerchantQueryKeys = {
   profile: "merchant-profile",
+  details: "merchant-details",
   dateRangePolicies: "date-range-policies",
 };

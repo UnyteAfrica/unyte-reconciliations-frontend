@@ -12,9 +12,17 @@ import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
 import { useMutation } from "@tanstack/react-query";
+import { merchantSignup } from "@/services/api/api-merchant";
 
 const formSchema = z
   .object({
+    merchantName: z
+      .string()
+      .min(3, "Business name must be 3 or more characters"),
+    shortCode: z
+      .string()
+      .min(5, "Short code must be at leat 5 chars")
+      .max(10, "Short code cannot be more than 10 characters"),
     merchantEmail: z.string().email("The email you entered is invalid"),
     password: z.string().min(6, "Password cannot be less than 6 characters"),
     confirmPassword: z.string(),
@@ -35,16 +43,15 @@ export const MerchantSignupPage = () => {
       merchantEmail: "",
       password: "",
       confirmPassword: "",
+      merchantName: "",
+      shortCode: "",
     },
   });
 
   const navigate = useNavigate();
 
   const { mutate: signup, isPending } = useMutation({
-    mutationFn: (data: MerchantSignupType) =>
-      new Promise((res) => {
-        res(data);
-      }),
+    mutationFn: (data: MerchantSignupType) => merchantSignup(data),
     onSuccess: (data) => {
       logger.log(data);
       toast.success("Account created successfully");
@@ -52,10 +59,17 @@ export const MerchantSignupPage = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
+  const onSubmit = ({
+    merchantEmail,
+    merchantName,
+    password,
+    shortCode,
+  }: z.infer<typeof formSchema>) => {
     signup({
-      email: data.merchantEmail,
-      password: data.password,
+      merchantEmail,
+      merchantName,
+      password,
+      shortCode: shortCode.toUpperCase(),
     });
   };
 
@@ -74,6 +88,22 @@ export const MerchantSignupPage = () => {
               </p>
             </header>
             <div className="space-y-6">
+              <CustomInput
+                label="Merchant Name"
+                placeholder="John Doe Enterprises"
+                labelClassName="text-sm text-[#333"
+                className="h-[58px] border-[#E0E0E0]"
+                error={errors.merchantName?.message?.toString()}
+                {...register("merchantName")}
+              />
+              <CustomInput
+                label="Merchant Short Code"
+                placeholder="2A5G6"
+                labelClassName="text-sm text-[#333"
+                className="h-[58px] border-[#E0E0E0] uppercase"
+                error={errors.shortCode?.message?.toString()}
+                {...register("shortCode")}
+              />
               <CustomInput
                 label="Merchant Email"
                 placeholder="insurancefirm@company.com"
@@ -136,6 +166,18 @@ export const MerchantSignupPage = () => {
                 </p>
               </header>
               <div className="space-y-6">
+                <CustomInput
+                  label="Merchant Name"
+                  placeholder="John Doe Enterprises"
+                  error={errors.merchantName?.message?.toString()}
+                  {...register("merchantName")}
+                />
+                <CustomInput
+                  label="Merchant Short Code"
+                  placeholder="2A5G6"
+                  error={errors.shortCode?.message?.toString()}
+                  {...register("shortCode")}
+                />
                 <CustomInput
                   label="Merchant Email"
                   placeholder="insurancefirm@company.com"
