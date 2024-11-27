@@ -33,7 +33,6 @@ export const Selector: React.FC<SelectorProps> = ({
       <button
         className="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
         onClick={() => {
-          console.log("yes");
           setIsSelectorMenuOpen((isSelectorMenuOpen) => !isSelectorMenuOpen);
         }}
       >
@@ -67,7 +66,6 @@ export const Selector: React.FC<SelectorProps> = ({
             <button
               className="w-full font-inter py-4 font-semibold"
               onClick={() => {
-                console.log("yes222");
                 setIsSelectorMenuOpen(false);
                 onChange(option);
               }}

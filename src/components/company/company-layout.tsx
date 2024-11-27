@@ -4,6 +4,8 @@ import { useContext, useEffect } from "react";
 import { BrowserRoutes } from "@/utils/routes";
 import { LocalStorage } from "@/services/local-storage";
 import { AuthContext } from "@/context/auth.context";
+import { UserType } from "@/types/types";
+import { clearCredentials } from "@/utils/utils";
 
 export const CompanyLayout = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
@@ -25,6 +27,14 @@ export const CompanyLayout = () => {
         LocalStorage.eventName,
         listener as EventListener
       );
+  }, []);
+
+  useEffect(() => {
+    if (LocalStorage.getItem("userType") != UserType.INSURER) {
+      clearCredentials();
+      navigate(BrowserRoutes.login);
+      setIsLoggedIn(false);
+    }
   }, []);
 
   useEffect(() => {

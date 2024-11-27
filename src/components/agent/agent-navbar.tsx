@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { BiChevronDown } from "react-icons/bi";
 
 import { Icon } from "../shared/icon";
@@ -77,10 +77,6 @@ export const AgentNavbar = () => {
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 
-  useEffect(() => {
-    console.log(location.pathname);
-  }, [location.pathname]);
-
   const requiresGreyBackground =
     location.pathname ==
       BrowserComboRoutes.agentDashboard + BrowserRoutes.policies ||
@@ -139,7 +135,13 @@ export const AgentNavbar = () => {
                   <Loader />
                 ) : (
                   !!agentDetails && (
-                    <div id="profile">
+                    <Link
+                      to={
+                        BrowserComboRoutes.agentDashboard +
+                        BrowserRoutes.profile
+                      }
+                      id="profile"
+                    >
                       <div className="flex items-center mb-6">
                         <div className="rounded-full h-10 w-10 bg-gray-200 text-base flex items-center justify-center mr-2">
                           {getInitials(
@@ -160,7 +162,7 @@ export const AgentNavbar = () => {
                       >
                         Sign out
                       </button>
-                    </div>
+                    </Link>
                   )
                 )}
               </div>

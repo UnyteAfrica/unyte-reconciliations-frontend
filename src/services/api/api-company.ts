@@ -1,4 +1,4 @@
-import { CompanyApiRoutes } from "./api-routes";
+import { CompanyApiRoutes, CompanyDashboardApiRoutes } from "./api-routes";
 import { CompanySignupType, InviteAgentType } from "@/types/request.types";
 import {
   ApiCompanyAgent,
@@ -60,9 +60,9 @@ export const inviteAgentsThroughCSV = (data: FormData) => {
   });
 };
 
-export const getPolicies = (page?: number) => {
+export const getPolicies = (insurerId: string, page?: number) => {
   return axiosInstance.get<PaginationWrapper<BasePolicy>>(
-    CompanyApiRoutes.getPolicies(page || 1)
+    CompanyDashboardApiRoutes.policies(insurerId, page)
   );
 };
 
