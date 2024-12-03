@@ -5,7 +5,11 @@ import { useMediaQuery } from "@/utils/hooks";
 import { FaAngleDown } from "react-icons/fa";
 import { Customer } from "@/types/types";
 
-import { formatToNaira, getCompanyInitials } from "@/utils/utils";
+import {
+  formatToNaira,
+  getCompanyInitials,
+  getShortenedSelectionMapText,
+} from "@/utils/utils";
 import { createPortal } from "react-dom";
 import { twMerge } from "tailwind-merge";
 import { Icon } from "@/components/shared/icon";
@@ -85,27 +89,7 @@ export const AgentCustomers = () => {
     setPolicySelected(policySelectedObj);
   }, []);
 
-  const getPolicyFiltersText = () => {
-    let text = "";
-    let count = 0;
-    let hasTakenFirst = false;
-
-    for (let policyType in policySelected) {
-      if (policySelected[policyType]) {
-        if (!hasTakenFirst) {
-          text += policyType;
-          count--;
-        }
-        hasTakenFirst = true;
-        count++;
-      }
-    }
-    if (count > 0) text += ` + ${count}`;
-
-    return text;
-  };
-
-  const policyFilters = getPolicyFiltersText();
+  const policyFilters = getShortenedSelectionMapText(policySelected);
 
   return (
     <>
@@ -391,7 +375,7 @@ const PolicyFilterBottomSheet: React.FC<PolicyFilterBottomSheetProps> = ({
                 }
                 onChange={(e) => selectPolicyType(policyType, e.target.checked)}
                 checked={policySelected[policyType]}
-                name="claim-status"
+                name="policy-type"
               />
             ))}
           </div>

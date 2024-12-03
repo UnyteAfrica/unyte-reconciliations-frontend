@@ -62,7 +62,7 @@ describe("Page Content", () => {
     expect(filterBox).toHaveClass("isOpened");
   });
 
-  it("should close filter menu when it the user clicks outside it", async () => {
+  it("should close filter menu when the user clicks outside it", async () => {
     const { user } = setup(
       <BrowserRouter>
         <PageContent
@@ -75,8 +75,8 @@ describe("Page Content", () => {
     const filterBtn = screen.getByText("Filter");
     await user.click(filterBtn);
 
-    const commissionsText = screen.getByText("Commissions");
-    await user.click(commissionsText);
+    const overlay = screen.getByTestId("overlay");
+    await user.click(overlay);
     const filterBox = screen.getByTestId("filter");
 
     expect(filterBox).not.toHaveClass("isOpened");

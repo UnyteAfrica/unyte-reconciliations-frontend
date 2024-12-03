@@ -6,13 +6,14 @@ import { BrowserRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
-import { companySignup } from "@/services/api/api-company";
+
 import { Loader } from "@/components/loader";
 import toast from "react-hot-toast";
 import { CompanySignupType } from "@/types/request.types";
 import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
+import { companyApi } from "@/services/api/api-company";
 
 const formSchema = z
   .object({
@@ -54,7 +55,7 @@ export const CompanySignupPage = () => {
 
   const { mutate: signup, isPending } = useMutation({
     mutationKey: [MutationKeys.companySignup],
-    mutationFn: (data: CompanySignupType) => companySignup(data),
+    mutationFn: (data: CompanySignupType) => companyApi.companySignup(data),
     onSuccess: (data) => {
       logger.log(data);
       toast.success("Account created successfully");

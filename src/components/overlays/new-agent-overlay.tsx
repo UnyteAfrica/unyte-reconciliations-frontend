@@ -6,10 +6,7 @@ import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
 import { InviteAgentType } from "@/types/request.types";
 import { Loader } from "../loader";
-import {
-  inviteAgent,
-  inviteAgentsThroughCSV,
-} from "@/services/api/api-company";
+
 import toast from "react-hot-toast";
 import { logger } from "@/utils/logger";
 import { OTPInput } from "../shared/otp-input";
@@ -18,6 +15,7 @@ import { cx } from "class-variance-authority";
 import { FaFileCsv } from "react-icons/fa";
 import Papa from "papaparse";
 import { twMerge } from "tailwind-merge";
+import { companyApi } from "@/services/api/api-company";
 
 const formSchema = z
   .object({
@@ -84,7 +82,7 @@ export const NewAgentOverlay: React.FC = () => {
 
   const { mutate: mInvite, isPending: isInviteLoading } = useMutation({
     mutationKey: [MutationKeys.companyInviteAgent],
-    mutationFn: (data: InviteAgentType) => inviteAgent(data),
+    mutationFn: (data: InviteAgentType) => companyApi.inviteAgent(data),
     onSuccess: () => {
       toast.success("Invite Email sent to agent");
     },
@@ -92,7 +90,7 @@ export const NewAgentOverlay: React.FC = () => {
 
   const { mutate: mInviteCSV, isPending: isCSVInviteLoading } = useMutation({
     mutationKey: [MutationKeys.companyInviteAgentCSV],
-    mutationFn: (data: FormData) => inviteAgentsThroughCSV(data),
+    mutationFn: (data: FormData) => companyApi.inviteAgentsThroughCSV(data),
     onSuccess: () => {
       toast.success("Invite emails sent to agents");
     },

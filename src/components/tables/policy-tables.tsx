@@ -7,6 +7,7 @@ import {
 import { Table } from "../table";
 import { formatToNaira } from "@/utils/utils";
 import { useMediaQuery } from "@/utils/hooks";
+import moment from "moment";
 
 type AgentPoliciesTableProps = {
   policies: AgentPolicy[];
@@ -73,15 +74,23 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
             <div key={idx} className="border-b py-2">
               <div className="flex justify-between items-center mb-2">
                 <em className="not-italic font-semibold text-[#333]">
-                  {policy.policyType}
+                  {policy.policyCategory}
                 </em>
                 <em className="not-italic font-semibold text-[#333]">
                   {policy.policyNo}
                 </em>
               </div>
+              <div className="flex justify-between items-center mb-2">
+                <em className="not-italic font-semibold text-[#333]">
+                  {`${policy.affiliate.type}: ${policy.affiliate.name}`}
+                </em>
+              </div>
 
               <div className="flex justify-between items-center">
-                <em className="not-italic text-[#828282]">{policy.date}</em>
+                <em className="not-italic text-[#828282]">
+                  {" "}
+                  {moment(policy.date).format("D MMMM, YYYY")}
+                </em>
                 <em className="not-italic text-[#828282]">
                   {formatToNaira(policy.premium)}
                 </em>
@@ -92,13 +101,25 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
       </div>
     );
   return (
-    <Table headers={["Policy Type", "Policy Number", "Date", "Price"]}>
+    <Table
+      headers={[
+        "Policy Type",
+        "Policy Number",
+        "Affiliate",
+        "Date",
+        "Premium Paid",
+      ]}
+    >
       {policies.map((policy, i) => {
         return (
           <tr key={i} className="border-b font-medium">
-            <td className="p-4 text-center">{policy.policyType}</td>
+            <td className="p-4 text-center">{policy.policyCategory}</td>
             <td className="p-4 text-center">{policy.policyNo}</td>
-            <td className="p-4 text-center">{policy.date}</td>
+            <td className="p-4 text-center">{`${policy.affiliate.type}: ${policy.affiliate.name}`}</td>
+            <td className="p-4 text-center">
+              {" "}
+              {moment(policy.date).format("Do MMMM, YYYY")}
+            </td>
             <td className="p-4 text-center">{formatToNaira(policy.premium)}</td>
           </tr>
         );
@@ -124,7 +145,7 @@ export const MerchantInsurerPoliciesTable: React.FC<
             <div key={idx} className="border-b py-2">
               <div className="flex justify-between items-center mb-2">
                 <em className="not-italic font-semibold text-[#333]">
-                  {policy.policyType}
+                  {policy.policyCategory}
                 </em>
                 <em className="not-italic font-semibold text-[#333]">
                   {policy.policyNo}
@@ -147,7 +168,7 @@ export const MerchantInsurerPoliciesTable: React.FC<
       {policies.map((policy, i) => {
         return (
           <tr key={i} className="border-b font-medium">
-            <td className="p-4 text-center">{policy.policyType}</td>
+            <td className="p-4 text-center">{policy.policyCategory}</td>
             <td className="p-4 text-center">{policy.policyNo}</td>
             <td className="p-4 text-center">{policy.insurer}</td>
             <td className="p-4 text-center">{formatToNaira(policy.premium)}</td>
@@ -175,7 +196,7 @@ export const MerchantSoldPoliciesTable: React.FC<
             <div key={idx} className="border-b py-2">
               <div className="flex justify-between items-center mb-2">
                 <em className="not-italic font-semibold text-[#333]">
-                  {policy.policyType}
+                  {policy.policyCategory}
                 </em>
                 <em className="not-italic font-semibold text-[#333]">
                   {policy.policyNo}
@@ -206,7 +227,7 @@ export const MerchantSoldPoliciesTable: React.FC<
       {policies.map((policy, i) => {
         return (
           <tr key={i} className="border-b font-medium">
-            <td className="p-4 text-center">{policy.policyType}</td>
+            <td className="p-4 text-center">{policy.policyCategory}</td>
             <td className="p-4 text-center">{policy.policyNo}</td>
             <td className="p-4 text-center">{policy.userEmail}</td>
             <td className="p-4 text-center">{policy.date}</td>

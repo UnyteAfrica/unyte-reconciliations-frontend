@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
-import { formatToNaira, getWeekValue, sanitizePremium } from "@/utils/utils";
+import {
+  formatToNaira,
+  getWeekValue,
+  PERIODS,
+  sanitizePremium,
+} from "@/utils/utils";
 
 import { Selector } from "@/components/shared/selector";
-import { PERIODS } from "@/components/shared/page-content";
 import { useMediaQuery } from "@/utils/hooks";
 import { RangeYearPicker } from "@/components/shared/year-picker";
 import { RangeDayPicker } from "@/components/shared/day-picker";
@@ -13,9 +17,9 @@ import moment, { Moment } from "moment";
 import { RangeMonthPicker } from "@/components/shared/month-picker";
 import { useQuery } from "@tanstack/react-query";
 import { MerchantQueryKeys } from "@/utils/query-keys";
-import { getDateRangePolicies } from "@/services/api/api-company";
 import { Loader } from "@/components/loader";
 import { DateRangePolicy } from "@/types/types";
+import { companyApi } from "@/services/api/api-company";
 
 type PolicyDateMapType = { [key: string]: number };
 
@@ -140,7 +144,8 @@ export const MerchantOverview: React.FC = () => {
       activeStartDate,
       activeEndDate,
     ],
-    queryFn: () => getDateRangePolicies(activeStartDate, activeEndDate),
+    queryFn: () =>
+      companyApi.getDateRangePolicies(activeStartDate, activeEndDate),
   });
 
   useEffect(() => {

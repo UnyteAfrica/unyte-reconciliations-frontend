@@ -8,8 +8,22 @@ import hashIt from "hash-it";
 
 export const nairaSign = "₦";
 
+export const PERIODS = {
+  DAILY: "Daily",
+  WEEKLY: "Weekly",
+  MONTHLY: "Monthly",
+  YEARLY: "Yearly",
+} as const;
+
 export const formatAmount = (amount: number) => {
-  const amountStr = amount.toString();
+  let amountStr = amount.toString();
+  const decimalPointLocation = amountStr.indexOf(".");
+  const decimalToEnd =
+    decimalPointLocation != -1 ? amountStr.substring(decimalPointLocation) : "";
+  amountStr =
+    decimalPointLocation !== -1
+      ? amountStr.substring(0, decimalPointLocation)
+      : amountStr;
   const res = [];
   let count = 0;
   for (let i = amountStr.length - 1; i >= 0; i--) {
@@ -20,7 +34,7 @@ export const formatAmount = (amount: number) => {
       count = 0;
     }
   }
-  return res.join("");
+  return res.join("") + decimalToEnd;
 };
 
 export const formatToNaira = (amount: number) =>
@@ -214,4 +228,31 @@ export const createPolicyId = (policy: Policy) => {
 
   const hash = hashIt(policy);
   return `${name}-${type}-${hash}`;
+};
+
+export const delay = <T>(callback: () => T, seconds: number) =>
+  new Promise<T>((res) => {
+    setTimeout(() => res(callback()), seconds * 1000);
+  });
+
+export const getShortenedSelectionMapText = (
+  obj: Record<string, boolean>
+): string => {
+  let text = "";
+  let count = 0;
+  let hasTakenFirst = false;
+
+  for (let key in obj) {
+    if (obj[key]) {
+      if (!hasTakenFirst) {
+        text += key;
+        count--;
+      }
+      hasTakenFirst = true;
+      count++;
+    }
+  }
+  if (count > 0) text += ` + ${count}`;
+
+  return text;
 };

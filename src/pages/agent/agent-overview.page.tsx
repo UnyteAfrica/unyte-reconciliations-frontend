@@ -8,8 +8,8 @@ import { RangeYearPicker } from "@/components/shared/year-picker";
 import { RangeMonthPicker } from "@/components/shared/month-picker";
 import { RangeWeekPicker } from "@/components/shared/week-picker";
 import { RangeDayPicker } from "@/components/shared/day-picker";
-import { formatToNaira, getWeekValue } from "@/utils/utils";
-import { PERIODS } from "@/components/shared/page-content";
+import { formatToNaira, getWeekValue, PERIODS } from "@/utils/utils";
+
 import { Icon } from "@/components/shared/icon";
 
 const dailyChartDataSeries: ApexAxisChartSeries = [

@@ -13,6 +13,7 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
         >
           <h1
             class="font-semibold text-2xl mb-6"
+            data-testid="pageTitle"
           >
             Completed Claims
           </h1>
@@ -138,7 +139,8 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
               Filter
             </button>
             <div
-              class="h-dvh w-screen bg-black/30 fixed inset-0 transition -z-20 opacity-0 translate-y-[100%]"
+              class="overlay h-dvh w-screen bg-black/30 fixed inset-0 transition z-50 opacity-0 translate-y-[100%]"
+              data-testid="overlay"
             >
               <div
                 class="bg-white w-screen absolute bottom-0 rounded-t-2xl transition"
@@ -172,74 +174,6 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                       <label
                         class="inline-block mb-0"
                       >
-                        Period Range
-                      </label>
-                      <div
-                        class="relative w-full inline-block max-w-[200px]"
-                      >
-                        <button
-                          class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
-                        >
-                          <div
-                            class="space-x-2 flex flex-row items-center justify-between"
-                          >
-                            <span
-                              class="text-base"
-                              title="selectBtn"
-                            >
-                              Daily
-                            </span>
-                            <svg
-                              fill="currentColor"
-                              height="1em"
-                              stroke="currentColor"
-                              stroke-width="0"
-                              viewBox="0 0 24 24"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
-                              />
-                            </svg>
-                          </div>
-                        </button>
-                        <div
-                          class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
-                        >
-                          <button
-                            class="w-full font-inter py-4 font-semibold"
-                          >
-                            Daily
-                          </button>
-                          <hr />
-                          <button
-                            class="w-full font-inter py-4 font-semibold"
-                          >
-                            Weekly
-                          </button>
-                          <hr />
-                          <button
-                            class="w-full font-inter py-4 font-semibold"
-                          >
-                            Monthly
-                          </button>
-                          <hr />
-                          <button
-                            class="w-full font-inter py-4 font-semibold"
-                          >
-                            Yearly
-                          </button>
-                          <hr />
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="flex justify-between items-center w-full"
-                    >
-                      <label
-                        class="inline-block mb-0"
-                      >
                         Custom Date Range
                       </label>
                       <div
@@ -248,23 +182,23 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                         <button
                           class="px-4 py-2 border rounded-md relative font-semibold w-full block mb-1"
                         >
-                          November 13, 2023
+                          December 3, 2024
                           <input
                             class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                             placeholder="date"
                             type="date"
-                            value="2023-11-13"
+                            value="2024-12-03"
                           />
                         </button>
                         <button
                           class="px-4 py-2 border rounded-md relative font-semibold w-full"
                         >
-                          November 13, 2023
+                          December 3, 2024
                           <input
                             class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                             placeholder="date"
                             type="date"
-                            value="2023-11-13"
+                            value="2024-12-03"
                           />
                         </button>
                       </div>
@@ -275,7 +209,7 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                       <label
                         class="inline-block mb-0"
                       >
-                        Select Product(s)
+                        Select Policy Category
                       </label>
                       <div
                         class="relative w-full max-w-[200px]"
@@ -290,7 +224,7 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                               class="text-base"
                               title="selectBtn"
                             >
-                              Comprehensive
+                              None
                             </span>
                             <svg
                               fill="currentColor"
@@ -310,41 +244,601 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                         <div
                           class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
                         >
-                          <button
-                            class="w-full font-inter py-4 font-semibold"
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
                           >
-                            Comprehensive
-                          </button>
+                            <button>
+                              Reset
+                            </button>
+                          </div>
                           <hr />
-                          <button
-                            class="w-full font-inter py-4 font-semibold"
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
                           >
-                            Credit Life
-                          </button>
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="healthPolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="healthPolicy"
+                              >
+                                Health Policy
+                              </label>
+                            </div>
+                          </div>
                           <hr />
-                          <button
-                            class="w-full font-inter py-4 font-semibold"
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
                           >
-                            Card Protect
-                          </button>
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="accidentPolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="accidentPolicy"
+                              >
+                                Accident Policy
+                              </label>
+                            </div>
+                          </div>
                           <hr />
-                          <button
-                            class="w-full font-inter py-4 font-semibold"
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
                           >
-                            Student
-                          </button>
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="propertyPolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="propertyPolicy"
+                              >
+                                Property Policy
+                              </label>
+                            </div>
+                          </div>
                           <hr />
-                          <button
-                            class="w-full font-inter py-4 font-semibold"
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
                           >
-                            Travel
-                          </button>
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="firePolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="firePolicy"
+                              >
+                                Fire Policy
+                              </label>
+                            </div>
+                          </div>
                           <hr />
-                          <button
-                            class="w-full font-inter py-4 font-semibold"
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
                           >
-                            Device
-                          </button>
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="lifePolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="lifePolicy"
+                              >
+                                Life Policy
+                              </label>
+                            </div>
+                          </div>
+                          <hr />
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
+                          >
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="motorPolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="motorPolicy"
+                              >
+                                Motor Policy
+                              </label>
+                            </div>
+                          </div>
+                          <hr />
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
+                          >
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="comprehensivePolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="comprehensivePolicy"
+                              >
+                                Comprehensive Policy
+                              </label>
+                            </div>
+                          </div>
+                          <hr />
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
+                          >
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="investmentPolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="investmentPolicy"
+                              >
+                                Investment Policy
+                              </label>
+                            </div>
+                          </div>
+                          <hr />
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
+                          >
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="educationPolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="educationPolicy"
+                              >
+                                Education Policy
+                              </label>
+                            </div>
+                          </div>
+                          <hr />
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
+                          >
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="creditPolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="creditPolicy"
+                              >
+                                Credit Policy
+                              </label>
+                            </div>
+                          </div>
+                          <hr />
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
+                          >
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="travelPolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="travelPolicy"
+                              >
+                                Travel Policy
+                              </label>
+                            </div>
+                          </div>
+                          <hr />
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
+                          >
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="marinePolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="marinePolicy"
+                              >
+                                Marine Policy
+                              </label>
+                            </div>
+                          </div>
+                          <hr />
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
+                          >
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="businessPolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="businessPolicy"
+                              >
+                                Business Policy
+                              </label>
+                            </div>
+                          </div>
+                          <hr />
+                          <div
+                            class="w-full font-inter p-4 font-semibold"
+                          >
+                            <div
+                              class="flex items-center h-8 mb-0"
+                            >
+                              <div
+                                class="mr-2 flex justify-center items-center"
+                              >
+                                <input
+                                  class="w-5 h-5"
+                                  id="bondPolicy"
+                                  name="policy-type"
+                                  type="checkbox"
+                                />
+                                <div
+                                  class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                                >
+                                  <svg
+                                    class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 512 512"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <label
+                                for="bondPolicy"
+                              >
+                                Bond Policy
+                              </label>
+                            </div>
+                          </div>
                           <hr />
                         </div>
                       </div>
@@ -353,17 +847,36 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                       class="flex justify-between items-center w-full"
                     >
                       <label
-                        class="text-[#333] mb-2 block text-base"
-                        for="amount"
+                        class="inline-block mb-0"
                       >
-                        Amount
-                         
+                        Amount Range
                       </label>
-                      <input
-                        class="block font-sora w-full border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold max-w-[200px]"
-                        id="amount"
-                        placeholder="₦"
-                      />
+                      <div
+                        class="w-full inline-block max-w-[200px]"
+                      >
+                        <div
+                          class=""
+                        >
+                          <input
+                            class="block font-sora w-full border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] px-4 py-2 h-[42px] text-base text-center border-[#e5e7eb] font-semibold mb-1"
+                            id=""
+                            placeholder="₦"
+                            type="number"
+                            value="0"
+                          />
+                        </div>
+                        <div
+                          class=""
+                        >
+                          <input
+                            class="block font-sora w-full border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] px-4 py-2 h-[42px] text-base text-center border-[#e5e7eb] font-semibold"
+                            id=""
+                            placeholder="₦"
+                            type="number"
+                            value="100000"
+                          />
+                        </div>
+                      </div>
                     </div>
                     <button
                       class="bg-mPrimary text-white w-full rounded-md py-2"
@@ -650,6 +1163,7 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
       >
         <h1
           class="font-semibold text-2xl mb-6"
+          data-testid="pageTitle"
         >
           Completed Claims
         </h1>
@@ -775,7 +1289,8 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
             Filter
           </button>
           <div
-            class="h-dvh w-screen bg-black/30 fixed inset-0 transition -z-20 opacity-0 translate-y-[100%]"
+            class="overlay h-dvh w-screen bg-black/30 fixed inset-0 transition z-50 opacity-0 translate-y-[100%]"
+            data-testid="overlay"
           >
             <div
               class="bg-white w-screen absolute bottom-0 rounded-t-2xl transition"
@@ -809,74 +1324,6 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                     <label
                       class="inline-block mb-0"
                     >
-                      Period Range
-                    </label>
-                    <div
-                      class="relative w-full inline-block max-w-[200px]"
-                    >
-                      <button
-                        class="px-4 py-2 text-[#333333] rounded-md border font-semibold w-full"
-                      >
-                        <div
-                          class="space-x-2 flex flex-row items-center justify-between"
-                        >
-                          <span
-                            class="text-base"
-                            title="selectBtn"
-                          >
-                            Daily
-                          </span>
-                          <svg
-                            fill="currentColor"
-                            height="1em"
-                            stroke="currentColor"
-                            stroke-width="0"
-                            viewBox="0 0 24 24"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
-                            />
-                          </svg>
-                        </div>
-                      </button>
-                      <div
-                        class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
-                      >
-                        <button
-                          class="w-full font-inter py-4 font-semibold"
-                        >
-                          Daily
-                        </button>
-                        <hr />
-                        <button
-                          class="w-full font-inter py-4 font-semibold"
-                        >
-                          Weekly
-                        </button>
-                        <hr />
-                        <button
-                          class="w-full font-inter py-4 font-semibold"
-                        >
-                          Monthly
-                        </button>
-                        <hr />
-                        <button
-                          class="w-full font-inter py-4 font-semibold"
-                        >
-                          Yearly
-                        </button>
-                        <hr />
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="flex justify-between items-center w-full"
-                  >
-                    <label
-                      class="inline-block mb-0"
-                    >
                       Custom Date Range
                     </label>
                     <div
@@ -885,23 +1332,23 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                       <button
                         class="px-4 py-2 border rounded-md relative font-semibold w-full block mb-1"
                       >
-                        November 13, 2023
+                        December 3, 2024
                         <input
                           class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                           placeholder="date"
                           type="date"
-                          value="2023-11-13"
+                          value="2024-12-03"
                         />
                       </button>
                       <button
                         class="px-4 py-2 border rounded-md relative font-semibold w-full"
                       >
-                        November 13, 2023
+                        December 3, 2024
                         <input
                           class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                           placeholder="date"
                           type="date"
-                          value="2023-11-13"
+                          value="2024-12-03"
                         />
                       </button>
                     </div>
@@ -912,7 +1359,7 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                     <label
                       class="inline-block mb-0"
                     >
-                      Select Product(s)
+                      Select Policy Category
                     </label>
                     <div
                       class="relative w-full max-w-[200px]"
@@ -927,7 +1374,7 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                             class="text-base"
                             title="selectBtn"
                           >
-                            Comprehensive
+                            None
                           </span>
                           <svg
                             fill="currentColor"
@@ -947,41 +1394,601 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                       <div
                         class="absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0"
                       >
-                        <button
-                          class="w-full font-inter py-4 font-semibold"
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
                         >
-                          Comprehensive
-                        </button>
+                          <button>
+                            Reset
+                          </button>
+                        </div>
                         <hr />
-                        <button
-                          class="w-full font-inter py-4 font-semibold"
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
                         >
-                          Credit Life
-                        </button>
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="healthPolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="healthPolicy"
+                            >
+                              Health Policy
+                            </label>
+                          </div>
+                        </div>
                         <hr />
-                        <button
-                          class="w-full font-inter py-4 font-semibold"
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
                         >
-                          Card Protect
-                        </button>
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="accidentPolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="accidentPolicy"
+                            >
+                              Accident Policy
+                            </label>
+                          </div>
+                        </div>
                         <hr />
-                        <button
-                          class="w-full font-inter py-4 font-semibold"
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
                         >
-                          Student
-                        </button>
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="propertyPolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="propertyPolicy"
+                            >
+                              Property Policy
+                            </label>
+                          </div>
+                        </div>
                         <hr />
-                        <button
-                          class="w-full font-inter py-4 font-semibold"
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
                         >
-                          Travel
-                        </button>
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="firePolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="firePolicy"
+                            >
+                              Fire Policy
+                            </label>
+                          </div>
+                        </div>
                         <hr />
-                        <button
-                          class="w-full font-inter py-4 font-semibold"
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
                         >
-                          Device
-                        </button>
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="lifePolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="lifePolicy"
+                            >
+                              Life Policy
+                            </label>
+                          </div>
+                        </div>
+                        <hr />
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
+                        >
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="motorPolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="motorPolicy"
+                            >
+                              Motor Policy
+                            </label>
+                          </div>
+                        </div>
+                        <hr />
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
+                        >
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="comprehensivePolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="comprehensivePolicy"
+                            >
+                              Comprehensive Policy
+                            </label>
+                          </div>
+                        </div>
+                        <hr />
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
+                        >
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="investmentPolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="investmentPolicy"
+                            >
+                              Investment Policy
+                            </label>
+                          </div>
+                        </div>
+                        <hr />
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
+                        >
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="educationPolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="educationPolicy"
+                            >
+                              Education Policy
+                            </label>
+                          </div>
+                        </div>
+                        <hr />
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
+                        >
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="creditPolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="creditPolicy"
+                            >
+                              Credit Policy
+                            </label>
+                          </div>
+                        </div>
+                        <hr />
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
+                        >
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="travelPolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="travelPolicy"
+                            >
+                              Travel Policy
+                            </label>
+                          </div>
+                        </div>
+                        <hr />
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
+                        >
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="marinePolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="marinePolicy"
+                            >
+                              Marine Policy
+                            </label>
+                          </div>
+                        </div>
+                        <hr />
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
+                        >
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="businessPolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="businessPolicy"
+                            >
+                              Business Policy
+                            </label>
+                          </div>
+                        </div>
+                        <hr />
+                        <div
+                          class="w-full font-inter p-4 font-semibold"
+                        >
+                          <div
+                            class="flex items-center h-8 mb-0"
+                          >
+                            <div
+                              class="mr-2 flex justify-center items-center"
+                            >
+                              <input
+                                class="w-5 h-5"
+                                id="bondPolicy"
+                                name="policy-type"
+                                type="checkbox"
+                              />
+                              <div
+                                class="bg-white border border-mPrimary relative rounded hidden justify-center items-center w-[22px] h-[22px]"
+                              >
+                                <svg
+                                  class="absolute -top-1 left-[2px] text-2xl text-mPrimary"
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 512 512"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <label
+                              for="bondPolicy"
+                            >
+                              Bond Policy
+                            </label>
+                          </div>
+                        </div>
                         <hr />
                       </div>
                     </div>
@@ -990,17 +1997,36 @@ exports[`Insurer Completed Claims > renders correctly 1`] = `
                     class="flex justify-between items-center w-full"
                   >
                     <label
-                      class="text-[#333] mb-2 block text-base"
-                      for="amount"
+                      class="inline-block mb-0"
                     >
-                      Amount
-                       
+                      Amount Range
                     </label>
-                    <input
-                      class="block font-sora w-full border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] px-4 py-2 h-[42px] text-base border-[#e5e7eb] font-semibold max-w-[200px]"
-                      id="amount"
-                      placeholder="₦"
-                    />
+                    <div
+                      class="w-full inline-block max-w-[200px]"
+                    >
+                      <div
+                        class=""
+                      >
+                        <input
+                          class="block font-sora w-full border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] px-4 py-2 h-[42px] text-base text-center border-[#e5e7eb] font-semibold mb-1"
+                          id=""
+                          placeholder="₦"
+                          type="number"
+                          value="0"
+                        />
+                      </div>
+                      <div
+                        class=""
+                      >
+                        <input
+                          class="block font-sora w-full border transition rounded-lg outline-none focus:border-black autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] px-4 py-2 h-[42px] text-base text-center border-[#e5e7eb] font-semibold"
+                          id=""
+                          placeholder="₦"
+                          type="number"
+                          value="100000"
+                        />
+                      </div>
+                    </div>
                   </div>
                   <button
                     class="bg-mPrimary text-white w-full rounded-md py-2"

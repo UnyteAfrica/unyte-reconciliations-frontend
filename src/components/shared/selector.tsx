@@ -41,7 +41,7 @@ export const Selector: React.FC<SelectorProps> = ({
             className={cx("text-base", selectorClassName)}
             title="selectBtn"
           >
-            {value}
+            {value || "None"}
           </span>
           {isSelectorMenuOpen ? (
             <BiChevronUp />
@@ -58,7 +58,7 @@ export const Selector: React.FC<SelectorProps> = ({
       <div
         className={cx(
           "absolute z-20 w-full top-[45px] left-0 bg-white border rounded-lg border-[#e5e5e5] max-h-0 transition-all duration-300 overflow-hidden opacity-0",
-          isSelectorMenuOpen && "max-h-[250px] opacity-100 overflow-y-auto"
+          isSelectorMenuOpen && "max-h-[200px] opacity-100 overflow-y-auto"
         )}
       >
         {options.map((option, idx) => (
@@ -70,7 +70,7 @@ export const Selector: React.FC<SelectorProps> = ({
                 onChange(option);
               }}
             >
-              {option}
+              {option || "None"}
             </button>
             <hr />
           </Fragment>

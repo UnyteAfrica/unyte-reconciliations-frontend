@@ -6,9 +6,9 @@ import { useContext, useState } from "react";
 import { OverlayContext, OverlayContextType } from "@/context/overlay.context";
 import { useQuery } from "@tanstack/react-query";
 import { CompanyQueryKeys } from "@/utils/query-keys";
-import { getAllAgents } from "@/services/api/api-company";
 import { Agent, AgentStatus } from "@/types/types";
 import { PAGE_COUNT } from "@/utils/constants";
+import { companyApi } from "@/services/api/api-company";
 
 let faker = true;
 
@@ -89,7 +89,7 @@ export const CompanyAgents = () => {
     error: agentsError,
   } = useQuery({
     queryKey: [CompanyQueryKeys.agents],
-    queryFn: () => getAllAgents(),
+    queryFn: () => companyApi.getAllAgents(),
   });
 
   const [page, setPage] = useState(1);
@@ -158,7 +158,6 @@ export const CompanyAgents = () => {
         error={agentsError}
         isLoading={isLoadingAgents}
         page={page}
-        pageCount={PAGE_COUNT}
         totalItems={totalPages}
         onPageChange={(page: number) => setPage(page)}
         hasNewAgent
