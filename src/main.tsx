@@ -20,6 +20,7 @@ import * as changeCase from "change-case";
 import { logger } from "./utils/logger.ts";
 import { isPlainObject } from "lodash";
 import { AuthProvider } from "./context/auth.context.tsx";
+import { PageContentContextProvider } from "./context/page-content.context.tsx";
 
 const ERR_MAP: { [key: string]: string } = {
   business_registration_number: "Company Registration No",
@@ -76,11 +77,13 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         />
         <OverlayContextProvider>
           <CompanyProvider>
-            <AgentProvider>
-              <AuthProvider>
-                <App />
-              </AuthProvider>
-            </AgentProvider>
+            <PageContentContextProvider>
+              <AgentProvider>
+                <AuthProvider>
+                  <App />
+                </AuthProvider>
+              </AgentProvider>
+            </PageContentContextProvider>
           </CompanyProvider>
         </OverlayContextProvider>
         <ReactQueryDevtools initialIsOpen={false} />

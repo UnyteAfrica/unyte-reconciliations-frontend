@@ -121,7 +121,6 @@ export const Commissions = () => {
       searchbarPlaceholder="Find policy name"
       pageTable={<CommissionsTable commissions={paginatedMap[page]} />}
       page={page}
-      pageCount={PAGE_COUNT}
       totalItems={totalPages}
       onPageChange={(page: number) => setPage(page)}
     />

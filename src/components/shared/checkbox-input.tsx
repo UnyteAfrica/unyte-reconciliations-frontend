@@ -10,6 +10,7 @@ type CheckboxInputProps = {
   onChange: ChangeEventHandler<HTMLInputElement>;
   name: string;
   checked: boolean;
+  className?: string;
 };
 
 export const CheckboxInput: React.FC<CheckboxInputProps> = ({
@@ -18,9 +19,10 @@ export const CheckboxInput: React.FC<CheckboxInputProps> = ({
   name,
   onClick,
   onChange,
+  className,
 }) => {
   return (
-    <div className="flex items-center mb-4 h-8">
+    <div className={twMerge("flex items-center mb-4 h-8", className)}>
       <div className="mr-2 flex justify-center items-center">
         <input
           id={camelcase(label)}
@@ -28,7 +30,7 @@ export const CheckboxInput: React.FC<CheckboxInputProps> = ({
           name={name}
           className={cx("w-5 h-5", checked && "hidden")}
           onChange={onChange}
-          checked={checked}
+          checked={checked || false}
         />
         <div
           className={twMerge(

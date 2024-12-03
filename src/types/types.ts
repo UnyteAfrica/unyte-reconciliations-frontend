@@ -11,8 +11,40 @@ export const AgentStatus = {
   Inactive: "Inactive",
 } as const;
 
+export const policyCategories = [
+  "",
+  "Health Policy",
+  "Accident Policy",
+  "Property Policy",
+  "Fire Policy",
+  "Life Policy",
+  "Motor Policy",
+  "Comprehensive Policy",
+  "Investment Policy",
+  "Education Policy",
+  "Credit Policy",
+  "Travel Policy",
+  "Marine Policy",
+  "Business Policy",
+  "Bond Policy",
+] as const;
+
+export const affiliateTypes = ["Agent", "Merchant"] as const;
+
+export type PolicyCategory = (typeof policyCategories)[number];
+export type AffiliateType = (typeof affiliateTypes)[number];
 export type ClaimStatusType = keyof typeof ClaimStatus;
 export type AgentStatusType = keyof typeof AgentStatus;
+
+export type Filter = {
+  selectedPolicyCategories: Partial<Record<PolicyCategory, boolean>>;
+  startDate: Date;
+  endDate: Date;
+  minAmount: string;
+  maxAmount: string;
+  searchText: string;
+  active: boolean;
+};
 
 export const UserType = {
   INSURER: "INSURER",
@@ -148,9 +180,16 @@ export type Policy = {
   premium: string;
 };
 
+export type Affiliate = {
+  id: string;
+  name: string;
+  type: AffiliateType;
+};
+
 export type BasePolicy = {
-  policyType: string;
+  policyCategory: PolicyCategory;
   policyNo: string;
+  affiliate: Affiliate;
   date: string;
   premium: number;
 };
