@@ -2,6 +2,7 @@ import { PageContent } from "@/components/shared/page-content";
 import { CommissionsTable } from "@/components/tables/commissions-table";
 import { Commission } from "@/types/types";
 import { PAGE_COUNT } from "@/utils/constants";
+
 import { useState } from "react";
 
 const commissions: Commission[] = [

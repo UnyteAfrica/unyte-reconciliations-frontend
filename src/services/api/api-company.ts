@@ -2,9 +2,10 @@ import { CompanyApiRoutes, CompanyDashboardApiRoutes } from "./api-routes";
 import { CompanySignupType, InviteAgentType } from "@/types/request.types";
 import {
   ApiCompanyAgent,
+  BaseClaim,
   BasePolicy,
   DateRangePolicy,
-  PaginationWrapper,
+  Product,
 } from "@/types/types";
 import { Moment } from "moment";
 import { axiosInstance } from "./api-base";
@@ -63,10 +64,52 @@ export class CompanyApi {
     });
   };
 
-  getPolicies = (page?: number) => {
-    return axiosInstance.get<PaginationWrapper<BasePolicy>>(
-      CompanyDashboardApiRoutes.policies("insurerId", page)
+  getPolicies: (
+    page?: number
+  ) => Promise<{ policies: BasePolicy[]; total: number }> = async (page) => {
+    const res = await axiosInstance.get(
+      CompanyDashboardApiRoutes.policies(page)
     );
+    const policies: BasePolicy[] = res.data.results.map(
+      (data: any) =>
+        ({
+          date: data.effective_from,
+          policyCategory: data.policy_type + " Policy",
+          policyNo: data.policy_id,
+          premium: Number(data.premium),
+          affiliate: {
+            id: data.merchant || data.agent,
+            name: data.merchant || data.agent || "",
+            type: !!data.agent ? "Agent" : "Merchant",
+          },
+        } as BasePolicy)
+    );
+    return { policies, total: res.data.count };
+  };
+
+  getProducts: (
+    page?: number
+  ) => Promise<{ products: Product[]; total: number }> = async (page) => {
+    const res = await axiosInstance.get(
+      CompanyDashboardApiRoutes.products(page)
+    );
+    const products: Product[] = res.data.map(
+      (data: any) =>
+        ({
+          id: data.id,
+          productCategory: data.product_type + " Policy",
+          name: data.name,
+          premium: Number(data.base_premium),
+          description: data.description,
+        } as Product)
+    );
+    return { products, total: res.data.length };
+  };
+
+  getClaims: (page?: number) => Promise<BaseClaim[]> = async (page) => {
+    const res = await axiosInstance.get(CompanyDashboardApiRoutes.claims(page));
+    const claims: BaseClaim[] = res.data;
+    return claims;
   };
 
   getDateRangePolicies = (startDate: Moment, endDate: Moment) =>

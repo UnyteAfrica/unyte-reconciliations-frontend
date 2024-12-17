@@ -256,3 +256,19 @@ export const getShortenedSelectionMapText = (
 
   return text;
 };
+
+export const urlPageWrapper = (url: string, page?: number): string =>
+  url + (page && page > 1 ? `?page=${page}` : "");
+
+export const groupObjects = <T extends Record<string, any>, K extends keyof T>(
+  objects: T[],
+  groupBy: K
+): Record<string, T[]> => {
+  const groups: Record<string, T[]> = {};
+  objects.forEach((obj) => {
+    let key = obj[groupBy];
+    (groups[key] ??= []).push(obj);
+  });
+
+  return groups;
+};

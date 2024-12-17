@@ -55,7 +55,7 @@ export const PageFilter: React.FC<PageFilterProps> = ({
         data-testid="filter"
         className={cx(
           "bg-white px-5 py-10 absolute top-[55px] w-[450px] right-0 rounded-lg border border-[#ccc] space-y-6 transition-all overflow-hidden opacity-0",
-          !isFilterOpen && "max-h-0",
+          !isFilterOpen && "max-h-0 pointer-events-none",
           isFilterOpen && "max-h-[600px] opacity-100 overflow-y-auto isOpened"
         )}
         onClick={(e) => {

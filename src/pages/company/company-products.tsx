@@ -1,16 +1,13 @@
 import { PageContent } from "@/components/shared/page-content";
-import { CompanyPoliciesTable } from "@/components/tables/policy-tables";
 import { useQuery } from "@tanstack/react-query";
 import { CompanyQueryKeys } from "@/utils/query-keys";
-import { useState } from "react";
-import { PAGE_COUNT } from "@/utils/constants";
 import { CompanyApi } from "@/services/api/api-company";
+import { groupObjects } from "@/utils/utils";
+import { CompanyProductsTable } from "@/components/tables/products-tables/company-products-table";
 
 const companyHandler = new CompanyApi();
 
-export const CompanyPolicies = () => {
-  const [page, setPage] = useState(1);
-
+export const CompanyProducts = () => {
   // Need to get the min and max dates as well as the min and max amounts
   // const { setFilter, filter } = useContext(PageContentContext);
   // const queryClient = useQueryClient();
@@ -28,51 +25,46 @@ export const CompanyPolicies = () => {
 
   // useEffect(() => {
   //   if (filter.active) {
-  //     companyFaker.filterPolicies(filter);
+  //     companyFaker.filterProducts(filter);
   //     queryClient.invalidateQueries({
-  //       queryKey: [CompanyQueryKeys.policies, page],
+  //       queryKey: [CompanyQueryKeys.products, page],
   //     });
   //     setPage(1);
   //   }
   // }, [filter]);
 
   const {
-    isPending: isLoadingPolicies,
-    data: policiesData,
-    error: policiesError,
+    isPending: isLoadingProducts,
+    data: productsData,
+    error: productsError,
   } = useQuery({
-    queryKey: [CompanyQueryKeys.policies, page],
-    queryFn: () => companyHandler.getPolicies(page),
+    queryKey: [CompanyQueryKeys.products],
+    queryFn: () => companyHandler.getProducts(),
   });
 
-  if (isLoadingPolicies)
+  if (isLoadingProducts)
     return (
       <PageContent
-        title="Policies"
-        pageTable={<CompanyPoliciesTable policies={[]} />}
+        title="Products"
+        pageTable={<CompanyProductsTable groupedProducts={{}} />}
         isLoading={true}
       />
     );
 
   // API Fetching
-  const activePolicies = policiesData?.policies;
-
-  const totalPages = policiesData?.total;
+  const activeProducts = productsData?.products;
+  const groupedProducts = groupObjects(activeProducts || [], "productCategory");
 
   // Faker fetching
-  // const activePolicies = policiesData!;
+  // const activeProducts = productsData!;
   // const totalPages = companyFaker.totalItems;
 
   return (
     <PageContent
-      title="Policies"
-      pageTable={<CompanyPoliciesTable policies={activePolicies || []} />}
-      error={policiesError}
-      isLoading={isLoadingPolicies}
-      page={page}
-      pageSize={PAGE_COUNT}
-      totalItems={totalPages}
-      onPageChange={(page: number) => setPage(page)}
+      title="Products"
+      pageTable={<CompanyProductsTable groupedProducts={groupedProducts} />}
+      error={productsError}
+      isLoading={isLoadingProducts}
     />
   );
 };

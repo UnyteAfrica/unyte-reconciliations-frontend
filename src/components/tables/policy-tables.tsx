@@ -76,7 +76,7 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
                 <em className="not-italic font-semibold text-[#333]">
                   {policy.policyCategory}
                 </em>
-                <em className="not-italic font-semibold text-[#333]">
+                <em className="not-italic font-semibold text-[#333] whitespace-nowrap overflow-hidden text-ellipsis max-w-[150px]">
                   {policy.policyNo}
                 </em>
               </div>
@@ -105,7 +105,7 @@ export const CompanyPoliciesTable: React.FC<CompanyPoliciesTableProps> = ({
       headers={[
         "Policy Type",
         "Policy Number",
-        "Affiliate",
+        "Partner",
         "Date",
         "Premium Paid",
       ]}

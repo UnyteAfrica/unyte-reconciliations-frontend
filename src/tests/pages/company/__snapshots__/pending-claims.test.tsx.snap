@@ -182,23 +182,23 @@ exports[`Pending Claims > renders correctly 1`] = `
                         <button
                           class="px-4 py-2 border rounded-md relative font-semibold w-full block mb-1"
                         >
-                          December 3, 2024
+                          December 17, 2024
                           <input
                             class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                             placeholder="date"
                             type="date"
-                            value="2024-12-03"
+                            value="2024-12-17"
                           />
                         </button>
                         <button
                           class="px-4 py-2 border rounded-md relative font-semibold w-full"
                         >
-                          December 3, 2024
+                          December 17, 2024
                           <input
                             class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                             placeholder="date"
                             type="date"
-                            value="2024-12-03"
+                            value="2024-12-17"
                           />
                         </button>
                       </div>
@@ -1332,23 +1332,23 @@ exports[`Pending Claims > renders correctly 1`] = `
                       <button
                         class="px-4 py-2 border rounded-md relative font-semibold w-full block mb-1"
                       >
-                        December 3, 2024
+                        December 17, 2024
                         <input
                           class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                           placeholder="date"
                           type="date"
-                          value="2024-12-03"
+                          value="2024-12-17"
                         />
                       </button>
                       <button
                         class="px-4 py-2 border rounded-md relative font-semibold w-full"
                       >
-                        December 3, 2024
+                        December 17, 2024
                         <input
                           class="absolute top-[45px] left-0 invisible opacity-0 h-0 w-0"
                           placeholder="date"
                           type="date"
-                          value="2024-12-03"
+                          value="2024-12-17"
                         />
                       </button>
                     </div>

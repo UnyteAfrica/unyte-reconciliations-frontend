@@ -6,7 +6,6 @@ import { BrowserRoutes } from "@/utils/routes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { MutationKeys } from "@/utils/mutation-keys";
-import { agentSignup } from "@/services/api/api-agent";
 import { AgentSignupType } from "@/types/request.types";
 import { Loader } from "@/components/loader";
 import toast from "react-hot-toast";
@@ -15,6 +14,7 @@ import { splitQueryParams } from "@/utils/utils";
 import { Icon } from "@/components/shared/icon";
 import { useMediaQuery } from "@/utils/hooks";
 import { logger } from "@/utils/logger";
+import { AgentApi } from "@/services/api/api-agent";
 
 const formSchema = z
   .object({
@@ -44,6 +44,7 @@ const formSchema = z
     path: ["confirmPassword"],
   });
 
+const agentHandler = new AgentApi();
 export const AgentSignupPage = () => {
   const {
     register,
@@ -76,7 +77,7 @@ export const AgentSignupPage = () => {
 
   const { mutate: mSignup, isPending: isSignupLoading } = useMutation({
     mutationKey: [MutationKeys.agentSignup],
-    mutationFn: (data: AgentSignupType) => agentSignup(data),
+    mutationFn: (data: AgentSignupType) => agentHandler.agentSignup(data),
     onSuccess: (data) => {
       const message = data.data.message;
       toast.success(message);

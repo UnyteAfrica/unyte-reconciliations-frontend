@@ -164,7 +164,7 @@ export const VerifyOTPPage = () => {
                 {...register("otp")}
               />
               <div>
-                <button
+                <div
                   className="text-mPrimary mb-2"
                   onClick={(e) => {
                     if (isResendLoading) return;
@@ -178,7 +178,7 @@ export const VerifyOTPPage = () => {
                   ) : (
                     "Resend OTP"
                   )}
-                </button>
+                </div>
                 <button
                   className="w-full font-medium text-xl leading-[24px] bg-mPrimary h-[72px] text-white rounded-2xl"
                   disabled={isVerificationLoading}

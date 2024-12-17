@@ -1,40 +1,41 @@
 import { PageContent } from "@/components/shared/page-content";
 import { useState } from "react";
-import { MerchantSoldPoliciesTable } from "../tables/policy-tables";
-import { MerchantApi } from "@/services/api/api-merchant";
-import { MerchantQueryKeys } from "@/utils/query-keys";
 import { useQuery } from "@tanstack/react-query";
+import { MerchantQueryKeys } from "@/utils/query-keys";
+import { MerchantProductsTable } from "../tables/products-table";
+import { MerchantApi } from "@/services/api/api-merchant";
 import { PAGE_COUNT } from "@/utils/constants";
 
 const merchantHandler = new MerchantApi();
-export const MerchantSoldPolicies = () => {
+export const MerchantProducts = () => {
   const [page, setPage] = useState(1);
+
   const {
     isPending: isLoadingProducts,
     data: productsData,
     error: policiesError,
   } = useQuery({
-    queryKey: [MerchantQueryKeys.policies, page],
-    queryFn: () => merchantHandler.getPolicies(page),
+    queryKey: [MerchantQueryKeys.products, page],
+    queryFn: () => merchantHandler.getProducts(page),
   });
 
   if (isLoadingProducts)
     return (
       <PageContent
-        title="Sold Policies"
-        pageTable={<MerchantSoldPoliciesTable policies={[]} />}
+        title="Insurer Policies"
+        pageTable={<MerchantProductsTable products={[]} />}
         isLoading={true}
       />
     );
 
-  const policies = productsData?.policies;
+  const products = productsData?.products;
   const totalItems = productsData?.total;
 
   return (
     <PageContent
-      title="Sold Policies"
+      title="Insurer Policies"
       searchbarPlaceholder="Find policy type"
-      pageTable={<MerchantSoldPoliciesTable policies={policies || []} />}
+      pageTable={<MerchantProductsTable products={products || []} />}
       error={policiesError}
       page={page}
       pageSize={PAGE_COUNT}

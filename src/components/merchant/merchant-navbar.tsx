@@ -27,7 +27,7 @@ const navLinks: UrlLink[] = [
   },
   {
     text: "Policies",
-    url: BrowserComboRoutes.merchantInsurerPolicies,
+    url: BrowserComboRoutes.merchantSoldPolicies,
   },
   {
     text: "Claims",
@@ -56,7 +56,7 @@ export const MerchantNavbar = () => {
   const logout = () => {
     clearCredentials();
     setIsLoggedIn(false);
-    queryClient.invalidateQueries();
+    queryClient.removeQueries();
   };
 
   const toggleDropdown = () => {

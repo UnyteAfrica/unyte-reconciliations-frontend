@@ -12,7 +12,7 @@ import { useMediaQuery } from "@/utils/hooks";
 import { Icon } from "@/components/shared/icon";
 import { logger } from "@/utils/logger";
 import { useMutation } from "@tanstack/react-query";
-import { merchantSignup } from "@/services/api/api-merchant";
+import { MerchantApi } from "@/services/api/api-merchant";
 
 const formSchema = z
   .object({
@@ -31,6 +31,8 @@ const formSchema = z
     message: "Passwords don't match",
     path: ["confirmPassword"],
   });
+
+const merchantHandler = new MerchantApi();
 
 export const MerchantSignupPage = () => {
   const {
@@ -51,7 +53,8 @@ export const MerchantSignupPage = () => {
   const navigate = useNavigate();
 
   const { mutate: signup, isPending } = useMutation({
-    mutationFn: (data: MerchantSignupType) => merchantSignup(data),
+    mutationFn: (data: MerchantSignupType) =>
+      merchantHandler.merchantSignup(data),
     onSuccess: (data) => {
       logger.log(data);
       toast.success("Account created successfully");

@@ -1,3 +1,5 @@
+import { urlPageWrapper } from "@/utils/utils";
+
 const BaseRoutes = {
   signup: "/sign-up",
   login: "/sign-in",
@@ -13,7 +15,9 @@ const BaseRoutes = {
   updateProfilePicture: "/update-profile-picture",
   dashboard: "/dashboard",
   agents: "/all-agents",
-  policies: (page: number) => `/view-all-policies?page=${page}`,
+  policies: (page?: number) => urlPageWrapper(`/policies`, page),
+  products: (page?: number) => urlPageWrapper(`/products`, page),
+  claims: (page?: number) => urlPageWrapper(`/claims`, page),
   dateRangePolicies: (startDate: string, endDate: string) =>
     `/view-all-policies-date-range?start_date=${startDate}&end_date=${endDate}`,
 };
@@ -37,14 +41,25 @@ export const AuthApiRoutes = {
 };
 
 export const CompanyDashboardApiRoutes = {
-  policies: (insurerId: string, page?: number) =>
+  policies: (page?: number) =>
+    BaseRoutes.dashboard + "/" + RouteTypes.company + BaseRoutes.policies(page),
+  claims: (page?: number) =>
+    BaseRoutes.dashboard + "/" + RouteTypes.company + BaseRoutes.claims(page),
+  products: (page?: number) =>
+    BaseRoutes.dashboard + "/" + RouteTypes.company + BaseRoutes.products(page),
+};
+
+export const MerchantDashboardApiRoutes = {
+  policies: (page?: number) =>
     BaseRoutes.dashboard +
-    RouteTypes.company +
-    `/${insurerId}` +
-    BaseRoutes.policies +
-    page
-      ? `?page=${page}`
-      : "",
+    "/" +
+    RouteTypes.merchant +
+    BaseRoutes.policies(page),
+  products: (page?: number) =>
+    BaseRoutes.dashboard +
+    "/" +
+    RouteTypes.merchant +
+    BaseRoutes.products(page),
 };
 
 export const CompanyApiRoutes = {
@@ -62,6 +77,8 @@ export const CompanyApiRoutes = {
 
 export const AgentApiRoutes = {
   signup: RouteTypes.agent + BaseRoutes.signup,
+  policies: (page?: number) => RouteTypes.agent + BaseRoutes.policies(page),
+  products: (page?: number) => RouteTypes.agent + BaseRoutes.products(page),
 };
 
 export const MerchantApiRoutes = {
