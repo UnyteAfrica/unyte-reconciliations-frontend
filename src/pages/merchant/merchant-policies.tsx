@@ -1,31 +1,29 @@
-import { NavLink, Route, Routes } from "react-router-dom";
-import { BrowserComboRoutes, BrowserRoutes } from "@/utils/routes";
-import { cx } from "class-variance-authority";
-import { useMediaQuery } from "@/utils/hooks";
-import { MerchantInsurerPolicies } from "@/components/merchant/insurer-policies";
+import { Route, Routes } from "react-router-dom";
+import { BrowserRoutes } from "@/utils/routes";
+
+import { MerchantProducts } from "@/components/merchant/merchant-products";
 import { MerchantSoldPolicies } from "@/components/merchant/sold-policies";
 
-type UrlLink = {
-  text: string;
-  url: string;
-};
+// type UrlLink = {
+//   text: string;
+//   url: string;
+// };
 
-const links: UrlLink[] = [
-  {
-    text: "Insurer Policies",
-    url: BrowserComboRoutes.merchantInsurerPolicies,
-  },
-  {
-    text: "Sold Policies",
-    url: BrowserComboRoutes.merchantSoldPolicies,
-  },
-];
+// const links: UrlLink[] = [
+//   {
+//     text: "Insurer Policies",
+//     url: BrowserComboRoutes.merchantInsurerPolicies,
+//   },
+//   {
+//     text: "Sold Policies",
+//     url: BrowserComboRoutes.merchantSoldPolicies,
+//   },
+// ];
 
 export const MerchantPolicies = () => {
-  const { isMediaQueryMatched } = useMediaQuery(1024);
   return (
     <div>
-      {!isMediaQueryMatched && (
+      {/* {!isMediaQueryMatched && (
         <div className="flex flex-row px-5 pb-6 border-[#333] space-x-4 mx-auto">
           {links.map((link, idx) => (
             <NavLink
@@ -64,13 +62,13 @@ export const MerchantPolicies = () => {
             </NavLink>
           ))}
         </div>
-      )}
+      )} */}
 
       <div>
         <Routes>
           <Route
             path={BrowserRoutes.insurer.substring(1)}
-            element={<MerchantInsurerPolicies />}
+            element={<MerchantProducts />}
           />
           <Route
             path={BrowserRoutes.sold.substring(1)}

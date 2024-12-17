@@ -7,6 +7,7 @@ export const BrowserRoutes = {
   overview: "/overview",
   dashboard: "/dashboard",
   policies: "/policies",
+  products: "/products",
   commissions: "/commissions",
   insurer: "/insurer",
   sold: "/sold",

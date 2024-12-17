@@ -30,6 +30,10 @@ const navLinks: UrlLink[] = [
     url: BrowserComboRoutes.companyDashboard + BrowserRoutes.policies,
   },
   {
+    text: "Products",
+    url: BrowserComboRoutes.companyDashboard + BrowserRoutes.products,
+  },
+  {
     text: "Claims",
     url: BrowserComboRoutes.pendingCompanyClaims,
   },
@@ -60,7 +64,7 @@ export const CompanyNavbar = () => {
   const logout = () => {
     clearCredentials();
     setIsLoggedIn(false);
-    queryClient.invalidateQueries();
+    queryClient.removeQueries();
   };
 
   const toggleDropdown = () => {
@@ -172,7 +176,7 @@ export const CompanyNavbar = () => {
           <div>
             <Icon className="shrink-0" type="logo" alt="unyte logo" />
           </div>
-          <div className="space-x-24">
+          <div className="space-x-12">
             {navLinks.map((navLink, idx) => {
               return (
                 <NavLink

@@ -194,6 +194,28 @@ export type BasePolicy = {
   premium: number;
 };
 
+export type Product = {
+  id: string;
+  productCategory: PolicyCategory;
+  name: string;
+  description: string;
+  premium: number;
+};
+
+export type MerchantProduct = Product & {
+  insurer: {
+    id: string;
+    name: string;
+  };
+};
+
+export type AgentProduct = Product & {
+  insurer: {
+    id: string;
+    name: string;
+  };
+};
+
 export type MerchantInsurerPolicy = BasePolicy & { insurer: string };
 
 export type MerchantSoldPolicy = BasePolicy & { userEmail: string };

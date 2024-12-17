@@ -63,7 +63,7 @@ export const AgentNavbar = () => {
   const logout = () => {
     clearCredentials();
     setIsLoggedIn(false);
-    queryClient.invalidateQueries();
+    queryClient.removeQueries();
   };
 
   const toggleDropdown = () => {

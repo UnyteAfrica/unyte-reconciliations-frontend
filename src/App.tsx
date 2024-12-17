@@ -25,6 +25,7 @@ import { MerchantOverview } from "./pages/merchant/merchant-overview";
 import { MerchantClaims } from "./pages/merchant/merchant-claims";
 import { MerchantPolicies } from "./pages/merchant/merchant-policies";
 import { MerchantProfile } from "./pages/merchant/merchant-profile";
+import { CompanyProducts } from "./pages/company/company-products";
 
 function App() {
   return (
@@ -91,6 +92,10 @@ function App() {
           <Route
             path={BrowserRoutes.policies.substring(1)}
             element={<CompanyPolicies />}
+          />
+          <Route
+            path={BrowserRoutes.products.substring(1)}
+            element={<CompanyProducts />}
           />
           <Route
             path={BrowserRoutes.profile.substring(1)}
