@@ -1,40 +1,41 @@
 import { PageContent } from "@/components/shared/page-content";
 import { CompanyPoliciesTable } from "@/components/tables/policy-tables";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { CompanyQueryKeys } from "@/utils/query-keys";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { PAGE_COUNT } from "@/utils/constants";
-import { CompanyApi } from "@/services/api/api-company";
 
-const companyHandler = new CompanyApi();
+import { PageContentContext } from "@/context/page-content.context";
+import { CompanyFaker } from "@/services/faker/faker-company";
 
+const companyFaker = CompanyFaker.getInstance();
 export const CompanyPolicies = () => {
   const [page, setPage] = useState(1);
 
   // Need to get the min and max dates as well as the min and max amounts
-  // const { setFilter, filter } = useContext(PageContentContext);
-  // const queryClient = useQueryClient();
+  const { setFilter, filter } = useContext(PageContentContext);
+  const queryClient = useQueryClient();
 
-  // useEffect(() => {
-  //   setFilter({
-  //     ...filter,
-  //     startDate: companyFaker.earliestPolicyDate,
-  //     endDate: companyFaker.latestPolicyDate,
-  //     minAmount: companyFaker.minPolicyPremium.toString(),
-  //     maxAmount: companyFaker.maxPolicyPremium.toString(),
-  //     active: true,
-  //   });
-  // }, []);
+  useEffect(() => {
+    setFilter({
+      ...filter,
+      startDate: companyFaker.earliestPolicyDate,
+      endDate: companyFaker.latestPolicyDate,
+      minAmount: companyFaker.minPolicyPremium.toString(),
+      maxAmount: companyFaker.maxPolicyPremium.toString(),
+      active: true,
+    });
+  }, []);
 
-  // useEffect(() => {
-  //   if (filter.active) {
-  //     companyFaker.filterPolicies(filter);
-  //     queryClient.invalidateQueries({
-  //       queryKey: [CompanyQueryKeys.policies, page],
-  //     });
-  //     setPage(1);
-  //   }
-  // }, [filter]);
+  useEffect(() => {
+    if (filter.active) {
+      companyFaker.filterPolicies(filter);
+      queryClient.invalidateQueries({
+        queryKey: [CompanyQueryKeys.policies, page],
+      });
+      setPage(1);
+    }
+  }, [filter]);
 
   const {
     isPending: isLoadingPolicies,
@@ -42,7 +43,7 @@ export const CompanyPolicies = () => {
     error: policiesError,
   } = useQuery({
     queryKey: [CompanyQueryKeys.policies, page],
-    queryFn: () => companyHandler.getPolicies(page),
+    queryFn: () => companyFaker.getPaginatedPolicies(page),
   });
 
   if (isLoadingPolicies)
@@ -55,13 +56,13 @@ export const CompanyPolicies = () => {
     );
 
   // API Fetching
-  const activePolicies = policiesData?.policies;
+  // const activePolicies = policiesData?.policies;
 
-  const totalPages = policiesData?.total;
+  // const totalPages = policiesData?.total;
 
   // Faker fetching
-  // const activePolicies = policiesData!;
-  // const totalPages = companyFaker.totalItems;
+  const activePolicies = policiesData!;
+  const totalPages = companyFaker.totalItems;
 
   return (
     <PageContent

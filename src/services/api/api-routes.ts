@@ -14,7 +14,9 @@ const BaseRoutes = {
   resetToken: "/refresh-access-token",
   updateProfilePicture: "/update-profile-picture",
   dashboard: "/dashboard",
+  response: "/response",
   agents: "/all-agents",
+  quoteParams: (policyCategory: string) => `/response/${policyCategory}`,
   policies: (page?: number) => urlPageWrapper(`/policies`, page),
   products: (page?: number) => urlPageWrapper(`/products`, page),
   claims: (page?: number) => urlPageWrapper(`/claims`, page),
@@ -79,6 +81,8 @@ export const AgentApiRoutes = {
   signup: RouteTypes.agent + BaseRoutes.signup,
   policies: (page?: number) => RouteTypes.agent + BaseRoutes.policies(page),
   products: (page?: number) => RouteTypes.agent + BaseRoutes.products(page),
+  quoteParams: (policyCategory: string) =>
+    RouteTypes.agent + BaseRoutes.quoteParams(policyCategory),
 };
 
 export const MerchantApiRoutes = {

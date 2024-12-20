@@ -37,13 +37,13 @@ export type ClaimStatusType = keyof typeof ClaimStatus;
 export type AgentStatusType = keyof typeof AgentStatus;
 
 export type Filter = {
-  selectedPolicyCategories: Partial<Record<PolicyCategory, boolean>>;
-  startDate: Date;
-  endDate: Date;
-  minAmount: string;
-  maxAmount: string;
-  searchText: string;
-  active: boolean;
+  selectedPolicyCategories?: Partial<Record<PolicyCategory, boolean>>;
+  startDate?: Date;
+  endDate?: Date;
+  minAmount?: string;
+  maxAmount?: string;
+  searchText?: string;
+  active?: boolean;
 };
 
 export const UserType = {
@@ -160,16 +160,6 @@ export type PaginationWrapper<T> = {
 
 export type FlatFeeStatus = "NO" | "YES";
 
-export type DateRangePolicy = {
-  agent: string;
-  date_sold: string;
-  flat_fee: FlatFeeStatus;
-  name: string;
-  policy_category: string;
-  policy_name: string;
-  premium: string;
-};
-
 export type Policy = {
   agent: string;
   date_sold: string;
@@ -194,12 +184,28 @@ export type BasePolicy = {
   premium: number;
 };
 
+export type DateRangePolicy = {
+  agent: string;
+  date_sold: string;
+  flat_fee: FlatFeeStatus;
+  name: string;
+  policy_category: string;
+  policy_name: string;
+  premium: string;
+};
+
 export type Product = {
   id: string;
   productCategory: PolicyCategory;
   name: string;
   description: string;
   premium: number;
+};
+
+export type QuoteFormValue = {
+  name: string;
+  representation: string;
+  value: string;
 };
 
 export type MerchantProduct = Product & {

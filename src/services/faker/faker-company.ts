@@ -21,7 +21,9 @@ export class CompanyFaker {
   maxPolicyPremium: number = 0;
   affiliatesMap: Record<AffiliateType, Affiliate[]>;
 
-  constructor() {
+  private static instance: CompanyFaker;
+
+  private constructor() {
     const randomAffiliates = new Array(10).fill(0).map(generateRandomAffiliate);
     this.policies = this.filteredPolicies = generateRandomBasePolicies(
       ITEMS_TO_GENERATE,
@@ -32,10 +34,23 @@ export class CompanyFaker {
     this.updateStats();
   }
 
+  static getInstance() {
+    if (!this.instance) this.instance = new CompanyFaker();
+    return this.instance;
+  }
+
   updateStats() {
     this.totalItems = this.filteredPolicies.length;
-    this.earliestPolicyDate = new Date(this.filteredPolicies.at(-1)!.date);
-    this.latestPolicyDate = new Date(this.filteredPolicies.at(0)!.date);
+    this.earliestPolicyDate = new Date(
+      this.filteredPolicies.length
+        ? this.filteredPolicies.at(-1)!.date
+        : new Date()
+    );
+    this.latestPolicyDate = new Date(
+      this.filteredPolicies.length
+        ? this.filteredPolicies.at(0)!.date
+        : new Date()
+    );
     for (let policy of this.filteredPolicies) {
       this.minPolicyPremium = Math.min(this.minPolicyPremium, policy.premium);
       this.maxPolicyPremium = Math.max(this.maxPolicyPremium, policy.premium);
@@ -51,11 +66,16 @@ export class CompanyFaker {
       }
     }
     this.filteredPolicies = this.policies.filter((policy) => {
-      if (new Date(policy.date) < filter.startDate) return false;
-      if (new Date(policy.date) > filter.endDate) return false;
-      if (policy.premium < Number(filter.minAmount)) return false;
-      if (policy.premium > Number(filter.maxAmount)) return false;
+      if (filter.startDate && new Date(policy.date) < filter.startDate)
+        return false;
+      if (filter.endDate && new Date(policy.date) > filter.endDate)
+        return false;
+      if (filter.minAmount && policy.premium < Number(filter.minAmount))
+        return false;
+      if (filter.maxAmount && policy.premium > Number(filter.maxAmount))
+        return false;
       if (
+        filter.selectedPolicyCategories &&
         hasSelectedPolicyCategories &&
         !filter.selectedPolicyCategories[policy.policyCategory]
       )
@@ -66,7 +86,14 @@ export class CompanyFaker {
     this.groupedPolicies = groupArrayElems(this.filteredPolicies, 10);
   };
 
-  getPolicies(page: number) {
+  getPolicies(filter?: Filter) {
+    if (filter) {
+      this.filterPolicies(filter);
+    }
+    return delay(() => this.filteredPolicies, 1);
+  }
+
+  getPaginatedPolicies(page: number) {
     return delay(() => this.groupedPolicies[page], 1);
   }
 

@@ -39,19 +39,20 @@ export const AgentPolicies = () => {
 
   return (
     <>
-      {!isMediaQueryMatched && (
+      <div className="lg:hidden">
         <AgentPoliciesMobile
           groupedProducts={groupedProducts}
           isLoading={isLoadingProducts}
         />
-      )}
-      {isMediaQueryMatched && (
+      </div>
+
+      <div className="hidden lg:block">
         <PageContent
           title="Policies"
           pageTable={<AgentProductsTable groupedProducts={groupedProducts} />}
           error={productsError}
         />
-      )}
+      </div>
     </>
   );
 };
@@ -89,6 +90,7 @@ const AgentPoliciesMobile: React.FC<{
         />
       ) : (
         <AgentPolicyCards
+          policyCategory={policyCategory}
           products={groupedProducts[policyCategory]}
           onBack={() => setSelectionPage(1)}
         />

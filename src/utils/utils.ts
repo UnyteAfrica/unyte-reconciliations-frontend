@@ -1,5 +1,10 @@
 import { LocalStorage } from "@/services/local-storage";
-import { ApiCompanyPolicy, CompanyPolicy, Policy } from "@/types/types";
+import {
+  ApiCompanyPolicy,
+  CompanyPolicy,
+  Policy,
+  QuoteFormValue,
+} from "@/types/types";
 import { clsx, type ClassValue } from "clsx";
 import { Moment } from "moment";
 import { twMerge } from "tailwind-merge";
@@ -271,4 +276,26 @@ export const groupObjects = <T extends Record<string, any>, K extends keyof T>(
   });
 
   return groups;
+};
+
+export const objectToQuoteFormValues = (
+  obj: Record<string, any>,
+  prefix?: string
+): QuoteFormValue[] => {
+  let formValues: QuoteFormValue[] = [];
+
+  for (let key in obj) {
+    if (typeof obj[key] == "object" && obj[key]) {
+      formValues = formValues.concat(
+        objectToQuoteFormValues(obj[key], prefix ? `${prefix} > ${key}` : key)
+      );
+    } else {
+      formValues.push({
+        name: changeCase.capitalCase(key),
+        representation: prefix ? `${prefix} > ${key}` : key,
+        value: "",
+      });
+    }
+  }
+  return formValues;
 };

@@ -14,6 +14,7 @@ export const AgentQueryKeys = {
   dateRangePolicies: "date-range-policies",
   policies: "policies",
   products: "products",
+  quoteParams: "quote-params",
 };
 
 export const MerchantQueryKeys = {

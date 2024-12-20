@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { CustomInput } from "../shared/input";
 import { Icon } from "../shared/icon";
@@ -6,14 +6,47 @@ import { MdOutlineFileUpload } from "react-icons/md";
 import { formatToNaira } from "@/utils/utils";
 import { SlidingButton } from "../shared/sliding-button";
 import toast from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
+import { AgentQueryKeys } from "@/utils/query-keys";
+import { AgentApi } from "@/services/api/api-agent";
+import { QuoteFormValue } from "@/types/types";
+import { Loader } from "../loader";
+import { produce } from "immer";
 
 export const BuyPolicyForm: React.FC<{
   policyType: string;
   isOpen: boolean;
+  policyCategory: string;
   onClose: () => void;
-}> = ({ policyType, isOpen, onClose }) => {
+}> = ({ policyType, isOpen, onClose, policyCategory }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [formPage, setFormPage] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [customerFormValues, setCustomerFormValues] = useState<
+    QuoteFormValue[]
+  >([]);
+  const [insuranceFormValues, setInsuranceFormValues] = useState<
+    QuoteFormValue[]
+  >([]);
+
+  const policyCategoryId = policyCategory.split(" ")[0].toLowerCase();
+
+  const {
+    isPending: isLoadingQuoteParams,
+    data: quoteParamsData,
+    // error: quoteParamsError,
+  } = useQuery({
+    queryKey: [AgentQueryKeys.quoteParams],
+    queryFn: () => AgentApi.getQuoteParams(policyCategoryId),
+  });
+
+  useEffect(() => {
+    setCustomerFormValues(quoteParamsData?.customer_metadata || []);
+  }, [quoteParamsData?.customer_metadata]);
+
+  useEffect(() => {
+    setInsuranceFormValues(quoteParamsData?.insurance_details || []);
+  }, [quoteParamsData?.insurance_details]);
 
   return (
     <div
@@ -21,6 +54,7 @@ export const BuyPolicyForm: React.FC<{
         "z-50 h-dvh w-screen fixed top-0 left-0 flex flex-col bg-white py-10 px-6 pb-6 transition translate-x-[100%] opacity-0 overflow-y-auto",
         isOpen && "translate-x-0 opacity-100"
       )}
+      ref={containerRef}
     >
       <div className="flex justify-between items-center mb-4">
         <button
@@ -61,68 +95,53 @@ export const BuyPolicyForm: React.FC<{
             </em>
           </header>
           <div>
-            {formPage == 1 && (
+            {isLoadingQuoteParams ? (
+              <Loader className="mx-auto w-16 h-16 mt-20" />
+            ) : formPage == 1 ? (
               <div className="space-y-6">
-                <CustomInput
-                  label="Customer's Full Name"
-                  labelClassName="text-sm"
-                  className="h-14 border-[#e0e0e0] text-sm"
-                  placeholder="John Doe"
-                />
-                <CustomInput
-                  label="Customer's Date of Birth"
-                  labelClassName="text-sm"
-                  className="h-14 border-[#e0e0e0] text-sm"
-                  placeholder="DD/MM/YYYY"
-                />
-                <CustomInput
-                  label="Customer's Phone Number"
-                  labelClassName="text-sm"
-                  className="h-14 border-[#e0e0e0] text-sm"
-                  placeholder="08035892001"
-                />
-                <CustomInput
-                  label="Customer's Email Address"
-                  labelClassName="text-sm"
-                  className="h-14 border-[#e0e0e0] text-sm"
-                  placeholder="mail@mail.com"
-                />
+                {customerFormValues.map((formValue, idx) => (
+                  <CustomInput
+                    key={idx}
+                    label={formValue.name}
+                    labelClassName="text-sm"
+                    className="h-14 border-[#e0e0e0] text-sm"
+                    value={formValue.value}
+                    onChange={(e) =>
+                      setCustomerFormValues(
+                        produce((draft) => {
+                          draft[idx].value = e.target.value;
+                        })
+                      )
+                    }
+                  />
+                ))}
               </div>
-            )}
-            {formPage == 2 && (
-              <div className="space-y-6">
-                <CustomInput
-                  label="What country is the customer travelling to?"
-                  labelClassName="text-sm"
-                  className="h-14 border-[#e0e0e0] text-sm"
-                  placeholder="Customer's Destination"
-                />
-                <CustomInput
-                  label="Duration of the trip"
-                  labelClassName="text-sm"
-                  className="h-14 border-[#e0e0e0] text-sm"
-                  placeholder="10 Days"
-                />
-                <CustomInput
-                  label="Purpose of the trip"
-                  labelClassName="text-sm"
-                  className="h-14 border-[#e0e0e0] text-sm"
-                  placeholder="08035892001"
-                />
+            ) : (
+              formPage == 2 && (
+                <div className="space-y-6">
+                  {insuranceFormValues.map((formValue, idx) => (
+                    <CustomInput
+                      key={idx}
+                      label={formValue.name}
+                      labelClassName="text-sm"
+                      className="h-14 border-[#e0e0e0] text-sm"
+                    />
+                  ))}
 
-                <button className="w-full rounded-lg bg-[#F2F2F2] text-[#333] flex items-center justify-center py-4">
-                  <MdOutlineFileUpload className="text-4xl inline-block mr-2" />
-                  <span className="font-medium text-sm">
-                    Upload Passport Data Page
-                  </span>
-                </button>
-                <div className="flex justify-center items-center mt-4">
-                  <Icon type="verified" className="inline-block mr-1" />
-                  <em className="not-italic text-[#333] text-sm">
-                    Your data is safe and secure
-                  </em>
+                  <button className="w-full rounded-lg bg-[#F2F2F2] text-[#333] flex items-center justify-center py-4">
+                    <MdOutlineFileUpload className="text-4xl inline-block mr-2" />
+                    <span className="font-medium text-sm">
+                      Upload Passport Data Page
+                    </span>
+                  </button>
+                  <div className="flex justify-center items-center mt-4">
+                    <Icon type="verified" className="inline-block mr-1" />
+                    <em className="not-italic text-[#333] text-sm">
+                      Your data is safe and secure
+                    </em>
+                  </div>
                 </div>
-              </div>
+              )
             )}
           </div>
           <div className="grow min-h-10" />
@@ -131,6 +150,11 @@ export const BuyPolicyForm: React.FC<{
               e.preventDefault();
               if (formPage == 1) {
                 setFormPage(2);
+                containerRef.current?.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                });
               } else {
                 //Submit Form
                 setIsSubmitted(true);
