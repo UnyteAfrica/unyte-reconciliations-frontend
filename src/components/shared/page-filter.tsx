@@ -46,7 +46,7 @@ export const PageFilter: React.FC<PageFilterProps> = ({
   };
 
   const selectedCategoriesText = getShortenedSelectionMapText(
-    selectedPolicyCategories
+    selectedPolicyCategories || {}
   );
 
   if (isMediaQueryMatched)
@@ -67,14 +67,14 @@ export const PageFilter: React.FC<PageFilterProps> = ({
           <div className="flex w-full">
             <DateInput
               containerClassName="rounded-tr-none rounded-br-none font-semibold w-1/2"
-              date={startDate}
+              date={startDate || new Date()}
               onDateChange={(date) =>
                 setIFilter({ ...iFilter, startDate: date })
               }
             />
             <DateInput
               containerClassName="rounded-tl-none rounded-bl-none font-semibold w-1/2"
-              date={endDate}
+              date={endDate || new Date()}
               onDateChange={(date) => setIFilter({ ...iFilter, endDate: date })}
             />
           </div>
@@ -88,7 +88,7 @@ export const PageFilter: React.FC<PageFilterProps> = ({
             setIsCheckboxSelectorMenuOpen={setIsCheckboxSelectorMenuOpen}
             resetSelectedMap={resetSelectedPolicyCategories}
             value={selectedCategoriesText}
-            selectionMap={selectedPolicyCategories}
+            selectionMap={selectedPolicyCategories || {}}
             onChange={(val, isSelected) => {
               setIFilter({
                 ...iFilter,
@@ -191,14 +191,14 @@ export const PageFilter: React.FC<PageFilterProps> = ({
               <div className="w-full inline-block max-w-[200px]">
                 <DateInput
                   containerClassName="font-semibold w-full block mb-1"
-                  date={startDate}
+                  date={startDate || new Date()}
                   onDateChange={(date) =>
                     setIFilter({ ...iFilter, startDate: date })
                   }
                 />
                 <DateInput
                   containerClassName="font-semibold w-full"
-                  date={endDate}
+                  date={endDate || new Date()}
                   onDateChange={(date) =>
                     setIFilter({ ...iFilter, endDate: date })
                   }
@@ -218,7 +218,7 @@ export const PageFilter: React.FC<PageFilterProps> = ({
                 setIsCheckboxSelectorMenuOpen={setIsCheckboxSelectorMenuOpen}
                 resetSelectedMap={resetSelectedPolicyCategories}
                 value={selectedCategoriesText}
-                selectionMap={selectedPolicyCategories}
+                selectionMap={selectedPolicyCategories || {}}
                 onChange={(val, isSelected) => {
                   setIFilter({
                     ...iFilter,

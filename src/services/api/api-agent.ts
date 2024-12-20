@@ -1,7 +1,8 @@
 import { AgentApiRoutes } from "./api-routes";
 import { AgentSignupType } from "@/types/request.types";
 import { axiosInstance } from "./api-base";
-import { BasePolicy, Product } from "@/types/types";
+import { BasePolicy, Product, QuoteFormValue } from "@/types/types";
+import { objectToQuoteFormValues } from "@/utils/utils";
 
 export class AgentApi {
   constructor() {}
@@ -80,5 +81,27 @@ export class AgentApi {
         } as BasePolicy)
     );
     return { policies, total: res.data.count };
+  };
+
+  static getQuoteParams = async (
+    policyCategory: string
+  ): Promise<{
+    customer_metadata: QuoteFormValue[];
+    insurance_details: QuoteFormValue[];
+  }> => {
+    const res = await axiosInstance.get(
+      AgentApiRoutes.quoteParams(policyCategory)
+    );
+    const customer_metadata = objectToQuoteFormValues(
+      res.data.customer_metadata
+    );
+    const insurance_details = objectToQuoteFormValues(
+      res.data.insurance_details
+    );
+
+    return {
+      customer_metadata,
+      insurance_details,
+    };
   };
 }

@@ -2,9 +2,10 @@ import { BuyPolicyForm } from "@/components/agent/agent-buy-policy-form";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
-export const PolicyCard: React.FC<{ policyType: string }> = ({
-  policyType,
-}) => {
+export const PolicyCard: React.FC<{
+  product: string;
+  policyCategory: string;
+}> = ({ product, policyCategory }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -23,7 +24,8 @@ export const PolicyCard: React.FC<{ policyType: string }> = ({
       {createPortal(
         <BuyPolicyForm
           isOpen={isOpen}
-          policyType={policyType}
+          policyType={product}
+          policyCategory={policyCategory}
           onClose={() => setIsOpen(false)}
         />,
         document.body
@@ -32,7 +34,7 @@ export const PolicyCard: React.FC<{ policyType: string }> = ({
       <div className="flex">
         <div>
           <h3 className="not-italic text-sm font-medium inline-block mb-1 text-[#101323]">
-            {policyType}
+            {product}
           </h3>
         </div>
       </div>

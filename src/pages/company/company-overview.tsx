@@ -18,8 +18,8 @@ import { RangeMonthPicker } from "@/components/shared/month-picker";
 import { useQuery } from "@tanstack/react-query";
 import { CompanyQueryKeys } from "@/utils/query-keys";
 import { Loader } from "@/components/loader";
-import { DateRangePolicy } from "@/types/types";
-import { companyApi } from "@/services/api/api-company";
+import { BasePolicy } from "@/types/types";
+import { CompanyFaker } from "@/services/faker/faker-company";
 
 type PolicyDateMapType = { [key: string]: number };
 
@@ -133,6 +133,8 @@ export const CompanyOverview: React.FC = () => {
 
   const [totalPolicyValue, setTotalPolicyValue] = useState(0);
   const [totalPolicyCount, setTotalPolicyCount] = useState(0);
+  const [bestPerformingPolicyCategory, setBestPerformingPolicyCategory] =
+    useState("Nil");
 
   const {
     data: dateRangePoliciesData,
@@ -145,7 +147,10 @@ export const CompanyOverview: React.FC = () => {
       activeEndDate,
     ],
     queryFn: () =>
-      companyApi.getDateRangePolicies(activeStartDate, activeEndDate),
+      CompanyFaker.getInstance().getPolicies({
+        startDate: activeStartDate.toDate(),
+        endDate: activeEndDate.toDate(),
+      }),
   });
 
   useEffect(() => {
@@ -227,7 +232,7 @@ export const CompanyOverview: React.FC = () => {
 
   const { isMediaQueryMatched } = useMediaQuery(1024);
 
-  const updateDailySeries = (dateRangePolicies: DateRangePolicy[]) => {
+  const updateDailySeries = (dateRangePolicies: BasePolicy[]) => {
     const dailyChartSeries: {
       name: string;
       data: { x: string; y: number }[];
@@ -240,23 +245,37 @@ export const CompanyOverview: React.FC = () => {
     const curr = startDay.clone();
     let total = 0;
     let policyCount = 0;
+    const policyCategoryMap: Record<string, number> = {};
+    let currMaxPolicyCount = -1;
+    let currMaxPolicy = "";
 
     const policyDateMap: PolicyDateMapType = {};
     const iPolicyCountMap: PolicyDateMapType = {};
-    for (let dateRangePolicy of dateRangePolicies) {
-      let sanitizedPremium = sanitizePremium(dateRangePolicy.premium);
-      policyDateMap[dateRangePolicy.date_sold] =
-        (policyDateMap[dateRangePolicy.date_sold] ?? 0) +
-        Number(sanitizedPremium ?? 1000);
-      iPolicyCountMap[dateRangePolicy.date_sold] =
-        (iPolicyCountMap[dateRangePolicy.date_sold] ?? 0) + 1;
+
+    for (let policy of dateRangePolicies) {
+      let sanitizedPremium = sanitizePremium(policy.premium.toString());
+      let policyDate = moment(policy.date).format("YYYY-MM-DD");
+
+      policyDateMap[policyDate] =
+        (policyDateMap[policyDate] ?? 0) + Number(sanitizedPremium ?? 1000);
+
+      policyCategoryMap[policy.policyCategory] =
+        (policyCategoryMap[policy.policyCategory] ?? 0) + 1;
+      if (policyCategoryMap[policy.policyCategory] > currMaxPolicyCount) {
+        currMaxPolicyCount = policyCategoryMap[policy.policyCategory];
+        currMaxPolicy = policy.policyCategory;
+      }
+
+      iPolicyCountMap[policyDate] = (iPolicyCountMap[policyDate] ?? 0) + 1;
       policyCount++;
     }
+
     while (!curr.isAfter(endDay)) {
       const x = curr.format("YYYY-MM-DD");
       if (x in policyDateMap) {
         const y = policyDateMap[x];
         total += y;
+
         dailyChartSeries[0].data.push({
           x,
           y,
@@ -265,13 +284,14 @@ export const CompanyOverview: React.FC = () => {
       curr.add(1, "day");
     }
 
+    setBestPerformingPolicyCategory(currMaxPolicy || "Nil");
     setTotalPolicyValue(total);
     setTotalPolicyCount(policyCount);
     setChartDataSeries(dailyChartSeries);
     setPolicyCountMap(iPolicyCountMap);
   };
 
-  const updateWeeklySeries = (dateRangePolicies: DateRangePolicy[]) => {
+  const updateWeeklySeries = (dateRangePolicies: BasePolicy[]) => {
     const weeklyChartSeries: {
       name: string;
       data: { x: string; y: number }[];
@@ -285,13 +305,26 @@ export const CompanyOverview: React.FC = () => {
     const policyDateMap: PolicyDateMapType = {};
     const iPolicyCountMap: PolicyDateMapType = {};
     let policyCount = 0;
-    for (let dateRangePolicy of dateRangePolicies) {
-      const dateStr = dateRangePolicy.date_sold;
+    const policyCategoryMap: Record<string, number> = {};
+    let currMaxPolicyCount = -1;
+    let currMaxPolicy = "";
+
+    for (let policy of dateRangePolicies) {
+      const dateStr = policy.date;
       const date = moment(dateStr, "YYYY-MM-DD");
       const weekVal = getWeekValue(date);
-      let sanitizedPremium = sanitizePremium(dateRangePolicy.premium);
+      let sanitizedPremium = sanitizePremium(policy.premium.toString());
+
       policyDateMap[weekVal] =
         (policyDateMap[weekVal] ?? 0) + Number(sanitizedPremium ?? 1000);
+
+      policyCategoryMap[policy.policyCategory] =
+        (policyCategoryMap[policy.policyCategory] ?? 0) + 1;
+      if (policyCategoryMap[policy.policyCategory] > currMaxPolicyCount) {
+        currMaxPolicyCount = policyCategoryMap[policy.policyCategory];
+        currMaxPolicy = policy.policyCategory;
+      }
+
       iPolicyCountMap[weekVal] = (iPolicyCountMap[weekVal] ?? 0) + 1;
       policyCount++;
     }
@@ -311,13 +344,15 @@ export const CompanyOverview: React.FC = () => {
 
       curr.add(1, "week");
     }
+
+    setBestPerformingPolicyCategory(currMaxPolicy || "Nil");
     setTotalPolicyValue(total);
     setTotalPolicyCount(policyCount);
     setChartDataSeries(weeklyChartSeries);
     setPolicyCountMap(iPolicyCountMap);
   };
 
-  const updateMonthlySeries = (dateRangePolicies: DateRangePolicy[]) => {
+  const updateMonthlySeries = (dateRangePolicies: BasePolicy[]) => {
     const monthlyChartSeries: {
       name: string;
       data: { x: string; y: number }[];
@@ -327,16 +362,30 @@ export const CompanyOverview: React.FC = () => {
         data: [],
       },
     ];
+
     let policyCount = 0;
     const policyDateMap: PolicyDateMapType = {};
     const iPolicyCountMap: PolicyDateMapType = {};
-    for (let dateRangePolicy of dateRangePolicies) {
-      const dateStr = dateRangePolicy.date_sold;
+    const policyCategoryMap: Record<string, number> = {};
+    let currMaxPolicyCount = -1;
+    let currMaxPolicy = "";
+
+    for (let policy of dateRangePolicies) {
+      const dateStr = policy.date;
       const date = moment(dateStr, "YYYY-MM-DD");
       const monthVal = date.format("MM/YYYY");
-      let sanitizedPremium = sanitizePremium(dateRangePolicy.premium);
+      let sanitizedPremium = sanitizePremium(policy.premium.toString());
+
       policyDateMap[monthVal] =
         (policyDateMap[monthVal] ?? 0) + Number(sanitizedPremium ?? 1000);
+
+      policyCategoryMap[policy.policyCategory] =
+        (policyCategoryMap[policy.policyCategory] ?? 0) + 1;
+      if (policyCategoryMap[policy.policyCategory] > currMaxPolicyCount) {
+        currMaxPolicyCount = policyCategoryMap[policy.policyCategory];
+        currMaxPolicy = policy.policyCategory;
+      }
+
       iPolicyCountMap[monthVal] = (iPolicyCountMap[monthVal] ?? 0) + 1;
       policyCount++;
     }
@@ -355,13 +404,15 @@ export const CompanyOverview: React.FC = () => {
       }
       curr.add(1, "month");
     }
+
+    setBestPerformingPolicyCategory(currMaxPolicy || "Nil");
     setTotalPolicyValue(total);
     setTotalPolicyCount(policyCount);
     setChartDataSeries(monthlyChartSeries);
     setPolicyCountMap(iPolicyCountMap);
   };
 
-  const updateYearlySeries = (dateRangePolicies: DateRangePolicy[]) => {
+  const updateYearlySeries = (dateRangePolicies: BasePolicy[]) => {
     const yearlyChartSeries: {
       name: string;
       data: { x: string; y: number }[];
@@ -375,13 +426,26 @@ export const CompanyOverview: React.FC = () => {
     const policyDateMap: PolicyDateMapType = {};
     const iPolicyCountMap: PolicyDateMapType = {};
     let policyCount = 0;
-    for (let dateRangePolicy of dateRangePolicies) {
-      const dateStr = dateRangePolicy.date_sold;
+    const policyCategoryMap: Record<string, number> = {};
+    let currMaxPolicyCount = -1;
+    let currMaxPolicy = "";
+
+    for (let policy of dateRangePolicies) {
+      const dateStr = policy.date;
       const date = moment(dateStr, "YYYY-MM-DD");
       const yearVal = date.format("YYYY");
-      let sanitizedPremium = sanitizePremium(dateRangePolicy.premium);
+      let sanitizedPremium = sanitizePremium(policy.premium.toString());
+
       policyDateMap[yearVal] =
         (policyDateMap[yearVal] ?? 0) + Number(sanitizedPremium ?? 1000);
+
+      policyCategoryMap[policy.policyCategory] =
+        (policyCategoryMap[policy.policyCategory] ?? 0) + 1;
+      if (policyCategoryMap[policy.policyCategory] > currMaxPolicyCount) {
+        currMaxPolicyCount = policyCategoryMap[policy.policyCategory];
+        currMaxPolicy = policy.policyCategory;
+      }
+
       iPolicyCountMap[yearVal] = (iPolicyCountMap[yearVal] ?? 0) + 1;
       policyCount++;
     }
@@ -401,6 +465,8 @@ export const CompanyOverview: React.FC = () => {
 
       curr.add(1, "year");
     }
+
+    setBestPerformingPolicyCategory(currMaxPolicy || "Nil");
     setTotalPolicyValue(total);
     setTotalPolicyCount(policyCount);
     setChartDataSeries(yearlyChartSeries);
@@ -427,7 +493,7 @@ export const CompanyOverview: React.FC = () => {
     setActiveEndDate(endYear.clone().endOf("year"));
   };
 
-  const dateRangePolicies = dateRangePoliciesData?.data;
+  const dateRangePolicies = dateRangePoliciesData;
 
   useEffect(() => {
     switch (period) {
@@ -456,7 +522,7 @@ export const CompanyOverview: React.FC = () => {
     setActiveYear();
   }, [startYear, endYear]);
 
-  // Update chart to reflect daily period
+  // Update chart to reflect weekly period
   useEffect(() => {
     setActiveWeek();
   }, [startWeek, endWeek]);
@@ -594,7 +660,7 @@ export const CompanyOverview: React.FC = () => {
                 Best performing policy
               </em>
               <em className="not-italic block text-[#333] text-xl font-semibold">
-                Health insurance
+                {bestPerformingPolicyCategory}
               </em>
             </div>
           </div>
@@ -728,7 +794,7 @@ export const CompanyOverview: React.FC = () => {
                 Best performing policy
               </p>
               <p className="text-xl text-[#333333] font-medium">
-                Health Insurance
+                {bestPerformingPolicyCategory}
               </p>
             </div>
           </div>
